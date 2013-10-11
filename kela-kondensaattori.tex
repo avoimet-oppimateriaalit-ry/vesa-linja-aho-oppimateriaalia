@@ -1,0 +1,184 @@
+\frame{
+\frametitle{Kela ja kondensaattori}
+\begin{center}
+\begin{picture}(200,50)(0,0)
+\hz{0,0}{R} \ri{7,0}{i} \rcuu{0,5}{u}
+\hl{75,0}{L} \ri{82,0}{i} \rcuu{75,5}{u}
+\hc{150,0}{C} \ri{157,0}{i} \rcuu{150,5}{u}
+
+\txt{25,-50}{u=Ri}
+\txt{100,-50}{u=L\frac{{\rm d}i}{{\rm d}t}}
+\txt{175,-50}{i=C\Du}
+
+\end{picture}
+\end{center}
+
+
+}
+
+\frame{
+\frametitle{Kela ja kondensaattori tasasähköpiirissä}
+\begin{center}
+\begin{picture}(200,50)(0,-50)
+\hz{0,0}{R} \ri{7,0}{i} \rcuu{0,5}{u}
+\hl{75,0}{L} \ri{82,0}{i} \rcuu{75,5}{u}
+\hc{150,0}{C} \ri{157,0}{i} \rcuu{150,5}{u}
+
+\txt{25,-50}{u=Ri}
+\txt{100,-50}{u=L\frac{{\rm d}i}{{\rm d}t}}
+\txt{175,-50}{i=C\Du}
+
+\end{picture}
+\end{center}
+Tasajännite ja -virta pysyvät ajan suhteen vakiona eli jännitteiden ja virtojen aikaderivaatat ovat nollia. Eli kelan jännite on tasasähköpiirissä nolla ja kondensaattorin virta on tasasähköpiirissä nolla.
+
+}
+
+
+
+\frame{
+\frametitle{Poikkeus 1}
+Kondensaattoriin syötetään väkisin tasavirtaa.
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\vc{50,0}{C}
+\hln{0,0}{50}
+\hln{0,50}{50}
+\end{picture}
+\end{center}
+$i=C\Du \Rightarrow J=C\Du \Rightarrow \Du=\frac{J}{C}$ eli kondensaattorin jännite kasvaa vakionopeudella. 
+}
+
+\frame{
+\frametitle{Poikkeus 2}
+Kelaan kytketään tasajännitelähde.
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\vl{50,0}{L}
+\hln{0,0}{50}
+\hln{0,50}{50}
+\end{picture}
+\end{center}
+$u=L\frac{{\rm d}i}{{\rm d}t} \Rightarrow E=L\frac{{\rm d}i}{{\rm d}t} \Rightarrow \frac{{\rm d}i}{{\rm d}t}=\frac{E}{L}$ eli kelan virta kasvaa vakionopeudella. 
+}
+
+
+\frame{
+\frametitle{Kelan ja kondensaattorin käsittely tasasähköpiirilaskuissa}
+Kela korvataan oikosululla (=johtimella) ja kondensaattori korvataan katkoksella (eli irrotetaan
+piiristä).
+}
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise jännite $U$ oheisesta tasasähköpiiristä.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad L=500\, \mbox{mH}\quad C=2\,{\rm F}
+\quad E_2=15\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hl{100,50}{L}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+\hc{50,50}{C}
+\vst{200,0}{E_2}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+
+}
+
+%LUENTO10
+
+\frame{
+\begin{block}{Ratkaisu}
+Ratkaise jännite $U$ oheisesta tasasähköpiiristä.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad L=500\, \mbox{mH}\quad C=2\,{\rm F}
+\quad E_2=15\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hl{100,50}{L}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+\hc{50,50}{C}
+\vst{200,0}{E_2}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+
+
+}
+
+\frame{
+\frametitle{Ratkaisu jatkuu}
+Koska piirissä ei ole jännitelähde-kela-rinnankytkentöjä eikä virtalähde-kondensaattori-sarjaankytkentökä ja kyseessä on tasasähköpiiri (jännitteet ja virran pysyvät vakiona), voidaan
+kelat korvata oikosuluilla ja kondensaattorit katkoksilla
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hln{100,50}{50}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+
+\vst{200,0}{E_2}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+jolloin jännite $U$ saadaan näppärästi jännitteenjakosäännöllä:
+\[
+U=E_2\frac{R_3}{R_3+R_4}=6\frac{3}{7}\V\approx 6,4 \V
+\]
+
+}
+

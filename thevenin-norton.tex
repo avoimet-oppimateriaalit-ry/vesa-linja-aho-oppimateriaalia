@@ -1,0 +1,399 @@
+\frame {
+  \frametitle{Théveninin ja Nortonin teoreemat}
+\begin{itemize}
+ \item Olemme käsitelleet seuraavat piirimuunnokset: jännitelähteiden sarjaankytkentä, virtalähteiden rinnankytkentä, vastusten rinnankytkentä
+ sekä vastusten sarjaankytkentä sekä jännitelähde-virtalähdemuunnos.
+\item Théveninin ja Nortonin teoreemat liittyvät nekin piirimuunnoksiin.
+ \item Théveninin ja Nortonin teoreemojen nojalla mikä tahansa jännitelähteistä, virtalähteistä ja vastuksista
+ koostuva piiri voidaan esittää jännitelähteen ja vastuksen sarjaankytkentänä tai virtalähteen ja vastuksen
+ rinnankytkentänä. 
+\end{itemize}
+}
+
+
+\frame {
+\frametitle{Esimerkki piirimuunnoksesta}
+
+\begin{exampleblock}{Théveninin teoreema}
+Mikä tahansa lineaarinen piiri voidaan esittää yhdestä portista katsottuna jännitelähteen ja vastuksen
+sarjaankytkentänä. Tätä sarjaankytkentää kutsutaan Théveninin lähteeksi.
+\end{exampleblock}
+
+\begin{exampleblock}{Portti}
+Portti = napapari = kaksi napaa eli sellaista solmua, johon voidaan kytkeä joku toinen
+piiri (esimerkiksi auton akun navat ovat hyvä esimerkki napaparista).
+\end{exampleblock}
+
+\begin{exampleblock}{Nortonin teoreema}
+Mikä tahansa lineaarinen piiri voidaan esittää yhdestä portista katsottuna virtalähteen ja vastuksen
+rinnankytkentänä. Tätä rinnankytkentää kutsutaan Nortonin lähteeksi.
+\end{exampleblock}
+
+}
+
+\frame {
+\frametitle{Théveninin lähteen muodostaminen}
+\begin{center}
+\begin{picture}(200,55)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\hln{0,0}{60}
+\hln{50,50}{10}
+\out{60,0}
+\out{60,50}
+
+\txt{100,25}{\Longleftrightarrow}
+
+\vst{150,0}{E_{\rm T}}
+\hz{150,50}{R_{\rm T}}
+\hln{150,0}{50}
+\out{200,0}
+\out{200,50}
+
+\end{picture}
+\end{center}
+Théveninin lähteen $E_{\rm T}$ selvitetään yksinkertaisesti laskemalla portin jännite.
+$R_{\rm T}$ voidaan selvittää kahdella tavalla:
+\begin{itemize}
+\item Sammuttamalla kaikki piirin riippumattomat (ei-ohjatut) lähteet ja
+laskemalla portista näkyvä resistanssi.
+\item Selvittämällä portin oikosulkuvirta ja soveltamalla Ohmin lakia.
+\end{itemize}
+Ohjattu lähde on lähde, jonka arvo riippuu piirin jostain toisesta jännitteestä
+tai virrasta. Nämä käydään kurssin loppupuolella.
+
+}
+
+
+\frame {
+\frametitle{Théveninin lähteen muodostaminen}
+\begin{center}
+\begin{picture}(200,55)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\hln{0,0}{60}
+\hln{50,50}{10}
+\out{60,0}
+\out{60,50}
+
+\txt{100,25}{\Longleftrightarrow}
+
+\vst{150,0}{E_{\rm T}}
+\hz{150,50}{R_{\rm T}}
+\hln{150,0}{50}
+\out{200,0}
+\out{200,50}
+
+\end{picture}
+\end{center}
+Portin jännite saadaan (tässä tapauksesa) laskemalla vastusten läpi kulkeva virta ja kertomalla se
+$R_2$:lla. Tämä portin jännite, niin sanottu {\bf tyhjäkäyntijännite}, on sama kuin $E_{\rm T}$
+\[
+E_{\rm T}=\frac{E}{R_1+R_2}R_2
+\]
+
+}
+\frame {
+\frametitle{Théveninin lähteen muodostaminen}
+$R_{\rm T}$ voidaan ratkaista kahdella tavalla. Tapa 1: sammutetaan piirin kaikki lähteet, ja lasketaan
+napojen välinen resistanssi. Sammutettu jännitelähde on jännitelähde, jonka jännite on nolla volttia, eli
+toisin sanoen pelkkä johdin:
+\begin{center}
+\begin{picture}(200,55)(0,0)
+%\vst{0,0}{E}
+\vln{0,0}{50}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\hln{0,0}{60}
+\hln{50,50}{10}
+\out{60,0}
+\out{60,50}
+
+\txt{100,25}{\Longleftrightarrow}
+
+%\vst{150,0}{E_{\rm T}}
+\vln{150,0}{50}
+\hz{150,50}{R_{\rm T}}
+\hln{150,0}{50}
+\out{200,0}
+\out{200,50}
+
+\end{picture}
+\end{center}
+Nyt napojen välinen resistanssi on helppo laskea: $R_1$ ja $R_2$ ovat rinnan, joten resistanssiksi saadaan
+\[
+R_{\rm T}=\frac{1}{G_1+G_2}=\frac{R_1R_2}{R_1+R_2}.
+\]
+Tämä tapa on yleensä helpompi kuin oikosulkuvirran käyttäminen!
+
+}
+\frame {
+\frametitle{$R_{\rm T}$:n selvittäminen oikosulkuvirran avulla}
+$R_{\rm T}$ voidaan ratkaista kahdella tavalla. Tapa 2: oikosuljetaan navat, ja
+lasketaan oikosulun läpi kulkeva virta eli {\bf oikosulkuvirta}:
+\begin{center}
+\begin{picture}(200,55)(0,0)
+\vst{0,0}{E}
+\vln{60,0}{50}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\hln{0,0}{60}
+\hln{50,50}{10}
+\out{60,0}
+\out{60,50}
+
+\txt{100,25}{\Longleftrightarrow}
+
+\vst{150,0}{E_{\rm T}}
+\vln{200,0}{50}
+\hz{150,50}{R_{\rm T}}
+\hln{150,0}{50}
+\out{200,0}
+\out{200,50}
+
+\di{60,25}{I_{\rm K}}
+\di{200,25}{I_{\rm K}}
+
+
+\end{picture}
+\end{center}
+Oikosulkuvirran suuruus on
+\[
+I_{\rm K}=\frac{E}{R_1}
+\]
+ja vastuksen $R_{\rm T}$ arvoksi saadaan (soveltamalla Ohmin lakia oikeanpuoleiseen kuvaan):
+\[
+R_{\rm T}=\frac{E_{\rm T}}{I_{\rm K}}=\frac{E_{\rm T}}{\frac{E}{R_1}}=\frac{\frac{E}{R_1+R_2}R_2}{\frac{E}{R_1}}=
+\frac{R_1R_2}{R_1+R_2}
+\]
+
+}
+
+
+\frame {
+\frametitle{Nortonin lähde}
+Nortonin lähde on yksinkertaisesti Théveninin lähde johon on sovellettu lähdemuunnosta (tai päinvastoin).
+Resistanssi on sama molemmissa lähteissä. Nortonin lähteessä virtalähteen virta on sama kuin portin
+oikosulkuvirta.
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vj{0,0}{J_{\rm N}}
+\vz{50,0}{R_{\rm N}}
+\hln{0,0}{60}
+\hln{0,50}{60}
+\out{60,0}
+\out{60,50}
+\end{picture}
+\end{center}
+}
+
+\frame {
+\frametitle{Esimerkki 1}
+Muodosta Théveninin lähde. Kaikki komponenttiarvot = 1.
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_2}
+%\hz{50,50}{R_2}
+\hst{50,50}{E}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+}
+
+\frame {
+\frametitle{Esimerkki 2}
+Muodosta Théveninin lähde. Kaikki komponenttiarvot = 1.
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\vz{50,0}{R_2}
+\vj{100,0}{J}
+%\hz{50,50}{R_2}
+\hz{50,50}{R_3}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+%\hln{0,50}{50}
+\hz{0,50}{R_1}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+}
+
+\frame{
+\begin{block}{Esimerkki}
+Muodosta kuvan piiristä Théveninin lähde. Kaikki komponenttiarvot ovat 1.
+(Vastukset ovat jokainen $1 \ohm$ ja virtalähde $J_1=1\A$.)
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+}
+
+%LUENTO7
+
+
+\frame{
+\begin{block}{Ratkaisu}
+Muodosta kuvan piiristä Théveninin lähde. Kaikki komponenttiarvot ovat 1.
+(Vastukset ovat jokainen $1 \ohm$ ja virtalähde $J_1=1\A$.)
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+Ratkaistaan ensin Théveninin jännite $E_{\rm T}$. Tämän voi tehdä esimerkiksi lähdemuunnoksen avulla:
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{J_1R_1}
+\hz{0,50}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+%\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\du{110,0}{E_{\rm T}=\frac{J_1R_1}{R_1+R_2+R_3}R_3=\frac{1}{3}\V}
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+\frametitle{Ratkaisu jatkuu}
+
+Ratkaistaan seuraavaksi Théveninin lähteen resistanssi $R_{\rm T}$. Helpoiten tämä onnistuu sammuttamalla
+lähteet ja laskemalla portista näkyvä resistanssi (toinen tapa olisi oikosulkuvirran selvittäminen). Resistanssin
+voi laskea joko alkuperäisestä tai muunnetusta piiristä, lopputulos on sama. Lasketaan muunnetusta piiristä,
+eli sammutetaan jännitelähde:
+\begin{center}
+\begin{picture}(150,50)(0,0)
+%\vst{0,0}{J_1R_1}
+\vln{0,0}{50}
+\hz{0,50}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+%\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\txt{170,25}{R_{\rm T}=\frac{1}{\frac{1}{R_1+R_2}+\frac{1}{R_3}}=\frac{2}{3}\ohm}
+\end{picture}
+\end{center}
+Vastukset $R_1$ ja $R_2$ ovat sarjassa, ja tämä sarjaankytkentä on rinnan $R_3$:n kanssa.
+Nyt $E_{\rm T}$ ja $R_{\rm T}$ tiedetään, joten voimme muodostaa Théveninin lähteen
+(ks. seuraava kalvo).
+}
+
+\frame{
+\frametitle{Lopullinen ratkaisu}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_{\rm T}=\frac{1}{3}\V}
+\hln{0,0}{50}
+\hz{0,50}{R_{\rm T}=\frac{2}{3}\ohm}
+\out{50,50}
+\out{50,0}
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+\begin{block}{Esimerkki} % Piiriarska 1 laskari 3 teht. 2
+Muodosta kytkimien vasemmalla puolella olevasta piiristä Théveninin lähde.
+Laske sitten, kuinka suuri on virta $I_{\rm X}$, kun kytkimet suljetaan ja $R_{\rm X}$
+on a) $0\ohm$, b) $8\ohm$ ja c) $12\ohm$.
+\end{block}
+
+\[
+R_1=5\ohm \quad R_2=3 \ohm \quad R_3=8\ohm \quad R_4=4 \ohm \quad E=16\V
+\]
+
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vz{0,0}{R_1}
+\hz{0,100}{R_2}
+\vz{50,50}{R_3}
+\hz{50,100}{R_4}
+\hso{100,100}{}
+\hso{100,0}{}
+\vst{50,0}{E}
+
+\vln{0,50}{50}
+\vz{150,25}{R_{\rm X}}
+\hln{0,0}{100}
+\vln{150,0}{25}
+\vln{150,75}{25}
+\di{150,10}{I_{\rm X}}
+
+
+\end{picture}
+\end{center}
+
+\tiny Vastaus: $R_{\rm T}=8\ohm$, $E_{\rm T}=8\V$. a) $1\A$ b) $0,5 \A$  c) $0,4 \A$.
+}

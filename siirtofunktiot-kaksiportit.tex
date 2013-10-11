@@ -1,0 +1,88 @@
+\frame{
+\frametitle{Taajuusvaste ja siirtofunktiot}
+\begin{itemize}
+\item Siirtofunktiot ja erityisesti taajuusvaste ovat tärkeitä käsitteitä, kun tutkitaan, kuinka
+jokin elementti (kaapeli, suodatin, vahvistin, \ldots) vaikuttaa signaalin kulkuun.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Napa ja portti}
+\begin{itemize}
+\item Piirissä olevaa johdon liitäntäkohtaa nimitetään {\bf navaksi} tai nastaksi.
+\item Kaksi napaa muodostavat {\bf portin} eli napaparin.
+\item Helpoin esimerkki on auton akku, jolla sisäistä resistanssia.
+\end{itemize}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_{\rm S}}
+\hln{0,0}{50}
+\out{50,0}
+\out{50,50}
+\end{picture}
+\end{center}
+
+}
+
+
+\frame{
+\frametitle{Nelinapa eli kaksiportti}
+\begin{itemize}
+\item Todella moni elektroniikkapiiri toimii niin, että sinne syötetään jokin signaali, ja sieltä saadaan ulos jokin signaali.
+\item Syötettyä signaalia kutsutaan herätteeksi ja ulos saatavaa signaalia vasteeksi.
+\item Vasteen ja herätteen suhdetta kutsutaan syöttöpistefunktioksi (vaste ja heräte samassa portissa) tai siirtofunktioksi
+(vaste ja heräte eri portissa).
+\end{itemize}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+%\vst{0,0}{E}
+\hstp{0,0}{}
+%\hz{0,50}{R_{\rm S}}
+%\hln{0,0}{50}
+\out{50,0}
+\out{50,50}
+\out{0,0}
+\out{0,50}
+\du{0,0}{\Uin}
+\du{50,0}{\Uout}
+\ri{0,0}{{I_{\rm in}}}
+\end{picture}
+\end{center}
+}
+
+\frame{
+\frametitle{Syöttöpiste- ja siirtofunktiot}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+%\vst{0,0}{E}
+\hstp{0,0}{}
+%\hz{0,50}{R_{\rm S}}
+%\hln{0,0}{50}
+\out{50,0}
+\out{50,50}
+\out{0,0}
+\out{0,50}
+\du{0,0}{\Uin}
+\du{50,0}{\Uout}
+\ri{10,50}{{I_{\rm in}}}
+\li{40,50}{{I_{\rm out}}}
+\end{picture}
+\end{center}
+\begin{itemize}
+\item Syöttöpistefunktioita ovat muun muassa tuloimpedanssi $Z_{\rm in}=\frac{\Uin}{I_{\rm in}}$ ja lähtöimpedanssi $Z_{\rm out}=\frac{\Uout}{I_{\rm out}}$.
+\item Siirtofunktioita ovat jännitevahvistus $A=\frac{\Uout}{\Uin}$ sekä virtavahvistus $B=\frac{I_{\rm out}}{I_{\rm in}}$
+\end{itemize}
+}
+
+\frame{
+\frametitle{Siirtofunktio, taajuusvaste, amplitudivaste ja vaihevaste}
+\begin{itemize}
+\item Amplitudivasteella tarkoitetaan sitä siirtofunktiota, josta käy ilmi, miten piiri vaikuttaa signaalin amplitudiin eli voimakkuuteen eri taajuuksilla.
+\item Vaihevasteella tarkoitetaan siirtofunktiota, joka kertoo, miten piiri vaikutttaa signaalin vaiheeseen, eli käytännössä, kuinka paljon signaali viivästyy piirissä.
+\item Amplitudi- ja vaihevasteesta käytetään yhteisnimitystä taajuusvaste. 
+\item Yleinen tapa on käyttää siirtofunktioiden esityksessä ja matemaattisessa käsittelyssä kompleksilukuja.
+\item Tällöin sekä amplitudi- että vaihevaste kulkevat mukana samassa kaavassa.
+\item Kompleksiluvun itseisarvo kertoo amplitudin ja kulma eli argumentti kertoo vaihekulman.
+\end{itemize}
+}

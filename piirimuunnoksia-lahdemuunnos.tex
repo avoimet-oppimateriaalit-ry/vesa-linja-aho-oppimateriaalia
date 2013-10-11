@@ -1,0 +1,279 @@
+\frame {
+  \frametitle{Piirimuunnokset}
+\begin{enumerate}
+\item Piirimuunnoksella tarkoitetaan toimenpidettä, jonka avulla piiri tai
+piirin osa muunnetaan esitystavaltaan erilaiseksi mutta ulospäin samalla
+ tavalla käyttäytyväksi piiriksi.
+ \item Jo kurssilla käsitellyt jännitelähteiden sarjaankytkentä, vastusten rinnankytkentä
+ sekä vastusten sarjaankytkentä ovat piirimuunnoksia.
+ \item Tällä tunnilla käsitellään virtalähteiden rinnankytkentä sekä jännitelähde-virtalähdemuunnos.
+\end{enumerate}
+}
+
+
+\frame {
+\frametitle{Esimerkki piirimuunnoksesta}
+Kaksi (tai useampi) vastusta muunnetaan yhdeksi, samalla tavalla käyttäytyväksi vastukseksi.
+\begin{exampleblock}{Sarjaankytkentä}
+\begin{center}
+\begin{picture}(100,20)(50,-15)
+\hz{0,0}{R_1}
+\hz{50,0}{R_2}
+%\ri{-10,0}{I}
+%\ri{110,0}{I}
+%\hln{-50,0}{50}
+%\hln{100,0}{50}
+\txt{125,0}{\Longleftrightarrow}
+\hz{150,0}{R=R_1+R_2}
+\end{picture}
+\end{center}
+\end{exampleblock}
+\begin{exampleblock}{Rinnankytkentä}
+\begin{center}
+\begin{picture}(100,75)(0,-20)
+\hz{0,0}{R_1}
+\hz{0,50}{R_2}
+\hln{-25,25}{25}
+\hln{50,25}{25}
+\vln{0,0}{50}
+\vln{50,0}{50}
+%\ru{0,10}{U}
+%\ru{0,60}{U}
+\txt{110,25}{\Longleftrightarrow}
+\hz{130,25}{\vspace{-1cm}R=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2}}}
+\end{picture}
+\end{center}
+\end{exampleblock}
+Tai sama kätevämmin konduktansseilla $G=G_1+G_2$.
+}
+
+\frame {
+\frametitle{Virtalähteiden rinnankytkentä}
+Kaksi (tai useampi) virtalähdettä muunnetaan yhdeksi, samalla tavalla käyttäytyväksi virtalähteeksi.
+\begin{exampleblock}{Virtalähteet rinnan}
+\begin{center}
+\begin{picture}(270,50)(0,0)
+\vj{0,0}{J_1}
+\vj{50,0}{J_2}
+\vdj{100,0}{J_3}
+\hln{0,0}{150}
+\hln{0,50}{150}
+\out{150,0}
+\out{150,50}
+
+\txt{170,25}{\Longleftrightarrow}
+\vj{200,0}{}
+\txt{250,25}{J=J_1+J_2-J_3}
+\hln{200,0}{50}
+\hln{200,50}{50}
+\out{250,0}
+\out{250,50}
+\end{picture}
+\end{center}
+\end{exampleblock}
+Kuten jännitelähteiden rinnankytkentä, myös virtalähteiden sarjaankytkentä on määrittelemätön (arkikielellä: kielletty) asia piiriteoriassa, aivan
+kuten nollalla jakaminen matematiikassa. Johtimessa ei voi samaan aikaan olla kahta erisuuruista virtaa!
+
+}
+
+\frame {
+\frametitle{Jännitelähde-virtalähdemuunnos}
+{\bf Jännitelähteen ja vastuksen sarjaankytkentä} käyttäytyy kuten {\bf virtalähteen ja vastuksen
+rinnankytkentä}.
+\begin{exampleblock}{Lähdemuunnos}
+\begin{center}
+\begin{picture}(150,55)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R}
+\hln{0,0}{50}
+\out{50,0}
+\out{50,50}
+
+\txt{66,25}{\Longleftrightarrow}
+
+\vj{100,0}{J}
+\vz{150,0}{R}
+\hln{100,0}{75}
+\hln{100,50}{75}
+\out{175,0}
+\out{175,50}
+\color{red}
+\txt{200,25}{E=RJ}
+\end{picture}
+\end{center}
+\end{exampleblock}
+}
+
+\frame{
+\frametitle{Tärkeää muistettavaa}
+\begin{itemize}
+\item Huomaa, että ideaalista jännite- tai virtalähdettä ei voi muuntaa yllä olevalla tavalla. Jännitelähteellä
+on oltava sarja- ja virtalähteellä rinnakkaisresistanssa.
+\item Vastuksen arvo pysyy samana, jännite- ja virtalähteen arvo saadaan kaavasta $E=RJ$, joka
+perustuu Ohmin lakiin.
+\item Lähdemuunnos ei ole vain piiriteoreettinen kuriositeetti. Lähdemuunnos sopivassa paikassa
+säästää monen rivin kaavanpyörittelyltä, esimerkiksi transistorivahvistimien analyysissä.
+\end{itemize}
+}
+
+\frame {
+\frametitle{Muunnoksen perustelu}
+
+\begin{exampleblock}{Lähdemuunnos}
+\begin{center}
+\begin{picture}(250,55)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R}
+\hln{0,0}{50}
+%\out{50,0}
+%\out{50,50}
+\hstp{50,0}{}
+\ri{55,50}{I}
+\du{50,0}{U}
+
+%\txt{66,25}{\Longleftrightarrow}
+
+\vj{150,0}{\frac{E}{R}}
+\vz{183,0}{R}
+\hln{150,0}{50}
+\hln{150,50}{50}
+\hstp{200,0}{}
+\ri{205,50}{I}
+\du{200,0}{U}
+\color{red}
+%\txt{200,25}{E=RJ}
+\end{picture}
+\end{center}
+\end{exampleblock}
+
+Vasen kuva
+\[
+I=\frac{E-U}{R}\qquad U=E-RI
+\]
+Oikea kuva:
+\[
+I=\frac{E}{R}-\frac{U}{R}=\frac{E-U}{R}\qquad U=(\frac{E}{R}-I)R=E-RI
+\]
+Molemmat piirit käyttäytyvät samalla tavalla.
+}
+
+\frame{
+\frametitle{Esimerkki}
+Ratkaise $U$.
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_3}
+\hz{50,50}{R_2}
+\vst{100,0}{E}
+\hln{0,0}{100}
+\du{57,0}{U}
+\end{picture}
+\end{center}
+
+Muunnetaan piiri
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3\hspace{-0.2cm}}
+\vz{75,0}{R_2\hspace{-0.2cm}}
+%\hz{50,0}{R_4}
+\vj{150,0}{J_2}
+\hln{0,0}{150}
+%\hln{100,0}{50}
+\hln{0,50}{150}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+Ja ei muuta kuin vastaus pöytään:
+\[
+U=\frac{J_1+J_2}{G_1+G_2+G_3}
+\]
+}
+\frame{
+\frametitle{Erittäin tärkeä huomio}
+\begin{itemize}
+\item Vaikka vastuksen arvo pysyy samana muunnoksessa, vastus ei ole sama vastus! Esimerkiksi edellisessä
+esimerkissä muuntamattoman vastuksen virta ei ole sama kuin muunnetun vastuksen virta!
+\end{itemize}
+
+}
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise virta $I$ muuntamalla virtalähteet jännitelähteiksi. $J_1=10\A$, $J_2=1\A$, 
+$R_1=100\ohm$, $R_2=200\ohm$ ja $R_3=300\ohm$.
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\vj{150,0}{J_2}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+Tämä on helppo ja nopea lasku; jos huomaat kirjoittavasi toista sivullista yhtälöitä, olet tehnyt
+jotain väärin.
+}
+
+%LUENTO6
+
+\frame{
+\begin{block}{Ratkaisu}
+Ratkaise virta $I$ muuntamalla virtalähteet jännitelähteiksi. $J_1=10\A$, $J_2=1\A$, 
+$R_1=100\ohm$, $R_2=200\ohm$ ja $R_3=300\ohm$.
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\vj{150,0}{J_2}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{R_1J_1}
+\hz{0,50}{R_1}
+\hz{100,50}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\vst{150,0}{R_3J_2}
+\hln{0,0}{150}
+%\hln{100,0}{50}
+%\hln{0,50}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+\ri{57,50}{I}
+\end{picture}
+\end{center}
+\[
+I=\frac{R_1J_1-R_3J_2}{R_1+R_2+R_3}=\frac{1000\V-300\V}{600\ohm}=\frac{7}{6}\A
+\approx 1,17 \A.
+\]
+}

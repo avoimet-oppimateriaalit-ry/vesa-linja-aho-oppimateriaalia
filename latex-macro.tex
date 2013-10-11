@@ -1,0 +1,1897 @@
+% Latex circuit diagram macros - version 1.2 (18th August 2012)
+% Kimmo Silvonen, Vesa Linja-aho (License: LGPL)
+% Homepage: http://code.google.com/p/latex-circuit-diagram/
+
+\usepackage{upgreek} % For correct micro (\mu vs. \upmu) symbol
+
+% The following are the macros:
+
+% v standard voltage source
+\newcommand{\vst}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,25){\circle{20}}
+ \put(0,0){\line(0,1){50}}
+ \put(-8,38){\makebox(0,0){$+$}}
+ \put(-8,12){\makebox(0,0){$-$}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% v standard voltage source down
+\newcommand{\vdst}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,25){\circle{20}}
+ \put(0,0){\line(0,1){50}}
+ \put(-8,38){\makebox(0,0){$-$}}
+ \put(-8,12){\makebox(0,0){$+$}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% v dc voltage source
+\newcommand{\vba}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(-5,23){\line(1,0){10}}
+ \put(-10,27){\line(1,0){20}}
+ \put(0,0){\line(0,1){23}}
+ \put(0,27){\line(0,1){23}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% v dc voltage source down
+\newcommand{\vdba}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(-5,27){\line(1,0){10}}
+ \put(-10,23){\line(1,0){20}}
+ \put(0,0){\line(0,1){23}}
+ \put(0,27){\line(0,1){23}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% v current source
+\newcommand{\vj}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,25){\circle{20}}
+ \put(-10,25){\line(1,0){20}}
+ \put(0,35){\line(0,1){15}}
+ \put(0,0){\line(0,1){15}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+ \thicklines
+ \put(0,42.5){\vector(0,1){0}}
+\end{picture}}}
+
+% v current source down
+\newcommand{\vdj}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,25){\circle{20}}
+ \put(-10,25){\line(1,0){20}}
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+ \thicklines
+ \put(0,7.5){\vector(0,-1){0}}
+\end{picture}}}
+
+% v line
+\newcommand{\vln}[2]
+ {\put(#1){\begin{picture}(10,50)
+ \put(0,0){\line(0,1){#2}}
+\end{picture}}}
+
+% h standard voltage source
+\newcommand{\hst}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(25,0){\circle{20}}
+ \put(0,0){\line(1,0){50}}
+ \put(12,-8){\makebox(0,0){$-$}}
+ \put(38,-8){\makebox(0,0){$+$}}
+ \put(25,-19){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h standard voltage source left
+\newcommand{\hlst}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(25,0){\circle{20}}
+ \put(0,0){\line(1,0){50}}
+ \put(12,-8){\makebox(0,0){$+$}}
+ \put(38,-8){\makebox(0,0){$-$}}
+ \put(25,-19){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h dc voltage source
+\newcommand{\hba}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(23,-5){\line(0,1){10}}
+ \put(27,-10){\line(0,1){20}}
+ \put(0,0){\line(1,0){23}}
+ \put(27,0){\line(1,0){23}}
+ \put(25,-19){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h dc voltage source left
+\newcommand{\hlba}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(27,-5){\line(0,1){10}}
+ \put(23,-10){\line(0,1){20}}
+ \put(0,0){\line(1,0){23}}
+ \put(27,0){\line(1,0){23}}
+ \put(25,-19){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h current source
+\newcommand{\hj}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(25,0){\circle{20}}
+ \put(25,-10){\line(0,1){20}}
+ \put(35,0){\line(1,0){15}}
+ \put(0,0){\line(1,0){15}}
+ \put(25,-19){\makebox(0,0){$#2$}}
+ \thicklines
+ \put(42.5,0){\vector(1,0){0}}
+\end{picture}}}
+
+% h current source left
+\newcommand{\hlj}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(25,0){\circle{20}}
+ \put(25,-10){\line(0,1){20}}
+ \put(0,0){\line(1,0){15}}
+ \put(35,0){\line(1,0){15}}
+ \put(25,-19){\makebox(0,0){$#2$}}
+ \thicklines
+ \put(7.5,0){\vector(-1,0){0}}
+\end{picture}}}
+
+% h line
+\newcommand{\hln}[2]
+ {\put(#1){\begin{picture}(400,10)
+ \put(0,0){\line(1,0){#2}}
+\end{picture}}}
+
+% v voltage source (old)
+\newcommand{\ve}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,25){\circle{20}}
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+ \thicklines
+ \put(0,15){\vector(0,1){20}}
+\end{picture}}}
+
+% v voltage source down (old)
+\newcommand{\vde}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,25){\circle{20}}
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+ \thicklines
+ \put(0,35){\vector(0,-1){20}}
+\end{picture}}}
+
+% h voltage source
+\newcommand{\he}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(25,0){\circle{20}}
+ \put(0,0){\line(1,0){15}}
+ \put(35,0){\line(1,0){15}}
+ \put(25,-19){\makebox(0,0){$#2$}}
+ \thicklines
+ \put(15,0){\vector(1,0){20}}
+\end{picture}}}
+
+% h voltage source left
+\newcommand{\hle}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(25,0){\circle{20}}
+ \put(0,0){\line(1,0){15}}
+ \put(35,0){\line(1,0){15}}
+ \put(25,-19){\makebox(0,0){$#2$}}
+ \thicklines
+ \put(35,0){\vector(-1,0){20}}
+\end{picture}}}
+
+% v controlled voltage source
+\newcommand{\vcvs}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(0,15){\line(1,1){10}}
+ \put(0,15){\line(-1,1){10}}
+ \put(0,35){\line(-1,-1){10}}
+ \put(0,35){\line(1,-1){10}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+ \put(-20,40){\makebox(0,0){$+$}}
+ \put(-20,10){\makebox(0,0){$-$}}
+\end{picture}}}
+
+% v controlled current source
+\newcommand{\vccs}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(0,18){\vector(0,1){14}}
+ \put(0,15){\line(1,1){10}}
+ \put(0,15){\line(-1,1){10}}
+ \put(0,35){\line(-1,-1){10}}
+ \put(0,35){\line(1,-1){10}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% v nonstandard voltage source
+\newcommand{\vnst}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,25){\circle{20}}
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(-20,25){\makebox(0,0)[l]{$#2$}}
+\end{picture}}}
+
+% v impedance
+\newcommand{\vz}[2]
+ {\put(#1){\begin{picture}(28,50)
+ \put(-5,10){\framebox(10,30)}
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \put(-12,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% v capasitance
+\newcommand{\vc}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,0){\line(0,1){23}}
+ \put(0,27){\line(0,1){23}}
+ \put(-10,23){\line(1,0){20}}
+ \put(-10,27){\line(1,0){20}}
+ \put(-12,25){\makebox(0,0)[r]{${#2}$}}
+\end{picture}}}
+
+% v coil
+\newcommand{\vl}[2]
+ {\put(#1){\begin{picture}(22,50)
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \multiput(0,15)(0,10){3}{\oval(10,10)[r]}
+ \put(-3,25){\makebox(0,0)[r]{${#2}$}}
+\end{picture}}}
+
+% v coil reversed
+\newcommand{\vlr}[2]
+ {\put(#1){\begin{picture}(22,50)
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \multiput(0,15)(0,10){3}{\oval(10,10)[l]}
+ \put(3,25){\makebox(0,0)[l]{${#2}$}}
+\end{picture}}}
+
+% v reactance
+\newcommand{\vx}[2]
+ {\put(#1){\begin{picture}(28,50)
+ \put(-5,10){\framebox(10,30)}
+ \thicklines
+ \multiput(-5,10)(1,0){11}{\line(0,1){30}}
+ \multiput(-5,10)(0,1){31}{\line(1,0){10}}
+ \thinlines
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \put(-7,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% v resistance
+\newcommand{\vr}[2]
+ {\put(#1){\begin{picture}(22,50)
+ \multiput(0,10)(0,10){3}{\line(2,1){10}}
+ \multiput(10,15)(0,10){3}{\line(-2,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \put(0,0){\line(0,1){10}}
+ \put(-3,25){\makebox(0,0)[r]{${#2}$}}
+\end{picture}}}
+
+% v engine
+\newcommand{\veng}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,25){\circle{20}}
+ \put(-5,33){\line(0,1){5}}
+ \put(5,33){\line(0,1){5}}
+ \put(-5,12){\line(0,1){5}}
+ \put(5,12){\line(0,1){5}}
+ \put(-5,38){\line(1,0){10}}
+ \put(-5,12){\line(1,0){10}}
+ \put(0,0){\line(0,1){12}}
+ \put(0,38){\line(0,1){12}}
+ \put(-10,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% h impedance
+\newcommand{\hz}[2]
+ {\put(#1){\begin{picture}(50,22)
+ \put(10,-5){\framebox(30,10)}
+ \put(0,0){\line(1,0){10}}
+ \put(40,0){\line(1,0){10}}
+ \put(25,-12){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h capasitance
+\newcommand{\hc}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(0,0){\line(1,0){23}}
+ \put(27,0){\line(1,0){23}}
+ \put(23,-10){\line(0,1){20}}
+ \put(27,-10){\line(0,1){20}}
+ \put(25,-17){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h coil
+\newcommand{\hl}[2]
+ {\put(#1){\begin{picture}(50,22)
+ \put(0,0){\line(1,0){10}}
+ \put(40,0){\line(1,0){10}}
+ \multiput(15,0)(10,0){3}{\oval(10,10)[t]}
+ \put(25,-7){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h coil upside down
+\newcommand{\hld}[2]
+ {\put(#1){\begin{picture}(50,22)
+ \put(0,0){\line(1,0){10}}
+ \put(40,0){\line(1,0){10}}
+ \multiput(15,0)(10,0){3}{\oval(10,10)[b]}
+ \put(25,7){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h reactance
+\newcommand{\hx}[2]
+ {\put(#1){\begin{picture}(50,22)
+ \put(10,-5){\framebox(30,10)}
+ \thicklines
+ \multiput(10,-5)(0,1){11}{\line(1,0){30}}
+ \multiput(10,-5)(1,0){31}{\line(0,1){10}}
+ \thinlines
+ \put(0,0){\line(1,0){10}}
+ \put(40,0){\line(1,0){10}}
+ \put(25,-12){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h resistance
+\newcommand{\hr}[2]
+ {\put(#1){\begin{picture}(50,22)
+ \multiput(10,0)(10,0){3}{\line(1,2){5}}
+ \multiput(15,10)(10,0){3}{\line(1,-2){5}}
+ \put(0,0){\line(1,0){10}}
+ \put(40,0){\line(1,0){10}}
+ \put(25,-7){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h resistance (old)
+\newcommand{\hrold}[2]
+ {\put(#1){\begin{picture}(50,22)
+ \multiput(10,7)(12,0){3}{\line(1,0){6}}
+ \multiput(16,0)(12,0){2}{\line(1,0){6}}
+ \multiput(10,0)(6,0){6}{\line(0,1){7}}
+ \put(0,0){\line(1,0){10}}
+ \put(40,0){\line(1,0){10}}
+ \put(25,-7){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% v transformer 1 core
+\newcommand{\vmlc}[1]
+ {\put(#1){\begin{picture}(60,50)
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \multiput(0,15)(0,10){3}{\oval(10,10)[r]}
+ \put(40,0){\line(0,1){10}}
+ \put(40,40){\line(0,1){10}}
+ \multiput(40,15)(0,10){3}{\oval(10,10)[l]}
+ \put(14,5){\line(0,1){40}}
+ \put(20,5){\line(0,1){40}}
+ \put(26,5){\line(0,1){40}}
+\end{picture}}}
+
+% v transformer 2
+\newcommand{\vml}[4]
+ {\put(#1){\begin{picture}(60,50)
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \multiput(0,15)(0,10){3}{\oval(10,10)[r]}
+ \put(50,0){\line(0,1){10}}
+ \put(50,40){\line(0,1){10}}
+ \multiput(50,15)(0,10){3}{\oval(10,10)[l]}
+ \put(10,40){\circle*{3}}
+ \put(40,40){\circle*{3}}
+ \put(25,40){\vector(-1,0){10}}
+ \put(25,40){\vector(1,0){10}}
+ \put(25,47){\makebox(0,0){$#4$}}
+ \put(25,25){\makebox(0,0){${#2}\hspace{2mm}{#3}$}}
+\end{picture}}}
+
+% v transformer 3
+\newcommand{\vt}[4]
+ {\put(#1){\begin{picture}(60,50)
+ \put(5,10){\framebox(10,30)}
+ \put(35,10){\framebox(10,30)}
+ \thicklines
+ \multiput(5,10)(1,0){11}{\line(0,1){30}}
+ \multiput(5,10)(0,1){31}{\line(1,0){10}}
+ \multiput(35,10)(1,0){11}{\line(0,1){30}}
+ \multiput(35,10)(0,1){31}{\line(1,0){10}}
+ \thinlines
+ \put(10,0){\line(0,1){10}}
+ \put(10,40){\line(0,1){10}}
+ \put(0,0){\line(1,0){10}}
+ \put(0,50){\line(1,0){10}}
+ \put(40,0){\line(1,0){10}}
+ \put(40,50){\line(1,0){10}}
+ \put(40,0){\line(0,1){10}}
+ \put(40,40){\line(0,1){10}}
+ \put(20,40){\circle*{3}}
+ \put(30,40){\circle*{3}}
+ \put(22,44){\vector(1,0){8}}
+ \put(28,44){\vector(-1,0){8}}
+ \put(25,30){\makebox(0,0){\footnotesize $#4$}}
+ \put(5,25){\makebox(0,0)[r]{\footnotesize ${#2}$}}
+ \put(47,25){\makebox(0,0)[l]{\footnotesize ${#3}$}}
+\end{picture}}}
+
+% v transformer 4
+\newcommand{\vm}[4]
+ {\put(#1){\begin{picture}(60,50)
+ \put(-5,10){\framebox(10,30)}
+ \put(45,10){\framebox(10,30)}
+ \thicklines
+ \multiput(-5,10)(1,0){11}{\line(0,1){30}}
+ \multiput(-5,10)(0,1){31}{\line(1,0){10}}
+ \multiput(45,10)(1,0){11}{\line(0,1){30}}
+ \multiput(45,10)(0,1){31}{\line(1,0){10}}
+ \thinlines
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \put(50,0){\line(0,1){10}}
+ \put(50,40){\line(0,1){10}}
+ \put(10,40){\circle*{3}}
+ \put(40,40){\circle*{3}}
+ \put(25,40){\vector(-1,0){10}}
+ \put(25,40){\vector(1,0){10}}
+ \put(25,47){\makebox(0,0){$#4$}}
+ \put(25,25){\makebox(0,0){${#2}\hspace{2mm}{#3}$}}
+\end{picture}}}
+
+% v transformer 5
+\newcommand{\vlm}[4]
+ {\put(#1){\begin{picture}(60,50)
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \multiput(0,15)(0,10){3}{\oval(10,10)[r]}
+ \put(50,0){\line(0,1){10}}
+ \put(50,40){\line(0,1){10}}
+ \multiput(50,15)(0,10){3}{\oval(10,10)[l]}
+ \put(10,40){\circle*{3}}
+ \put(40,10){\circle*{3}}
+ \put(14,40){\vector(3,-4){22}}
+ \put(14,40){\vector(-3,4){0}}
+ \put(25,44){\makebox(0,0){$#4$}}
+ \put(25,25){\makebox(0,0){${#2}\hspace{4mm}{#3}$}}
+\end{picture}}}
+
+% v transformer 6
+\newcommand{\vlmi}[4]
+ {\put(#1){\begin{picture}(60,50)
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \multiput(0,15)(0,10){3}{\oval(10,10)[r]}
+ \put(50,0){\line(0,1){10}}
+ \put(50,40){\line(0,1){10}}
+ \multiput(50,15)(0,10){3}{\oval(10,10)[l]}
+ \put(10,10){\circle*{3}}
+ \put(40,40){\circle*{3}}
+ \put(14,10){\vector(3,4){22}}
+ \put(14,10){\vector(-3,-4){0}}
+ \put(25,44){\makebox(0,0){$#4$}}
+ \put(25,25){\makebox(0,0){${#2} \hspace{4mm} {#3}$}}
+\end{picture}}}
+
+% v lamp
+\newcommand{\vlamp}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,25){\circle{20}}
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(-7,32){\line(1,-1){14}}
+ \put(-7,18){\line(1,1){14}}
+ \put(-12,17){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% horizontal switch open
+\newcommand{\hso}[2]
+ {\put(#1){\begin{picture}(50,20)
+ \put(0,0){\line(1,0){15}}
+ \put(35,0){\line(1,0){15}}
+ \put(15,0){\line(2,1){20}}
+ \put(15,0){\circle{3}}
+ \put(35,0){\circle{3}}
+ \put(25,-10){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% horizontal switch nearly closed
+\newcommand{\hsc}[2]
+ {\put(#1){\begin{picture}(50,20)
+ \put(0,0){\line(1,0){15}}
+ \put(35,0){\line(1,0){15}}
+ \put(15,0){\line(6,1){20}}
+ \put(15,0){\circle{3}}
+ \put(35,0){\circle{3}}
+ \put(25,-10){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% vertical switch open
+\newcommand{\vso}[2]
+ {\put(#1){\begin{picture}(20,50)
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(0,15){\line(1,2){10}}
+ \put(0,15){\circle*{3}}
+ \put(0,35){\circle*{3}}
+ \put(-2,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% v avo meter
+\newcommand{\vavo}[3]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,25){\circle{20}}
+ \put(0,25){\makebox(0,0){$#2$}}
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(-9,15){\makebox(0,0)[r]{$#3$}}
+\end{picture}}}
+
+% h avo meter
+\newcommand{\havo}[3]
+ {\put(#1){\begin{picture}(50,50)
+ \put(25,0){\circle{20}}
+ \put(25,0){\makebox(0,0){$#2$}}
+ \put(0,0){\line(1,0){15}}
+ \put(35,0){\line(1,0){15}}
+ \put(25,-17){\makebox(0,0){$#3$}}
+\end{picture}}}
+
+% v power meter
+\newcommand{\vpm}[3]
+ {\put(#1){\begin{picture}(50,65)
+ \put(0,0){\circle{20}}
+ \put(-3,12){\circle*{3}}
+ \put(-13,3){\circle*{3}}
+ \put(0,0){\makebox(0,0){$#2$}}
+ \put(-10,-15){\makebox(0,0)[r]{$#3$}}
+\end{picture}}}
+
+% up voltage arrow
+\newcommand{\uu}[2]
+ {\put(#1){\begin{picture}(12,50)
+ \put(-3,25){\makebox(0,0)[r]{${#2}$}}
+% \thicklines
+ \put(0,5){\vector(0,1){40}}
+\end{picture}}}
+
+% down voltage arrow
+\newcommand{\du}[2]
+ {\put(#1){\begin{picture}(12,50)
+ \put(3,25){\makebox(0,0)[l]{$#2$}}
+% \thicklines
+ \put(0,45){\vector(0,-1){40}}
+\end{picture}}}
+
+% right voltage arrow
+\newcommand{\ru}[2]
+ {\put(#1){\begin{picture}(50,12)
+ \put(25,8){\makebox(0,0){${#2}$}}
+% \thicklines
+ \put(5,0){\vector(1,0){40}}
+\end{picture}}}
+
+% left voltage arrow
+\newcommand{\lu}[2]
+ {\put(#1){\begin{picture}(50,12)
+ \put(25,8){\makebox(0,0){${#2}$}}
+% \thicklines
+ \put(45,0){\vector(-1,0){40}}
+\end{picture}}}
+
+% down right-curved arrow
+\newcommand{\dcru}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,25){\oval(20,40)[r]}
+ \put(15,25){\makebox(0,0)[l]{$#2$}}
+% \thicklines
+ \put(0,5){\vector(-4,-1){0}}
+\end{picture}}}
+
+% up right-curved arrow
+\newcommand{\ucru}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,25){\oval(20,40)[r]}
+ \put(15,25){\makebox(0,0)[l]{${#2}$}}
+% \thicklines
+ \put(0,45){\vector(-4,1){0}}
+\end{picture}}}
+
+% right up-curved arrow
+\newcommand{\rcuu}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(25,0){\oval(40,20)[t]}
+ \put(25,20){\makebox(0,0){${#2}$}}
+% \thicklines
+ \put(45,0){\vector(1,-4){0}}
+\end{picture}}}
+
+% left up-curved arrow
+\newcommand{\lcuu}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(25,0){\oval(40,20)[t]}
+ \put(25,20){\makebox(0,0){${#2}$}}
+% \thicklines
+ \put(5,0){\vector(-1,-4){0}}
+\end{picture}}}
+
+% right current arrow
+\newcommand{\ri}[2]
+ {\put(#1){\begin{picture}(10,50)
+ \put(0,-7){\makebox(0,0){${#2}$}}
+ \thicklines
+ \put(0,0){\vector(1,0){0}}
+\end{picture}}}
+
+% left current arrow
+\newcommand{\li}[2]
+ {\put(#1){\begin{picture}(10,50)
+ \put(3,-7){\makebox(0,0)[r]{${#2}$}}
+ \thicklines
+ \put(0,0){\vector(-1,0){0}}
+\end{picture}}}
+
+% up current arrow
+\newcommand{\ui}[2]
+ {\put(#1){\begin{picture}(50,20)
+ \put(5,0){\makebox(0,0)[l]{$#2$}}
+ \thicklines
+ \put(0,0){\vector(0,1){0}}
+\end{picture}}}
+
+% down current arrow
+\newcommand{\di}[2]
+ {\put(#1){\begin{picture}(50,20)
+ \put(5,0){\makebox(0,0)[l]{$#2$}}
+ \thicklines
+ \put(0,0){\vector(0,-1){0}}
+\end{picture}}}
+
+% right current arrow (text above)
+\newcommand{\rui}[2]
+ {\put(#1){\begin{picture}(10,50)
+ \put(0,7){\makebox(0,0){${#2}$}}
+ \thicklines
+ \put(0,0){\vector(1,0){0}}
+\end{picture}}}
+
+% h crossing jumper
+\newcommand{\hcj}[1]
+ {\put(#1){\begin{picture}(10,50)
+ \put(0,0){\oval(10,10)[t]}
+\end{picture}}}
+
+% v crossing jumper
+\newcommand{\vcj}[1]
+ {\put(#1){\begin{picture}(10,50)
+ \put(0,0){\oval(10,10)[r]}
+\end{picture}}}
+
+% h ground
+\newcommand{\hg}[1]
+ {\put(#1){\begin{picture}(50,10)
+ \put(-10,0){\line(1,0){20}}
+\end{picture}}}
+
+% v ground
+\newcommand{\vg}[1]
+ {\put(#1){\begin{picture}(50,10)
+ \put(0,-10){\line(0,1){20}}
+\end{picture}}}
+
+% h ground pin
+\newcommand{\hgp}[1]
+ {\put(#1){\begin{picture}(20,10)
+ \put(-10,-10){\line(1,0){20}}
+ \put(0,0){\line(0,-1){10}}
+\end{picture}}}
+
+% h ground pin upwards
+\newcommand{\hgpu}[1]
+ {\put(#1){\begin{picture}(20,10)
+ \put(-10,10){\line(1,0){20}}
+ \put(0,0){\line(0,1){10}}
+\end{picture}}}
+
+% h port
+\newcommand{\hp}[3]
+ {\put(#1){\begin{picture}(10,50)
+ \put(0,0){\circle{3}}
+ \put(0,50){\circle{3}}
+ \put(0,10){\makebox(0,0){$#3$}}
+ \put(0,40){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% v port
+\newcommand{\vp}[3]
+ {\put(#1){\begin{picture}(50,10)
+ \put(0,0){\circle{3}}
+ \put(50,0){\circle{3}}
+ \put(40,0){\makebox(0,0){$#3$}}
+ \put(10,0){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% mathematical text
+\newcommand{\txt}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% text non math
+\newcommand{\tx}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\makebox(0,0){#2}}
+\end{picture}}}
+
+% small text
+\newcommand{\stx}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\makebox(0,0){\scriptsize #2}}
+\end{picture}}}
+
+% text non math left-aligned
+\newcommand{\txl}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\makebox(0,0)[l]{#2}}
+\end{picture}}}
+
+% output/input pin
+\newcommand{\out}[1]
+ {\put(#1){\begin{picture}(10,10)
+ \put(0,0){\circle{3}}
+\end{picture}}}
+
+% connection node
+\newcommand{\cn}[1]
+ {\put(#1){\begin{picture}(10,50)
+ \put(0,0){\circle*{3}}
+\end{picture}}}
+
+% big connection node
+\newcommand{\cnb}[1]
+ {\put(#1){\begin{picture}(10,50)
+ \put(0,0){\circle*{5}}
+\end{picture}}}
+
+% down wave arrow
+\newcommand{\dw}[2]
+ {\put(#1){\begin{picture}(12,50)
+ \put(0,50){\vector(0,-1){29}}
+ \put(0,0){\line(0,1){25}}
+ \put(-12,25){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% up wave arrow
+\newcommand{\uw}[2]
+ {\put(#1){\begin{picture}(12,50)
+ \put(0,0){\vector(0,1){29}}
+ \put(0,25){\line(0,1){25}}
+ \put(12,25){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% left wave arrow
+\newcommand{\lw}[2]
+ {\put(#1){\begin{picture}(50,12)
+ \put(50,0){\vector(-1,0){29}}
+ \put(0,0){\line(1,0){25}}
+ \put(25,-12){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% right wave arrow
+\newcommand{\rw}[2]
+ {\put(#1){\begin{picture}(50,12)
+ \put(0,0){\vector(1,0){29}}
+ \put(25,0){\line(1,0){25}}
+ \put(25,12){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h z arrow
+\newcommand{\hza}[2]
+ {\put(#1){\begin{picture}(50,20)
+ \put(-20,25){\vector(1,0){20}}
+ \put(-20,25){\line(0,-1){10}}
+ \put(-20,8){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h y arrow
+\newcommand{\hya}[2]
+ {\put(#1){\begin{picture}(50,20)
+ \put(20,25){\vector(-1,0){20}}
+ \put(20,25){\line(0,-1){10}}
+ \put(20,8){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% v diode up
+\newcommand{\ud}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(-10,20){\line(1,0){20}}
+ \put(-10,30){\line(1,0){20}}
+ \put(-10,20){\line(1,1){10}}
+ \put(10,20){\line(-1,1){10}}
+ \put(0,0){\line(0,1){50}}
+ \put(-20,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% v diode down
+\newcommand{\dd}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(-10,20){\line(1,0){20}}
+ \put(-10,30){\line(1,0){20}}
+ \put(-10,30){\line(1,-1){10}}
+ \put(10,30){\line(-1,-1){10}}
+ \put(0,0){\line(0,1){50}}
+ \put(-20,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% h diode right
+\newcommand{\rd}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(1,0){50}}
+ \put(20,-10){\line(1,1){10}}
+ \put(20,10){\line(1,-1){10}}
+ \put(20,-10){\line(0,1){20}}
+ \put(30,-10){\line(0,1){20}}
+ \put(25,-20){\makebox(0,0)[c]{$#2$}}
+\end{picture}}}
+
+% h diode left
+\newcommand{\ld}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(1,0){50}}
+ \put(20,0){\line(1,1){10}}
+ \put(20,0){\line(1,-1){10}}
+ \put(20,-10){\line(0,1){20}}
+ \put(30,-10){\line(0,1){20}}
+ \put(25,-20){\makebox(0,0)[c]{$#2$}}
+\end{picture}}}
+
+% h diode right (black)
+\newcommand{\rdb}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(1,0){50}}
+ \put(20,-10){\line(1,1){10}}
+ \put(20,10){\line(1,-1){10}}
+ \put(20,-10){\line(0,1){20}}
+ \put(30,-10){\line(0,1){20}}
+ \thicklines
+ \put(20,9){\line(1,0){1}}
+ \put(20,8){\line(1,0){2}}
+ \put(20,7){\line(1,0){3}}
+ \put(20,6){\line(1,0){4}}
+ \put(20,5){\line(1,0){5}}
+ \put(20,4){\line(1,0){6}}
+ \put(20,3){\line(1,0){7}}
+ \put(20,2){\line(1,0){8}}
+ \put(20,1){\line(1,0){9}}
+ \put(20,0){\line(1,0){9.5}}
+ \put(20,-1){\line(1,0){9}}
+ \put(20,-2){\line(1,0){8}}
+ \put(20,-3){\line(1,0){7}}
+ \put(20,-4){\line(1,0){6}}
+ \put(20,-5){\line(1,0){5}}
+ \put(20,-6){\line(1,0){4}}
+ \put(20,-7){\line(1,0){3}}
+ \put(20,-8){\line(1,0){2}}
+ \put(20,-9){\line(1,0){1}}
+ \thinlines
+ \put(25,-20){\makebox(0,0)[c]{$#2$}}
+\end{picture}}}
+
+% h diode right (empty)
+\newcommand{\rde}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(1,0){20}}
+ \put(30,0){\line(1,0){20}}
+ \put(20,-10){\line(1,1){10}}
+ \put(20,10){\line(1,-1){10}}
+ \put(20,-10){\line(0,1){20}}
+ \put(30,-10){\line(0,1){20}}
+ \put(25,-20){\makebox(0,0)[c]{$#2$}}
+\end{picture}}}
+
+% h varactor diode right
+\newcommand{\vrd}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(1,0){30}}
+ \put(20,-10){\line(1,1){10}}
+ \put(20,10){\line(1,-1){10}}
+ \put(20,-10){\line(0,1){20}}
+ \put(30,-10){\line(0,1){20}}
+ \put(33,-10){\line(0,1){20}}
+ \put(33,0){\line(1,0){17}}
+ \put(25,-20){\makebox(0,0)[c]{$#2$}}
+\end{picture}}}
+
+% v zener diode up
+\newcommand{\zud}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(-10,20){\line(1,0){20}}
+ \put(-10,30){\line(1,0){20}}
+ \put(-10,20){\line(1,1){10}}
+ \put(10,20){\line(-1,1){10}}
+ \put(10,30){\line(0,-1){4}}
+ \put(0,0){\line(0,1){50}}
+ \put(-20,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% v zener diode down
+\newcommand{\zdd}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(-10,20){\line(1,0){20}}
+ \put(-10,30){\line(1,0){20}}
+ \put(0,20){\line(1,1){10}}
+ \put(0,20){\line(-1,1){10}}
+ \put(10,20){\line(0,1){4}}
+ \put(0,0){\line(0,1){50}}
+ \put(-20,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% h Schottky diode right
+\newcommand{\srd}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(1,0){50}}
+ \put(20,-10){\line(1,1){10}}
+ \put(20,10){\line(1,-1){10}}
+ \put(20,-10){\line(0,1){20}}
+ \put(30,-10){\line(0,1){20}}
+ \put(27,-10){\line(1,0){3}}
+ \put(27,-10){\line(0,1){3}}
+ \put(30,10){\line(1,0){3}}
+ \put(33,7){\line(0,1){3}}
+ \put(25,-20){\makebox(0,0)[c]{$#2$}}
+\end{picture}}}
+
+% h Schottky diode left
+\newcommand{\sld}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(1,0){50}}
+ \put(30,-10){\line(-1,1){10}}
+ \put(30,10){\line(-1,-1){10}}
+ \put(30,-10){\line(0,1){20}}
+ \put(20,-10){\line(0,1){20}}
+ \put(17,-10){\line(1,0){3}}
+ \put(17,-10){\line(0,1){3}}
+ \put(20,10){\line(1,0){3}}
+ \put(23,7){\line(0,1){3}}
+ \put(25,-20){\makebox(0,0)[c]{$#2$}}
+\end{picture}}}
+
+% h Schottky npn transistor
+\newcommand{\snpn}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-13){\line(0,1){26}}
+ \put(30,0){\line(-1,0){30}}
+ \put(30,5){\line(1,1){20}}
+ \put(30,-5){\vector(1,-1){8}}
+ \put(30,-5){\line(1,-1){20}}
+ \put(35,-22){\makebox(0,0){$#2$}}
+ \put(27,-15){\line(1,0){3}}
+ \put(27,-15){\line(0,1){3}}
+ \put(30,15){\line(1,0){3}}
+ \put(33,12){\line(0,1){3}}
+ \put(30,-15){\line(0,1){30}}
+\end{picture}}}
+
+% h npn transistor CB
+\newcommand{\npnb}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,30){\circle{30}}
+ \put(-10,30){\line(1,0){20}}
+ \put(0,30){\line(0,-1){30}}
+ \put(-25,50){\line(1,-1){20}}
+ \put(-5,30){\vector(-1,1){8}}
+ \put(5,30){\line(1,1){20}}
+ \put(0,52){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h pnp transistor CB
+\newcommand{\pnpb}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,30){\circle{30}}
+ \put(-10,30){\line(1,0){20}}
+ \put(0,30){\line(0,-1){30}}
+ \put(-25,50){\line(1,-1){20}}
+ \put(-14,39){\vector(1,-1){9}}
+ \put(5,30){\line(1,1){20}}
+ \put(0,52){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h npn transistor
+\newcommand{\npn}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,0){\circle{30}}
+ \put(30,-10){\line(0,1){20}}
+ \put(30,0){\line(-1,0){30}}
+ \put(30,5){\line(1,1){20}}
+ \put(30,-5){\vector(1,-1){8}}
+ \put(30,-5){\line(1,-1){20}}
+ \put(30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h pnp transistor
+\newcommand{\pnp}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,0){\circle{30}}
+ \put(30,-10){\line(0,1){20}}
+ \put(30,0){\line(-1,0){30}}
+ \put(30,5){\line(1,1){20}}
+ \put(50,-25){\vector(-1,1){20}}
+ \put(30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h npn transistor CC
+\newcommand{\npnc}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,0){\circle{30}}
+ \put(30,-10){\line(0,1){20}}
+ \put(30,0){\line(-1,0){30}}
+ \put(30,-5){\line(1,-1){20}}
+ \put(30,5){\vector(1,1){8}}
+ \put(30,5){\line(1,1){20}}
+ \put(30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h pnp transistor CC
+\newcommand{\pnpc}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,0){\circle{30}}
+ \put(30,-10){\line(0,1){20}}
+ \put(30,0){\line(-1,0){30}}
+ \put(30,-5){\line(1,-1){20}}
+ \put(35,10){\vector(-1,-1){5}}
+ \put(30,5){\line(1,1){20}}
+ \put(30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h npn transistor CC
+\newcommand{\pnpcr}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(-30,0){\circle{30}}
+ \put(-30,-10){\line(0,1){20}}
+ \put(-30,0){\line(1,0){30}}
+ \put(-30,-5){\line(-1,-1){20}}
+ \put(-35,10){\vector(1,-1){5}}
+ \put(-30,5){\line(-1,1){20}}
+ \put(-30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h npn transistor reversed
+\newcommand{\npr}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(-30,0){\circle{30}}
+ \put(-30,-10){\line(0,1){20}}
+ \put(-30,0){\line(1,0){30}}
+ \put(-30,5){\line(-1,1){20}}
+ \put(-30,-5){\vector(-1,-1){8}}
+ \put(-30,-5){\line(-1,-1){20}}
+ \put(-30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h pnp transistor reversed
+\newcommand{\pnr}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(-30,0){\circle{30}}
+ \put(-30,-10){\line(0,1){20}}
+ \put(-30,0){\line(1,0){30}}
+ \put(-30,5){\line(-1,1){20}}
+ \put(-35,-10){\vector(1,1){5}}
+ \put(-30,-5){\line(-1,-1){20}}
+ \put(-30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h npn transistor (no circle)
+\newcommand{\npnnc}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-13){\line(0,1){26}}
+ \put(30,0){\line(-1,0){30}}
+ \put(30,5){\line(1,1){20}}
+ \put(30,-5){\vector(1,-1){8}}
+ \put(30,-5){\line(1,-1){20}}
+ \put(30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h npn transistor w/o circle
+\newcommand{\npnwoc}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-10){\line(0,1){20}}
+ \put(30,0){\line(-1,0){30}}
+ \put(30,5){\line(2,1){20}}
+ \put(30,-5){\vector(2,-1){8}}
+ \put(30,-5){\line(2,-1){20}}
+ \put(50,15){\line(0,1){10}}
+ \put(50,-25){\line(0,1){10}}
+ \put(30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h pnp transistor w/o circle
+\newcommand{\pnpwoc}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-10){\line(0,1){20}}
+ \put(30,0){\line(-1,0){30}}
+ \put(30,5){\line(2,1){20}}
+ \put(40,-10){\vector(-2,1){10}}
+ \put(30,-5){\line(2,-1){20}}
+ \put(50,15){\line(0,1){10}}
+ \put(50,-25){\line(0,1){10}}
+ \put(30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h npn transistor w/o circle upside down
+\newcommand{\npnwocu}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-10){\line(0,1){20}}
+ \put(30,0){\line(-1,0){30}}
+ \put(30,5){\line(2,1){20}}
+ \put(40,10){\vector(-2,-1){8}}
+ \put(30,-5){\line(2,-1){20}}
+ \put(50,15){\line(0,1){10}}
+ \put(50,-25){\line(0,1){10}}
+ \put(30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h npn transistor w/o circle reversed
+\newcommand{\nprwoc}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(-30,-10){\line(0,1){20}}
+ \put(-30,0){\line(1,0){30}}
+ \put(-30,5){\line(-2,1){20}}
+ \put(-30,-5){\vector(-2,-1){8}}
+ \put(-30,-5){\line(-2,-1){20}}
+ \put(-50,15){\line(0,1){10}}
+ \put(-50,-25){\line(0,1){10}}
+ \put(-30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h npn transistor w/o circle reversed upside down
+\newcommand{\nprwocu}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(-30,-10){\line(0,1){20}}
+ \put(-30,0){\line(1,0){30}}
+ \put(-30,5){\line(-2,1){20}}
+ \put(-40,10){\vector(2,-1){8}}
+ \put(-30,-5){\line(-2,-1){20}}
+ \put(-50,15){\line(0,1){10}}
+ \put(-50,-25){\line(0,1){10}}
+ \put(-30,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h enmos, no arrow
+\newcommand{\enmosna}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-10){\line(0,1){20}}
+ \put(27,-5){\line(0,1){10}}
+ \put(50,7.5){\line(0,1){17.5}}
+ \put(50,-7.5){\line(0,-1){17.5}}
+ \put(0,0){\line(1,0){27}}
+ \put(30,7.5){\line(1,0){20}}
+ \put(30,-7.5){\line(1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h enmos
+\newcommand{\enmos}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-10){\line(0,1){20}}
+ \put(27,-5){\line(0,1){10}}
+ \put(50,7.5){\line(0,1){17.5}}
+ \put(50,-7.5){\line(0,-1){17.5}}
+ \put(0,0){\line(1,0){27}}
+ \put(30,7.5){\line(1,0){20}}
+ \put(30,-7.5){\vector(1,0){20}}
+ \put(25,-27){\makebox(0,10){${#2}$}}
+\end{picture}}}
+
+% h epmos
+\newcommand{\epmos}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-10){\line(0,1){20}}
+ \put(27,-5){\line(0,1){10}}
+ \put(50,7.5){\line(0,1){17.5}}
+ \put(50,-7.5){\line(0,-1){17.5}}
+ \put(0,0){\line(1,0){27}}
+ \put(30,7.5){\line(1,0){20}}
+ \put(50,-7.5){\vector(-1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h dnmos
+\newcommand{\dnmos}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-10){\line(0,1){20}}
+ \put(27,-5){\line(0,1){10}}
+ \put(50,7.5){\line(0,1){17.5}}
+ \put(50,-7.5){\line(0,-1){17.5}}
+ \put(0,0){\line(1,0){27}}
+ \put(30,7.5){\line(1,0){20}}
+ \put(30,-7.5){\vector(1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\thicklines
+ \put(31,-7.5){\line(0,1){15}}
+ \put(31.5,-7.5){\line(0,1){15}}
+\thinlines
+\end{picture}}}
+
+% h dpmos
+\newcommand{\dpmos}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-10){\line(0,1){20}}
+ \put(27,-5){\line(0,1){10}}
+ \put(50,7.5){\line(0,1){17.5}}
+ \put(50,-7.5){\line(0,-1){17.5}}
+ \put(0,0){\line(1,0){27}}
+ \put(30,7.5){\line(1,0){20}}
+ \put(50,-7.5){\vector(-1,0){18}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\thicklines
+ \put(31,-7.5){\line(0,1){15}}
+ \put(32,-7.5){\line(0,1){15}}
+\thinlines
+\end{picture}}}
+
+% h njfet
+\newcommand{\njfet}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-5){\line(0,1){20}}
+ \put(50,12.5){\line(0,1){12.5}}
+ \put(50,-2.5){\line(0,-1){22.5}}
+ \put(0,0){\vector(1,0){30}}
+ \put(30,12.5){\line(1,0){20}}
+ \put(30,-2.5){\line(1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h pjfet
+\newcommand{\pjfet}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-5){\line(0,1){20}}
+ \put(50,12.5){\line(0,1){12.5}}
+ \put(50,-2.5){\line(0,-1){22.5}}
+ \put(30,0){\vector(-1,0){15}}
+ \put(0,0){\line(1,0){15}}
+ \put(30,12.5){\line(1,0){20}}
+ \put(30,-2.5){\line(1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h enmos reversed, no arrow
+\newcommand{\enmosrna}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(-30,-10){\line(0,1){20}}
+ \put(-27,-5){\line(0,1){10}}
+ \put(-50,7.5){\line(0,1){17.5}}
+ \put(-50,-7.5){\line(0,-1){17.5}}
+ \put(0,0){\line(-1,0){27}}
+ \put(-30,7.5){\line(-1,0){20}}
+ \put(-30,-7.5){\line(-1,0){20}}
+ \put(-25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h enmos reversed
+\newcommand{\enmosr}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(-30,-10){\line(0,1){20}}
+ \put(-27,-5){\line(0,1){10}}
+ \put(-50,7.5){\line(0,1){17.5}}
+ \put(-50,-7.5){\line(0,-1){17.5}}
+ \put(0,0){\line(-1,0){27}}
+ \put(-30,7.5){\line(-1,0){20}}
+ \put(-30,-7.5){\vector(-1,0){20}}
+ \put(-25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h enh. pmos reversed
+\newcommand{\epmosr}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(-1,0){27}}
+ \put(-27,-5){\line(0,1){10}}
+ \put(-30,-10){\line(0,1){20}}
+ \put(-50,7.5){\vector(1,0){20}}
+ \put(-30,-7.5){\line(-1,0){20}}
+ \put(-50,-25){\line(0,1){17.5}}
+ \put(-50,7.5){\line(0,1){17.5}}
+ \put(-25,-20){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h enh. pmosfet d down
+\newcommand{\epmosdd}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(1,0){23}}
+ \put(23,-5){\line(0,1){10}}
+ \put(27,-10){\line(0,1){20}}
+ \put(50,8){\vector(-1,0){23}}
+ \put(27,-8){\line(1,0){23}}
+% \put(50,-25){\line(1,0){0}}
+% \put(50,25){\line(1,0){0}}
+ \put(50,-25){\line(0,1){17}}
+ \put(50,8){\line(0,1){17}}
+ \put(25,-20){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h fet (generic)
+\newcommand{\fet}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,0){\circle{30}}
+ \put(30,-10){\line(0,1){20}}
+ \put(50,7.5){\line(0,1){17.5}}
+% \put(0,0){\line(0,1){25}}
+ \put(50,-7.5){\line(0,-1){17.5}}
+ \put(30,0){\line(-1,0){30}}
+ \put(30,7.5){\line(1,0){20}}
+ \put(30,-7.5){\line(1,0){20}}
+ \put(35,-22){\makebox(0,0){${#2}$}}
+% \put(0,25){\line(-1,0){10}}
+% \put(50,25){\line(1,0){10}}
+\end{picture}}}
+
+% h benmos
+\newcommand{\benmos}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-5){\line(0,1){5}}
+ \put(30,2.5){\line(0,1){5}}
+ \put(30,10){\line(0,1){5}}
+ \put(27,0){\line(0,1){10}}
+ \put(50,12.5){\line(0,1){12.5}}
+ \put(50,-2.5){\line(0,-1){22.5}}
+ \put(0,0){\line(1,0){27}}
+ \put(30,12.5){\line(1,0){20}}
+ \put(30,-2.5){\line(1,0){20}}
+ \put(50,5){\vector(-1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h bdnmos
+\newcommand{\bdnmos}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-5){\line(0,1){20}}
+ \put(27,0){\line(0,1){10}}
+ \put(50,12.5){\line(0,1){12.5}}
+ \put(50,-2.5){\line(0,-1){22.5}}
+ \put(0,0){\line(1,0){27}}
+ \put(30,12.5){\line(1,0){20}}
+ \put(30,-2.5){\line(1,0){20}}
+ \put(50,5){\vector(-1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h bepmos
+\newcommand{\bepmos}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-5){\line(0,1){5}}
+ \put(30,2.5){\line(0,1){5}}
+ \put(30,10){\line(0,1){5}}
+ \put(27,0){\line(0,1){10}}
+ \put(50,12.5){\line(0,1){12.5}}
+ \put(50,-2.5){\line(0,-1){22.5}}
+ \put(0,0){\line(1,0){27}}
+ \put(30,12.5){\line(1,0){20}}
+ \put(30,-2.5){\line(1,0){20}}
+ \put(30,5){\vector(1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h bdpmos
+\newcommand{\bdpmos}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-5){\line(0,1){20}}
+ \put(27,0){\line(0,1){10}}
+ \put(50,12.5){\line(0,1){12.5}}
+ \put(50,-2.5){\line(0,-1){22.5}}
+ \put(0,0){\line(1,0){27}}
+ \put(30,12.5){\line(1,0){20}}
+ \put(30,-2.5){\line(1,0){20}}
+ \put(30,5){\vector(1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h njfet Millman
+\newcommand{\njfetm}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-10){\line(0,1){20}}
+ \put(50,7.5){\line(0,1){17.5}}
+ \put(50,-7.5){\line(0,-1){17.5}}
+ \put(0,0){\vector(1,0){30}}
+ \put(30,7.5){\line(1,0){20}}
+ \put(30,-7.5){\line(1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h njfet Rizzoni
+\newcommand{\njfetr}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(30,-10){\line(0,1){20}}
+ \put(27,-5){\line(0,1){10}}
+ \put(50,7.5){\line(0,1){17.5}}
+ \put(50,-7.5){\line(0,-1){17.5}}
+ \put(0,0){\vector(1,0){27}}
+ \put(30,7.5){\line(1,0){20}}
+ \put(30,-7.5){\line(1,0){20}}
+ \put(25,-22){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h opa + up
+\newcommand{\hoa}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(0,15){\line(1,0){10}}
+ \put(0,35){\line(1,0){10}}
+ \put(40,25){\line(1,0){10}}
+ \put(10,7){\line(0,1){36}}
+ \put(10,7){\line(5,3){30}}
+ \put(10,43){\line(5,-3){30}}
+ \put(15,33){\makebox(0,0){$+$}}
+ \put(15,17){\makebox(0,0){$-$}}
+ \put(25,25){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h opa - up
+\newcommand{\ho}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(0,15){\line(1,0){10}}
+ \put(0,35){\line(1,0){10}}
+ \put(40,25){\line(1,0){10}}
+ \put(10,7){\line(0,1){36}}
+ \put(10,7){\line(5,3){30}}
+ \put(10,43){\line(5,-3){30}}
+ \put(15,33){\makebox(0,0){$-$}}
+ \put(15,17){\makebox(0,0){$+$}}
+ \put(25,25){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h opa high (+ up)
+\newcommand{\hop}[2]
+ {\put(#1){\begin{picture}(50,100)
+ \put(0,0){\line(0,1){40}}
+ \put(0,60){\line(0,1){40}}
+ \put(0,40){\line(1,0){10}}
+ \put(0,60){\line(1,0){10}}
+ \put(40,50){\line(1,0){10}}
+ \put(10,32){\line(0,1){36}}
+ \put(10,32){\line(5,3){30}}
+ \put(10,68){\line(5,-3){30}}
+ \put(15,58){\makebox(0,0){$+$}}
+ \put(15,42){\makebox(0,0){$-$}}
+ \put(25,50){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h opa high (- up)
+\newcommand{\hopi}[2]
+ {\put(#1){\begin{picture}(50,100)
+ \put(0,0){\line(0,1){40}}
+ \put(0,60){\line(0,1){40}}
+ \put(0,40){\line(1,0){10}}
+ \put(0,60){\line(1,0){10}}
+ \put(40,50){\line(1,0){10}}
+ \put(10,32){\line(0,1){36}}
+ \put(10,32){\line(5,3){30}}
+ \put(10,68){\line(5,-3){30}}
+ \put(15,58){\makebox(0,0){$-$}}
+ \put(15,42){\makebox(0,0){$+$}}
+ \put(25,50){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h opa reversed - up
+\newcommand{\hoar}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(0,1){15}}
+ \put(0,35){\line(0,1){15}}
+ \put(0,15){\line(-1,0){10}}
+ \put(0,35){\line(-1,0){10}}
+ \put(-40,25){\line(-1,0){10}}
+ \put(-10,7){\line(0,1){36}}
+ \put(-10,7){\line(-5,3){30}}
+ \put(-10,43){\line(-5,-3){30}}
+ \put(-15,33){\makebox(0,0){$-$}}
+ \put(-15,17){\makebox(0,0){$+$}}
+ \put(-25,25){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h opa output down
+\newcommand{\hod}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(1,0){15}}
+ \put(35,0){\line(1,0){15}}
+ \put(35,-10){\line(0,1){10}}
+ \put(15,-10){\line(0,1){10}}
+ \put(25,-50){\line(0,1){10}}
+ \put(7,-10){\line(1,0){36}}
+ \put(7,-10){\line(3,-5){18}}
+ \put(43,-10){\line(-3,-5){18}}
+ \put(15,-15){\makebox(0,0){$+$}}
+ \put(35,-15){\makebox(0,0){$-$}}
+ \put(25,-22){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h opa output up
+\newcommand{\hou}[2]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,0){\line(1,0){15}}
+ \put(35,0){\line(1,0){15}}
+ \put(35,0){\line(0,1){10}}
+ \put(15,0){\line(0,1){10}}
+ \put(25,40){\line(0,1){10}}
+ \put(7,10){\line(1,0){36}}
+ \put(7,10){\line(3,5){18}}
+ \put(43,10){\line(-3,5){18}}
+ \put(15,15){\makebox(0,0){$-$}}
+ \put(35,15){\makebox(0,0){$+$}}
+ \put(25,23){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h AND-port
+\newcommand{\hand}[1]
+ {\put(#1){\begin{picture}(50,50)
+ \put(0,-5){\framebox(20,35){$\&$}}
+ \put(20,12.5){\line(1,0){10}}
+\end{picture}}}
+
+% h NAND-port
+\newcommand{\hnand}[1]
+ {\put(#1){\begin{picture}(50,50)
+ \put(22.5,12.5){\circle{5}}
+ \put(0,-5){\framebox(20,35){$\&$}}
+ \put(25,12.5){\line(1,0){5}}
+\end{picture}}}
+
+% h OR-port
+\newcommand{\hor}[1]
+ {\put(#1){\begin{picture}(50,50)
+ \put(20,12.5){\line(1,0){10}}
+ \put(0,-5){\framebox(20,35){$\geq 1$}}
+ \put(20,12.5){\line(1,0){10}}
+\end{picture}}}
+
+% h NOR-port
+\newcommand{\hnor}[1]
+ {\put(#1){\begin{picture}(50,50)
+ \put(22.5,12.5){\circle{5}}
+ \put(25,12.5){\line(1,0){5}}
+ \put(0,-5){\framebox(20,35){$\geq 1$}}
+\end{picture}}}
+
+% h XOR-port
+\newcommand{\hxor}[1]
+ {\put(#1){\begin{picture}(50,50)
+ \put(20,12.5){\line(1,0){10}}
+ \put(0,-5){\framebox(20,35){$=1$}}
+\end{picture}}}
+
+% h XNOR-port
+\newcommand{\hxnor}[1]
+ {\put(#1){\begin{picture}(50,50)
+ \put(22.5,12.5){\circle{5}}
+ \put(25,12.5){\line(1,0){5}}
+ \put(0,-5){\framebox(20,35){$=1$}}
+\end{picture}}}
+
+% h NOT-port
+\newcommand{\hnot}[1]
+ {\put(#1){\begin{picture}(50,50)
+ \put(22.5,12.5){\circle{5}}
+ \put(25,12.5){\line(1,0){5}}
+ \put(0,-5){\framebox(20,35){}}
+\end{picture}}}
+
+% h SR flip-flop
+\newcommand{\sr}[1]
+{\put(#1){\begin{picture}(50,60)
+\put(10,-10){\framebox(30,50){}}
+\txt{16,0}{R}
+\txt{16,30}{S}
+%\txt{11,15}{\overline{CK}}
+\hln{0,15}{10}
+\put(13,15){\makebox(0,0){$>$}}
+\put(34,0){\makebox(0,0){$\overline{Q}$}}
+\put(34,30){\makebox(0,0){$Q$}}
+\hln{0,30}{10}
+\hln{0,0}{10}
+\hln{40,30}{10}
+\hln{40,0}{10}
+\end{picture}}}
+
+% h JK flip-flop with S and R inverted
+\newcommand{\jk}[1]
+{\put(#1){\begin{picture}(50,60)
+\put(10,-10){\framebox(30,50){}}
+\put(7.5,15){\circle{5}}
+\put(25,42.5){\circle{5}}
+\put(25,-12.5){\circle{5}}
+\hln{0,15}{5}
+\hln{0,30}{10}
+\hln{0,0}{10}
+\hln{40,30}{10}
+\hln{40,0}{10}
+\put(13,15){\makebox(0,0){$>$}}
+\end{picture}}}
+
+% h JK flip-flop
+\newcommand{\jkff}[1]
+{\put(#1){\begin{picture}(50,60)
+\put(10,-10){\framebox(30,50){}}
+\put(7.5,15){\circle{5}}
+\hln{0,15}{5}
+\hln{0,30}{10}
+\hln{0,0}{10}
+\hln{40,30}{10}
+\hln{40,0}{10}
+\put(13,15){\makebox(0,0){$>$}}
+\end{picture}}}
+
+% h D flip-flop
+\newcommand{\dff}[1]
+{\put(#1){\begin{picture}(50,60)
+\put(10,-10){\framebox(30,50){}}
+\hln{0,30}{10}
+\hln{0,0}{10}
+\hln{40,30}{10}
+\hln{40,0}{10}
+\put(13,0){\makebox(0,0){$>$}}
+\end{picture}}}
+
+% h NOT-port with a triangle
+\newcommand{\hnott}[1]
+ {\put(#1){\begin{picture}(50,50)
+ \put(20,4){\line(3,-2){6}}
+ \put(20,0){\line(1,0){10}}
+ \put(0,-17.5){\framebox(20,35){}}
+\end{picture}}}
+
+% h NOT-port small
+\newcommand{\hnots}[1]
+ {\put(#1){\begin{picture}(50,50)
+ \put(22.5,0){\circle{5}}
+ \put(25,0){\line(1,0){5}}
+ \put(0,-7.5){\framebox(20,15){}}
+\end{picture}}}
+
+% h twoport
+\newcommand{\htp}[2]
+ {\put(#1){\begin{picture}(100,74)
+ \put(15,-5){\framebox(70,60)}
+ \put(0,0){\line(1,0){15}}
+ \put(0,50){\line(1,0){15}}
+ \put(85,0){\line(1,0){15}}
+ \put(85,50){\line(1,0){15}}
+ \put(50,25){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h short twoport
+\newcommand{\hstp}[2]
+ {\put(#1){\begin{picture}(50,74)
+ \put(10,-5){\framebox(30,60)}
+ \put(0,0){\line(1,0){10}}
+ \put(0,50){\line(1,0){10}}
+ \put(40,0){\line(1,0){10}}
+ \put(40,50){\line(1,0){10}}
+ \put(25,25){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h transmission line
+\newcommand{\htl}[2]
+ {\put(#1){\begin{picture}(100,60)
+ \put(15,-5){\framebox(70,10)}
+ \put(15,45){\framebox(70,10)}
+ \put(0,0){\line(1,0){15}}
+ \put(0,50){\line(1,0){15}}
+ \put(85,0){\line(1,0){15}}
+ \put(85,50){\line(1,0){15}}
+ \put(50,25){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h transmission line stub left
+\newcommand{\hs}[2]
+ {\put(#1){\begin{picture}(50,60)
+ \put(-40,7){\framebox(30,10)}
+ \put(-40,33){\framebox(30,10)}
+ \put(0,12){\line(-1,0){10}}
+ \put(0,38){\line(-1,0){10}}
+ \put(0,0){\line(0,1){12}}
+ \put(0,38){\line(0,1){12}}
+ \put(-40,12){\line(-1,0){10}}
+ \put(-40,38){\line(-1,0){10}}
+ \put(-25,25){\makebox(0,0){${#2}$}}
+\end{picture}}}
+
+% h transmission line stub right
+\newcommand{\hsr}[2]
+ {\put(#1){\begin{picture}(50,60)
+ \put(10,7){\framebox(30,10)}
+ \put(10,33){\framebox(30,10)}
+ \put(0,12){\line(1,0){10}}
+ \put(0,38){\line(1,0){10}}
+ \put(0,0){\line(0,1){12}}
+ \put(0,38){\line(0,1){12}}
+ \put(40,12){\line(1,0){10}}
+ \put(40,38){\line(1,0){10}}
+ \put(25,25){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% v transmission line
+\newcommand{\vtl}[2]
+ {\put(#1){\begin{picture}(60,50)
+ \put(-5,10){\framebox(10,30)}
+ \put(45,10){\framebox(10,30)}
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \put(50,0){\line(0,1){10}}
+ \put(50,40){\line(0,1){10}}
+ \put(25,25){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% h = horizontal, v = vertical, r = reversed
+
+% General amplifier
+\newcommand{\amp}[2]
+ {\put(#1){\begin{picture}(50,50)
+% \put(0,0){\line(0,1){15}}
+\put(0,25){\line(1,0){10}}
+% \put(0,35){\line(0,1){15}}
+% \put(0,15){\line(1,0){10}}
+% \put(0,35){\line(1,0){10}}
+ \put(40,25){\line(1,0){10}}
+ \put(10,7){\line(0,1){36}}
+ \put(10,7){\line(5,3){30}}
+ \put(10,43){\line(5,-3){30}}
+% \put(15,33){\makebox(0,0){$-$}}
+% \put(15,17){\makebox(0,0){$+$}}
+ \put(25,25){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+% An operational amplifier with supply voltages
+\newcommand{\vo}[3]
+ {\put(#1){\begin{picture}(50,50)(0,15)
+ %\put(0,0){\line(0,1){15}}
+ %\put(0,35){\line(0,1){15}}
+ \put(0,15){\line(1,0){10}}
+ \put(0,35){\line(1,0){10}}
+ \put(40,25){\line(1,0){10}}
+ \put(10,7){\line(0,1){36}}
+ \put(10,7){\line(5,3){30}}
+ \put(10,43){\line(5,-3){30}}
+ \put(15,33){\makebox(0,0){$-$}}
+ \put(15,17){\makebox(0,0){$+$}}
+ \put(25,25){\makebox(0,0){$#2$}}
+ % K‰yttikset
+ \put(25,8){\line(0,1){8}}
+ \put(25,34){\line(0,1){8}}
+ \put(29,2){\makebox(0,0){\tiny$-#3\V$}}
+ \put(29,47){\makebox(0,0){\tiny$+#3\V$}}
+\end{picture}}}
+
+% An operational amplifier with supply voltages, inverted
+\newcommand{\voi}[3]
+ {\put(#1){\begin{picture}(50,50)(0,15)
+ %\put(0,0){\line(0,1){15}}
+ %\put(0,35){\line(0,1){15}}
+ \put(0,15){\line(1,0){10}}
+ \put(0,35){\line(1,0){10}}
+ \put(40,25){\line(1,0){10}}
+ \put(10,7){\line(0,1){36}}
+ \put(10,7){\line(5,3){30}}
+ \put(10,43){\line(5,-3){30}}
+ \put(15,33){\makebox(0,0){$+$}}
+ \put(15,17){\makebox(0,0){$-$}}
+ \put(25,25){\makebox(0,0){$#2$}}
+ % K‰yttikset
+ \put(25,8){\line(0,1){8}}
+ \put(25,34){\line(0,1){8}}
+ \put(29,2){\makebox(0,0){\tiny$-#3\V$}}
+ \put(29,47){\makebox(0,0){\tiny$+#3\V$}}
+\end{picture}}}
+
+% An operational amplifier with supply voltages, reversed
+\newcommand{\vor}[3]
+ {\put(#1){\begin{picture}(50,50)(0,15)
+ %\put(0,0){\line(0,1){15}}
+ %\put(0,35){\line(0,1){15}}
+ \put(0,15){\line(-1,0){10}}
+ \put(0,35){\line(-1,0){10}}
+ \put(-40,25){\line(-1,0){10}}
+ \put(-10,7){\line(0,1){36}}
+ \put(-10,7){\line(-5,3){30}}
+ \put(-10,43){\line(-5,-3){30}}
+ \put(-15,33){\makebox(0,0){$+$}}
+ \put(-15,17){\makebox(0,0){$-$}}
+ \put(-25,25){\makebox(0,0){${#2}$}}
+
+ % K‰yttikset
+ \put(-25,8){\line(0,1){8}}
+ \put(-25,34){\line(0,1){8}}
+ \put(-29,2){\makebox(0,0){\tiny$-#3\V$}}
+ \put(-29,47){\makebox(0,0){\tiny$+#3\V$}}
+
+\end{picture}}}
+
+% Node name
+\newcommand{\node}[2]
+ {\put(#1){\begin{picture}(10,50)
+ \thinlines \put(0,0){\circle{7}}
+ \put(0,0){\makebox(1,0){\tiny #2}}
+\end{picture}}}
+
+% A rectifier bridge, REQUIRES \usepackage{rotating}
+\newcommand{\bridge}[1]{
+
+\put(#1){\rotatebox{-45}{\rd{0,0}{}}}
+\put(#1){\rotatebox{45}{\rd{-50,50}{}}}
+\put(#1){\rotatebox{135}{\ld{-50,-50}{}}}
+\put(#1){\rotatebox{-135}{\ld{-50,50}{}}}
+}
+
+% v transformer (in power engineering diagrams)
+\newcommand{\htf}[2]
+ {\put(#1){\begin{picture}(50,32)
+ \put(20,0){\circle{20}}
+ \put(30,0){\circle{20}}
+ \put(0,0){\line(1,0){10}}
+ \put(40,0){\line(1,0){10}}
+ \put(25,-19){\makebox(0,0){$#2$}}
+\end{picture}}}
+
+\newcommand{\vtf}[2]
+ {\put(#1){\begin{picture}(32,50)
+ \put(0,20){\circle{20}}
+ \put(0,30){\circle{20}}
+ \put(0,0){\line(0,1){10}}
+ \put(0,40){\line(0,1){10}}
+ \put(-13,25){\makebox(0,0)[r]{$#2$}}
+\end{picture}}}
+
+% Vesan pikamakroja
+\newcommand{\kohm}{\,\mathrm{k}\Omega}
+\newcommand{\mohm}{\,\mathrm{M}\Omega}
+\newcommand{\ohm}{\,\Omega}
+\newcommand{\V}{\,\mathrm{V}}
+\newcommand{\A}{\,\mathrm{A}}
+\newcommand{\Siemens}{\,\mathrm{S}}
+\newcommand{\mA}{\,\mathrm{mA}}
+\newcommand{\Hz}{\,\mathrm{Hz}}
+\newcommand{\kHz}{\,\mathrm{kHz}}
+\newcommand{\Uin}{U_\mathrm{in}}
+\newcommand{\Uout}{U_\mathrm{out}}
+\newcommand{\al}[2]{\parbox{20pt}{$#1$\\$#2$}}
+\newcommand{\ad}[2]{\vspace{-10pt}\parbox{20pt}{$#1$\\$#2$}}
+\newcommand{\Umin}{U_\mathrm{min}}
+\newcommand{\Umax}{U_\mathrm{max}}
+\newcommand{\mV}{\,\mathrm{mV}}
+\newcommand{\jj}{\mathrm{j}}
+\newcommand{\nF}{\,\mathrm{nF}}
+\newcommand{\ms}{\,\mathrm{ms}}
+\newcommand{\us}{\,\mathrm{\upmu s}}
+\newcommand{\uF}{\,\mathrm{\upmu F}}
+\newcommand{\uA}{\,\mathrm{\upmu A}}
+\newcommand{\Ur}[1]{U_\mathrm{#1}}
+\newcommand{\Ua}{U_{\rm a}}
+\newcommand{\Du}{\frac{{\rm d}u}{{\rm d}t}}
+\newcommand{\Di}{\frac{{\rm d}i}{{\rm d}t}}
+\newcommand{\lap}{{\mathcal L}}
+\newcommand{\dt}{{\,\rm d} t}
+\newcommand{\degree}{^\circ}
+\newcommand{\HH}{\,\mathrm{H}}
+\newcommand{\mH}{\,\mathrm{mH}}
+
+%\newcommand{\Ub}{U_\mathrm{b}}
+%\newcommand{\Ua1}{U_\mathrm{a1}}
+%\newcommand{\Ub1}{U_\mathrm{b1}}
+%\newcommand{\Ua2}{U_\mathrm{a2}}
+%\newcommand{\Ub2}{U_\mathrm{b2}}
+
+
+

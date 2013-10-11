@@ -1,0 +1,144 @@
+\frame{
+\frametitle{Tasasuuntaajat ja regulaattorit}
+\begin{itemize}
+\item Käytännössä kaikki elektroniikkalaitteet vaativat syöttöjännitteeksi tasajännitteen.
+\item Laitetta, joka muuttaa sähköverkosta saatavan vaihtosähkön elektroniikkalaitteelle sopivaksi
+tasasähköksi, kutsutaan verkkolaitteeksi tai teholähteeksi. Arkikielessä käytetään myös termejä virtalähde, poweri,
+adapteri tai muuntaja.
+\item Teholähde voidaan toteuttaa kahdella päätavalla: lineaarisena teholähteenä tai hakkuriteholähteenä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Teholähteen ominaisuudet}
+\begin{itemize}
+\item Nimellisjännite
+\item Maksimivirta/teho
+\item Hurinajännite
+\end{itemize}
+}
+
+\frame{
+\frametitle{Lineaarinen teholähde}
+Lineaarisessa teholähteessä
+\begin{itemize}
+\item verkkojännite alennetaan ensin verkkomuuntajalla. 
+\item Seuraavaksi jännite tasasuunnataan (yleensä) diodisillalla.
+\item Diodisillalta saatava sykkivä tasajännite suodatetaan tasaisemmaksi kondensaattorilla.
+\item Jos tarvitaan erittäin stabiilia tasajännitettä, käytetään lisäksi regulaattoria, joka "leikkaa"\ jännitteen vaihtelut pois.
+\end{itemize}
+Verkkolaitteessa on tavallisesti myös sulake muuntajan ensiöpuolella.
+}
+
+\frame{
+\frametitle{Muuntaja}
+\begin{itemize}
+\item Kaksi kelaa, joiden välillä keskinäisinduktanssia.
+\item Toiseen kelaan syötetty muuttuva virta aikaansaa toiseen kelaan muuttuvan jännitteen.
+\item Ensiö- ja toisiojännitteiden suhde eli muuntosuhde määräytyy suoraan käämien kierroslukujen perusteella.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tasasuuntaus}
+\begin{itemize}
+\item Muuntajalta saatava sinimuotoinen vaihtojännite tasasuunnataan sykkiväksi tasajännitteeksi.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Suodatuskondensaattori}
+\begin{itemize}
+\item Sykkivä tasajännite ei kelpaa (harvinaisia poikkeuksia lukuunottamatta) sellaisenaan laitteen syöttöjännitteeksi.
+\item Käyttämällä suodatuskondensaattoria voidaan sykkivää tasajännitettä tasoittaa vähemmän sykkiväksi.
+\item Kondensaattori luovuttaa virtaa kuormalle, kun tasasuuntaajalta tuleva jännite laskee.
+\item Suodatetun tasajännitteen vaihtelua kutsutaan hurinajännitteeksi (muita nimiä: ripple (engl.), rippeli, brummi).
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{(Lineaarinen) regulaattori}
+\begin{itemize}
+\item Regulaattori leikkaa hurinajännitteen pois.
+\item Esimerkiksi jos 5 voltin regulaattorille syötetään välillä 9--12 V vaihtelevaa tasajännitettä, regulaattori pitää lähtöjännitteen jatkuvasti viidessä voltissa.
+\item Lineaarinen regulaattori koostuu säätöpiiristä ja tehotransistorista. Säätöpiiri vertaa lähtöjännitettä sisäiseen vertailujännitteeseen ja säätää transistorin johtavuutta niin, että lähtöjännite pysyy vakiona, vaikka kuorman virrankulutus ja tulojännite vaihtelisivat.
+\item Tunnetuin regulaattorisarja on 78xx. Kaksi viimeistä numeroa kertovat jännitteen, esimerkiksi 7805 reguloi lähtöjännitteen viiteen volttiin.
+\item Regulaattori vaatii tietyn minimijännitteen, jotta se toimii normaalisti. 78xx-sarjalla tämä on yleensä 2\ldots 2,5 volttia yli nimellisjännitteen. Lopullinen arvo kannattaa varmistaa valmistajan datalehdestä.
+\item Regulaattoreita on saatavilla myös säädettävänä, esimerkiksi LM317.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Esimerkki lineaarisesta teholähteestä}
+\begin{center}
+\begin{picture}(280,150)(0,-40)
+
+\out{0,0}
+\out{0,50}
+\hln{0,0}{50}
+\hln{0,50}{50}
+\txt{0,25}{230\V\ 50\Hz}
+
+\vl{50,0}{}
+\vlr{75,-25}{}
+\vlr{75,25}{}
+\put(59,0){\line(0,1){50}}
+\put(62,0){\line(0,1){50}}
+\put(65,0){\line(0,1){50}}
+
+\rd{75,-25}{D_2}
+\rd{75,75}{D_1}
+
+\vcj{125,25}
+\vln{125,-25}{45}
+\vln{125,30}{45}
+
+\hln{75,25}{200}
+
+\vc{150,25}{C_1}
+\vc{235,25}{C_2}
+\vz{275,25}{R_\mathrm{L}}
+
+\put(175,60){\framebox(30,30){}}
+\vln{190,25}{35}
+\hgp{190,25}
+\cn{190,25}
+\stx{190,100}{Regulaattori}
+
+\hln{125,75}{50}
+\hln{205,75}{70}
+
+\stx{169,80}{$\Uin$}
+\stx{215,80}{$\Uout$}
+
+\end{picture}
+\end{center}
+Koska muuntajassa on keskiulosotto, voidaan kokoaaltotasasuuntaus toteuttaa kahdella diodilla.
+}
+
+\frame{
+\frametitle{Suodatuskondensaattorin mitoitus}
+\begin{itemize}
+\item Suodatuskondensaattori $C_1$ on valittava sellaiseksi, että regulaattorin tulojännite ei laske alle sallitun minimin.
+\item Mitä suurempi kondensaattori, sitä pienempi on hurinajännite.
+\item Jos kuorman ottama virta oletetaan vakioksi ja oletetaan, että purkautuminen kestää 10 millisekuntia, niin kondensaattorin vähimmäiskoko on
+\[
+C=\frac{I\cdot 10\, {\rm ms}}{\Delta U},
+\]
+missä $I$ on kuorman ja regulaattorin ottama virta ja $\Delta U$ on regulaattorille tulevan maksimijännitteen ja regulaattorin vaatiman minimijännitteen erotus.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kondensaattorin mitoittaminen: tarkempi tapa}
+Kondensaattorin ei tarvitse antaa virtaa koko 10 millisekunnin jakson ajan. Voidaan helposti osoittaa, että seuraava nouseva jakso saavuttaa purkautuvan kondensaattorin jännitteen vaihekulman $\phi$ kuluttua, jolloin kondensaattorin minimikoko voidaan laskea:
+\begin{itemize}
+\item $C=\frac{I\Delta t}{\Delta U}$
+\item $\Delta t=\frac{\phi}{360^\circ}\frac{1}{f_{\rm verkko}}$
+\item $\phi=90^\circ+\arcsin \frac{U_{\rm min}+U_{\rm diodi(t)}}{U_{\rm max}+U_{\rm diodi(t)}}$.
+\end{itemize}
+Kaavassa $U_{\rm min}$ ja $U_{\rm max}$ ovat regulaattorille tuleva minimi- ja maksimijännite.
+}
+

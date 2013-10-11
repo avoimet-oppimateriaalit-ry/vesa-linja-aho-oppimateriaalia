@@ -1,0 +1,134 @@
+\documentclass[]{beamer}
+% Trans, handout
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm]
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+%\usepackage{beamerthemesplit} % pois turhana
+\usepackage{ae,aecompl} % 1 Tällä komennolla saa ääkkös-copypasten toimimaan, ei tuu a¨ tai muuta hölmöä
+\usepackage{lmodern} % 2 Tällä komennolla saa ääkkös-copypasten toimimaan, ei tuu a¨ tai muuta hölmöä
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[finnish]{babel}
+\input{latex-macro}
+%\usecolortheme{albatross}
+\usepackage{comment}
+\usepackage{textcomp}
+\usepackage{icomma}
+\usepackage{hyperref}
+%\usepackage{import}
+%\usepackage{cclicenses}
+\usepackage{tikz}
+\usepackage{cancel} % Termien kumoamisviivat \cancel
+
+% Vinkkejä http://doxdrum.wordpress.com/2009/12/22/howto-presentation-in-beamer-basics/
+%\usetheme{Warsaw}
+ \usetheme[secheader]{Boadilla}
+%\usetheme{AnnArbor} Kivasti tilaa (ei otsikoita ylhäällä, sivunumerot, mut karmeet värit!)
+%\usetheme{Berkeley} % Palkki vasemmalla, vähän karu
+% \usetheme{Berlin} Paksu yläpalkki jossa hassuja pallukoita
+
+\setbeamertemplate{navigation symbols}{} % Tällä saa navisymbolit pois
+
+\begin{document}
+
+\title{Sähkötekniikan ja elektroniikan materiaalia}
+\subtitle{Lisensoitu vapaasti CC-BY-lisenssillä}
+\author{Vesa Linja-aho}
+\date{\today}
+\institute{Metropolia Helsinki UAS}
+\frame{
+\titlepage
+
+}
+
+% Kommentoi alta pois ne kalvot, joita et tarvitse.
+
+%\begin{comment}
+
+% Alla Tasasähköpiirikurssin materiaali. Materiaali syksyltä 2009 englanniksi on
+% omassa tiedostossaan (joka lateksoituu itsenäisesti) nimeltä dc_analysis.tex.
+% TODO: Jaa dc_analysis paloiksi kuten alla ja käännä englanniksi muitakin kalvoja.
+
+\input{perus-kirchhoff-ohm}
+\input{sarjaan-ja-rinnan}
+\input{virtalahde}
+\input{konduktanssi-sahkoteho-napa-solmu-maa}
+\input{solmujannitemenetelma}
+\input{solmumenetelma} % TODO parantele
+\input{piirimuunnoksia-lahdemuunnos}
+\input{thevenin-norton}
+\input{kerrostamismenetelma}
+\input{jannitteenjako-virranjako}
+\input{ohjatut-lahteet}
+\input{kela-kondensaattori}
+
+%\input{sekalaista} % Tähän on koottu lajittelematonta matskua joka odottaa järjestelyä
+
+\input{operaatiovahvistin}
+\input{takaisinkytkenta}
+\input{oskillaattori}
+\input{ce-vahvistin}
+\input{piensignaalianalyysi}
+\input{hakkuriteholahde}
+\input{vakiovirtalahde}
+
+\input{sahkoturvallisuus-perusteet}
+
+\input{diodi}
+\input{operaatiovahvistin-epaideaalisuudet}
+\input{desibeli}
+\input{jaahdytys}
+\input{transistori}
+\input{transistori-epaideaalisuudet}
+\input{lineaarinen-teholahde}
+\input{kanavatransistorit}
+\input{vastukset}
+\input{kelat}
+\input{kondensaattorit}
+\input{tehoelektroniikan-komponentit}
+
+\input{logiikkaportit}
+\input{lukujarjestelmat}
+\input{sekvenssipiirit}
+
+\input{suodattimet} % TODO Kato missä määrin päällekkäinen resonanssi-suodattimet
+\input{mittaustekniikka}
+\input{vaihtojannite-reaktanssi}
+\input{kompleksiluvut-osoitinlaskenta}
+\input{yleistetty-ohmin-laki}
+\input{vaihtosahkoteho}
+\input{loistehokompensointi-ja-tehosovitus}
+\input{harmoninen-analyysi}
+\input{siirtofunktiot-kaksiportit}
+\input{resonanssi-suodattimet}
+\input{muutosilmiot}
+\input{laplace-muutosilmiot}
+\input{fourier}
+
+\input{tuotekehitys}
+
+\input{autosahkokaaviot-johtimet}
+\input{lyijyakku}
+\input{saatotekniikka}
+\input{latausjarjestelma}
+\input{kaynnistysjarjestelma}
+\input{sytytysjarjestelma}
+\input{anturit-ecu-vaylat}
+\input{turvatekniikka}
+\input{valot}
+
+
+\input{signaalit}
+\input{vahvistimet}
+\input{matlab}
+
+\input{emc}
+
+\input{polttomoottorin-ohjaus}
+%\end{comment}
+
+
+%\input{}
+
+\end{document}

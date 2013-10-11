@@ -1,0 +1,245 @@
+% TODO Lisää tehokertoimen määritelmä (mikä on kosini fii)
+
+\frame{
+\frametitle{Vaihtovirtateho vastuksessa}
+\begin{itemize}
+\item Hetkelliselle teholle pätee $p=ui$. Vastuksessa $u=Ri$, joten $p=ui=Ri\cdot i=Ri^2$.
+\item Sinimuotoinen vaihtovirta, jonka huippuarvo on esimerkiksi $10 \A$, lämmittää $2 \ohm$ vastusta
+välillä $p=2\ohm \cdot (10\A)^2=200\,{\rm W}$ teholla, ja välillä $0 \,{\rm W}$ teholla.
+\item Mikä sitten on keskimääräinen teho, jolla kyseinen vaihtovirta lämmittää vastusta? Jatkuva
+keskiarvo saadaan laskettua integraalin avulla $P_{\rm av}=\frac{1}{T}\int_0^Tp(t){\rm d}t$.
+\item Sijoitetaan sinimuotoinen virta, jonka huippuarvo on $\hat{i}$ ja kulmataajuus $\omega$,
+tehon kaavaan, ja lasketaan integroimalla keskimääräinen teho.
+\end{itemize}
+\[
+P_{\rm av}=\frac{1}{T}\int_0^Tp(t){\rm d}t=\frac{1}{T}\int_0^TR(\hat{i}\sin{\omega t})^2{\rm d}t
+=\frac{R\hat{i}^2}{T}\int_0^T\frac{1}{2}(1-\cos2\omega t){\rm d}t
+\]
+}
+
+\frame{
+\frametitle{Integraali jatkuu}
+\[
+P_{\rm av}=\frac{1}{T}\int_0^Tp(t){\rm d}t=\frac{1}{T}\int_0^TR(\hat{i}\sin{\omega t})^2{\rm d}t
+=\frac{R\hat{i}^2}{T}\int_0^T\frac{1}{2}(1-\cos2\omega t){\rm d}t
+\]
+Koska kulmataajuus $\omega = 2\pi f$ ja jaksonaika $T=\frac{1}{f}$, niin
+\[
+P_{\rm av}=\frac{R\hat{i}^2}{T}\int_0^T\frac{1}{2}(1-\cos2\frac{2\pi}{T} t){\rm d}t
+=\frac{R\hat{i}^2}{T}\int_0^T\frac{1}{2}-\frac{1}{2}\cos\frac{4\pi}{T} t{\rm d}t
+\]
+\[
+P_{\rm av}=\frac{R\hat{i}^2}{T}(\frac{1}{2}T-\frac{1}{2}\frac{T}{4\pi}(\sin\frac{4\pi}{T}T-\sin\frac{4\pi}{T}0))
+=R\hat{i}^2(\frac{1}{2}-\frac{1}{8\pi}(0-0))=\frac{R\hat{i}^2}{2}
+\]
+Eli minkä suuruista tasavirtaa tällainen vaihtovirta vastaa tehon kaavassa?
+\[
+I_{\rm eff}=\frac{\hat{i}}{\sqrt{2}}
+\]
+}
+
+\frame{
+\frametitle{Kompleksinen teho}
+Aivan kuten Ohmin laki voidaan yleistää vaihtosähkölle $U=RI \Rightarrow U=ZI$, voidaan
+tehokin laskea kompleksilukujen avulla:
+\[
+S=UI^*, \mbox{missä}\ S=P+\jj Q
+\]
+Kompleksisen tehon reaaliosaa $P$ kutsutaan pätötehoksi (yksikkö: watti, W) ja imaginaariosaa $Q$ loistehoksi (yksikkö vari, var). Pätöteho
+kuluu piirissä (esim. muuttuu vastuksessa lämmöksi), loisteholla tarkoitetaan tehoa,
+joka heilahtelee edestakaisin piirissä, mutta ei varsinaisesti kulu mihinkään. $S$ on nimeltään näennäisteho. Sen yksikkö
+on volttiampeeri (lyhenne: VA).
+
+Huomaa kompleksisen tehon kaavassa merkintä $I^*$, joka tarkoittaa virran liittolukua
+eli konjugaattia (= vaihda kulman etumerkki eli vaihda imaginaariosan etumerkki)!
+
+}
+
+\frame{
+\frametitle{Perusteluja}
+\[
+S=UI^*, \mbox{missä}\ S=P+\jj Q
+\]
+Hetkelliselle teholle voidaan laskea kaava
+\[
+p(t)=u(t)i(t)=\hat{u}\hat{i}\sin(\omega t+\phi_u)\sin(\omega t+\phi_i)
+\]
+\[
+=\hat{u}\hat{i}\frac{1}{2}[\cos(\phi_u-\phi_i)-\cos(2\omega t+\phi_u+\phi_i)].
+\]
+Ensimmäinen kosinitermi on vakio, toinen vaihtelee taajuudella, joka on kaksinkertainen
+verrattuna piirin kulmataajuuteen. Kompleksisen tehon kaavassa on konjugaattimerkki,
+jotta jännitteen ja virran tuloon saadaan kulmaksi $\phi_u-\phi_i$. (Jos konjugointia ei
+tehtäisi, tehon kulmaksi tulisi $\phi_u+\phi_i$, joka ei merkitse yhtään mitään.)
+}
+
+
+
+\frame{
+\frametitle{Esimerkki (jatkuu seuraavalla kalvolla)}
+Tarkastellaan vaihtosähkögeneraattoria, jota saa kuormittaa enintään 10 ampeerin virralla eli jonka maksimikuormitus
+on 2,3 kVA ($230 \V\cdot 10 A = 2,3\,{\rm kVA}$). Kytkemällä generaattoriin puhtaasti resistiivisen kuorman, esimerkiksi lämpöpatterin, saadaan kaikki teho käyttöön:
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{0,0}{230 \V\ 50 \Hz}
+\vz{50,0}{R=23\ohm\hspace{-2.5cm}}
+\hln{0,0}{50}
+\hln{0,50}{50}
+
+\end{picture}
+\end{center}
+\[
+I=\frac{230\V}{23\ohm}=10\A \qquad P=230\V\cdot 10 \A = 2,3\,{\rm kW}
+\]
+Koska vastus ei aiheuta vaihesiirtoa, tehon laskenta tapahtuu kuten tasasähköpiirissä.
+}
+
+\frame{
+\frametitle{Esimerkki (jatkuu seuraavalla kalvolla)}
+Nyt kytketään samaan generaattoriin induktiivinen kuorma, esimerkiksi sähkömoottori. Mallinnetaan kuormaa vastuksen ja kelan sarjaankytkennällä.
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{0,0}{230 \V\ 50 \Hz}
+\vz{100,0}{R=15\ohm\hspace{-2.5cm}}
+\hl{50,50}{L=50\,{\rm mH}}
+\hln{0,0}{100}
+\hln{0,50}{50}
+
+\end{picture}
+\end{center}
+Nyt virta ja teho ovat
+\[
+I=\frac{U}{Z}=\frac{U}{\jj\omega L + R}=\frac{230\V}{\jj\cdot 100\pi \cdot 50\cdot 10^{-3}+15}\approx 10,6\angle -46^\circ \A
+\]
+\[
+S=UI^*=230\V \cdot 10,6\angle 46^\circ \A\approx 2440 \angle 46^\circ {\rm VA} \approx 1690+1750\jj
+\]
+\[
+P=1690 \,{\rm W} \qquad Q=1750\, {\rm var}
+\]
+}
+
+\frame{
+\frametitle{Esimerkki: johtopäätökset}
+\begin{itemize}
+\item Kuorma (moottori) ottaa generaattorilta pätötehoa vain 1690 wattia, mutta sen ottama virta on jo hieman yli sallitun.
+\item Käytännön haittana on se, että generaattoriin ei voida kytkeä muita kuormia ilman, että generaattori ylikuormittuu. Toisin sanoen käyttämättä jää 2300 W - 1690 W = 610 W.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Loisteho sähkönjakelussa}
+Loisteho on ei-toivottu ilmiö sähkönjakelussa, koska se kuormittaa verkkoa. Loistehon kulutus on pois verkon siirtokapasiteetista.
+
+Esimerkiksi Fortum laskuttaa\footnote{Fortum Espoo Distribution Oy:n verkkopalveluhinnasto 1.1.2011, http://www.fortum.fi/} suurasiakkaita sähkön siirrosta seuraavasti (hinnat euroina, ei sis. alv.):
+
+\begin{center}
+\begin{tabular}{| l | l |  }
+\hline
+Perusmaksu €/kk & 31,50\\
+Tehomaksu €/kW, kk & 1,55\\
+\bf Loistehomaksu €/kVAr, kk & \bf 3,12\\
+Päiväsiirto, talvi c/kWh & 2,30\\
+Muun ajan siirto c/kWh & 1,12\\
+\hline
+\end{tabular}
+\end{center}
+
+Loistehomaksun perusteena on kuukausittainen loistehohuippu, josta on vähennetty 20 \% saman kuukauden pätötehohuipun määrästä.
+
+}
+
+\frame{
+\frametitle{Esimerkki} % TODO: Lukuarvot mietintään - tämä on käsin kamala pyöriteltävä
+\[
+L=2\,{\rm H}\quad C=1\,{\rm F}\quad R=5 \ohm \quad E=10\angle 0^\circ \quad \omega=1
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vst{0,0}{E}
+\hln{0,0}{100}
+%\hln{50,50}{50}
+\hz{50,50}{R}
+\hl{0,50}{L}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+
+\end{picture}
+\end{center}
+
+Laske jokaisen neljän elementin ($E, L, R, C$) kompleksinen teho (jokainen erikseen!). Vihje: jos laskit oikein,
+jännitelähteen teho on yhtä suuri mutta vastakkaismerkkinen kuin muiden komponenttien
+tehojen summa.
+}
+
+
+\frame{
+\frametitle{Esimerkki}
+\[
+L=2\,{\rm H}\quad C=1\,{\rm F}\quad R=5 \ohm \quad E=10\angle 0^\circ \quad \omega=1
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vst{0,0}{E}
+\hln{0,0}{100}
+%\hln{50,50}{50}
+\hz{50,50}{R}
+\hl{0,50}{L}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+
+\end{picture}
+\end{center}
+
+Laske jokaisen neljän elementin ($E, L, R, C$) kompleksinen teho (jokainen erikseen!). Vihje: jos laskit oikein,
+jännitelähteen teho on yhtä suuri mutta vastakkaismerkkinen kuin muiden komponenttien
+tehojen summa.
+{\bf Ratkaisu:}
+Lasketaan ensin kondensaattorin, kelan ja vastuksen impedanssit (yksikkö: $\ohm$):
+\[
+Z_C=\frac{1}{\jj \omega C}=\frac{1}{\jj}=-\jj \quad Z_L=\jj \omega L = 2\jj \quad Z_R=5
+\]
+}
+
+
+\frame{
+Komponentit ovat sarjassa, joten piirissä kiertävä virta on
+\[
+I=\frac{U}{Z}=\frac{E}{Z_C+Z_R+Z_L}=\frac{10}{-\jj + 5 +2\jj}=\frac{10}{5+\jj}
+\]
+
+Komponenttien jännitteet saadaan yleistetystä Ohmin laista $U=ZI$:
+\[
+U_C=IZ_C=\frac{10}{5\jj-1}\quad U_R=IZ_R=\frac{50}{5+\jj}\quad U_L=IZ_L=\frac{20\jj}{5+\jj}
+\]
+Tehon laskemista varten selvitetään virran konjugaatti (liittoluku):
+\[
+I^*=\left(\frac{10}{5+\jj}\right)^*=\frac{10}{5-\jj}
+\]
+Lasketaan tehot $S=U\cdot I^*$:
+\[
+S_C=U_CI^*=\frac{10}{5\jj-1}\frac{10}{5-\jj}=-\frac{100}{26}\jj\qquad S_R=U_Ri^*=\frac{50}{5+\jj}\frac{10}{5-\jj}=\frac{500}{26}
+\]
+\[
+S_L=\frac{20\jj}{5+\jj}\frac{10}{5-\jj}=\frac{200}{26}\jj\qquad S_E=-10\frac{10}{5-\jj}=\frac{-100}{5-\jj}=\frac{-500-100\jj}{26}
+\]
+$S_E$:n kaavassa on jännitteen etumerkki vaihdettu, koska virta $I$ on erisuuntainen kuin 
+jännite $E$.
+}
+
+\frame{
+Jännitelähde {\bf luovuttaa} tehoa yhtä paljon kuin siihen kytketyt komponentit {\bf kuluttavat} tehoa,
+eli summan $S_C+S_R+S_L$ tulee olla yhtä suuri mutta vastakkaismerkkinen kuin $S_E$.
+Lasketaan
+\[
+S_C+S_R+S_L=-\frac{100}{26}\jj+\frac{500}{26}+\frac{200}{26}\jj=\frac{500+100\jj}{26}
+\]
+mikä on yhtä suuri mutta vastakkaismerkkinen kuin edellisellä kalvolla laskettu
+\[
+S_E=\frac{-500-100\jj}{26}.
+\]
+
+}
+

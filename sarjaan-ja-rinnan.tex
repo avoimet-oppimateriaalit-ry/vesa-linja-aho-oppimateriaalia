@@ -1,0 +1,207 @@
+\frame {
+\frametitle{Sarjaankytkentä ja rinnankytkentä}
+\begin{alertblock}{Määritelmä: sarjaankytkentä}
+Piirielementit ovat sarjassa, jos niiden läpi kulkee sama virta.
+\end{alertblock}
+\begin{alertblock}{Määritelmä: rinnankytkentä}
+Piirielementit ovat rinnan, jos niiden yli on sama jännite.
+\end{alertblock}
+
+Sama tarkoittaa samaa, ei samansuuruista.
+
+}
+
+\frame {
+\frametitle{Sarjaankytkentä ja rinnankytkentä}
+\begin{exampleblock}{Sarjaankytkentä}
+\begin{center}
+\begin{picture}(100,20)(0,-10)
+\hz{0,0}{}
+\hz{50,0}{}
+\ri{-10,0}{I}
+\ri{110,0}{I}
+\hln{-50,0}{50}
+\hln{100,0}{50}
+\end{picture}
+\end{center}
+\end{exampleblock}
+
+\begin{exampleblock}{Rinnankytkentä}
+\begin{center}
+\begin{picture}(50,75)(0,-5)
+\hz{0,0}{}
+\hz{0,50}{}
+%\hln{-50,25}{50}
+%\hln{50,25}{50}
+\vln{0,0}{50}
+\vln{50,0}{50}
+\ru{0,10}{U}
+\ru{0,60}{U}
+\end{picture}
+\end{center}
+\end{exampleblock}
+}
+
+\frame {
+\frametitle{Vastusten sarjaankytkentä ja rinnankytkentä}
+\begin{exampleblock}{Sarjaankytkentä}
+\begin{center}
+\begin{picture}(100,20)(50,-15)
+\hz{0,0}{R_1}
+\hz{50,0}{R_2}
+%\ri{-10,0}{I}
+%\ri{110,0}{I}
+%\hln{-50,0}{50}
+%\hln{100,0}{50}
+\txt{125,0}{\Longleftrightarrow}
+\hz{150,0}{R=R_1+R_2}
+\end{picture}
+\end{center}
+\end{exampleblock}
+\begin{exampleblock}{Rinnankytkentä}
+\begin{center}
+\begin{picture}(100,75)(0,-20)
+\hz{0,0}{R_1}
+\hz{0,50}{R_2}
+\hln{-25,25}{25}
+\hln{50,25}{25}
+\vln{0,0}{50}
+\vln{50,0}{50}
+%\ru{0,10}{U}
+%\ru{0,60}{U}
+\txt{110,25}{\Longleftrightarrow}
+\hz{130,25}{\vspace{-1cm}R=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2}}}
+\end{picture}
+\end{center}
+\end{exampleblock}
+Tai sama kätevämmin konduktansseilla $G=G_1+G_2$.
+}
+
+
+
+\frame{
+\frametitle{Vastusten sarjaankytkentä ja rinnankytkentä}
+\begin{itemize}
+\item Edellisen kalvon kaavat soveltuvat myös mielivaltaisen monelle vastukselle. Esimerkiksi 
+viiden resistanssin sarjaankytkennän resistanssi on $R=R_1+R_2+R_3+R_4+R_5$.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jännitelähteiden sarjaankytkentä}
+\begin{itemize}
+\item Jännitelähteiden sarjaankytkennässä jännitteet voidaan laskea yhteen (mutta etumerkeissä
+pitää olla tarkkana).
+\item Jännitelähteiden rinnankytkentä on piiriteoriassa kielletty (kahden pisteen välillä
+ei voi olla yhtäaikaa kaksi eri jännitettä).
+\end{itemize}
+\begin{center}
+\begin{picture}(100,35)(0,-30)
+\hst{0,0}{E_1}
+\hlst{50,0}{E_2}
+\hst{100,0}{E_3}
+\cn{0,0}
+\cn{150,0}
+\end{picture}
+
+\begin{picture}(100,25)(0,0)
+\txt{75,23}{\Longleftrightarrow}
+\hst{50,0}{E=E_1-E_2+E_3}
+\cn{50,0}
+\cn{100,0}
+\end{picture}
+\end{center}
+}
+
+\frame{
+\frametitle{Mitä sarjaan- ja rinnankytkentä eivät ole}
+\begin{itemize}
+\item Pelkkä se, että komponentit "näyttävät olevan vierekkäin" ei tarkoita, että kyseessä on rinnankytkentä.
+\item Pelkkä se, että komponentit "näyttävät olevan peräkkäin" ei tarkoita, että kyseessä on sarjaankytkentä.
+\item Mitkä kuvan vastuksista ovat keskenään sarjassa ja mitkä rinnan?
+\end{itemize}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vst{0,0}{E_1}
+\vst{100,0}{E_2}
+\vz{50,0}{R_3}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\hln{0,0}{100}
+\end{picture}
+\end{center}
+\pause
+\vspace{-0.2cm}
+\begin{alertblock}{Vastaus}
+\scriptsize
+Eivät mitkään! $E_1$ ja $R_1$ ovat sarjassa keskenään, samoin $E_2$ ja $R_2$. Nämä sarjaankytkennät
+ovat puolestaan molemmat rinnan $R_3$:n kanssa. Sen sijaan mitkään vastukset eivät ole keskenään rinnan
+eivätkä sarjassa. 
+\end{alertblock}
+}
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise virta $I$.
+\end{block}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_5}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\vz{150,0}{R_6}
+\hln{0,0}{150}
+\ri{8,50}{I}
+\end{picture}
+$R_1=R_2=R_3=R_4=R_5=R_6=1\ohm\qquad E=9\V$
+\end{center}
+
+}
+
+%LUENTO3
+
+%\frame{\tableofcontents}
+
+%\subsection{2. Kotitehtävän ratkaisu}
+
+\frame{
+
+\begin{block}{Ratkaisu}
+Ratkaise virta $I$.
+\end{block}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_5}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\vz{150,0}{R_6}
+\hln{0,0}{150}
+\ri{8,50}{I}
+\end{picture}
+$R_1=R_2=R_3=R_4=R_5=R_6=1\ohm\qquad E=9\V$
+\end{center}
+\begin{itemize}
+\item $R_5$ ja $R_6$ ovat sarjassa. Tämän sarjaankytkennän resistanssi on $R_5+R_6=2\ohm$.
+\item Tämä sarjaankytkentä puolestaan on rinnan $R_4$:n kanssa. Tämän rinnankytkennän
+resistanssi on $\frac{1}{\frac{1}{1}+\frac{1}{2}}\ohm=\frac{2}{3}\ohm$.
+\end{itemize}
+}
+\frame{
+\frametitle{Ratkaisu jatkuu}
+\begin{itemize}
+\item $R_3$ taas on sarjassa edellisen kanssa. Sarjaankytkennän resistanssi on $R_3+\frac{2}{3}\ohm
+=\frac{5}{3}\ohm$.
+\item Ja tämä sarjaankytkentä on rinnan $R_2$:n kanssa. Tämän rinnankytkennän resistanssi
+on $\frac{1}{(\frac{5}{3})^{-1}+\frac{1}{1}}=\frac{5}{8}\ohm$.
+\item Ja tämän kanssa on sarjassa vielä $R_1$. Jännitelähteen $E$ näkemä kokonaisresistanssi on
+siis $\frac{5}{8}\ohm + R_1=\frac{13}{8}\ohm$.
+\item Virta $I$ on Ohmin lain mukaan $I=\frac{E}{\frac{13}{8}\ohm}=\frac{72}{13}\A\approx5,5\A$.
+\end{itemize}
+}
+

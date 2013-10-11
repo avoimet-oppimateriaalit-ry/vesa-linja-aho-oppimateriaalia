@@ -1,0 +1,175 @@
+\frame{
+\frametitle{Useita taajuuksia samanaikaisesti ("monitaajuusanalyysi", "harmoninen analyysi")}
+\begin{itemize}
+\item Jos piirissä on useita eri taajuuksia, kukin taajuus pitää analysoida erikseen.
+\item Periaate on sama kuin kerrostamismenetelmässä.
+\item {\bf Eritaajuisia kompleksilukuna olevia jännitteitä ei voi laskea yhteen!}
+\item Lasketaan yksi taajuus kerrallaan niin, että muuntaajuiset jännitteet ja virrat on asetettu nollaan.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Esimerkki}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vst{0,0}{e_1}
+\vst{100,0}{e_2}
+\hln{0,0}{100}
+%\hln{50,50}{50}
+%\hln{50,50}{50}
+\ri{50,50}{i(t)}
+\hl{50,50}{L}
+\hz{0,50}{R}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+%\color{blue}
+%\vc{50,0}{C}
+
+\end{picture}
+\end{center}
+\[
+e_1(t)=10+\sqrt{2}\cdot 20\sin\omega_1t
+\]
+\[
+e_2(t)=\sqrt{2}\cdot 10\sin \omega_1 t + \sqrt{2}\cdot 30\sin \omega_2 t 
+\]
+\[
+\omega_1=10 \quad \omega_2=20 \quad R= 10\ohm \quad L=1{\rm H}
+\]
+}
+
+\frame{
+\frametitle{Useita taajuuksia samanaikaisesti - lopputulos}
+Eritaajuisia osoittimia ei voi laskea suoraan yhteen. Laskun lopputulos (jännite tai virta) pitää ilmoittaa joko
+\begin{itemize}
+\item Ajan funktiona.
+\item Hetkellisarvona. Tämä tapahtuu laskemalla ensin jännite ajan funktiona ja sitten sijoittamalla jokin ajan arvo lausekkeeseen. 
+\item Tehollisarvona. Tehollisarvo saadaan korottamalla jokaisen eritaajuisen sinijännitteen tehollisarvo toiseen, laskemalla
+ne yhteen ja ottamalla tästä summasta neliöjuuri.
+\end{itemize}
+}
+
+
+
+
+
+
+
+
+\frame{
+\frametitle{Esimerkki}
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vz{100,0}{R_{\rm L}}
+\vst{0,0}{e}
+\hln{0,0}{150}
+%\hln{50,50}{50}
+\hln{50,50}{100}
+%\hl{0,50}{L}
+\hl{0,50}{L}
+\vj{150,0}{j}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+%\color{blue}
+%\vc{50,0}{C}
+\dcru{105,00}{U}
+\end{picture}
+\end{center}
+Jännitelähteen tehollisarvo on $10 \V$ kulmataajuudella  $\omega_1=10$ ja virtalähteen tehollisarvo on
+$1 \A$ kulmataajuudella $\omega_2=20$. Laske jännitteen $U$ tehollisarvo.
+
+\[
+L=1\, {\rm H}\quad R=10\ohm
+\]
+
+}
+
+
+\frame{
+\frametitle{Esimerkki}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vz{100,0}{R_{\rm L}}
+\vst{0,0}{e}
+\hln{0,0}{150}
+%\hln{50,50}{50}
+\hln{50,50}{100}
+%\hl{0,50}{L}
+\hl{0,50}{L}
+\vj{150,0}{j}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+%\color{blue}
+%\vc{50,0}{C}
+\dcru{105,00}{U}
+\end{picture}
+\end{center}
+Jännitelähteen tehollisarvo on $10 \V$ kulmataajuudella  $\omega_1=10$ ja virtalähteen tehollisarvo on
+$1 \A$ kulmataajuudella $\omega_2=20$. Laske jännitteen $U$ tehollisarvo.
+\[
+L=1\, {\rm H}\quad R=10\ohm
+\]
+Ratkaisu: lasketaan taajuus kerrallaan. Ensin $\omega_1$ ja sitten $\omega_2$. Lopuksi
+lasketaan jännitteiden yhteinen tehollisarvo.
+}
+
+
+\frame{
+\frametitle{Piiri taajuudella $\omega_1$}
+Virtalähde ei sisällä ollenkaan $\omega_2$-taajuista siniaaltoa, joten päällä on ainoastaan $e$.
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vz{100,0}{R_{\rm L}}
+\vst{0,0}{e}
+\hln{0,0}{150}
+%\hln{50,50}{50}
+\hln{50,50}{100}
+%\hl{0,50}{L}
+\hl{0,50}{L}
+%\vj{150,0}{j}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+%\color{blue}
+%\vc{50,0}{C}
+\dcru{105,00}{U_1}
+\end{picture}
+\end{center}
+Jännitteenjakosäännön mukaan:
+\[
+U_1=E\frac{R_{\rm L}}{R_{\rm L}+Z_{\rm L}}=10\frac{10}{10+\jj10\cdot 1}=10\frac{1}{1+\jj}=10\frac{1}{\sqrt{2}\angle 45^\circ}=\frac{10}{\sqrt{2}}\angle -45^\circ
+\]
+}
+
+\frame{
+\frametitle{Piiri taajuudella $\omega_2$}
+Jännitelähde ei sisällä ollenkaan $\omega_2$-taajuista siniaaltoa, joten päällä on ainoastaan $j$.
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vz{100,0}{R_{\rm L}}
+%\vst{0,0}{e}
+\vln{0,0}{50}
+\hln{0,0}{150}
+%\hln{50,50}{50}
+\hln{50,50}{100}
+%\hl{0,50}{L}
+\hl{0,50}{L}
+\vj{150,0}{j}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+%\color{blue}
+%\vc{50,0}{C}
+\dcru{105,00}{U_2}
+\end{picture}
+\end{center}
+Vastus ja kela ovat rinnakkain\footnote{Merkintä $||$ tarkoittaa rinnankytkennän impedanssia.}. Jännite on siis
+\[
+U_2=ZI=(R||Z_{\rm L})j=\frac{R\jj\omega_2 L}{R+\jj\omega_2 L}j=\frac{200\jj}{10+20\jj}\cdot 1=20\frac{\jj}{1+2\jj}=20\frac{1\angle 90^\circ}{\sqrt{5}\angle 63^\circ}
+\]
+Koko jännitteen $U$ tehollisarvo on
+\[
+|U|=\sqrt{|U_1|^2+|U_2|^2}=\sqrt{\left|\frac{10}{\sqrt{2}}\right|^2+\left|\frac{20}{\sqrt{5}}\right|^2}=\sqrt{130}\approx 11,4\ ({\rm volttia})
+\]
+
+}
+

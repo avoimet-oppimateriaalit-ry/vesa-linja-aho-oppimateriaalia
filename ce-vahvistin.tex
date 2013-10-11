@@ -1,0 +1,229 @@
+ \frame{
+ \frametitle{Transistorivahvistin (yhteisemitterikytkentä)}
+\begin{center}
+\begin{picture}(180,160)(-30,-50)
+
+\vz{0,0}{R_2=33\kohm\vspace{-1cm}}
+\vz{0,50}{R_1=82\kohm}
+
+\vst{200,0}{12\V}
+\vln{200,50}{75}
+\vz{100,75}{R_{\rm C}=1\kohm}
+\hln{100,125}{100}
+
+\hln{0,125}{100}
+\vln{0,100}{25}
+\hln{0,50}{50}
+\npn{50,50}{}
+\hln{0,-50}{200}
+\vln{0,-50}{50}
+\vln{200,-50}{50}
+\vln{100,0}{25}
+\vz{100,-50}{R_{\rm E}=470\ohm}
+
+\hc{-50,50}{C_{\rm IN}}
+\hc{100,75}{C_{\rm OUT}}
+\cn{0,50}
+
+\hln{-100,50}{50}
+\du{-100,00}{\Uin}
+\hg{-100,0}
+
+\du{150,25}{\Uout}
+\hg{150,25}
+\hgp{0,-50}
+
+\end{picture}
+\end{center}
+ }
+
+
+ \frame{
+ \frametitle{Transistorivahvistin}
+ \begin{itemize}
+ \item Edellisen kalvon piiri vahvistaa vaihtojännitesignaalia $\Uin$.
+\item Miksi signaalia ei voi vain syöttää suoraan transistorin kannalle?
+\item Mihin piirissä tarvitaan kondensaattoreita?
+\item Kuinka suuri on piirin jännitevahvistus $\frac{\Uout}{\Uin}$?
+ \end{itemize}
+ }
+
+ \frame{
+ \frametitle{Transistorivahvistin}
+ \begin{itemize}
+\item Jotta transistorivahvistin vahvistaisi myös heikkoja signaaleja, se pitää {\em biasoida} eli {\em esijännittää}. Myös termiä {\em tasajänniteasettelu} käytetään.
+\item Kondensaattorit estävät esijännitykseen käytettävää tasasähköä vuotamasta vahvistimen tuloon ja lähtöön.
+\item Kuvan vahvistinkytkentää kutsutaan yhteisemitteri- eli CE-vahvistimeksi (engl. common emitter).
+\item Analysoidaan piirin toimintaa kerrostamismenetelmällä. Mallinnetaan transistoria virtaohjatulla virtalähteellä.
+\item Kaikki muut jännitelähteet (kanta-emitteridiodin jännite ja piirin käyttöjännite) asetetaan nollaksi.
+\item Oletetaan kondensaattorit oikosuluksi (= signaalin taajuus on niin suuri, että kondensaattorien impedanssi on pieni).
+ \end{itemize}
+ }
+
+
+ \frame{
+ \frametitle{Transistorivahvistimen analysointi}
+\begin{center}
+\begin{picture}(180,160)(-30,-50)
+
+\vz{0,0}{R_2=33\kohm\vspace{-1cm}}
+\vz{0,50}{R_1=82\kohm}
+
+\vln{200,0}{50}
+\vln{200,50}{75}
+\vz{100,75}{R_{\rm C}=1\kohm}
+\hln{100,125}{100}
+
+\hln{0,125}{100}
+\vln{0,100}{25}
+\hln{0,50}{50}
+\vdj{100,25}{\beta I_{\rm B}}
+\hln{50,25}{50}
+\vln{50,25}{25}
+\ri{75,25}{I_{\rm B}}
+
+\hln{0,-50}{200}
+\vln{0,-50}{50}
+\vln{200,-50}{50}
+\vln{100,0}{25}
+\vz{100,-50}{R_{\rm E}=470\ohm}
+\hln{-50,50}{50}
+\hln{100,75}{50}
+
+\ri{-25,50}{I_{\rm in}}
+
+\cn{0,50}
+
+\hln{-100,50}{50}
+\du{-100,00}{\Uin}
+\hg{-100,0}
+
+\du{150,25}{\Uout}
+\hg{150,25}
+\hgp{0,-50}
+
+\end{picture}
+\end{center}
+ }
+
+
+ \frame{
+ \frametitle{Vahvistuskerroin}
+Emitterivirralle voidaan kirjoittaa
+\[
+\frac{\Uin}{R_{\rm E}}=I_{\rm B}+\beta I_{\rm B} \quad \Rightarrow \quad I_{\rm B}=\frac{\Uin}{R_{\rm E}(1+\beta)}
+\]
+josta
+\[
+\Uout = -\beta I_{\rm B}\cdot R_{\rm C}= -\beta \frac{\Uin}{R_{\rm E}(1+\beta)} R_{\rm C}=-\Uin \frac{\beta}{1+\beta} \frac{R_{\rm C}}{R_{\rm E}}
+\]
+ja
+\[
+\frac{\Uout}{\Uin}=-\frac{\beta}{1+\beta} \frac{R_{\rm C}}{R_{\rm E}}\approx -\frac{R_{\rm C}}{R_{\rm E}},
+\]
+koska $\frac{\beta}{1+\beta}\approx 1$.
+ }
+
+ \frame{
+ \frametitle{Tuloresistanssi}
+\[
+R_{\rm in}=\frac{\Uin}{I_{\rm in}}
+\]
+\[
+I_{\rm in}=\frac{\Uin}{R_1}+\frac{\Uin}{R_2}+I_{\rm B}=\frac{\Uin}{R_1}+\frac{\Uin}{R_2} +\frac{\Uin}{R_{\rm E}(1+\beta)}
+\]
+\[
+R_{\rm in}=\frac{\Uin}{I_{\rm in}}=\frac{\Uin}{\frac{\Uin}{R_1}+\frac{\Uin}{R_2} +\frac{\Uin}{R_{\rm E}(1+\beta)}}=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2} +\frac{1}{R_{\rm E}(1+\beta)}}
+\]
+
+Eli tuloresistanssi on resistanssien $R_1$, $R_2$ ja $R_{\rm E}(1+\beta)$ rinnankytkentä. Voidaan ajatella, että emitterillä oleva resistanssi näkyy kannalla $(1+\beta)$-kertaisena.
+
+ }
+
+ \frame{
+ \frametitle{Lähtöresistanssi}
+Lähtöresistanssi on helppo johtaa tekemällä kollektorivastukselle ja virtalähteelle lähdemuunnos:
+\begin{center}
+\begin{picture}(180,160)(100,0)
+
+\vz{100,75}{R_{\rm C}}
+
+\vdj{100,25}{\beta I_{\rm B}}
+\hgp{50,125}
+
+\hln{50,125}{50}
+
+\uu{115,75}{\Uout\hspace{-1cm}}
+\hgp{100,25}
+
+
+\vdst{225,50}{\beta I_{\rm B}R_{\rm C}}
+\hg{225,50}
+\hz{225,100}{R_{\rm C}}
+\hg{275,50}
+\du{275,50}{\Uout}
+
+\end{picture}
+\end{center}
+Lähdemuunnoksessa resistanssin arvo säilyy samana, eli vahvistimen lähtöresistanssi on suoraan kollektorivastus $R_{\rm C}$.
+
+ }
+
+
+ \frame{
+ \frametitle{Esimerkki}
+\begin{center}
+\begin{picture}(180,160)(-30,-50)
+
+\vz{0,0}{R_2=33\kohm\vspace{-1cm}}
+\vz{0,50}{R_1=82\kohm}
+
+\vst{200,0}{12\V}
+\vln{200,50}{75}
+\vz{100,75}{R_{\rm C}=1\kohm}
+\hln{100,125}{100}
+
+\hln{0,125}{100}
+\vln{0,100}{25}
+\hln{0,50}{50}
+\npn{50,50}{}
+\hln{0,-50}{200}
+\vln{0,-50}{50}
+\vln{200,-50}{50}
+\vln{100,0}{25}
+\vz{100,-50}{R_{\rm E}=500\ohm}
+\txt{70,25}{\beta=100}
+
+\hc{-50,50}{C_{\rm IN}}
+\hc{100,75}{C_{\rm OUT}}
+\cn{0,50}
+
+\hln{-100,50}{50}
+\du{-100,00}{\Uin}
+\hg{-100,0}
+
+\du{150,25}{\Uout}
+\hg{150,25}
+\hgp{0,-50}
+
+\end{picture}
+\end{center}
+Kuinka suureksi $C_{\rm IN}$ tulee vähintään valita, jotta yli 20 $\Hz$ taajuiset signaalit eivät vaimene enempää kuin 3 desibeliä piirin ideaalivahvistukseen ($\approx 2$) verrattuna?
+ }
+
+\frame{
+ \frametitle{Esimerkki}
+$C_{\rm IN}$ ja vahvistimen tuloresistanssi $R_{\rm IN}$ muodostavat yhdessä ensimmäisen asteen ylipäästösuodattimen, joka määrää vahvistimen alarajataajuuden. Ensimmäisen asteen suodattimilla suodattimen ominaistaajuus on sama kuin -3 desibelin piste, eli ongelma ratkeaa suoraan laskemalla $C_{\rm IN}$ muodostuneen ylipäästösuodattimen ominaistaajuuden kaavasta ($f_0=20\Hz$):
+\[
+f_0=\frac{\omega_0}{2\pi}=\frac{\frac{1}{RC}}{2\pi}=\frac{1}{2\pi R C}=\frac{1}{2\pi R_{\rm IN} C_{\rm IN}}\Rightarrow  C_{\rm IN}=\frac{1}{2\pi R_{\rm IN} f_0}
+\]
+\[
+C_{\rm IN}=\frac{1}{2\pi \frac{1}{\frac{1}{R_1}+\frac{1}{R_2} +\frac{1}{R_{\rm E}(1+\beta)}} f_0}\approx 500 \nF
+\]
+
+Huomaa, että myös $C_{\rm OUT}$ vaikuttaa alarajataajuuteen, mutta tätä ei käsitelty esimerkissä.
+
+
+}
+
+

@@ -1,0 +1,148 @@
+% TODO: siivoa vähän ja mieti järkevä paikka demotiedostolle
+
+\frame{
+\frametitle{MATLAB-harjoitukset}
+MATLAB = MATrix LABoratory. Laajasti käytössä oleva numeerisen laskennan työkaluohjelmisto.
+\begin{itemize}
+\item Ohjelmalla suoritetaan laskutoimituksia skalaareille, vektoreille ja matriiseille.
+\item Erittäin laaja valikoima valmiita funktioita.
+\end{itemize}
+Harjoitukset suoritetaan vapaamuotoisesti. Kokeile annettuja komentoja, kokeile omia komentoja. Pyri ymmärtämään, mitä kukin komento tekee!\\[1cm]
+\scriptsize
+Linux-käyttäjien on helppo kokeilla komentoja kotona vapaan Octave-ohjelmiston kanssa. Esim. Ubuntu 10.04:ssa: asenna paketit octave3.2, octave-audio ja octave-signal. Lisäksi pitää luoda kotihakemistoon tiedosto .octaverc ja luoda sinne rivi\\
+global sound\_play\_utility = 'aplay';\\
+jotta soundsc-funktio toistaa äänet.
+}
+
+
+
+
+\begin{frame}[fragile]
+Tutki, mitä tapahtuu seuraavilla komennoilla:
+\frametitle{MATLAB-harjoitukset}
+\small
+\begin{verbatim}
+1+1
+x=3
+y=9
+x+y
+\end{verbatim}
+Mitä eroa on seuraavilla kahdella komennolla
+\begin{verbatim}
+z=x+y
+z=x+y;
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]
+Vektorilaskutoimitukset
+\frametitle{MATLAB-harjoitukset}
+\small
+\begin{verbatim}
+x=[1,2,3]
+2*x
+x.^2
+y=[3 4 5]
+x.*y
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]
+Käyrien piirtely
+\frametitle{MATLAB-harjoitukset}
+\small
+\begin{verbatim}
+x=linspace(0,100);
+y=2*x
+help plot
+plot(x,y)
+f=4
+x=linspace(0,1,101);
+y=2*sin(2*pi*f*sin(x));
+plot(x,y)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{MATLAB-harjoitukset}
+\small Lataa tiedosto \url{http://users.metropolia.fi/~vesali/aani.dat} ja tallenna se esim. työpöydälle.
+Valitse MATLABin työhakemistoksi (vasemmasta ylänurkasta "Current folder") sama kansio, johon
+tallensit tiedoston.
+\begin{verbatim}
+[y,Fs]=wavread('aani.dat'');
+%typistetään vähän äänitiedostoa
+z=y(1:308700);
+soundsc(z)
+%Mitä kyseinen äänitiedosto sisältää?
+Kokeillaanpa uudestaan:
+soundsc(z,Fs)
+clear playsnd % Keskeyttää äänentoiston, jos tarvis
+%ja pelleillään
+soundsc(z,3*Fs)
+soundsc(fliplr(z),Fs)
+\end{verbatim}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{MATLAB-harjoitukset}
+Häiriön lisääminen
+\small
+\begin{verbatim}
+N=length(z) % Tallennetaan näytemäärä
+x=linspace(0,7,N);
+h=0.1*sin(2*pi*1000*x);
+e=h+z;
+soundsc(e,Fs)
+%wavwrite(e,Fs,'output.wav'); % Tällä voisi tallentaa tiedoston.
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{MATLAB-harjoitukset}
+\small
+\begin{verbatim}
+E=fft(e)/N; % Fourier-muunnos täytyy skaalata jakamalla näytemäärällä
+plot(abs(E))
+% Häiriöpiikin korkeus on puolet häiriön amplitudista. Syynä on se, että
+% Matlabin Fourier-muunnosfunktio tekee muunnoksen kaksipuoleiseen
+% taajuusalueeseen. Oikean korkuisena häiriö (ja muu signaali) näkyy
+% komennolla
+plot(2*abs(E))
+% Piirroksessa on vaaka-akselina näytteiden määrä N. Kuinka saada näkymään
+% häiriöpiikki oikealla taajuudella?
+% Fourier-muunnoksessa taajuuden askellusväli (=kuinka suurta taajuutta
+% vastaa yksi pykälä vaaka-akselilla):
+f_step = Fs/N;
+f = [0:f_step:(N-1)*f_step];
+plot(f,2*abs(E))
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{MATLAB-harjoitukset}
+Fourier-käänteismuunnoksen voi kuunnella:
+\small
+\begin{verbatim}
+soundsc(ifft(E),Fs)
+\end{verbatim}
+Tehtävä: poista häiriösignaali taajuustason esityksestä (Fourier-muunnetusta signaalista E). Vihje: komennosta \verb+find+
+saattaa olla apua. Häiriö näkyy (kahtena) korkeana piikkinä taajuusspektrissä. Poista piikit.
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{MATLAB-harjoitukset}
+Signaalin suodattaminen. Kokeile erilaisia suodattimia!
+\small
+\begin{verbatim}
+[b,a]=butter(5,[600/22050,1000/22050]);
+suod=filtfilt(b,a,z);
+soundsc(suod,Fs)
+help butter
+\end{verbatim}
+\end{frame}

@@ -1,0 +1,181 @@
+% Lähteenä käytetty mm. Autoteknillistä taskukirjaa (6. painos suomeksi)
+\frame{
+\frametitle{Säätötekniikan perusteita}
+Mitä teille tulee mieleen termeistä
+\begin{itemize}
+\item Säädin / Säätöjärjestelmä
+\item Takaisinkytkentä
+\item Säätötekniikka
+\end{itemize}
+Arkipäivän esimerkkejä säätöjärjestelmistä?
+}
+
+\frame{
+\frametitle{Säätötekniikka}
+= ne keinot ja menetelmät, joilla jokin suure pidetään halutussa arvossa. 
+}
+
+
+ % Näiden perusteella väsätty:
+ % % http://www.texample.net/tikz/examples/simple-flow-chart/
+ % http://www.texample.net/tikz/examples/control-system-principles/ on myös hyvä
+  \frame{
+  \tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex]
+\tikzstyle{cloud} = [draw,circle ,fill=red!20, node distance=3cm,  minimum height=2em]
+
+ \begin{center}
+\begin{tikzpicture}[node distance = 3cm, auto,] % auto -> - ja säätösuure oikein, >=latex nuolet siistiksi
+  \node [block] (säädin) {Säädin};
+  \node [block, right of = säädin] (toimilaite) {Toimilaite};
+  \node [block, right of = toimilaite] (järjestelmä) {Järjestelmä};
+  \node[block, below of = toimilaite] (anturi) {Anturi};
+  \node[cloud, left of = säädin, node distance=2cm] (summa) {$\sum$};
+\node [coordinate, name=input, left of = summa, node distance=1cm] {};
+\node [above of = järjestelmä, node distance=2cm] (häiriöt) {Häiriöt};
+
+  \path  [line] (säädin) -- (toimilaite);
+  \draw [line] (toimilaite) -- node {$y$} (järjestelmä);
+  \path (järjestelmä) |- (anturi);
+\path [line] (järjestelmä) |- (anturi);
+%\path [line] (anturi) -| (summa);
+\draw [line] (anturi) -| node[pos=0.99] {$-$} node [near end] {$x$} (summa);
+\draw [line] (input) -- node {$w$} (summa) ;
+\draw [line] (summa) -- node {$u$} (säädin);
+\draw [line] (häiriöt) -- node {$z$} (järjestelmä) ;
+
+\end{tikzpicture}
+$u=w-x$
+\end{center}
+
+\begin{tabular}{l l  l l}
+Ohjesuure & $w$ & Säätösuure & $x$\\
+Toimisuure & $y$ & Häiriösuure & $z$\\
+\end{tabular}
+
+
+
+ } 
+
+\frame{
+\frametitle{Perusvaatimuksia säätimelle}
+\begin{itemize}
+\item Säätimen pitää tietää jotain säädettävästä prosessista.
+\item Jos säätö on liian voimakasta, järjestelmä rupeaa värähtelemään.
+\item Jos säätö on liian heikkoa, häiriötä ei saada hallintaan.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Erilaisia säätimiä}
+\begin{itemize}
+\item Vakioarvosäätö
+\item Seurantasäätö
+\end{itemize}
+}
+
+\frame{
+\frametitle{Säätöpiirin toiminnan hyvyys}
+\begin{itemize}
+\item Kuinka suuri on säätöpoikkeama?
+\item Kauanko kestää, ennen kuin mitattu arvo on asettunut toivotulla tarkkuudella samaksi kuin ohjearvo?
+\item Missä määrin häiriöitä pystytään korjaamaan?
+\item Paljonko kuluu energiaa?
+\end{itemize}
+}
+
+\frame{
+\frametitle{Huonosti toimiva säätöpiiri}
+\begin{itemize}
+\item Pysyvä säätöpoikkeama
+\item Värähtely
+\item Liian suuri säätöpoikkeama
+\item Liiallinen energiankulutus
+\end{itemize}
+}
+
+% http://en.wikipedia.org/wiki/Control_system
+\frame{
+\frametitle{On-off -säädin}
+\begin{itemize}
+\item On-off -säädin kytkee nimensä mukaisesti järjestelmää pois ja päälle.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Lineaariset säätimet}
+\begin{itemize}
+\item Säätimiä, joissa säätösuureelle suoritetaan lineaarisia laskutoimituksia, kutsutaan lineaarisiksi säätimiksi. Esimerkiksi
+kertolasku, derivointi ja integrointi ovat lineaarisia laskutoimituksia.
+\end{itemize}
+\[
+f(x + y) = f(x) + f(y)
+\]
+\[
+f(ax) = af(x)
+\]
+
+}
+
+
+\frame{
+\frametitle{P-säädin}
+\begin{itemize}
+\item P-säädin (P = proportional, verrannollinen) korjaa ohjaussuuretta suoraan verrannollisesti virheen suuruuteen.
+\end{itemize}
+\[
+y=Ku
+\]
+}
+
+\frame{
+\frametitle{I-säädin}
+\begin{itemize}
+\item I-säädin eli integroiva säädin lisää ohjaussuuretta jatkuvasti, jos virhettä esiintyy.
+\end{itemize}
+\[
+y=K\int_0^t u {\rm d}t
+\]
+}
+
+\frame{
+\frametitle{D-säädin}
+\begin{itemize}
+\item D-säädin eli derivoiva säädin reagoi säätösuureen nopeisiin muutoksiin.
+\end{itemize}
+\[
+y=K\frac{{\rm d}u}{{\rm d}t}
+\]
+}
+
+\frame{
+\frametitle{PID-säädin}
+\begin{itemize}
+\item PID-säätimessä on yhdistetty P, I ja D-säätimet. Kunkin säätimen lähtöarvot lasketaan yhteen ja näin muodostetaan koko säätimen lähtösignaali.
+\end{itemize}
+\[
+y=K_{\rm p}u+K_{\rm i}\int_0^t u {\rm d}t+K_{\rm d}\frac{{\rm d}u}{{\rm d}t}
+\]
+}
+
+\frame{
+\frametitle{Muita säätimiä}
+\begin{itemize}
+\item Logiikkasäätö. Käyttämällä binaarilogiikkaportteja voidaan toteuttaa varsin monimutkaisiakin säätöprosesseja. Hyvä esimerkki logiikkasäädöstä
+on hissin ohjaus.
+\item PID-säätäjäkin voidaan toteuttaa -- ja yleensä nykyään toteutetaankin -- digitaalisesti. Säätösuure luetaan mikrokontrolleriin, tehdään
+tarvittavat laskutoimitukset ja muodostetaan toimisuure.
+\item Sumean logiikan käyttö, "sumea säätö". Sumeaa logiikka käytetään muun muassa liikennevalojen ohjauksessa. Sumean logiikan kantava ajatus on,
+että perinteisen binaarilogiikan tilat 0 ja 1 korvataan totuusarvolla, joka voi vaihdella vapaasti välillä 0\ldots 1.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Pulssinleveysmodulaatio (PWM)}
+\begin{itemize}
+\item Toimisuuretta voidaan muuttaa joko lineaarisesti tai pulssinleveyttä säätämällä
+\item Erityisesti sähkötehon säätämiseen pulssinleveysmodulaatio sopii erinomaisesti.
+\end{itemize}
+\url{http://commons.wikimedia.org/wiki/File:PWM_duty_cycle_with_label.gif}
+}

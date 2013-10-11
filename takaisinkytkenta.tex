@@ -1,0 +1,99 @@
+\frame{
+\frametitle{Takaisinkytkentä (engl. feedback)}
+\begin{itemize}
+\item Takaisinkytkentä: piirin lähtösignaali summataan piirin tulosignaaliin, kertoimella $B$ painotettuna.
+\item Jos lähtösignaali kytketään takaisin niin, että lähtösignaalin kasvu aikaansaa lähtösignaalin pienenemisen, kyseessä on negatiivinen takaisinkytkentä.
+\item Jos lähtösignaali kytketään takaisin niin, että lähtösignaalin kasvu aikaansaa lähtösignaalin kasvamisen, kyseessä on positiivinen takaisinkytkentä.
+\end{itemize}
+}
+
+  \frame{
+  \tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex]
+\tikzstyle{cloud} = [draw,circle ,fill=red!20, node distance=3cm,  minimum height=2em]
+
+ \begin{center}
+\begin{tikzpicture}[node distance = 3cm, auto,] 
+  \node [block] (aa) {$A$};
+  \node[block, below of = aa] (bee) {$B$};
+  \node[cloud, left of = aa, node distance=2cm] (summa) {$\sum$};
+\node [coordinate, name=input, left of = summa, node distance=1cm] {};
+\node [coordinate, name=output, right of = aa] {};
+\draw [line] (aa) -- node {$\Uout$} (output) ;
+\draw [line] (bee) -| node[pos=0.99] {$-$} node [near end] {} (summa);
+\draw [line] (input) -- node {$\Uin$} (summa) ;
+\draw [line] (summa) -- node {} (aa);
+\draw [line] (output) |- node {} (bee);
+
+\end{tikzpicture}
+\[
+\Uout = A(\Uin-B\Uout)\quad \Rightarrow \quad \Uout=\frac{A}{1+AB}\Uin
+\]
+\end{center}
+ } 
+
+\frame{
+\frametitle{Takaisinkytkennän käyttö}
+\begin{itemize}
+\item Takaisinkytkentä on tärkeä säätötekniikassa.
+\item Takaisinkytkennän avulla voidaan vahvistimen ominaisuuksia stabiloida.
+\item Esimerkki: ei-invertoiva operaatiovahvistin.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ei-invertoiva vahvistin} 
+\begin{center}
+\begin{picture}(100,100)(0,-100)
+\voi{0,0}{}{15}
+\hln{-50,20}{50}
+
+\hln{0,-40}{50}
+\vln{0,-40}{40}
+\vz{50,-40}{R_2\hspace{-1.1cm}}
+\vz{50,-90}{R_1}
+\hg{50,-90}
+
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+\hln{50,10}{20}
+
+\end{picture}
+\end{center}
+\[
+\Uout=\left(1+\frac{R_2}{R_1}\right)\Uin
+\]
+}
+
+\frame{
+\frametitle{Ei-invertoiva vahvistin: takaisinkytkennän analyysi}
+\begin{center}
+\begin{picture}(100,100)(0,-100)
+\voi{0,0}{}{15}
+\hln{-50,20}{50}
+
+\hln{0,-40}{50}
+\vln{0,-40}{40}
+\vz{50,-40}{R_2\hspace{-1.1cm}}
+\du{0,-90}{U_-}
+\vz{50,-90}{R_1\hspace{-1.1cm}}
+\hg{50,-90}
+
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+\hln{50,10}{20}
+
+\end{picture}
+\end{center}
+\[
+\Uout=A(U_+-U_-)=A(\Uin-\frac{R_1}{R_1+R_2}\Uout)
+\]
+Kun verrataan tätä takaisinkytkennän kaaviokuvaan, nähdään, että takaisinkytkentäkerroin $B=\frac{R_1}{R_1+R_2}$.
+}

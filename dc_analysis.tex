@@ -1,0 +1,3192 @@
+
+
+\documentclass[]{beamer}
+
+
+\usepackage[utf8]{inputenc}
+\include{latex-macro}
+\usepackage{comment}
+\usepackage{icomma}
+\usepackage{hyperref}
+\usepackage{import}
+
+
+\usetheme[secheader]{Boadilla}
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+
+\title{Circuit analysis: DC Circuits (3 cr)}
+\subtitle{Fall 2009 / Class AS09}
+\author{Vesa Linja-aho}
+\institute{Metropolia}
+\frame{
+\titlepage
+	\vfill
+	\begin{center}
+
+
+The slides are licensed with CC By 1.0. \url{http://creativecommons.org/licenses/by/1.0/} \\
+Slideset version: 1.1
+
+	\end{center}
+}
+\date{\today}
+\frame{
+\frametitle{Table of Contents}
+Click the lecture name to jump onto the first slide of the lecture.
+\vfill
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\tableofcontents[sections={1-6}]
+\end{column}
+\begin{column}{0.4\textwidth}
+\tableofcontents[sections={7-12}]
+\end{column}
+\end{columns}
+}
+
+\section{1. lecture}
+
+\frame {
+\frametitle{About the Course}
+\begin{itemize}
+\item Lecturer: M.Sc. Vesa Linja-aho
+\item Lectures on Mon 11:00-14:00 and Thu 14:00-16:30, room P113
+\item To pass the course: Home assignments and final exam. The exam is on Monday 12th October 2009 at 11:00-14:00.
+\item All changes to the schedule are announced in the Tuubi-portal.
+\end{itemize}
+ }
+ 
+ \frame{
+ \frametitle{The Home Assignments}
+ \begin{itemize}
+ \item There are 12 home assignments.
+ \item Each assignment is graded with 0, 0,5 or 1 points.
+ \item To pass the course, the student must have at least 4 points from the assignments.
+ \item Each point exceeding the minimum of 4 points will give you 0,5 extra points in the exam. 
+ \item In the exam, there are 5 assignments, with maximum of 6 points each.
+ \item To pass the exam, you need to get 15 points from the exam.
+ \item All other grade limits (for grades 2-5) are flexible.
+ \end{itemize}
+ \begin{exampleblock}{Example}
+ The student has 8 points from the home assignments. He gets 13 points from the exam.
+He will pass the exam, because he gets extra points from the home assignments and
+his total score is  $(8-4)\cdot 0,5+13=15$ points.
+ \end{exampleblock}
+However, is one gets 8 of 12 points from the home assignments, he usually gets more
+than 13 points from the exam :-).
+ }
+
+\frame{
+\frametitle{The Course Objectives}
+From the curriculum:
+\begin{block}{Learning outcomes of the course unit}
+\small Basic concepts and basic laws of electrical engineering. Analysis of direct current (DC) circuits.
+\end{block}
+\begin{block}{Course contents}
+\small Basic concepts and basic laws of electrical engineering, analysis methods, controlled sources. Examples and exercises.
+\end{block}
+}
+
+
+
+\frame {
+  \frametitle{The Course Schedule}
+\begin{enumerate}
+\item The basic quantities and units. Voltage source and resistance. Kirchhoff's laws and Ohm's law.
+\item Conductance. Electric power. Series and parallel circuits. Node. Ground.
+\item Current source. Applying the Kirchhoff's laws to solve the circuit. Node-voltage analysis.
+\item Exercises on node-voltage analysis.
+\item Source transformation.
+\item Thévenin equivalent and Norton equivalent.
+\item Superposition principle.
+\item Voltage divider and current divider.
+\item Inductance and capacitance in DC circuits.
+\item Controlled sources.
+\item Recap.
+\item Recap.
+\end{enumerate}
+}
+
+
+\frame {
+  \frametitle{The Course is Solid Ground for Further Studies in Electronics}
+  The basic knowledge on DC circuits is needed on the courses {\em Circuit Analysis: Basic AC-Theory}, {\em Measuring Technology},
+  {\em Automotive Electronics 1}, {\em Automotive Electrical Engineering Labs}, $\ldots$
+  
+  \begin{alertblock}{Important!}
+   By studying this course well, {\bf studying the upcoming courses will be easier}!
+  \end{alertblock}
+  The basics of DC circuits are vital for automotive electronics engineer, just like the
+  basics of accounting are vital for an auditor, and basics of strength of materials are vital for a bridge-building engineer etc.
+}
+
+\frame{
+\frametitle{What is Not Covered on This Course}
+The basic physical characteristics of electricity is not covered on this course. Questions
+like "What is electricity?" are covered on the course {\em Rotational motion and electromagnetism}.
+}
+
+\frame{
+\frametitle{Studying in Our School}
+\begin{itemize}
+\item You have an opportunity to learn on the lectures. I can not force you to learn.
+\item You have more responsibility on your learning than you had in vocational school or senior high school.
+\item 1 cr $\approx$ 26,7 hours of work. 3 cr = 80 hours of work. You will spend 39 hours on the lectures.
+\item Which means that you should use about 40 hours of your own time for studying!
+\item If I proceed too fast or too slow, please interject me (or tell me by email).
+\item Do not hesitate to ask. Ask also the "stupid questions".
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{What Is Easy and What Is Hard?}
+Different things are hard for different people. But my own experience shows that
+\begin{itemize}
+\item DC analysis is easy, because the math involved is very basic.
+\item DC analysis is hard, because the circuits are not as intuitive as, for example, mechanical
+systems are.
+\end{itemize}
+Studying your math courses well is important for the upcoming courses on circuit analysis.
+For example, in AC circuits analysis you have to use {\em complex arithmetics}.
+}
+
+
+
+\frame {
+\frametitle{Now, Let's Get into Business}
+Any questions on the practical arrangements of the course?
+}
+
+\frame {
+\frametitle{Electric Current}
+\begin{itemize}
+\item Electric current is a flow of electric charge.
+\item The unit for electric current is the ampere (A).
+\item The abbreviation for the quantity is $I$.
+\item One may compare the electric current with water flowing in a pipe (so called {\em hydraulic analogy}).
+\item The current always circulates in a loop: current does not compress nor vanish.
+\item The current in a wire is denoted like this:
+\end{itemize}
+
+\begin{center}
+\begin{picture}(100,25)(0,0)
+
+\hln{0,0}{100}
+\ri{50,0}{I=2\mA}
+
+\end{picture}
+\end{center}
+}
+
+\frame {
+\frametitle{Kirchhoff's Current Law}
+\begin{itemize}
+\item As mentioned on the previous slide, the current can not vanish anywhere.
+\end{itemize}
+\begin{block}{Kirchhoff's Current Law (or: Kirchhoff's First Law)}
+At any area in an electrical circuit, the sum of currents flowing into that area is equal to the sum of currents flowing out of that area. 
+\end{block}
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+
+\hln{0,0}{100}
+\hln{0,50}{100}
+\vln{0,0}{50}
+\vln{50,0}{50}
+\vln{100,0}{50}
+
+\ri{25,0}{I_1=3\mA}
+\ri{75,0}{I_2=2\mA}
+\ui{50,25}{I_3=1\mA}
+\end{picture}
+\end{center}
+If you draw a circle in any place in the circuit, you can observe that there is as the same amount of current flowing into
+the circle and out from the circle!
+}
+
+
+\frame {
+\frametitle{Be Careful with Signs}
+\begin{itemize}
+\item One can say: "The balance of my account -50 euros" or equally "I owe 50 euros to my bank".
+\item One can say: "The profit of the company was -500000 euros" or equally "The loss of the company was 500000 euros".
+\item If you measure a current with an ammeter and it reads $-15 \mA$, by reversing the wires of the ammeter it
+will show  $15 \mA$.
+\item The sign of the current shows the direction of the current. The two circuits below are exactly identical.
+\end{itemize}
+
+\begin{picture}(100,50)(0,0)
+\hln{0,0}{100}
+\hln{0,50}{100}
+\vln{0,0}{50}
+\vln{50,0}{50}
+\vln{100,0}{50}
+\ri{25,0}{I_1=3\mA}
+\ri{75,0}{I_2=2\mA}
+\ui{50,25}{I_3=1\mA}
+\end{picture}
+\begin{picture}(100,50)(-50,0)
+\hln{0,0}{100}
+\hln{0,50}{100}
+\vln{0,0}{50}
+\vln{50,0}{50}
+\vln{100,0}{50}
+\li{25,0}{I_{\rm a}=-3\mA}
+\li{75,0}{I_{\rm b}=-2\mA\hspace{-1cm}}
+\ui{50,25}{I_3=1\mA}
+\end{picture}
+
+
+}
+
+\frame {
+\frametitle{Voltage}
+\begin{itemize}
+\item The potential difference between two points is called voltage.
+\item The abbreviation for the quantity is $U$.
+\item In circuit theory, it is insignificant how the potential difference is generated (chemically, by induction etc.).
+
+\item The unit of voltage is the volt (V).
+\item  One may compare the voltage with a pressure difference in hydraulic system, or to a difference in altitude.
+\item Voltage is denoted with an arrow between two points.
+\end{itemize}
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{0,0}{12 \V}
+\du{20,0}{U=12 \V}
+\hln{0,0}{20}
+\hln{0,50}{20}
+\end{picture}
+\end{center}
+}
+
+\frame {
+\frametitle{Kirchhoff's voltage law}
+\begin{itemize}
+\item The voltage between two points is the same, regardless of the path chosen.
+\item This is easy to understand by using the analogy of differences in altitude. If you
+leave your home, go somewhere and return to your home, you have traveled uphill as much 
+as you have traveled downhill.
+\end{itemize}
+\begin{block}{Kirchhoff's Voltage Law (or: Kirchhoff's Second Law)}
+The directed {\bf sum of the voltages around any closed circuit is zero}. 
+\end{block}
+
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\hst{0,0}{1,5 \V}
+\hst{50,0}{1,5 \V}
+\hst{100,0}{1,5 \V}
+\vln{0,0}{50}
+\vln{150,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+\lu{50,50}{4,5 \V}
+\cn{50,50}
+\cn{100,50}
+\end{picture}
+\end{center}
+}
+
+\frame{
+\frametitle{Ohm's law}
+\begin{itemize}
+\item {\em Resistance } is a measure of the degree to which an object opposes an electric current through it.
+\item The larger the current, the larger the voltage -- and vice versa.
+\item The abbreviation of the quantity is $R$ and the unit is ($\ohm$) (ohm).
+\item The definition of resistance is the ratio of the voltage over the element divided with
+the current through the element. $R=U/I$
+\end{itemize}
+
+\begin{center}
+$U=RI$
+
+\begin{picture}(50,50)(0,0)
+
+\hz{0,0}{R}
+\ru{0,10}{U}
+\ri{5,0}{I}
+\hln{50,0}{15}
+\hln{-15,0}{15}
+
+\end{picture}
+\end{center}
+}
+
+\frame {
+  \frametitle{Definitions}
+\begin{description}
+\item[Electric circuit] A system consisting of compontents, in where electric current flows.
+\item[Direct current (DC)] The electrical quantities (voltage and current) are constant (or nearly constant) over time.
+\item[Direct current circuit] An electric circuit, where voltages and currents are constant over time.
+\end{description}
+\begin{exampleblock}{Example}
+In a flashlight, there is a direct current circuit consisting of a battery/batteries, a switch and a bulb.
+In a bicycle there is an alternating current circuit (dynamo and bulb).
+\end{exampleblock}
+
+}
+
+\frame {
+  \frametitle{An alternate definition for direct current}
+One may define also that direct current means a current, which does not change its direction (sign),
+but the magnitude of the current can vary over time. For example, a simple lead acid battery charger
+outputs a pulsating voltage, which varies between 0 V ... $\approx$ 18 V. This can be also called DC voltage.
+
+\begin{alertblock}{Agreement}
+On this course, we define DC to mean constant voltage and current. The magnitude and sign
+are constant over time.
+\end{alertblock}
+}
+
+
+\frame{
+\frametitle{A simple DC circuit}
+\begin{itemize}
+\item A light bulb is wired to a battery. The resistance of the filament is $10 \ohm$. 
+\end{itemize}
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{0,0}{12 \V}
+\uncover<-1>{\vlamp{50,0}{}}
+\uncover<2->{\vz{50,0}{10\ohm}}
+\uncover<-3>{\ri{25,50}{I=?}}
+\uncover<4->{\ri{25,50}{I=1,2\A}}
+\hln{0,0}{50}
+\hln{0,50}{50}
+\uncover<3->{\du{65,0}{12\V}}
+\end{picture}
+\end{center}
+
+
+\uncover<4->{$U=RI$\\
+$I=\frac{U}{R}=\frac{12 \V}{10 \ohm}=1,2 \A$}
+}
+
+\begin{comment}
+\frame{
+\frametitle{Oppikirja}
+Tällä luennolla käsiteltiin kirjan Kimmo Silvonen: {\em Sähkötekniikka ja elektroniikka} kappaleet:
+\begin{description}
+\item[1.1.1] Sähkövirta ja Kirchhoffin virtalaki
+\item[1.1.3] Potentiaaliero ja Kirchhoffin jännitelaki
+\item[1.2.1] Ohmin laki
+\end{description}
+Koska sivunumerointi saattaa vaihdella painoksittain, viittaan kappaleen numeroihin.
+
+}
+\end{comment}
+
+
+\frame{
+\frametitle{Homework 1 (released 31st Aug, to be returned 3rd Sep)}
+\begin{itemize}
+\item The homework are to be returned at the beginning of the next lecture.
+\item Remember to include your name and student number.
+\end{itemize}
+\begin{block}{Homework 1}
+Find the current $I$.
+\end{block}
+\begin{center}
+\begin{picture}(50,100)(0,0)
+\vst{0,0}{1,5 \V}
+\vst{0,50}{1,5 \V}
+\vz{50,25}{R=20\ohm\hspace{-2.5cm}}
+\vln{50,0}{25}
+\vln{50,75}{25}
+\hln{0,100}{50}
+\hln{0,0}{50}
+\di{50,25}{I}
+\end{picture}
+\end{center}
+
+}
+
+
+
+
+
+\section{2. lecture}
+
+\frame{
+\frametitle{Homework 1 - Model solution}
+\begin{block}{Homework 1}
+Find the current $I$.
+\end{block}
+\begin{center}
+\begin{picture}(50,100)(0,0)
+\vst{0,0}{1,5 \V}
+\vst{0,50}{1,5 \V}
+\vz{50,25}{R=20\ohm\hspace{-2.5cm}}
+\vln{50,0}{25}
+\vln{50,75}{25}
+\hln{0,100}{50}
+\hln{0,0}{50}
+\di{50,25}{I}
+\uncover<2->{\du{12,0}{U_1} } 
+\uncover<2->{\du{12,50}{U_2} }
+\uncover<2->{\du{41,25}{\hspace{-0.65cm}U_{\rm R}} }
+\end{picture}
+\end{center}%\uncover<3->{\[ U_1+U_2-U_{\rm R}=0 \Leftrightarrow U_{\rm R}=U_1+U_2 \]}\uncover<4->{\[ U=RI \Rightarrow U_{\rm R}=RI \Rightarrow I=\frac{U_{\rm R}}{R}=\frac{U_1+U_2}{R}=\frac{1,5 \V+1,5 \V}{20\ohm}=150 \mA \]}
+\uncover<2->{\[ U_1+U_2-U_{\rm R}=0 \Leftrightarrow U_{\rm R}=U_1+U_2 \]}
+\uncover<3->{\vspace{-\baselineskip}
+\[ U=RI \Rightarrow U_{\rm R}=RI \Rightarrow I=\frac{U_{\rm R}}{R}=\frac{U_1+U_2}{R}=\frac{1,5 \V+1,5 \V}{20\ohm}=150 \mA \]}
+}
+
+
+\frame{
+\frametitle{Conductance}
+\begin{itemize}
+\item  Resistance is a measure of the degree to which an object opposes an electric current through it.
+\item The inverse of resistance is {\bf conductance}. The symbol for conductance is 
+ $G$ and the unit is Siemens (S).
+\item Conductance measures how easily electricity flows along certain element.
+\item For example, if resistance $R=10 \ohm$ then conductance $G=0,1\Siemens$.
+\end{itemize}
+
+\begin{center}
+$G=\frac{1}{R} \qquad U=RI \Leftrightarrow GU=I$ 
+
+\begin{picture}(50,50)(0,0)
+\hz{0,0}{G=\frac{1}{R}}
+\ru{0,10}{U}
+\ri{5,0}{I}
+\hln{50,0}{15}
+\hln{-15,0}{15}
+\end{picture}
+\end{center}
+}
+
+
+\frame {
+\frametitle{Electric Power}
+\begin{itemize}
+\item In physics, power is the rate at which work is performed.
+\item The symbol for power is $P$ and the unit is the Watt (W).
+\item The DC power consumed by an electric element is $P=UI$\\[1cm] \begin{picture}(50,10)(-30,-5) \hz{0,0}{} \ri{8,0}{I} \ru{0,10}{U} \end{picture}
+\item If the formula outputs a positive power, the element is consuming power from the circuit. If the formula outputs a negative power, the element is delivering power to the circuit.
+\end{itemize}
+}
+\frame{
+\frametitle{Electric Power}
+\begin{block}{Energy can not be created nor destroyed}
+The power consumed by the elements in the circuit = the power delivered by the elements in the circuit.
+\end{block}
+
+\begin{center}
+\begin{picture}(200,50)(0,0)
+\vst{0,0}{E}
+\vz{100,0}{R}
+\hln{0,0}{100}
+\hln{0,50}{100}
+\ui{0,45}{I}
+\di{100,42}{I}
+\txt{200,50}{I=\frac{U}{R}}
+\txt{200,25}{P_R=UI=U\frac{U}{R}=\frac{U^2}{R}}
+\txt{200,0}{P_E=U\cdot(-I)=U\frac{-U}{R}=-\frac{U^2}{R}}
+\end{picture}
+\end{center}
+The power delivered by the voltage source is consumed by the resistor.
+}
+
+\frame {
+\frametitle{Series and Parallel Circuits}
+\begin{alertblock}{Definition: series circuit}
+The elements are in series, if they are connected so that the same current flows through the elements.
+\end{alertblock}
+\begin{alertblock}{Definition: parallel circuit}
+The elements are in parallel, if they are connected so that there is the same voltage across them.
+\end{alertblock}
+
+}
+
+\frame {
+\frametitle{Series and Parallel Circuits}
+\begin{exampleblock}{Series circuit}
+\begin{center}
+\begin{picture}(100,20)(0,-10)
+\hz{0,0}{}
+\hz{50,0}{}
+\ri{-10,0}{I}
+\ri{110,0}{I}
+\hln{-50,0}{50}
+\hln{100,0}{50}
+\end{picture}
+\end{center}
+\end{exampleblock}
+
+\begin{exampleblock}{Parallel Circuit}
+\begin{center}
+\begin{picture}(50,75)(0,-5)
+\hz{0,0}{}
+\hz{0,50}{}
+\vln{0,0}{50}
+\vln{50,0}{50}
+\ru{0,10}{U}
+\ru{0,60}{U}
+\end{picture}
+\end{center}
+\end{exampleblock}
+}
+
+\frame {
+\frametitle{Resistors in series and in parallel}
+\begin{exampleblock}{In series}
+\begin{center}
+\begin{picture}(100,20)(50,-15)
+\hz{0,0}{R_1}
+\hz{50,0}{R_2}
+\txt{125,0}{\Longleftrightarrow}
+\hz{150,0}{R=R_1+R_2}
+\end{picture}
+\end{center}
+\end{exampleblock}
+\begin{exampleblock}{In parallel}
+\begin{center}
+\begin{picture}(100,75)(0,-20)
+\hz{0,0}{R_1}
+\hz{0,50}{R_2}
+\hln{-25,25}{25}
+\hln{50,25}{25}
+\vln{0,0}{50}
+\vln{50,0}{50}
+\txt{110,25}{\Longleftrightarrow}
+\hz{130,25}{\vspace{-1cm}R=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2}}}
+\end{picture}
+\end{center}
+\end{exampleblock}
+Or, by using conductances: $G=G_1+G_2$.
+}
+
+
+
+\frame{
+\frametitle{Resistors in series and in parallel}
+\begin{itemize}
+\item The formulae on the previous slide can be applied to an arbitrary number of resistors. For instance,
+the total resistance of five resistors in series is $R=R_1+R_2+R_3+R_4+R_5$.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Voltage Sources in Series}
+\begin{itemize}
+\item The voltages can be summed like resistances, but be careful with correct signs.
+\item Voltage sources in parallel are inadmissible in circuit theory. There can not be two different
+voltages between two nodes at the same time.
+\end{itemize}
+\begin{center}
+\begin{picture}(100,25)(0,-30)
+\hst{0,0}{E_1}
+\hlst{50,0}{E_2}
+\hst{100,0}{E_3}
+\cn{0,0}
+\cn{150,0}
+\end{picture}
+
+\begin{picture}(100,25)(0,0)
+\txt{75,23}{\Longleftrightarrow}
+\hst{50,0}{E=E_1-E_2+E_3}
+\cn{50,0}
+\cn{100,0}
+\end{picture}
+\end{center}
+}
+
+\frame{
+\frametitle{What Series and Parallel Circuits are NOT}
+\begin{itemize}
+\item Just the fact that two components seem to be one after the other, does not mean that they are in series.
+\item Just the fact that two components seem to be side by side, does not mean that they are in parallel.
+\item In the figure below, which of the resistors are in parallel and which are in series with each other?
+\end{itemize}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vst{0,0}{E_1}
+\vst{100,0}{E_2}
+\vz{50,0}{R_3}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\hln{0,0}{100}
+\end{picture}
+\end{center}
+\pause
+\vspace{-0.2cm}
+\begin{alertblock}{Solution}
+\scriptsize
+None! $E_1$ ja $R_1$ are in series and $E_2$ ja $R_2$ are in series. Both of these serial circuits are in parallel with $R_3$. But no two resistors are in parallel nor in series.
+\end{alertblock}
+}
+
+
+\frame{
+\frametitle{Terminal and Gate}
+\begin{itemize}
+\item A point which provides a point of connection to external circuits is called a terminal (or pole).
+\item Two terminals form a gate.
+\item An easy example: a car battery with internal resistance. 
+\end{itemize}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_{\rm S}}
+\hln{0,0}{50}
+\out{50,0}
+\out{50,50}
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+\frametitle{Node}
+\begin{itemize}
+\item {\bf A node} means an area in the circuit where there are no potential differences, or alternatively a place where two or more circuit elements meet.
+\item A "for dummies" --way to find nodes in the circuit: put your pen on a wire in the circuit. Start coloring
+the wire, and backtrack when your pen meets a circuit element. The area you colored is one node.
+\item How many nodes are there in the circuit below?
+\end{itemize}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_5}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\vz{150,0}{R_6}
+\hln{0,0}{150}
+\ri{8,50}{I}
+\end{picture}
+%$R_1=R_2=R_3=R_4=R_5=R_6=1\ohm\qquad E=9\V$
+\end{center}
+}
+
+\frame{
+\frametitle{Ground}
+\begin{itemize}
+\item One of the nodes in the circuit can be appointed the ground node.
+\item By selecting one of the nodes to be the ground node, the circuit diagram usually appear cleaner. 
+\item The car battery is connected to the chassis of the car. Therefore it is convenient to handle the chassis
+as the ground node.
+\item When we say "the voltage of this node is 12 volts" it means that the voltage between that node
+and the ground node is 12 volts.
+\end{itemize}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_5}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\vz{150,0}{R_6}
+\hln{0,0}{150}
+\ri{8,50}{I}
+\hgp{0,0}
+\cn{0,0}
+\end{picture}
+\end{center}
+}
+
+
+\frame{
+\frametitle{Ground}
+\begin{itemize}
+\item The ground node can be connected to the chassis of the device or it can be leave not connected to the chassis.
+\item Therefore, the existence of the ground node does not mean that the device is "grounded".
+\item The circuit on the previous slide can be presented also like this:
+\end{itemize}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_5}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\vz{150,0}{R_6}
+%\hln{0,0}{150}
+\ri{8,50}{I}
+\hgp{0,0}
+\hgp{50,0}
+\hgp{100,0}
+\hgp{150,0}
+
+%\cn{0,0}
+\end{picture}
+\end{center}
+}
+
+
+%\subsection{Viitteet oppikirjaan ja kotitehtävä}
+\begin{comment}
+\frame{
+\frametitle{Oppikirja}
+Tällä luennolla käsiteltiin kirjan Kimmo Silvonen: {\em Sähkötekniikka ja elektroniikka} kappaleet:
+\begin{description}
+\item[1.2.2] [Siemensin laki ja] konduktanssi eli johtokyky
+\item[1.3.1] Tehon ja energiankulutuksen laskeminen
+\item[1.4.1] Sarjaankytkentä
+\item[1.4.2] Rinnankytkentä
+\item[1.5.1] Vastusten sarjaankytkentä
+\item[1.5.2] Vastusten rinnankytkentä
+\item[1.4.5] Napa, portti, maa
+\end{description}
+Koska sivunumerointi saattaa vaihdella painoksittain, viittaan kappaleen numeroihin.
+
+}
+\end{comment}
+
+\frame{
+\frametitle{Homework 2 (released 3rd Sep, to be returned 7th Sep)}
+\begin{block}{Homework 2}
+Find the current $I$.
+\end{block}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_5}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\vz{150,0}{R_6}
+\hln{0,0}{150}
+\ri{8,50}{I}
+\end{picture}
+$R_1=R_2=R_3=R_4=R_5=R_6=1\ohm\qquad E=9\V$
+\end{center}
+
+}
+
+
+
+
+\section{3. lecture}
+
+\frame{
+\frametitle{Homework 2 - Model solution}
+\begin{block}{Homework 2}
+Find the current $I$.
+\end{block}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_5}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\vz{150,0}{R_6}
+\hln{0,0}{150}
+\ri{8,50}{I}
+\end{picture}
+$R_1=R_2=R_3=R_4=R_5=R_6=1\ohm\qquad E=9\V$
+\end{center}
+\begin{itemize}
+\item $R_5$ ja $R_6$ are in series. The total resistance of the serial connection is $R_5+R_6=2\ohm$.
+\item Furthermore, the serial connection is in parallel with $R_4$. The resistance of this parallel circuit is
+$\frac{1}{\frac{1}{1}+\frac{1}{2}}\ohm=\frac{2}{3}\ohm$.
+\end{itemize}
+}
+\frame{
+\frametitle{Solution continues}
+\begin{itemize}
+\item $R_3$ is in series with the parallel circuit calculated on the previous slide. The resistance for this circuit is $R_3+\frac{2}{3}\ohm
+=\frac{5}{3}\ohm$.
+\item And the serial connection is in parallel with $R_2$. The resistance for the parallel circuit is
+$\frac{1}{(\frac{5}{3})^{-1}+\frac{1}{1}}=\frac{5}{8}\ohm$.
+\item Lastly, $R_1$ is in series with the resistance computed in the previous step. Therefore, the total resistance seen by voltage source $E$ is
+ $\frac{5}{8}\ohm + R_1=\frac{13}{8}\ohm$.
+\item The current $I$ is computed from Ohm's law $I=\frac{E}{\frac{13}{8}\ohm}=\frac{72}{13}\A\approx5,5\A$.
+\end{itemize}
+}
+
+
+
+
+
+
+
+\frame{
+\frametitle{The Current Source}
+\begin{itemize}
+\item The current source is a circuit element which delivers a certain current throught it, just like the voltage source
+keeps a certain voltage between its nodes.
+\item The current can be constant or it can vary by some rule.
+\end{itemize}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vj{0,0}{J}
+\vz{50,0}{R}
+\hln{0,0}{50}
+\hln{0,50}{50}
+\end{picture}
+\end{center}
+}
+
+\frame{
+\frametitle{The Current Source}
+\begin{itemize}
+\item If there is a current source in a wire, you know the current of that wire.
+\end{itemize}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vj{0,0}{J=1\A}
+\vz{50,0}{R_1}
+\hln{0,0}{100}
+\hln{0,50}{100}
+\ri{25,50}{I=1\A}
+\vz{100,0}{R_2}
+\end{picture}
+\end{center}
+}
+
+\frame{
+\frametitle{Applying Kirchhoff's Laws Systematically to the Circuit}
+When solving a circuit, it is highly recommended to use a systematic mehtod to find the voltages and/or currents.
+Otherwise it is easy to end up with writing a bunch of equations which can not be solved.
+One systematic method is called the {\bf nodal analysis}:
+\begin{enumerate}
+\item Name each current in the circuit.
+\item Select one node as the ground node. Assign a variable for each voltage between each node and ground node.
+\item Write an equation based on Kirchhoff's current law for each node (except the ground node).
+\item State the voltage of each resistor by using the node voltage variables in step 2. Draw the voltage arrows
+at the same direction you used for the current arrows (this makes it easier to avoid sign mistakes).
+\item State every current by using the voltages and substitute them into the current equations in step 2.
+\item Solve the set of equations to find the voltage(s) asked.
+\item If desired, solve the currents by using the voltages you solved.
+\end{enumerate}
+
+}
+
+\frame{
+\frametitle{Example}
+Find the current $I$.
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vst{100,0}{E_2}
+\vz{50,0}{R_3\hspace{-0.65cm}}
+\hz{0,50}{R_1\vspace{0.8cm}}
+\hz{50,50}{R_2\vspace{0.8cm}}
+\di{50,1}{I}
+\hln{0,0}{100}
+
+\pause
+\color{red}
+\ri{48,50}{I_1}
+\li{52,50}{}
+\txt{55,60}{I_2}
+
+\pause
+\color{blue}
+\hgp{25,0} 
+\du{58,0}{U_3}
+
+
+\pause
+\color{violet}
+\txt{160,25}{I=I_1+I_2}
+
+
+\pause
+\color{cyan}
+\ru{0,60}{E_1-U_3}
+\lu{50,60}{E_2-U_3}
+
+
+\end{picture}
+\end{center}
+\pause
+\[
+\color{magenta} \frac{U_3}{R_3}=\frac{E_1-U_3}{R_1}+\frac{E_2-U_3}{R_2}
+\pause
+\color{orange} \Longrightarrow
+U_3=R_3\frac{R_2E_1+R_1E_2}{R_1R_2+R_2R_3+R_1R_3}
+\]
+\pause
+\[
+\color{brown} I=\frac{U_3}{R_3}=\frac{R_2E_1+R_1E_2}{R_1R_2+R_2R_3+R_1R_3}
+\]
+}
+
+\frame{
+\frametitle{Some Remarks}
+\begin{itemize}
+\item There are many methods for writing the circuit equations, and there is no such thing as "right" method.
+\item The only requirement is that you follow Kirchhoff's laws and Ohm's law\footnote{Ohm's law can only be utilized for
+resistors. If you have other elements, you must know their current-voltage equation.}
+ and you have an equal
+number of equations and unknowns.
+\item If there is a current source in the circuit, it will (usually) make the circuit easier to solve, as
+you then have one unknown less to solve.
+\item By using conductances instead of resistances, the equations look a little cleaner.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Another Example}
+
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vst{150,0}{E_2}
+\vz{50,0}{R_3\hspace{-0.65cm}}
+\hz{0,50}{R_1\vspace{0.8cm}}
+\hz{50,50}{R_2\vspace{0.8cm}}
+\hln{0,0}{150}
+\vz{100,0}{R_4\hspace{-0.65cm}}
+\hz{100,50}{R_5\vspace{0.8cm}}
+
+\color{green}
+\ri{8,50}{I_1}
+\ri{58,50}{I_2}
+\di{50,1}{I_3}
+\ri{108,50}{I_5}
+\di{100,1}{I_4}
+\txt{200,25}{I_1=I_2+I_3}
+\txt{200,10}{I_2=I_4+I_5}
+
+\color{blue}
+\du{58,0}{U_3}
+\du{108,0}{U_4}
+
+
+\end{picture}
+\end{center}
+
+\[\color{blue}
+\frac{E_1-U_3}{R_1}=\frac{U_3-U_4}{R_2}+\frac{U_3}{R_3} \quad \mbox{ja}\quad
+\frac{U_3-U_4}{R_2}=\frac{U_4}{R_4}+\frac{U_4-E_2}{R_5}
+\]
+\[\color{red}
+G_1(E_1-U_3)=G_2(U_3-U_4)+G_3U_3\ \mbox{ja}\
+G_2(U_3-U_4)=G_4U_4+G_5(U_4-E_2)
+\]
+Two equations, two unknowns $\to$ can be solved. Use conductances!
+}
+
+
+\frame{
+\frametitle{Some Remarks}
+\begin{itemize}
+\item There are many other methods available too: mesh analysis, modified nodal analysis, branch current method \ldots
+\item If there are ideal voltage sources in the circuit (=voltage sources which are connected to a node without a series resistance),
+you need one more unknown (the current of the voltage source) and one more equation (the voltage source will determine the voltage between
+the nodes it is connected to).
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Homework 3 (released 7th Sep, to be returned 10th Sep)}
+\begin{block}{Homework 3a)}
+Find the current $I_4$.
+\end{block}
+\begin{block}{Homework 3b)}
+Verify your solution by writing down all the voltages and currents to the circuit diagram and checking that
+the solution does not contradict Ohm's and Kirchhoff's laws.
+\end{block}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\hz{0,50}{R_1}
+\hst{50,50}{E}
+\hz{100,50}{R_4}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\vz{150,0}{R_5}
+\hln{0,0}{150}
+\di{100,1}{I_4}
+\end{picture}
+$R_1=R_2=R_3=R_4=R_5=1\ohm\qquad E=9\V\qquad J=1\A$
+\end{center}
+
+}
+
+
+\section{4. lecture}
+\frame{
+\frametitle{Homework 3 - Model Solution}
+\begin{block}{Homework 3a)}
+Find current $I_4$.
+\end{block}
+\begin{block}{Homework 3b)}
+Verify your solution by writing down all the voltages and currents to the circuit diagram and checking that
+the solution does not contradict Ohm's and Kirchhoff's laws.
+\end{block}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\hz{0,50}{R_1}
+%\hz{50,50}{R_3}
+\hst{50,50}{E}
+\hz{100,50}{R_4}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\vz{150,0}{R_5}
+\hln{0,0}{150}
+\di{100,1}{I_4}
+\end{picture}
+$R_1=R_2=R_3=R_4=R_5=1\ohm\qquad E=9\V\qquad J=1\A$
+\end{center}
+}
+
+\frame {
+  \frametitle{Solution}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\hz{0,50}{R_1}
+%\hz{50,50}{R_3}
+\hst{50,50}{E}
+\hz{100,50}{R_4}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\vz{150,0}{R_5}
+\hln{0,0}{150}
+\di{100,1}{I_4}
+\color{red}
+\du{57,0}{U_2}
+\du{107,0}{U_3}
+\hgp{100,0}
+\ri{96,50}{I}
+\end{picture}
+$R_1=R_2=R_3=R_4=R_5=1\ohm\qquad E=9\V\qquad J=1\A$
+\end{center}
+First we write two current equations and one voltage equation. The conductance of the series
+circuit formed by $R_4$ ja $R_5$ is denoted with $G_{45}$.
+\begin{eqnarray*}
+J&=&U_2G_2+I\\
+I&=&U_3G_3+U_3G_{45} \\
+U_2+E&=&U_3
+\end{eqnarray*}
+By substituting $I$ from the second equation to the first equation and then substituting $U_2$ from the third
+equation, we get
+\[
+J=(U_3-E)G_2+U_3(G_3+G_{45})
+\]
+}
+By substituting the component values, we get
+\[
+U_3=4 \V
+\]
+
+\begin{itemize}
+\item Therefore the current $I$ is $4 \V \cdot 1 \Siemens=4\A$.
+\item From the voltage equation $U_2+E=U_3$ we can solve $U_2=-5\V$, therefore the current through $R_2$ is $5\A$ upwards.
+\item The current $I$ is therefore $1\A+5\A=6\A$, of which $4\A$ goes through $R_3$:n and the remaining $2\A$ goes through $R_4$ ja $R_5$.
+\item There is no contradiction with Kirchhoff's laws and therefore we can be certain that our solution is correct.
+\end{itemize}
+
+
+
+
+
+\frame{
+\frametitle{Example 1}
+Find $I$ and $U$.
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vst{50,0}{E_2}
+\hst{50,100}{E_3}
+\hz{0,50}{R_1}
+\vz{100,0}{R_2}
+\vj{150,0}{J}
+\di{0,42}{I}
+\du{110,0}{U}
+
+\hln{0,0}{150}
+\hln{100,100}{50}
+\hln{0,100}{50}
+
+\vln{0,50}{50}
+\vln{100,50}{50}
+\vln{150,50}{50}
+
+\uncover<2->{\color{red} \li{50,100}{I_3}}
+\end{picture}
+\end{center}
+\pause
+\begin{eqnarray*}
+J&=&UG_2+I_3\\
+I_3&=&I+(E_1-E_2)G_1\\
+U&=&E_1+E_3
+\end{eqnarray*}
+}
+
+
+\frame{
+\frametitle{Example 2}
+Find $U_2$ and $I_1$.
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vst{50,0}{E_2}
+\vst{100,0}{E_3}
+\hj{0,50}{J_1}
+\hlj{50,50}{J_2}
+\hz{25,100}{R}
+\hln{0,0}{100}
+\vln{0,50}{50}
+\vln{100,50}{50}
+\hln{0,100}{25}
+\hln{75,100}{25}
+\lu{50,67}{U_2}
+\li{25,0}{I_1}
+
+\end{picture}
+\end{center}
+\pause
+\begin{eqnarray*}
+I_1&=&(E_1-E_3)G+J_1\\
+E_2+U_2&=&E_3
+\end{eqnarray*}
+}
+
+\frame{
+\frametitle{How To Get Extra Exercise?}
+\begin{itemize}
+\item There are plenty of problems with solutions available at \url{http://users.tkk.fi/~ksilvone/Lisamateriaali/lisamateriaali.htm}
+\item For example, you can find 175 DC circuit problems at \url{http://users.tkk.fi/~ksilvone/Lisamateriaali/teht100.pdf}
+\item At the end of the pdf file you can find the model solutions, so you can check your solution.
+\item If you are enthusiastic, you can install and learn to use a circuit simulator:
+\url{http://www.linear.com/designtools/software/ltspice.jsp}
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Example 3}
+Find $U_4$.
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hln{0,0}{100}
+\du{110,0}{U_4}
+\pause
+\color{red}
+\du{58,0}{U_2}
+\hgp{25,0}
+\end{picture}
+\end{center}
+\begin{eqnarray*}
+(E-U_2)G_1&=&U_2G_2+(U_2-U_4)G_3\\
+(U_2-U_4)G_3&=&G_4U_4
+\end{eqnarray*}
+}
+
+\begin{comment}
+\frame{
+\frametitle{Example 4}
+Find $U_4$.
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hln{0,0}{50}
+\hst{50,0}{E_2}
+\hj{50,100}{J}
+\vln{50,50}{50}
+\vln{100,50}{50}
+\cn{50,50}
+
+\du{110,0}{U_4}
+
+\pause
+\end{picture}
+\end{center}
+\begin{eqnarray*}
+(E-U_2)G_1&=&U_2G_2+(U_2-U_4)G_3\\
+(U_2-U_4)G_3&=&G_4U_4
+\end{eqnarray*}
+}
+\end{comment}
+
+\frame{
+\frametitle{Homework 4 (released 10th Sep, to be returned 14th Sep)}
+\begin{block}{Homework 4}
+Find the voltage $U_1$. All resistors have the value $10 \ohm$, $E=10\V$ ja $J=1\A$.
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+\hz{50,0}{R_4}
+\vst{150,0}{E}
+\hln{0,0}{50}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+\du{57,0}{U_1}
+\end{picture}
+\end{center}
+
+
+}
+
+
+\section{5. lecture}
+
+\frame{
+\frametitle{Homework 4 - Model Solution}
+\begin{block}{Homework 4}
+Find the voltage $U_1$. All resistors have the value $10 \ohm$, $E=10\V$ ja $J=1\A$.
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+\hz{50,0}{R_4}
+\vst{150,0}{E}
+\hln{0,0}{50}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+\du{57,0}{U_1}
+
+\color{red}
+\put(97,47){\vector(-1,-1){45}}
+\stx{89,31}{$U_2$}
+\lu{50,-19}{}
+\txt{75,-25}{U_3}
+\hgp{25,0}
+\ri{125,50}{I}
+
+\color{blue}
+\ru{50,60}{U_1-U_2}
+\du{110,0}{}
+\stx{125,15}{$U_2-U_3$}
+\end{picture}
+\end{center}
+
+\begin{eqnarray*}
+J&=&U_1G_1+(U_1-U_2)G_2\\
+(U_1-U_2)G_2&=&(U_2-U_3)G_3+I\\
+G_3(U_2-U_3)+I&=&U_3G_4\\
+U_2-U_3&=&E
+\end{eqnarray*}
+
+}
+
+
+\frame{
+\frametitle{Solution}
+\begin{eqnarray*}
+J&=&U_1G_1+(U_1-U_2)G_2\\
+(U_1-U_2)G_2&=&EG_3+I\\
+G_3E+I&=&U_3G_4\\
+U_2-U_3&=&E
+\end{eqnarray*}
+$I$ is solved from the third equation and substituted into the second equation, then $U_3$ is solved from the equation and substituted.
+\begin{eqnarray*}
+J&=&U_1G_1+(U_1-U_2)G_2\\
+(U_1-U_2)G_2&=&EG_3+(U_2-E)G_4-G_3E\\
+\end{eqnarray*}
+\vspace{-1cm}
+\begin{eqnarray*}
+1&=&0,2U_1-0,1U_2\\
+0,1U_1-0,1U_2&=&0,1U_2-1
+\end{eqnarray*}
+}
+\frame{
+\frametitle{Solution}
+\begin{eqnarray*}
+1&=&0,2U_1-0,1U_2\\
+0,1U_1-0,1U_2&=&0,1U_2-1
+\end{eqnarray*}
+
+Which is solved
+\begin{eqnarray*}
+U_1&=&10\\
+U_2&=&10
+\end{eqnarray*}
+Therefore the voltage $U_1$ is 10 Volts. This is easy to verify with a circuit simulator.
+
+}
+
+
+
+
+
+\frame {
+  \frametitle{Circuit Transformation}
+\begin{enumerate}
+\item An operation which transforms a part of the circuit into an internally different, but externally equally acting
+circuit, is called a {\em circuit transformation}.
+\item For example, combining series resistors or parallel resistors into one resistor, is a circuit transformation. Combining series voltage sources into one voltage source is a circuit transformation too.  
+\item On this lecture, we learn dealing with parallel current sources and the {\em source transformation}, with which
+we can transform a voltage source with series resistance into a current source with parallel resistance. 
+\end{enumerate}
+}
+
+
+\frame {
+\frametitle{An Example of a Circuit Transformation}
+Two (or more) resistors are combined to a single resistor, which acts just like the original circuit of resistors.
+\begin{exampleblock}{Resistors in series}
+\begin{center}
+\begin{picture}(100,20)(50,-15)
+\hz{0,0}{R_1}
+\hz{50,0}{R_2}
+\txt{125,0}{\Longleftrightarrow}
+\hz{150,0}{R=R_1+R_2}
+\end{picture}
+\end{center}
+\end{exampleblock}
+\begin{exampleblock}{Resistors in parallel}
+\begin{center}
+\begin{picture}(100,75)(0,-20)
+\hz{0,0}{R_1}
+\hz{0,50}{R_2}
+\hln{-25,25}{25}
+\hln{50,25}{25}
+\vln{0,0}{50}
+\vln{50,0}{50}
+\txt{110,25}{\Longleftrightarrow}
+\hz{130,25}{\vspace{-1cm}R=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2}}}
+\end{picture}
+\end{center}
+\end{exampleblock}
+Or, by using conductance: $G=G_1+G_2$.
+}
+
+\frame {
+\frametitle{Current Sources in Parallel}
+One or more current sources are transformed into single current source, which acts just like the original parallel circuit of current sources.
+\begin{exampleblock}{Current sources in parallel}
+\begin{center}
+\begin{picture}(270,50)(0,0)
+\vj{0,0}{J_1}
+\vj{50,0}{J_2}
+\vdj{100,0}{J_3}
+\hln{0,0}{150}
+\hln{0,50}{150}
+\out{150,0}
+\out{150,50}
+
+\txt{170,25}{\Longleftrightarrow}
+\vj{200,0}{}
+\txt{250,25}{J=J_1+J_2-J_3}
+\hln{200,0}{50}
+\hln{200,50}{50}
+\out{250,0}
+\out{250,50}
+\end{picture}
+\end{center}
+\end{exampleblock}
+Just like connecting two or more voltage sources in parallel, connecting current sources in series is an undefined (read: forbidden) operation in circuit theory, just like divide by zero is undefined in mathematics. There can not be two
+currents in one wire!
+}
+
+\frame {
+\frametitle{The Source Transformation}
+{\bf A voltage source with series resistance} acts just like {\bf current source with parallel resistance}.
+\begin{exampleblock}{The source transformation}
+\begin{center}
+\begin{picture}(150,55)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R}
+\hln{0,0}{50}
+\out{50,0}
+\out{50,50}
+
+\txt{66,25}{\Longleftrightarrow}
+
+\vj{100,0}{J}
+\vz{150,0}{R}
+\hln{100,0}{75}
+\hln{100,50}{75}
+\out{175,0}
+\out{175,50}
+\color{red}
+\txt{200,25}{E=RJ}
+\end{picture}
+\end{center}
+\end{exampleblock}
+}
+
+\frame{
+\frametitle{Important}
+\begin{itemize}
+\item Note that an ideal voltage or current source can not be transformed like in previous slide. The voltage source to
+be transformed must have series resistance and the current source must have parallel resistance. 
+\item The resistance remains the same, and the value for the source is found from formula $E=RJ$, which is 
+based on Ohm's law.
+\item The source transform is not just a curiosity. It can save from many lines of manual calculations, for example when analyzing a transistor amplifier.
+\end{itemize}
+}
+
+\frame {
+\frametitle{Rationale for the Source Transformation}
+
+\begin{exampleblock}{The source transformation}
+\begin{center}
+\begin{picture}(250,55)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R}
+\hln{0,0}{50}
+\hstp{50,0}{}
+\ri{55,50}{I}
+\du{50,0}{U}
+
+
+\vj{150,0}{\frac{E}{R}}
+\vz{183,0}{R}
+\hln{150,0}{50}
+\hln{150,50}{50}
+\hstp{200,0}{}
+\ri{205,50}{I}
+\du{200,0}{U}
+\color{red}
+\end{picture}
+\end{center}
+\end{exampleblock}
+
+In the figure left:
+\[
+I=\frac{E-U}{R}\qquad U=E-RI
+\]
+In the figure right:
+\[
+I=\frac{E}{R}-\frac{U}{R}=\frac{E-U}{R}\qquad U=(\frac{E}{R}-I)R=E-RI
+\]
+Both the circuits function equally.
+}
+
+\frame{
+\frametitle{Example}
+Solve $U$.
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_3}
+\hz{50,50}{R_2}
+\vst{100,0}{E}
+\hln{0,0}{100}
+\du{57,0}{U}
+\end{picture}
+\end{center}
+
+The circuit is transformed
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3\hspace{-0.2cm}}
+\vz{75,0}{R_2\hspace{-0.2cm}}
+%\hz{50,0}{R_4}
+\vj{150,0}{J_2}
+\hln{0,0}{150}
+%\hln{100,0}{50}
+\hln{0,50}{150}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+And we get the result:
+\[
+U=\frac{J_1+J_2}{G_1+G_2+G_3}
+\]
+}
+\frame{
+\frametitle{A Very Important Notice!}
+\begin{itemize}
+\item The value of the resistance remains the same, but the resistor is not the same resistor! For instance, in the
+previous example the current through the original resistor is not same as current through the transformed resistor!
+\end{itemize}
+
+}
+
+\begin{comment}
+\frame{
+\frametitle{Oppikirja}
+Tällä luennolla käsiteltiin kirjan Kimmo Silvonen: {\em Sähkötekniikka ja elektroniikka} kappaleet:
+\begin{description}
+\item[1.7.1] Jännitelähde-virtalähde-muunnos
+\end{description}
+Koska sivunumerointi saattaa vaihdella painoksittain, viittaan kappaleen numeroihin.
+}
+\end{comment}
+
+
+\frame{
+\frametitle{Homework 5 (released 14th Sep, to be returned 17th Sep)}
+\begin{block}{Homework 5}
+Find current $I$ by using source transformation. $J_1=10\A$, $J_2=1\A$, 
+$R_1=100\ohm$, $R_2=200\ohm$ ja $R_3=300\ohm$.
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\vj{150,0}{J_2}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+\ri{57,50}{I}
+\end{picture}
+\end{center}
+This is easy and fast assignment. If you find yourself writing many lines of equations, you have done something wrong.
+}
+
+%LUENTO6
+\section{6. lecture}
+
+\frame{
+\frametitle{Homework 5 - Model Solution}
+\begin{block}{Homework 5}
+Find current $I$ by using source transformation. $J_1=10\A$, $J_2=1\A$, 
+$R_1=100\ohm$, $R_2=200\ohm$ ja $R_3=300\ohm$.
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\vj{150,0}{J_2}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{R_1J_1}
+\hz{0,50}{R_1}
+\hz{100,50}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\vst{150,0}{R_3J_2}
+\hln{0,0}{150}
+%\hln{100,0}{50}
+%\hln{0,50}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+\ri{57,50}{I}
+\end{picture}
+\end{center}
+\[
+I=\frac{R_1J_1-R_3J_2}{R_1+R_2+R_3}=\frac{1000\V-300\V}{600\ohm}=\frac{7}{6}\A
+\approx 1,17 \A.
+\]
+}
+
+
+
+
+\frame {
+  \frametitle{Thévenin's Theorem and Norton's Theorem}
+\begin{itemize}
+ \item So far we have learned the following circuit transformations: voltage sources in series, current sources in parallel, resistances in parallel and in series and
+the source transformation.
+ \item Thévenin's theorem and Norton's theorem relate to circuit transformations too.
+ \item By Thévenin's and Norton's theorems an arbitrary circuit constisting of voltage sources, current sources and resistances
+ can be transformed into a single voltage source with series resistance (Thévenin's equivalent) or a single current source with parallel resistance (Norton's equivalent).
+\end{itemize}
+}
+
+
+\frame {
+\frametitle{Thévenin's Theorem and Norton's Theorem}
+
+\begin{exampleblock}{Thévenin's Theorem}
+An arbitrary linear circuit with two terminals is electrically equivalent to a single voltage source and a single series resistor, called
+Thévenin's equivalent.
+
+\end{exampleblock}
+
+
+\begin{exampleblock}{Norton's Theorem}
+An arbitrary linear circuit with two terminals is electrically equivalent to a single current source and a single parallel resistor, called
+Norton's equivalent.
+\end{exampleblock}
+
+}
+
+\frame {
+\frametitle{Calculating the Thévenin Equivalent}
+\begin{center}
+\begin{picture}(200,55)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\hln{0,0}{60}
+\hln{50,50}{10}
+\out{60,0}
+\out{60,50}
+
+\txt{100,25}{\Longleftrightarrow}
+
+\vst{150,0}{E_{\rm T}}
+\hz{150,50}{R_{\rm T}}
+\hln{150,0}{50}
+\out{200,0}
+\out{200,50}
+
+\end{picture}
+\end{center}
+The voltage $E_{\rm T}$ in the Thévenin equivalent is solved simply by calculating the voltage between the terminals.
+For solving $R_{\rm T}$, there are two ways:
+\begin{itemize}
+\item By turning off all independent (= non-controlled) sources in the circuit, and calculating the resistance between the terminals.
+\item By calculating the short circuit current of the port and applying Ohm's law.
+\end{itemize}
+Independent source is a source, whose value does not depend on any other voltage or current in the circuit.
+All sources we have dealt with for now, have been independent.
+Controlled sources covered later in this course.
+}
+
+
+\frame {
+\frametitle{Calculating the Thévenin Equivalent}
+\begin{center}
+\begin{picture}(200,55)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\hln{0,0}{60}
+\hln{50,50}{10}
+\out{60,0}
+\out{60,50}
+
+\txt{100,25}{\Longleftrightarrow}
+
+\vst{150,0}{E_{\rm T}}
+\hz{150,50}{R_{\rm T}}
+\hln{150,0}{50}
+\out{200,0}
+\out{200,50}
+
+\end{picture}
+\end{center}
+The voltage at the port is found by calculating the current through the resistors and multiplying it with
+$R_2$. The voltage at the port, called also the {\em idle voltage} of the port, is equal to  $E_{\rm T}$.
+\[
+E_{\rm T}=\frac{E}{R_1+R_2}R_2
+\]
+
+}
+\frame {
+\frametitle{Calculating the Thévenin Equivalent}
+There are two ways to solve $R_{\rm T}$. Way 1: turn off all the (independent) sources, and calculate the
+voltage at the port. A turned-off voltage source is a voltage source, whose voltage is zero, which is same
+as just a wire:
+
+\begin{center}
+\begin{picture}(200,55)(0,0)
+%\vst{0,0}{E}
+\vln{0,0}{50}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\hln{0,0}{60}
+\hln{50,50}{10}
+\out{60,0}
+\out{60,50}
+
+\txt{100,25}{\Longleftrightarrow}
+
+%\vst{150,0}{E_{\rm T}}
+\vln{150,0}{50}
+\hz{150,50}{R_{\rm T}}
+\hln{150,0}{50}
+\out{200,0}
+\out{200,50}
+
+\end{picture}
+\end{center}
+Now it is easy to solve the resistance between the nodes of the port:
+$R_1$ ja $R_2$ are in parallel, and therefore the resistance is
+\[
+R_{\rm T}=\frac{1}{G_1+G_2}=\frac{R_1R_2}{R_1+R_2}.
+\]
+This method is usually simpler than the other way with short circuit current!
+}
+\frame {
+\frametitle{Solving $R_{\rm T}$ by Using the Short-circuit Current}
+There are two ways to solve $R_{\rm T}$. Way 2: short-circuit the port, and calculate the current
+through the short-circuit wire. This current is called the {\em short-circuit current}:
+\begin{center}
+\begin{picture}(200,55)(0,0)
+\vst{0,0}{E}
+\vln{60,0}{50}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\hln{0,0}{60}
+\hln{50,50}{10}
+\out{60,0}
+\out{60,50}
+
+\txt{100,25}{\Longleftrightarrow}
+
+\vst{150,0}{E_{\rm T}}
+\vln{200,0}{50}
+\hz{150,50}{R_{\rm T}}
+\hln{150,0}{50}
+\out{200,0}
+\out{200,50}
+
+\di{60,25}{I_{\rm K}}
+\di{200,25}{I_{\rm K}}
+
+
+\end{picture}
+\end{center}
+The value for the short-circuit current is
+\[
+I_{\rm K}=\frac{E}{R_1}
+\]
+and the resistance $R_{\rm T}$ is (by applying Ohm's law to the figure on the right):
+\[
+R_{\rm T}=\frac{E_{\rm T}}{I_{\rm K}}=\frac{E_{\rm T}}{\frac{E}{R_1}}=\frac{\frac{E}{R_1+R_2}R_2}{\frac{E}{R_1}}=
+\frac{R_1R_2}{R_1+R_2}
+\]
+
+}
+
+
+\frame {
+\frametitle{Norton Equivalent}
+The Norton equivalent is simply a Thévenin equivalent, which has been source transformed into a current source and
+parallel resistance (or vice versa). The resistance has the same value in both equivalents. The value of the
+current source is the same as the short-circuit current of the port.
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vj{0,0}{J_{\rm N}}
+\vz{50,0}{R_{\rm N}}
+\hln{0,0}{60}
+\hln{0,50}{60}
+\out{60,0}
+\out{60,50}
+\end{picture}
+\end{center}
+}
+
+\frame {
+\frametitle{Example 1}
+Calculate the Thévenin equivalent. All component values = 1.
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_2}
+%\hz{50,50}{R_2}
+\hst{50,50}{E}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+}
+
+\frame {
+\frametitle{Example 2}
+Calculate the Thévenin equivalent. All component values = 1.
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\vz{50,0}{R_2}
+\vj{100,0}{J}
+%\hz{50,50}{R_2}
+\hz{50,50}{R_3}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+%\hln{0,50}{50}
+\hz{0,50}{R_1}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+}
+
+\begin{comment}
+\frame{
+\frametitle{Oppikirja}
+Tällä luennolla käsiteltiin kirjan Kimmo Silvonen: {\em Sähkötekniikka ja elektroniikka} kappaleet:
+\begin{description}
+\item[1.9.3] Théveninin ja Nortonin teoreemat
+\end{description}
+Koska sivunumerointi saattaa vaihdella painoksittain, viittaan kappaleen numeroihin.
+}
+\end{comment}
+
+\frame{
+\frametitle{Homework 6  (released 17th Sep, to be returned 21th Sep)}
+\begin{block}{Homework 6}
+Calculate the Thévenin equivalent. All the component values are 1.
+(Every resistance is $1 \ohm$ and the current source is $J_1=1\A$.)
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+}
+
+%LUENTO7
+
+\section{7. lecture}
+
+\frame{
+\frametitle{Homework 6 - Model Solution}
+\begin{block}{Homework 6}
+Calculate the Thévenin equivalent. All the component values are 1.
+(Every resistance is $1 \ohm$ and the current source is $J_1=1\A$.)
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+First we solve the voltage $E_{\rm T}$. This can be done by using applying source transformation:
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{J_1R_1}
+\hz{0,50}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+%\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\du{110,0}{E_{\rm T}=\frac{J_1R_1}{R_1+R_2+R_3}R_3=\frac{1}{3}\V}
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+\frametitle{Solution}
+Next we solve the resistance $R_{\rm T}$ of the Thévenin equivalent. The easiest way to do it is to 
+turn off all the sources and calculate the resistance between the output port. (The other way is to find out the short-circuit current.)
+The resistance can be solver either from the original or the transformed circuit. Let's use the transformed circuit and
+turn off the voltage source:
+\begin{center}
+\begin{picture}(150,50)(0,0)
+%\vst{0,0}{J_1R_1}
+\vln{0,0}{50}
+\hz{0,50}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+\out{150,0}
+\out{150,50}
+
+\hln{0,0}{150}
+\hln{100,0}{50}
+%\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\txt{170,25}{R_{\rm T}=\frac{1}{\frac{1}{R_1+R_2}+\frac{1}{R_3}}=\frac{2}{3}\ohm}
+\end{picture}
+\end{center}
+Now the resistors  $R_1$ ja $R_2$  are in series, and the series circuit is in parallel with $R_3$.
+Now we know both $E_{\rm T}$ ja $R_{\rm T}$ and we can draw the Thévenin equivalent (on the next slide).
+}
+
+\frame{
+\frametitle{The Final Circuit}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_{\rm T}=\frac{1}{3}\V}
+\hln{0,0}{50}
+\hz{0,50}{R_{\rm T}=\frac{2}{3}\ohm}
+\out{50,50}
+\out{50,0}
+\end{picture}
+\end{center}
+
+}
+
+
+
+
+
+\frame {
+  \frametitle{Superposition Principle}
+\begin{itemize}
+\item A circuit consisting of resistances and constant-valued current and voltage sources is {\em linear}.
+\item If a circuit is linear, all the voltages and currents can be solved by calculating the effect of each source one at the time.
+\item This principle is called the {\bf method of superposition}.
+\end{itemize}
+}
+
+\frame {
+  \frametitle{Superposition Principle}
+The method of superposition is applied as follows
+\begin{itemize}
+\item The current(s) and/or voltage(s) caused by each source is calculated one at a time so that all other sources are turned off.
+\item A turned-off voltage source = short circuit (a wire), a turned-off current source = open circuit (no wire).
+\item Finally, all results are summed together.
+\end{itemize}
+}
+
+
+\frame {
+\frametitle{Superposition Principle: an Example}
+Find current $I_3$ by using the superposition principle.
+\begin{center}
+\begin{picture}(200,50)(0,0)
+\vst{0,0}{E_1}
+\vst{100,0}{E_2}
+\vz{50,0}{R_3}
+\di{50,1}{I_3}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\hln{0,0}{100}
+\end{picture}
+\end{center}
+First, we turn off the rightmost voltage source:
+\begin{center}
+\begin{picture}(200,50)(0,0)
+\vst{0,0}{E_1}
+%\vst{100,0}{E_2}
+\vln{100,0}{50}
+\vz{50,0}{R_3}
+\di{50,1}{I_{31}}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\hln{0,0}{100}
+\txl{100,25}{$I_{31}=\frac{E_1}{R_1+\frac{1}{G_2+G_3}}\frac{1}{G_2+G_3}G_3$}
+\end{picture}
+\end{center}
+Next, we turn off the leftmost voltage source:
+\begin{center}
+\begin{picture}(200,50)(-100,0)
+%\vst{0,0}{E_1}
+\vst{100,0}{E_2}
+\vln{0,0}{50}
+\vz{50,0}{R_3}
+\di{50,1}{I_{31}}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\hln{0,0}{100}
+\txl{-125,25}{$I_{32}=\frac{E_2}{R_2+\frac{1}{G_1+G_3}}\frac{1}{G_1+G_3}G_3$}
+\end{picture}
+\end{center}
+}
+
+\frame {
+\frametitle{Superposition Principle: an Example}
+The current $I_3$ is obtained by summing the partial currents $I_{31}$ and $I_{32}$.
+\[
+I_3=I_{31}+I_{32}=\frac{E_1}{R_1+\frac{1}{G_2+G_3}}\frac{1}{G_2+G_3}G_3+\frac{E_2}{R_2+\frac{1}{G_1+G_3}}\frac{1}{G_1+G_3}G_3
+\]
+}
+
+\frame {
+\frametitle{When Is It Handy to Use the Superposition Principle?}
+\begin{itemize}
+\item If one doesn't like solving equations but likes fiddling with the circuit.
+\item If there are many sources and few resistors, the method of superposition is usually fast.
+\item If there are sources with different frequencies (as we learn on the AC Circuits course), the analysis
+of such a circuit is based on the superposition principle.
+\end{itemize}
+}
+
+
+\frame {
+\frametitle{Linearity and the Justification for the Superposition Principle}
+\begin{itemize}
+\item The method of superposition is based on the linearity of the circuit, which means that
+every source affects every voltage and current with a constant factor.
+\item This means that if there are sources $E_1$, $E_2$, $E_3$, $J_1$,
+$J_2$ in the circuit, then every voltage and current is of form $k_1E_1+k_2E_2+k_3E_3+k_4J_1+k_5J_2$, where constants $k_n$ are real numbers.
+\item If all the sources are turned off (= 0), then all currents and voltages in the circuit are zero. Therefore, by nullifying all sources except one,
+we can find out the multiplier for the source in question.
+\end{itemize}
+}
+
+\begin{comment}
+\frame{
+\frametitle{Oppikirja}
+Tällä luennolla käsiteltiin kirjan Kimmo Silvonen: {\em Sähkötekniikka ja elektroniikka} kappaleet:
+\begin{description}
+\item[1.9.5] Superpositioperiaate eli kerrostamismenetelmä
+\end{description}
+}
+\end{comment}
+
+
+\frame{
+\frametitle{Homework 7  (released 21st Sep, to be returned 24th Sep)}
+\begin{block}{Homework 7}
+Find current $I_2$ by using the superposition principle.
+\end{block}
+\[
+J_1=1\A \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\quad E_1=5\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+\ri{58,50}{I_2}
+\vst{150,0}{E_1}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+}
+
+%LUENTO8
+\section{8. lecture}
+
+\frame{
+\frametitle{Homework 7 - Model Solution}
+\begin{block}{Homework 7}
+Find current $I_2$ by using the superposition principle.
+\end{block}
+\[
+J_1=1\A \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\quad E_1=5\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+\ri{58,50}{I_2}
+\vst{150,0}{E_1}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+\frametitle{Ratkaisu}
+First, we find the effect of the current source:
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+\ri{58,50}{I_{21}}
+%\vst{150,0}{E_1}
+\vln{150,0}{50}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+The voltage over $R_1$ and $R_2$ is the same (they are in parallel) and $R_2$ is twice as large as $R_1$
+and therefore the current through $R_2$ is half of the current of $R_1$. Because the total current through the resistors
+is $J_1=1\A$, the current through $R_1$:n is $2/3 \A$ and the current through $R_2$
+is$I_{21}=1/3 \A$.
+}
+
+\frame{
+\frametitle{Ratkaisu}
+Next, we find out the effect of the voltage source:
+\begin{center}
+\begin{picture}(150,50)(0,0)
+%\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+\ri{58,50}{I_{22}}
+\vst{150,0}{E_1}
+%\vln{150,0}{50}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+The resistors $R_1$ and $R_2$ are now in series and the total voltage over them is $E=5\V$, and therefore
+\[
+I_{22}=-\frac{E}{R_1+R_2}=-\frac{5\V}{10\ohm+20\ohm}=-\frac{1}{6}\V .
+\]
+The minus sign comes from the fact that the direction of the current $I_{22}$ is upwards and the direction of the voltage $E$ is
+downwards.\\
+Finally, we sum the partial results:
+\[
+I_2=I_{21}+I_{22}=\frac{1}{3}\A-\frac{1}{6}\A=\frac{1}{6} \A.
+\]
+}
+
+
+
+
+
+\frame{
+\frametitle{Voltage Divider}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\hln{0,0}{50}
+\du{0,0}{U}
+\du{60,0}{U_2}
+\ru{0,60}{U_1}
+
+\end{picture}
+\end{center}
+\begin{itemize}
+\item $U_1=U\frac{R_1}{R_1+R_2}$ ja $U_2=U\frac{R_2}{R_1+R_2}$
+\item It is quite common in electronic circuit design, that we need a reference voltage formed from another voltage in the circuit.
+\item The formula is valid also for multiple resistors in series. The denominator is formed by summing all the resistances and
+the resistor whose voltage is to be solved is in the numerator.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Current Divider}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\hln{0,50}{100}
+%\hz{0,50}{R_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_2}
+\hln{0,0}{100}
+\ri{9,50}{I}
+\di{50,42}{I_1}
+\di{100,42}{I_2}
+
+%\du{0,0}{U}
+%\du{60,0}{U_2}
+%\ru{0,60}{U_1}
+
+\end{picture}
+\end{center}
+
+\begin{itemize}
+\item $I_1=I\frac{G_1}{G_1+G_2}$ ja $I_2=I\frac{G_2}{G_1+G_2}$
+\item  The formula is valid also for multiple resistors in parallel.
+\item The formula for current divider is not used as frequently as the voltage divider, but it is natural to discuss it in this concept.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Example 1}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\hz{0,50}{R_4}
+\hln{50,50}{100}
+%\hz{0,50}{R_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_2}
+\vz{150,0}{R_3}
+\hln{0,0}{150}
+%\ri{9,50}{I}
+\di{50,42}{I_1}
+\di{100,42}{I_2}
+\di{150,42}{I_3}
+\vj{0,0}{J}
+\end{picture}
+\end{center}
+\pause
+$I_1=J\frac{G_1}{G_1+G_2+G_3}\quad$
+\pause
+$I_2=J\frac{G_2}{G_1+G_2+G_3}\quad$
+\pause
+$I_3=J\frac{G_3}{G_1+G_2+G_3}$
+}
+
+\frame{
+\frametitle{Example 2}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\hz{0,50}{R_1}
+%\hln{50,50}{100}
+%\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\hz{100,50}{R_3}
+\vz{150,0}{R_4}
+\hln{0,0}{150}
+%\ri{9,50}{I}
+%\di{50,42}{I_1}
+%\di{100,42}{I_2}
+%\di{150,42}{I_3}
+\vst{0,0}{E}
+\color{red}
+\rcuu{0,55}{U_1}
+\rcuu{50,55}{U_2}
+\rcuu{100,55}{U_3}
+\dcru{155,0}{U_4}
+
+\end{picture}
+\end{center}
+\pause
+$U_1=E\frac{R_1}{R_1+R_2+R_3+R_4}\quad$
+\pause
+$U_2=E\frac{R_2}{R_1+R_2+R_3+R_4}\quad$
+\pause
+$U_3=E\frac{R_3}{R_1+R_2+R_3+R_4}\quad$
+\pause
+$U_4=E\frac{R_4}{R_1+R_2+R_3+R_4}\quad$
+}
+
+
+\begin{comment}
+\frame{
+\frametitle{Oppikirja}
+Tällä luennolla käsiteltiin kirjan Kimmo Silvonen: {\em Sähkötekniikka ja elektroniikka} kappaleet:
+\begin{description}
+\item[1.5.3] Jännitteen jako
+\item[1.5.4] Virran jako
+\end{description}
+Koska sivunumerointi saattaa vaihdella painoksittain, viittaan kappaleen numeroihin.
+
+}
+\end{comment}
+
+\frame{
+\frametitle{Homework 8  (released 24th Sep, to be returned 28th Sep)}
+\begin{block}{Homework 8}
+Find the voltage $U$ by applying the voltage divider formula.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad R_5=50 \ohm
+\quad E_2=15\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hz{100,50}{R_4}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+\ru{50,50}{U}
+\vst{200,0}{E_2}
+\hz{150,50}{R_5}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+}
+
+%LUENTO9
+\section{9. lecture}
+
+\frame{
+\frametitle{Homework 8 - Model Solution}
+\begin{block}{Homework 8}
+Find the voltage $U$ by applying the voltage divider formula.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad R_5=50 \ohm
+\quad E_2=15\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hz{100,50}{R_4}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+\ru{50,50}{U}
+\vst{200,0}{E_2}
+\hz{150,50}{R_5}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\color{red}
+\du{60,0}{U_2}
+\du{108,0}{U_3}
+
+\end{picture}
+\end{center}
+$U_2=E_1\frac{R_2}{R_1+R_2}=10\V\frac{20\ohm}{10\ohm+20\ohm}=6\frac{2}{3}\V$
+$U_3=E_2\frac{R_3}{R_3+R_4+R_5}=15\V\frac{30\ohm}{30\ohm+40\ohm+50\ohm}=3,75\V$
+$U=U_2-U_3=2\frac{11}{12}\V\approx 2,92\V$.
+}
+
+
+
+
+
+
+\frame{
+\frametitle{Inductors and Capacitors}
+\begin{center}
+\begin{picture}(200,50)(0,0)
+\hz{0,0}{R} \ri{7,0}{i} \rcuu{0,5}{u}
+\hl{75,0}{L} \ri{82,0}{i} \rcuu{75,5}{u}
+\hc{150,0}{C} \ri{157,0}{i} \rcuu{150,5}{u}
+
+\txt{25,-50}{u=Ri}
+\txt{100,-50}{u=L\frac{{\rm d}i}{{\rm d}t}}
+\txt{175,-50}{i=C\Du}
+
+\end{picture}
+\end{center}
+
+
+}
+
+\frame{
+\frametitle{Inductors and Capacitors in DC Circuit}
+\begin{center}
+\begin{picture}(200,50)(0,-50)
+\hz{0,0}{R} \ri{7,0}{i} \rcuu{0,5}{u}
+\hl{75,0}{L} \ri{82,0}{i} \rcuu{75,5}{u}
+\hc{150,0}{C} \ri{157,0}{i} \rcuu{150,5}{u}
+
+\txt{25,-50}{u=Ri}
+\txt{100,-50}{u=L\frac{{\rm d}i}{{\rm d}t}}
+\txt{175,-50}{i=C\Du}
+
+\end{picture}
+\end{center}
+DC voltage and current remain constant as function of time or the time derivatives of the voltage and current is zero. Therefore the voltage of an inductor and
+the current of a capacitor is zero in a DC circuit.
+}
+
+
+
+\frame{
+\frametitle{Exception 1}
+The capacitor is fed with DC current so that the current has no other route.
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\vc{50,0}{C}
+\hln{0,0}{50}
+\hln{0,50}{50}
+\end{picture}
+\end{center}
+$i=C\Du \Rightarrow J=C\Du \Rightarrow \Du=\frac{J}{C}$. The voltage of the capacitor rises at constant speed. 
+}
+
+\frame{
+\frametitle{Exception 2}
+A constant voltage source is connected to the terminals of an inductor.
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\vl{50,0}{L}
+\hln{0,0}{50}
+\hln{0,50}{50}
+\end{picture}
+\end{center}
+$u=L\frac{{\rm d}i}{{\rm d}t} \Rightarrow E=L\frac{{\rm d}i}{{\rm d}t} \Rightarrow \frac{{\rm d}i}{{\rm d}t}=\frac{E}{L}$. The current of the inductor rises at constant speed. 
+}
+
+
+\frame{
+\frametitle{Dealing with all other cases involving inductors and capacitors in DC circuits}
+Inductors are replaced with short circuits and capacitors are replaced with open circuits.
+}
+
+
+\begin{comment}
+\frame{
+\frametitle{Oppikirja}
+Kondensaattoria ja kelaa käsitellään kirjan kappaleissa
+\begin{description}
+\item[2.2] Kela, induktanssi ja permeabiliteetti
+\item[2.3] Kondensaattori, kapasitanssi ja permittiivisyys 
+\end{description}
+{\bf mutta} siellä asiaa käsitellään huomattavasti laajemmin kuin tällä kurssilla!
+Kalvoilla esitetyt tiedot riittävät; kirjasta voi tietenkin lukea, jos asia kiinnostaa enemmän.
+Kelaan ja kondensaattoriin tutustutaan enemmän kurssilla Vaihtosähköpiirit.
+
+}
+\end{comment}
+
+\frame{
+\frametitle{Homework 9  (released 28th Sep, to be returned 1st Oct)}
+\begin{block}{Homework 9}
+Solve the voltage $U$ from this DC circuit.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad L=500\, \mbox{mH}\quad C=2\,{\rm F}
+\quad E_2=15\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hl{100,50}{L}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+\hc{50,50}{C}
+\vst{200,0}{E_2}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+
+}
+
+%LUENTO10
+\section{10. lecture}
+
+\frame{
+\frametitle{Homework 9 - Model Solution}
+\begin{block}{Homework 9}
+Solve the voltage $U$ from this DC circuit.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad L=500\, \mbox{mH}\quad C=2\,{\rm F}
+\quad E_2=15\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hl{100,50}{L}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+\hc{50,50}{C}
+\vst{200,0}{E_2}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+
+
+}
+
+\frame{
+\frametitle{Homework 9 - Model Solution}
+Because there are no parallel connections of inductors and voltage sources and no serial connections of capacitors and current sources and the circuit is a DC circuit
+(= constant voltages and currents), we can replace the inductors with short circuits and the capacitors with open circuits.
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hln{100,50}{50}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+
+\vst{200,0}{E_2}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+in which case we obtain $U$ easily by applying the voltage divider formula:
+\[
+U=E_2\frac{R_3}{R_3+R_4}=6\frac{3}{7}\V\approx 6,4 \V
+\]
+
+}
+
+
+
+\frame{
+\frametitle{Controlled Sources}
+\begin{itemize}
+\item So far, all of our sources have been constant valued.
+\item If the value of a source does not depend on any of the voltages or currents in the circuit, the source is an {independent source}. For example,
+constant valued sources and sources varying as function of time (only) are independent sources.
+\item If the value of a source is a function of a voltage and/or current in the circuit, the source is a {\em controlled source}.
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Voltage Controlled Voltage Source (VCVS)}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\cn{0,0}
+\cn{0,50}
+\du{0,0}{u}
+\vst{100,0}{e=Au}
+\end{picture}
+\end{center}
+\begin{itemize}
+\item The voltage $e$ of VCVS is dependent of some voltage $u$.
+\item The multiplier $A$ is called {\em voltage gain}.
+\item A real-world example: an audio amplifier.
+\end{itemize}
+
+
+}
+\frame{
+
+\frametitle{ Current Controlled Voltage Source (CCVS)}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\cn{0,0}
+\cn{0,50}
+\vln{0,0}{50}
+\di{0,25}{i}
+\vst{100,0}{e=ri}
+\end{picture}
+\end{center}
+\begin{itemize}
+\item The voltage $e$ of CCVS  is dependent of some current $i$.
+\item The multiplier $r$ is called {\em transresistance}.
+\item There is no good everyday example of this source available (of course we can construct this kind of source by using an {\em operational amplifier}).
+\end{itemize}
+}
+
+\frame{
+
+\frametitle{Voltage Controlled Current Source (VCCS)}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\cn{0,0}
+\cn{0,50}
+\du{0,0}{u}
+\vj{100,0}{j=gu}
+\end{picture}
+\end{center}
+\begin{itemize}
+\item The current $j$ of VCCS  is dependent of some voltage $u$.
+\item The multiplier $g$ is called {\em transconductance}.
+\item A real-world example: a field-effect transistor (JFET or MOSFET).
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Current Controlled Current Source (CCCS)}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\cn{0,0}
+\cn{0,50}
+\vln{0,0}{50}
+\di{0,25}{i}
+\vj{100,0}{j=\beta i}
+\end{picture}
+\end{center}
+\begin{itemize}
+\item The current $j$ of CCCS  is dependent of some current $i$.
+\item The multiplier $\beta$ is called {\em current gain}.
+\item A real-world example: a (bipolar junction) transistor.
+\end{itemize}
+
+}
+
+
+\begin{comment}
+\frame{
+\frametitle{Oppikirja}
+Ohjatut lähteet käsitellään kirjan kappaleissa
+\begin{description}
+\item[1.8.1] Ohjattu vai riippumaton lähde
+\item[1.8.2] Jänniteohjattu jännitelähde (VCVS)
+\item[1.8.3] Virtaohjattu jännitelähde (CCVS)
+\item[1.8.4] Jänniteohjattu virtalähde (VCCS)
+\item[1.8.5] Virtaohjattu virtalähde (CCCS)
+ 
+\end{description}
+
+}
+\end{comment}
+
+\frame{
+\frametitle{Homework 10  (released 1st Oct, to be returned 5th Oct)}
+\begin{block}{Homework 10}
+Find the voltage $U$.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad
+\quad r=2\ohm
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\vz{100,0}{R_3}
+\ri{50,50}{i}
+%\hl{100,50}{L}
+\hln{100,50}{50}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+%\hc{50,50}{C}
+\vst{200,0}{e_2=ri}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+Note that the source on the right is a controlled source.
+
+}
+
+%LUENTO11
+\section{11. lecture}
+
+\frame{
+\frametitle{Homework 10 - Model Solution}
+\begin{block}{Homework 10}
+Find the voltage $U$.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad
+\quad r=2\ohm
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\vz{100,0}{R_3}
+\ri{50,50}{i}
+%\hl{100,50}{L}
+\hln{100,50}{50}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+%\hc{50,50}{C}
+\vst{200,0}{e_2=ri}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+Note that the source on the right is a controlled source.
+
+}
+
+\frame{
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\vz{100,0}{R_3}
+\ri{50,50}{i}
+%\hl{100,50}{L}
+\hln{100,50}{50}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+%\hc{50,50}{C}
+\vst{200,0}{e_2=ri}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+Let's denote the total resistance of  $R_1$:n ja $R_2$ with symbol $R_{12}$ and write a nodal equation:
+\[
+UG_3=(E_1-U)G_{12}+(ri-U)G_4
+\]
+There are two unknowns in the circuit and therefore we need another equation with the same unknowns:
+\[
+i=(E_1-U)G_{12}
+\]
+Then we substitute $i$ to the first equation:
+\[
+E_1G_{12}-UG_{12}+rG_4G_{12}E_1-rG_4G_{12}U-UG_4=UG_3
+\]
+}
+
+\frame{
+\[
+E_1G_{12}-UG_{12}+rG_4G_{12}E_1-rG_4G_{12}U-UG_4=UG_3
+\]
+from which we get
+\[
+G_{12}E_1(1+rG_4)=U(G_3+G_{12}+G_4+rG_4G_{12}).
+\]
+Then we substitute the component values and solve $U$:
+\[
+U=\frac{\frac{10}{30}(1+\frac{2}{40})}{\frac{1}{30}+\frac{1}{30}+\frac{1}{40}+\frac{2}{40\cdot 30}}
+=3,75 \V
+\]
+
+}
+
+
+\frame {
+  \frametitle{Recapitulation}
+On this lesson, we solve some refresher assignments. If you have solved all the circuits, solve the home assignment.
+}
+
+
+\frame{
+\frametitle{Recap assignment 1} % Piiriarska 1 laskari 2. tehtävä
+\begin{block}{Recap assignment 1}
+Find $U$ and $I$ first by using the method of superposition and then by some other method of your choice.
+\end{block}
+
+\begin{center}
+\[
+R_1=1\ohm\quad R_2=2\ohm\quad J=1\A \quad E= 3\V
+\]
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\ri{25,50}{I}
+\vz{50,0}{R_1}
+\hz{50,50}{R_2}
+\vdj{100,0}{J}
+\du{112,0}{U}
+\hln{0,0}{100}
+\hln{0,50}{50}
+
+\end{picture}
+\end{center}
+\tiny Vastaus: $I=4\A$ ja $U=1\V$.
+}
+
+
+
+\frame{
+\frametitle{Recap assignment 2} % Piiriarska 1 laskari 3 teht. 2
+\begin{block}{Recap assignment 2}
+Form a Thévenin equivalent of the circuit on the left.
+Then, compute the current $I_{\rm X}$, when the switches are closed and $R_{\rm X}$
+is  a) $0\ohm$, b) $8\ohm$ ja c) $12\ohm$.
+\end{block}
+
+\[
+R_1=5\ohm \quad R_2=3 \ohm \quad R_3=8\ohm \quad R_4=4 \ohm \quad E=16\V
+\]
+
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vz{0,0}{R_1}
+\hz{0,100}{R_2}
+\vz{50,50}{R_3}
+\hz{50,100}{R_4}
+\hso{100,100}{}
+\hso{100,0}{}
+\vst{50,0}{E}
+
+\vln{0,50}{50}
+\vz{150,25}{R_{\rm X}}
+\hln{0,0}{100}
+\vln{150,0}{25}
+\vln{150,75}{25}
+\di{150,10}{I_{\rm X}}
+
+
+\end{picture}
+\end{center}
+
+\tiny: Vastaus: $R_{\rm T}=8\ohm$, $E_{\rm T}=8\V$. a) $1\A$ b) $0,5 \A$ $ c) 0,4 \A$.
+}
+\frame{
+\frametitle{Recap assignment 3}
+\begin{block}{Recap assignment 3}
+Find $U_3$.
+\end{block}
+\[
+G_1=1\,{\rm S}\quad G_2=2\,{\rm S} \quad G_3=3\,{\rm S}\quad G_4=4\,{\rm S}
+\quad G_5=5\,{\rm S} \quad g=6\,{\rm S}\quad J=3\A
+\]
+
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vj{0,0}{J}
+\vz{50,0}{G_1\hspace{-2mm}}
+\vz{100,0}{G_2}
+\vz{150,0}{G_3}
+\hz{50,50}{G_4}
+\hz{100,50}{G_5}
+\hlj{100,100}{gU_1}
+\du{15,0}{U_1}
+\du{160,0}{U_3}
+\hln{0,0}{150}
+\hln{0,50}{50}
+
+\vln{100,50}{50}
+\vln{150,50}{50}
+\cn{100,50}
+
+\end{picture}
+\end{center}
+\tiny $U_3=-\frac{48}{115}\V \approx -417 \mV$
+}
+
+\frame{
+\frametitle{Homework 11 (released 5th Oct, to be returned 8th Oct)}
+\begin{block}{Homework 11}
+We are given a fact that the current $I_3=0\A$. Find $E_1$.
+\end{block}
+\[
+R_1=5 \ohm \quad R_2=4 \ohm \quad R_3=2 \ohm \quad R_4=5 \ohm \quad R_5=6 \ohm \quad
+E_2=30 \V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\vst{150,0}{E_2}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_2}
+\vz{50,0}{R_4}
+\vz{100,0}{R_5}
+\hln{0,0}{150}
+\ri{97,50}{I_3}
+\end{picture}
+\end{center}
+}
+
+%LUENTO12
+\section{12. lecture}
+
+\frame{
+\frametitle{Homework 11 - Model Solution}
+\begin{block}{Homework 11}
+We are given a fact that the current $I_3=0\A$. Find $E_1$.
+\end{block}
+\[
+R_1=5 \ohm \quad R_2=4 \ohm \quad R_3=2 \ohm \quad R_4=5 \ohm \quad R_5=6 \ohm \quad
+E_2=30 \V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\vst{150,0}{E_2}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_2}
+\vz{50,0}{R_4}
+\vz{100,0}{R_5}
+\hln{0,0}{150}
+\ri{97,50}{I_3}
+\pause
+\color{red}
+\du{57,0}{U_4}
+\du{107,0}{U_5}
+
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+Because $I_3=0\A$, the current through $R_1$ equals the current through $R_4$ and
+ the current through $R_2$ equals the current through $R_5$.
+Therefore, the resistors are in series\footnote{Because and only because we know that $I_3$ is zero.}
+ and we may use the voltage divider formula to find voltages over $R_4$ and $R_5$.
+The voltage over $R_5$ is $U_5=E_2\frac{R_5}{R_2+R_5}=18\V$. Therefore the voltage
+over $R_4$ is $18 \V$ too. Now, by the voltage divider rule:
+\[
+U_4=E_1\frac{R_4}{R_1+R_4} \quad \Rightarrow \quad 18\V=E_1\frac{5\ohm}{5\ohm+5\ohm}
+\]
+from which we can solve $E_1=36\V$.
+Note: it is completely correct to write nodal equations for the circuit and solve $E_1$ from them, too.
+}
+
+
+
+\frame {
+  \frametitle{Recapitulation}
+On this lesson, we solve some refresher assignments. I can also demonstrate some examples on the blackboard or to your booklets, too.
+}
+
+%Viimex oli
+% Piiriarska 1 laskari 2. tehtävä
+% Piiriarska 1 laskari 3 teht. 2
+% Arska ykkönen, laskari 5, t. 2
+% arska laskari 4, t. 3
+
+\frame{
+\frametitle{Recap assignment 4} % Arska 1 kotitehtävä 1 2009
+\[
+R_2=5\ohm \quad E_1=3\V \quad E_2=2\V
+\]
+
+\begin{center}
+\begin{picture}(150,110)(0,0)
+\vst{0,25}{E_1}
+\vst{100,50}{E_2}
+\vz{50,0}{R_2}
+\vz{50,50}{R_1}
+\ri{25,100}{I_1}
+\li{75,100}{I_2}
+\hln{0,100}{100}
+\hln{0,0}{50}
+\hln{50,50}{50}
+\vln{0,0}{25}
+\vln{0,75}{25}
+
+\end{picture}
+\end{center}
+a) How should we choose $R_1$, if we want $I_2$ to be $ 0\A$?\\
+b) How large is $I_1$ then?\\
+\tiny a) $10 \ohm$ ja b) $0,2 \A$.
+}
+
+\frame{
+\frametitle{Recap assignment 5} % Arska laskari 2 tehtävä 2
+\[
+R_1=100\ohm\quad R_2=500\ohm\quad R_3=1,5\kohm\quad R_4=1\kohm \quad E_1=5\V
+\]
+\[
+\quad J_1=100\mA\quad J_2=150\mA
+\]
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vst{100,0}{E_1}
+\vz{150,0}{R_4}
+\hz{50,50}{R_2}
+\hz{100,50}{R_3}
+\hj{100,100}{J_2}
+\hln{0,0}{150}
+\hln{0,50}{50}
+\vln{100,50}{50}
+\cn{100,50}
+\vln{150,50}{50}
+\du{160,0}{U_4}
+\end{picture}
+\end{center}
+Find $U_4$.\\
+\tiny $U_4=92\V$
+}
+
+\frame{
+\frametitle{Recap assignment 6} % http://users.tkk.fi/ksilvone/Lisamateriaali/teht100.pdf t. 114
+\[
+R_1=12\ohm\quad R_2=25\ohm\quad J=1 \A \quad E_1=1\V\quad
+E_2=27\V
+\]
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vj{50,0}{J}
+\hst{75,50}{E_2}
+\hz{0,50}{R_1}
+\vz{125,0}{R_2\hspace{-1.3cm}}
+\hln{0,0}{125}
+\hln{50,50}{25}
+\du{70,0}{U}
+\end{picture}
+\end{center}
+Find voltage $U$.\\
+\tiny
+Solution: $\frac{1}{37}\V \approx 27 \mV$
+}
+
+
+
+\frame{
+\frametitle{Homework 12  (released 8th Oct, to be returned 12th Oct)} 
+Write a {\bf short} essay on following subjects:
+\begin{itemize}
+\item What did you learn on the course?
+\item Did the course suck or was it worthwhile?
+\item What could the lecturer do better?
+\item How should this course be improved?
+\end{itemize}
+The essay will not affect the grading of the exam --- please give honest feedback\footnote{I am really interested in how I could make the course better.}.
+
+How to return this homework: Write the essay as a plain text email (no attachments) and send it to me no later than the exam day at 18:00.
+{\bf The subject of the email message must be 'DC Circuits course feedback 2009 Firstname Surname'.}
+
+}
+
+\frame{
+\frametitle{Final Notices on these Slides}
+\begin{itemize}
+\item The slides are licensed with CC By 1.0 \footnote{\url{http://creativecommons.org/licenses/by/1.0/}}. In short: you can use and modify the slides
+freely as long as you mention my name (= Vesa Linja-aho) somewhere. 
+\item Single examples and circuits can be of course used without any name mentioning, because they are not an object of copyright (legal term: "Threshold of originality"). 
+\item The origin of these slides is the DC Circuits course in Metropolia polytechnic in Helsinki, Finland.
+\item If you find typos, misspellings or errors in facts, please give me feedback.
+\end{itemize}
+}
+
+\end{document}

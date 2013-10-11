@@ -1,0 +1,662 @@
+\frame{
+\frametitle{Operaatiovahvistin}
+\begin{itemize}
+\item Ammattislangilla opari, englanniksi operational amplifier tai lyhyesti opamp.
+\item Operaatiovahvistimeen kytketään käyttöjännite, josta se saa energiansa (kuvassa $\pm 15$ volttia). Operaatiovahvistin mittaa tulonapojensa välistä jännite-eroa ja muuttaa lähtöjännitettä sen mukaisesti.
+\end{itemize}
+
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vo{0,0}{}{15}
+\txt{100,15}{\Uout=A(U_+-U_-)}
+\end{picture}
+\end{center}
+
+\begin{itemize}
+\item $A$ on operaatiovahvistimen vahvistuskerroin, $U_+, U_-, \Uout$ ovat jännitteitä
+{\bf maasolmua vasten ilmoitettuna}.
+
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Ideaalinen operaatiovahvistin}
+Ideaaliselle operaatiovahvistimelle pätee
+\begin{itemize}
+\item Vahvistuskerroin $A$ on ääretön (käytännön oparilla se on $>100 000$).
+\item Tulonapoihin ei mene virtaa (käytännön oparilla niihin menee mikro- tai nanoampeereja).
+\item Lähtöjännite voi vaihdella käyttöjännitteiden välillä (näin voi tapahtua käytännössäkin, jos operaatiovahvistimen datalehdessä lukee "rail-to-rail-operation").
+\item Ideaalinen operaatiovahvistin on äärettömän nopea.
+\end{itemize}
+
+\begin{center}
+\begin{picture}(100,50)(0,-10)
+\vo{0,0}{}{15}
+\txt{100,15}{\Uout=A(U_+-U_-)}
+\end{picture}
+\end{center}
+
+
+
+}
+
+
+\frame{
+\frametitle{Operaatiovahvistinkytkennät}
+\begin{itemize}
+\item Operaatiovahvistinta ei käytännössä koskaan käytetä sellaisenaan, vaan kytkemällä
+siihen muita komponentteja saadaan aikaiseksi käytännöllinen piiri.
+\item Operaatiovahvistimen peruskytkentöjä ovat muun muassa \begin{itemize}
+\item Invertoiva vahvistin
+\item Invertoiva summain
+\item Ei-invertoiva vahvistin
+\item Jännitteenseuraaja
+\end{itemize}
+\end{itemize}
+}
+
+\frame{
+\frametitle{Invertoiva vahvistin}
+\begin{center}
+\begin{picture}(100,100)(0,-50)
+\vo{0,0}{}{15}
+\hz{-50,20}{R_1}
+\hz{0,55}{R_2}
+\hgp{0,0}
+\vln{0,20}{35}
+\vln{50,10}{45}
+\hln{50,10}{20}
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+
+\end{picture}
+\end{center}
+\[
+\Uout=-\frac{R_2}{R_1}\Uin
+\]
+
+}
+
+
+\frame{
+\frametitle{Laskutekniikkaa}
+\begin{itemize}
+\item Jos ideaalinen operaatiovahvistin ($A\to \infty$) on kytketty siten, että $\Uout$:n nousu
+kasvattaa jännitettä $U_-$ (tai pienentää jännitettä $U_+$), kyseessä on {\bf negatiivinen
+takaisinkytkentä}.
+\item Negatiivinen takaisinkytkentä {\bf pakottaa molempiin tulonapoihin saman jännitteen}
+eli $U_+=U_-$.
+\item Laskutekniikka negatiivisessa takaisinkytkennässä: selvitä toisen tulonavan jännite;
+siitä seuraa, että toisessakin tulonavassa on sama jännite.
+\item Tarkista lopuksi, että lähtöjännite on käyttöjännitteiden asettamissa rajoissa!
+\end{itemize}
+}
+
+\frame{
+\frametitle{Invertoiva summain}
+\begin{center}
+\begin{picture}(100,100)(0,-50)
+\vo{0,0}{}{15}
+\hz{-50,20}{R_1}
+\hz{-50,50}{R_2}
+\hz{-50,80}{R_3}
+
+\hln{-70,50}{20}
+\hln{-90,80}{40}
+\du{-70,0}{U_2}
+\du{-90,30}{U_3}
+
+\hgp{-70,0}
+\hgp{-90,30}
+
+
+\hz{0,55}{R}
+\hgp{0,0}
+\vln{0,20}{60}
+\vln{50,10}{45}
+\hln{50,10}{20}
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{U_1}
+
+
+\end{picture}
+\end{center}
+\[
+\Uout=-R\left(\frac{1}{R_1}U_1+\frac{1}{R_2}U_2+\frac{1}{R_3}U_3\right)
+\]
+
+}
+
+\frame{
+\frametitle{Ei-invertoiva vahvistin}
+\begin{center}
+\begin{picture}(100,100)(0,-100)
+\voi{0,0}{}{15}
+\hln{-50,20}{50}
+
+\hln{0,-40}{50}
+\vln{0,-40}{40}
+\vz{50,-40}{R_2\hspace{-1.1cm}}
+\vz{50,-90}{R_1}
+\hg{50,-90}
+
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+\hln{50,10}{20}
+
+\end{picture}
+\end{center}
+\[
+\Uout=\left(1+\frac{R_2}{R_1}\right)\Uin
+\]
+
+}
+
+\frame{
+\frametitle{Jännitteenseuraaja}
+\begin{center}
+\begin{picture}(100,100)(0,-100)
+\voi{0,0}{}{15}
+\hln{-50,20}{50}
+
+\hln{0,-20}{50}
+\vln{0,-20}{20}
+\vln{50,-20}{30}
+
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+\hln{50,10}{20}
+
+\end{picture}
+\end{center}
+\[
+\Uout=\Uin
+\]
+Kytkennän hyöty: jännitettä $\Uout$ voidaan kuormittaa (esimerkiksi kytkemällä siihen
+jokin mittalaite) ilman, että $\Uin$-puolelle kytketty laite huomaa mitään.
+}
+
+
+
+
+
+\frame{
+\[
+R_1=1\kohm\quad R_2=2\kohm\quad R_3=1\kohm\quad R_4=3\kohm\quad
+\]
+
+\begin{center}
+\begin{picture}(100,100)(0,-50)
+\vo{0,0}{}{15}
+\hz{-50,20}{R_1}
+\hz{0,55}{R_2}
+\hgp{0,0}
+\vln{0,20}{35}
+\vln{50,10}{45}
+\hz{50,10}{R_3}
+\hgp{170,-50}
+\du{170,-50}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+
+
+\vo{100,-10}{}{15}
+\hz{100,45}{R_4}
+\hgp{100,-10}
+\vln{100,10}{35}
+\vln{150,00}{45}
+\hln{150,0}{20}
+
+
+\end{picture}
+\end{center}
+
+\begin{exampleblock}{Esimerkki}
+Laske $\Uout$, kun $\Uin=2\V$.
+\end{exampleblock}
+
+%\tiny $\Uout=12\V$
+}
+
+
+
+\frame{
+\frametitle{Esimerkki}
+\[
+R_1=1\kohm\quad R_2=2\kohm\quad R_3=1\kohm\quad R_4=3\kohm\quad
+\]
+
+\begin{center}
+\begin{picture}(100,100)(0,-50)
+\vo{0,0}{}{15}
+\hz{-50,20}{R_1}
+\hz{0,55}{R_2}
+\hgp{0,0}
+\vln{0,20}{35}
+\vln{50,10}{45}
+\hz{50,10}{R_3}
+\hgp{170,-50}
+\du{170,-50}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+
+
+\vo{100,-10}{}{15}
+\hz{100,45}{R_4}
+\hgp{100,-10}
+\vln{100,10}{35}
+\vln{150,00}{45}
+\hln{150,0}{20}
+
+
+\end{picture}
+\end{center}
+
+Laske $\Uout$, kun $\Uin=2\V$. Ratkaisu: piirissä on kaksi peräkkäin kytkettyä invertoivaa
+ vahvistinta. Ensimmäisen vahvistuskerroin on $-\frac{R_2}{R_1}=-2$ ja toisen
+$-\frac{R_4}{R_3}=-3$. Koko piirin vahvistuskerroin on näiden tulo $-2\cdot -3=6$,
+eli kysytty jännite $\Uout=2\V\cdot 6=12 \V$.
+
+}
+
+ \frame{
+ \frametitle{Positiivinen takaisinkytkentä}
+ \begin{itemize}
+ \item Negatiivisessa takaisinkytkennässä lähtöjännitettä kasvattava häiriö kasvattaa myös invertoivan tulon jännitettä $\to$ välitön korjausliike $\to$ piiri pysyy tasapainoasemassa, eli $U_+=U_-$.
+\item Entä jos vaihdetaan invertoivan ja ei-invertoivan tulon paikkaa? Tällöin käy juuri päinvastoin: pieni häiriö tasapainoasemasta voimistaa häiriötä $\to$ lähtöjännite ajautuu toiseen äärilaitaan.
+ \end{itemize}
+ }
+
+\frame{
+\frametitle{Positiivinen takaisinkytkentä}
+\begin{center}
+\begin{picture}(100,100)(0,-100)
+\vo{0,0}{}{15}
+%\txt{100,15}{\Uout=A(U_+-U_-)}
+\hln{-50,20}{50}
+
+\hln{0,-40}{50}
+\vln{0,-40}{40}
+\vz{50,-40}{R_2\hspace{-1.1cm}}
+\vz{50,-90}{R_1}
+\hg{50,-90}
+
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+\hln{50,10}{20}
+
+\end{picture}
+\end{center}
+
+
+}
+
+\frame{
+\frametitle{Positiivinen takaisinkytkentä}
+\begin{center}
+\begin{picture}(100,100)(0,-50)
+\voi{0,0}{}{15}
+\hz{-50,20}{R_1}
+\hz{0,55}{R_2}
+\hgp{0,0}
+\vln{0,20}{35}
+\vln{50,10}{45}
+\hln{50,10}{20}
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+
+\end{picture}
+\end{center}
+
+
+}
+
+\frame{
+\frametitle{Esimerkki}
+\begin{center}
+\begin{picture}(100,100)(0,-50)
+\voi{0,0}{}{15}
+\hz{-50,20}{R_1=7,5\kohm}
+\hz{-50,80}{R_2=15\kohm}
+
+\hln{-90,80}{40}
+\txt{-105,80}{-15\V}
+
+
+
+\hz{0,55}{R=15\kohm}
+\hgp{0,0}
+\vln{0,20}{60}
+\vln{50,10}{45}
+\hln{50,10}{20}
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+
+
+\end{picture}
+\end{center}
+Piirrä piirin ominaiskäyrä (vaaka-akselille $\Uin$ ja pystyakselille $\Uout$). Operaatiovahvistin on rail-to-rail-tyyppinen, eli lähtöjännite voi vaihdella käyttöjännitteiden välillä.
+}
+
+
+\frame{
+\frametitle{Esimerkki}
+Kumpikin hystereesisraja saadaan laskemalla, milloin operaatiovahvistimen tulonavoissa on sama jännite. Tutkitaan ensin tapaus, kun $\Uout=15\V$. Jos ei-invertoivassa tulossa on $0\V$, on vastuksen $R$ virta $1\mA$ (oikealta vasemmalle) ja 
+vastuksen $R_2$ virta myös $1\mA$ oikealta vasemmalle. Tällöin virta $R_1$:n läpi on $0\mA$, eli $\Uin=0\V$. Alempi hystereesisraja on siis $0\V$.
+
+Toinen raja: nyt $\Uout=-15\V$. Jos ei-invertoivassa tulossa on $0\V$, on vastuksen $R$ virta $1\mA$ (vasemmalta oikealle) ja  vastuksen $R_2$ virta $1\mA$ oikealta vasemmalle. Tällöin virta $R_1$:n läpi on $1\mA+1\mA=2\mA$ vasemmalta oikealle, eli $\Uin=15\V$. Ylempi hystereesisraja on siis $+15\V$.
+
+
+}
+
+ \frame{
+ \frametitle{Integraattori}
+\begin{center}
+\begin{picture}(100,100)(0,-50)
+\vo{0,0}{}{15}
+\hz{-50,20}{R}
+\hc{0,55}{C}
+\hgp{0,0}
+\vln{0,20}{35}
+\vln{50,10}{45}
+\hln{50,10}{20}
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+
+\end{picture}
+\end{center}
+\[
+u_{\rm out}=-\frac{1}{RC}\int_0^t u_{\rm in}{\rm d}t+U_0
+\]
+
+Lähtöjännitteen muutosnopeus on verrannollinen tulojännitteeseen.
+
+ }
+
+ \frame{
+ \frametitle{Derivaattori}
+\begin{center}
+\begin{picture}(100,100)(0,-50)
+\vo{0,0}{}{15}
+\hc{-50,20}{C}
+\hz{0,55}{R}
+\hgp{0,0}
+\vln{0,20}{35}
+\vln{50,10}{45}
+\hln{50,10}{20}
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\du{-50,-30}{\Uin}
+
+\end{picture}
+\end{center}
+\[
+u_{\rm out}=-RC\frac{{\rm d}u_{\rm in}}{{\rm d}t}
+\]
+
+Lähtöjännite on verrannollinen tulojännitteen muutosnopeuteen.
+
+ }
+
+\frame{
+\frametitle{Komparaattori}
+\scriptsize
+\begin{itemize}
+\item Jos negatiivista takaisinkytkentää ei ole, operaatiovahvistimen lähtöjännite ajautuu aina jompaan kumpaan äärilaitaan.
+\item Jos plustulossa on suurempi jännite kuin miinustulossa, operaatiovahvistimen lähtöjännite on maksimiäärilaidassa.
+\item Jos plustulossa on pienempi jännite kuin miinustulossa, operaatiovahvistimen lähtöjännite on minimiäärilaidassa.
+\item Operaatiovahvistinta voidaan siis käyttää kahden jännitteen vertailijana eli {\em komparaattorina}. Kaikki operaatiovahvistinmallit eivät toimi stabiilisti
+komparaattorina – kannattaa ostaa komparaattoriksi suunniteltu operaatiovahvistin, jos tarvitsee sellaista.
+\end{itemize}
+\begin{center}
+\begin{picture}(200,50)(0,0)
+\voi{0,0}{}{15}
+\stx{-20,20}{10,2 V}
+\stx{-20,0}{10,1 V}
+\stx{75,10}{$\Uout=+15\V$}
+
+\voi{150,0}{}{15}
+
+\stx{130,20}{10,0 V}
+\stx{130,0}{10,1 V}
+\stx{225,10}{$\Uout=-15\V$}
+
+\end{picture}
+\end{center}
+
+
+}
+
+
+ \frame{
+ \frametitle{Tarkkuustasasuuntaaja}  %LH5 T1 elepruju
+\begin{center}
+\begin{picture}(100,100)(0,-200)
+% X -350 Y -200
+\vo{0,-150}{}{15}
+\hz{-50,-130}{R}
+\hgp{0,-150}
+\rd{0,-100}{}
+\hz{0,-70}{R}
+
+\ud{75,-140}{}
+\vln{50,-140}{40}
+\hln{50,-140}{25}
+\vln{0,-130}{60}
+\vln{75,-90}{20}
+\hln{50,-70}{70}
+
+\du{-50,-180}{U_\mathrm{in}}
+\hg{-50,-180}
+
+\vz{120,-120}{R_\mathrm{L}}
+\hg{120,-120}
+\du{130,-120}{U_\mathrm{out}}
+\end{picture}
+\end{center}
+ }
+
+% \frame{
+ %\frametitle{Kokoaaltotasasuuntaaja} % TODO: Lisää tämä
+% \begin{itemize}
+ %\item
+ %\end{itemize}
+ %}
+
+\frame{
+%\[
+%R_1=1\kohm\quad R_2=2\kohm\quad R_3=1\kohm\quad R_4=3\kohm\quad
+%\]
+
+\begin{center}
+\begin{picture}(200,150)(0,-50)
+
+\hgp{0,100}
+\hz{0,100}{R}
+\hz{50,100}{R}
+\hz{100,100}{R}
+\hz{150,100}{R}
+\ho{50,25}{}
+%\hg{50,25}
+\ho{150,25}{}
+%\hg{150,25}
+
+\vln{50,75}{25}
+\vln{100,50}{50}
+
+\vln{150,75}{25}
+\vln{200,50}{50}
+
+\hln{0,25}{50}
+\hln{0,-25}{150}
+\vln{150,-25}{50}
+
+\du{0,-25}{\Uin}
+
+\hln{200,50}{20}
+
+\hgp{220,0}
+\du{220,0}{\Uout}
+
+
+\end{picture}
+\end{center}
+
+\begin{exampleblock}{Esimerkki}
+Laske miten $\Uout$ riippuu jännitteestä $\Uin$.
+\end{exampleblock}
+}
+
+\frame{
+\frametitle{Esimerkki}
+%\[
+%R_1=1\kohm\quad R_2=2\kohm\quad R_3=1\kohm\quad R_4=3\kohm\quad
+%\]
+
+\begin{center}
+\begin{picture}(200,150)(0,-20)
+
+\hgp{0,100}
+\hz{0,100}{R}
+\hz{50,100}{R}
+\hz{100,100}{R}
+\hz{150,100}{R}
+\ho{50,25}{}
+%\hg{50,25}
+\ho{150,25}{}
+%\hg{150,25}
+
+\vln{50,75}{25}
+\vln{100,50}{50}
+
+\vln{150,75}{25}
+\vln{200,50}{50}
+
+\hln{0,25}{50}
+\hln{0,-25}{150}
+\vln{150,-25}{50}
+
+\du{0,-25}{\Uin}
+
+\hln{200,50}{20}
+
+\hgp{220,0}
+\du{220,0}{\Uout}
+
+\lu{0,110}{U_{\rm x}}
+\lu{50,110}{U_{\rm x}}
+\lu{100,110}{U_{\rm y}}
+\lu{150,110}{U_{\rm y}}
+
+
+\end{picture}
+\end{center}
+Kaksi vasemmanpuoleisinta vastusta ovat keskenään sarjassa joten niiden molempien yli on sama jännite ($U_{\rm x}$). Kaksi oikeanpuoleisinta
+vastusta ovat keskenään sarjassa joten niidenkin yli on sama jännite kummallakin ($U_{\rm y}$).
+
+
+}
+
+\frame{
+\frametitle{Esimerkki}
+
+\begin{center}
+\begin{picture}(200,150)(0,-20)
+
+\hgp{0,100}
+\hz{0,100}{R}
+\hz{50,100}{R}
+\hz{100,100}{R}
+\hz{150,100}{R}
+\ho{50,25}{}
+%\hg{50,25}
+\ho{150,25}{}
+%\hg{150,25}
+
+\vln{50,75}{25}
+\vln{100,50}{50}
+
+\vln{150,75}{25}
+\vln{200,50}{50}
+
+\hln{0,25}{50}
+\hln{0,-25}{150}
+\vln{150,-25}{50}
+
+\du{0,-25}{\Uin}
+
+\hln{200,50}{20}
+
+\hgp{220,0}
+\du{220,0}{\Uout}
+
+\lu{0,110}{U_{\rm x}}
+\lu{50,110}{U_{\rm x}}
+\lu{100,110}{U_{\rm y}}
+\lu{150,110}{U_{\rm y}}
+
+
+\end{picture}
+\end{center}
+Kirjoitetaan Kirchhoffin jännitelain mukaan kaksi yhtälöä:
+\begin{eqnarray*}
+\Uin + U_{\rm x} + U_{\rm y} &=& 0\\
+\Uout - U_{\rm y} - U_{\rm y} - U_{\rm x} - U_{\rm x} &=& 0
+\end{eqnarray*}
+
+
+}
+
+\frame{
+\frametitle{Esimerkki}
+
+Tarkastellaan äskeisiä yhtälöitä:
+\begin{eqnarray*}
+\Uin + U_{\rm x} + U_{\rm y} &=& 0\\
+\Uout - U_{\rm y} - U_{\rm y} - U_{\rm x} - U_{\rm x} &=& 0
+\end{eqnarray*}
+Ratkaistaan jälkimmäisestä $\Uout$:
+\[
+\Uout = 2(U_{\rm x}+U_{\rm y})
+\]
+Ensimmäisestä yhtälöstä saadaan:
+\[
+ U_{\rm x} + U_{\rm y} = -\Uin 
+\]
+Sijoitetaan yllä oleva edelliseen yhtälöön:
+\[
+\Uout=-2\Uin
+\]
+
+}

@@ -1,0 +1,62 @@
+
+
+\frame{
+\frametitle{Kanavatransistorit}
+\begin{itemize}
+\item Tyypit MOSFET ja JFET
+\item Kalvoilla käsitellään N-kanava JFET ja N-kanavainen avaustyyppinen MOSFET
+\end{itemize}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+
+\njfet{0,0}{\rm JFET}
+\benmos{100,0}{\rm MOSFET}
+\vln{150,-3}{8}
+\end{picture}
+\end{center}
+}
+
+\frame{
+\frametitle{n-kanava-JFET}
+\begin{itemize}
+\item Hilalla estosuuntainen diodiliitos -- ei kulje virtaa.
+\item Hilan ja lähteen välisellä jännitteellä säädellään nieluvirtaa
+\item Jos $U_{\rm GS}=0\V$, niin $I_{\rm D}=I_{\rm DSS}$, missä $I_{\rm DSS}$ on komponenttikohtainen vakio
+\item Jos $U_{\rm GS}=U_{\rm P}$, niin $I_{\rm D}=0$. $U_{\rm P}$ on komponenttikohtainen vakio, ja se on negatiivinen,
+esimerkiksi $-3$ volttia.
+\item Näiden ääripäiden välillä $I_{\rm D}=I_{\rm DSS}(1-\frac{U_{\rm GS}}{U_{\rm P}})^2$ kun $\ U_{\rm DS}\ge U_{\rm GS}-U_{P}$
+\end{itemize}
+\begin{picture}(50,50)(-100,-20)
+
+\njfet{0,0}{\rm JFET}
+\txt{-10,0}{\rm G}
+\txt{55,25}{\rm D}
+\txt{55,-15}{\rm S}
+
+\end{picture}
+}
+
+\frame{
+\frametitle{MOSFET}
+\begin{itemize}
+\item Kuten JFET: $I_{\rm D}=0$ ja $U_{\rm GS}$ säätelee nieluvirtaa
+\item Hilajännitteen oltava $>U_{\rm T}$, jotta virta kulkisi
+\item $I_{\rm D}=K(U_{\rm GS}-U_{T})^2, \mbox{kun}\ U_{\rm GS} \ge U_{T}\ \mbox{ja}\ U_{\rm DS}\ge U_{\rm GS}-U_{T}$
+\item $U_{\rm T}$ ja $K$ ovat komponenttikohtaisia vakioita
+\item Jos hilajännite hyvin suuri (luokkaa $>10 \V$), kanava aukeaa täysin ja näyttää pieneltä resistanssilta
+$R_{\rm DS on}$
+\end{itemize}
+
+\begin{picture}(50,50)(-100,-20)
+
+%\njfet{0,0}{\rm JFET}
+\txt{-10,0}{\rm G}
+\txt{55,25}{\rm D}
+\txt{55,-15}{\rm S}
+
+\benmos{0,0}{\rm MOSFET}
+\vln{50,-3}{8}
+
+\end{picture}
+}
+

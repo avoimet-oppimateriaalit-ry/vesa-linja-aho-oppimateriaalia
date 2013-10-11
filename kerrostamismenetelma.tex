@@ -1,0 +1,369 @@
+\frame {
+  \frametitle{Kerrostamismenetelmä}
+\begin{itemize}
+\item Vastuksista ja vakioarvoisista virta- ja jännitelähteistä koostuva piiri on lineaarinen.
+\item Jos piiri on lineaarinen, voidaan vastusten jännitteet ja virrat selvittää laskemalla
+kunkin lähteen vaikutus erikseen.
+\item Tätä ratkaisumenetelmää kutsutaan {\bf kerrostamismenetelmäksi}.
+\end{itemize}
+}
+
+\frame {
+  \frametitle{Kerrostamismenetelmä}
+Kerrostamismenetelmää sovelletaan seuraavasti
+\begin{itemize}
+\item Lasketaan kunkin lähteen aiheuttama(t) virta/virrat ja/tai jännite/jännitteet erikseen siten,
+että muut lähteet ovat sammutettuina.
+\item Sammutettu jännitelähde = oikosulku (suora johdin), sammutettu virtalähde = avoin piiri (katkaistu johdin).
+\item Lopuksi lasketaan osatulokset yhteen.
+\end{itemize}
+}
+
+
+\frame {
+\frametitle{Esimerkki kerrostamismenetelmän soveltamisesta}
+Ratkaise virta $I_3$ kerrostamismenetelmällä.
+\begin{center}
+\begin{picture}(200,50)(0,0)
+\vst{0,0}{E_1}
+\vst{100,0}{E_2}
+\vz{50,0}{R_3}
+\di{50,1}{I_3}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\hln{0,0}{100}
+\end{picture}
+\end{center}
+Sammutetaan oikeanpuoleinen jännitelähde:
+\begin{center}
+\begin{picture}(200,50)(0,0)
+\vst{0,0}{E_1}
+%\vst{100,0}{E_2}
+\vln{100,0}{50}
+\vz{50,0}{R_3}
+\di{50,1}{I_{31}}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\hln{0,0}{100}
+\txl{100,25}{$I_{31}=\frac{E_1}{R_1+\frac{1}{G_2+G_3}}\frac{1}{G_2+G_3}G_3$}
+\end{picture}
+\end{center}
+Sammutetaan vasemmanpuoleinen jännitelähde:
+\begin{center}
+\begin{picture}(200,50)(-100,0)
+%\vst{0,0}{E_1}
+\vst{100,0}{E_2}
+\vln{0,0}{50}
+\vz{50,0}{R_3}
+\di{50,1}{I_{32}}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\hln{0,0}{100}
+\txl{-125,25}{$I_{32}=\frac{E_2}{R_2+\frac{1}{G_1+G_3}}\frac{1}{G_1+G_3}G_3$}
+\end{picture}
+\end{center}
+}
+
+\frame {
+\frametitle{Esimerkki kerrostamismenetelmän soveltamisesta}
+Virta $I_3$ saadaan laskemalla osavirrat $I_{31}$ ja $I_{32}$.
+\[
+I_3=I_{31}+I_{32}=\frac{E_1}{R_1+\frac{1}{G_2+G_3}}\frac{1}{G_2+G_3}G_3+\frac{E_2}{R_2+\frac{1}{G_1+G_3}}\frac{1}{G_1+G_3}G_3
+\]
+}
+
+\frame {
+\frametitle{Milloin kerrostamismenetelmä on kätevä?}
+\begin{itemize}
+\item Kun laskija pitää enemmän piirin sormeilemisesta kuin yhtälöryhmien pyörittelemisestä.
+\item Jos piirissä on paljon lähteitä ja vähän vastuksia, kerrostamismenetelmä on usein nopea.
+\item Jos piirissä on useita eritaajuisia lähteitä, piirin analysointi perustuu kerrostamismenetelmään.
+\end{itemize}
+}
+
+
+\frame {
+\frametitle{Lineaarisuus ja kerrostamismenetelmän teoriatausta}
+\begin{itemize}
+\item Kerrostamismenetelmä perustuu piirin lineaarisuuteen, eli siihen,
+että jokainen lähde vaikuttaa jokaiseen jännitteeseen vakiokertoimella.
+\item Sama kaavana: jos piirissä on lähteet $E_1$, $E_2$, $E_3$, $J_1$,
+$J_2$, niin jokainen piirin jännite ja virta on muotoa
+$k_1E_1+k_2E_2+k_3E_3+k_4J_1+k_5J_2$, missä vakiot $k_n$ ovat
+reaalilukuja.
+\item Jos kaikkien lähteiden arvo on nolla, ovat piirin vastusten virrat ja
+jännitteet nolla; eli nollaamalla kaikki lähteet paitsi yksi, voidaan laskea
+kyseisen lähteen vaikutuskerroin.
+\end{itemize}
+}
+
+
+\begin{comment}
+\frame{
+\frametitle{Oppikirja}
+Kimmo Silvonen: {\em Sähkötekniikka ja piiriteoria}:
+\begin{description}
+\item[1.9.5] Superpositioperiaate eli kerrostamismenetelmä
+\end{description}
+
+Kimmo Silvonen: {\em Sähkötekniikka ja elektroniikka}:
+\begin{description}
+\item[1.9.5] Superpositioperiaate eli kerrostamismenetelmä
+\end{description}
+}
+\end{comment}
+
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise virta $I_2$ kerrostamismenetelmällä.
+\end{block}
+\[
+J=1\A \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\quad E=5\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+\ri{58,50}{I_2}
+\vst{150,0}{E}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+}
+
+%LUENTO8
+
+\frame{
+\begin{block}{Ratkaisu}
+Ratkaise virta $I_2$ kerrostamismenetelmällä.
+\end{block}
+\[
+J=1\A \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\quad E=5\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+\ri{58,50}{I_2}
+\vst{150,0}{E}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+\frametitle{Ratkaisu}
+Lasketaan ensin virtalähteen vaikutus:
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+\ri{58,50}{I_{21}}
+%\vst{150,0}{E_1}
+\vln{150,0}{50}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+Vastusten $R_1$ ja $R_2$ yli on sama jännite (ne ovat rinnan) ja vastus $R_2$ kaksinkertainen verrattuna
+vastukseen $R_1$ joten $R_2$:n läpi kulkee puolet pienempi virta kuin $R_1$:n. Koska vastusten
+läpi kulkee yhteensä $J=1\A$:n suuruinen virta, kulkee $R_1$:n läpi $2/3 \A$ ja $R_2$:n
+läpi $I_{21}=1/3 \A$.
+}
+
+\frame{
+\frametitle{Ratkaisu}
+Lasketaan seuraavaksi jännitelähteen vaikutus:
+\begin{center}
+\begin{picture}(150,50)(0,0)
+%\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+\ri{58,50}{I_{22}}
+\vst{150,0}{E}
+%\vln{150,0}{50}
+\hln{0,0}{150}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+Vastukset $R_1$ ja $R_2$ ovat nyt sarjassa ja niiden yli on yhteensä $E=5\V$ jännite, joten
+\[
+I_{22}=-\frac{E}{R_1+R_2}=-\frac{5\V}{10\ohm+20\ohm}=-\frac{1}{6}\A .
+\]
+Negatiivinen etumerkki johtuu siitä, että virran $I_{22}$ suunta on alhaalta ylös ja
+vastusten jännitteen suunta ylhäältä alas.\\
+Lopuksi yhdistetään tulokset:
+\[
+I_2=I_{21}+I_{22}=\frac{1}{3}\A-\frac{1}{6}\A=\frac{1}{6} \A.
+\]
+}
+
+\frame{
+\begin{block}{Esimerkki} % Piirianalyysi 1 laskari 2. tehtävä
+Ratkaise $U$ ja $I$ ensin kerrostamismenetelmällä ja sitten jollain muulla
+menetelmällä.
+\end{block}
+
+\begin{center}
+\[
+R_1=1\ohm\quad R_2=2\ohm\quad J=1\A \quad E= 3\V
+\]
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\ri{25,50}{I}
+\vz{50,0}{R_1}
+\hz{50,50}{R_2}
+\vdj{100,0}{J}
+\du{112,0}{U}
+\hln{0,0}{100}
+\hln{0,50}{50}
+
+\end{picture}
+\end{center}
+\tiny Vastaus: $I=4\A$ ja $U=1\V$.
+}
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise kerrostamismenetelmällä virta $I$ ja jännite $U$.
+\end{block}
+\begin{center}
+\begin{picture}(50,80)(0,0)
+\vz{0,0}{R_1}
+\hln{0,50}{50}
+\vj{50,0}{J}
+\vst{100,0}{E}
+\hln{0,0}{100}
+\hz{50,50}{R_2}
+\di{0,2}{I}
+\rcuu{50,53}{U}
+%\vst{0,0}{1,5 \V}
+%\vst{0,50}{1,5 \V}
+%\vz{50,25}{R=20\ohm\hspace{-2.5cm}}
+%\vln{50,0}{25}
+%\vln{50,75}{25}
+%\hln{0,100}{50}
+%\hln{0,0}{50}
+%\di{50,25}{I}
+\end{picture}
+\[
+E=3\V\qquad R_1=R_2=1\ohm \qquad J=1\A
+\]
+\end{center}
+
+}
+
+
+
+
+
+\frame{
+%\frametitle{Kotitehtävä 1b}
+\begin{block}{Ratkaisu}
+Ratkaise kerrostamismenetelmällä virta $I$ ja jännite $U$.
+\end{block}
+Ratkaistaan ensin virtalähteen vaikutus.
+\begin{center}
+\begin{picture}(50,80)(0,0)
+\vz{0,0}{R_1}
+\hln{0,50}{50}
+\vj{50,0}{J}
+%\vst{100,0}{E}
+\vln{100,0}{50}
+\hln{0,0}{100}
+\hz{50,50}{R_2}
+\di{0,2}{I_1}
+\rcuu{50,53}{U_1}
+\end{picture}
+\[
+E=3\V\qquad R_1=R_2=1\ohm \qquad J=1\A
+\]
+\end{center}
+\[
+U_1=J\frac{R_1R_2}{R_1+R_2}=0,5\V \qquad I_1=J\frac{G_1}{G_1+G_2}=0,5\A
+\]
+}
+
+\frame{
+\begin{block}{Ratkaisu}
+Ratkaise kerrostamismenetelmällä virta $I$ ja jännite $U$.
+\end{block}
+Ratkaistaan seuraavaksi jännitelähteen vaikutus.
+\begin{center}
+\begin{picture}(50,80)(0,0)
+\vz{0,0}{R_1}
+\hln{0,50}{50}
+%\vj{50,0}{J}
+\vst{100,0}{E}
+%\vln{50,0}{50}
+\hln{0,0}{100}
+\hz{50,50}{R_2}
+\di{0,2}{I_2}
+\rcuu{50,53}{U_2}
+\end{picture}
+\[
+E=3\V\qquad R_1=R_2=1\ohm \qquad J=1\A
+\]
+\end{center}
+\[
+U_2=-E\frac{R_2}{R_1+R_2}=-1,5\V \qquad I_2=\frac{E}{R_1+R_2}=1,5\A
+\]
+}
+
+
+\frame{
+\begin{block}{Ratkaisu}
+Ratkaise kerrostamismenetelmällä virta $I$ ja jännite $U$.
+\end{block}
+Yhdistetään tulokset:
+\[
+U=U_1+U_2=0,5\V-1,5\V=-1\V
+\]
+\[
+I=I_1+I_2=0,5\A+1,5\A=2\A
+\]
+}

@@ -1,0 +1,156 @@
+\frame{
+\frametitle{Konduktanssi}
+\begin{itemize}
+\item Resistanssilla tarkoitetaan kappaleen kykyä vastustaa sähkövirran kulkua.
+\item Resistanssin käänteislukua kutsutaan konduktanssiksi. Konduktanssin
+tunnus on $G$ ja yksikkö Siemens (S).
+\item Konduktanssi kertoo kappaleen kyvystä johtaa sähköä.
+\item Esimerkiksi jos $R=10 \ohm$ niin $G=0,1\Siemens$.
+\end{itemize}
+
+\begin{center}
+$G=\frac{1}{R} \qquad U=RI \Leftrightarrow GU=I$ 
+
+\begin{picture}(50,50)(0,0)
+\hz{0,0}{G=\frac{1}{R}}
+\ru{0,10}{U}
+\ri{5,0}{I}
+\hln{50,0}{15}
+\hln{-15,0}{15}
+\end{picture}
+\end{center}
+}
+
+
+\frame {
+\frametitle{Sähköteho}
+\begin{itemize}
+\item Teho tarkoittaa tehtyä työtä aikayksikköä kohti.
+\item Tehon tunnus on $P$ ja yksikkö watti (W).
+\item Elementin kuluttama teho on $P=UI$\begin{picture}(50,10)(-30,-5) \hz{0,0}{} \ri{8,0}{I} \ru{0,10}{U} \end{picture}
+\item Jos kaava antaa positiivisen tehon, elementti kuluttaa tehoa. Jos kaava antaa negatiivisen tehon,
+elementti luovuttaa tehoa.
+\end{itemize}
+}
+\frame{
+\frametitle{Sähköteho}
+\begin{block}{Energia ei häviä piirissä}
+Piirielementtien kuluttama teho = piirielementtien luovuttama teho.
+\end{block}
+
+\begin{center}
+\begin{picture}(200,50)(0,0)
+\vst{0,0}{E}
+\vz{100,0}{R}
+\hln{0,0}{100}
+\hln{0,50}{100}
+\ui{0,45}{I}
+\di{100,42}{I}
+\txt{200,50}{I=\frac{U}{R}}
+\txt{200,25}{P_R=UI=U\frac{U}{R}=\frac{U^2}{R}}
+\txt{200,0}{P_E=U\cdot(-I)=U\frac{-U}{R}=-\frac{U^2}{R}}
+\end{picture}
+\end{center}
+Kuvassa vastus kuluttaa yhtä paljon tehoa kuin jännitelähde luovuttaa.
+}
+
+
+
+\frame{
+\frametitle{Napa ja portti}
+\begin{itemize}
+\item Piirissä olevaa johdon liitäntäkohtaa nimitetään {\bf navaksi} tai nastaksi.
+\item Kaksi napaa muodostavat {\bf portin} eli napaparin.
+\item Helpoin esimerkki: auton akku, jolla sisäistä resistanssia.
+\end{itemize}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_{\rm S}}
+\hln{0,0}{50}
+\out{50,0}
+\out{50,50}
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+\frametitle{Solmu}
+\begin{itemize}
+\item {\bf Solmulla} tarkoitetaan virtapiirin aluetta, jonka sisällä on sama potentiaali.
+\item Palikkamenetelmä: laske kynä johonkin kohtaan johdinta. Ala värittää johdinta,
+ja aina kun tulee vastaan komponentti, käänny takaisin. Väritetty alue on yksi solmu. 
+\item Montako solmua on kuvan piirissä?
+\end{itemize}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_5}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\vz{150,0}{R_6}
+\hln{0,0}{150}
+\ri{8,50}{I}
+\end{picture}
+%$R_1=R_2=R_3=R_4=R_5=R_6=1\ohm\qquad E=9\V$
+\end{center}
+}
+
+\frame{
+\frametitle{Maa}
+\begin{itemize}
+\item Yksi solmuista voidaan {\bf nimetä} maasolmuksi.
+\item Maasolmu-merkinnän käyttö säästää piirtämisvaivaa.
+\item Auton akun miinusnapa on kytketty auton runkoon; näin muodostuu
+suuri maasolmu.
+\item Sanonta "tämän solmun jännite on (esim.) 12 volttia" tarkoittaa, että sen
+solmun ja maan välinen jännite on (esim.) 12 volttia.
+\end{itemize}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_5}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\vz{150,0}{R_6}
+\hln{0,0}{150}
+\ri{8,50}{I}
+\hgp{0,0}
+\cn{0,0}
+\end{picture}
+\end{center}
+}
+
+
+\frame{
+\frametitle{Maa}
+\begin{itemize}
+\item Maasolmu voidaan kytkeä laitteen runkoon tai olla kytkemättä
+(symboli ei siis tarkoita, että laite on "maadoitettu").
+\item Edellisen kalvon piiri voidaan piirtää myös näin:
+\end{itemize}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_5}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\vz{150,0}{R_6}
+%\hln{0,0}{150}
+\ri{8,50}{I}
+\hgp{0,0}
+\hgp{50,0}
+\hgp{100,0}
+\hgp{150,0}
+
+%\cn{0,0}
+\end{picture}
+\end{center}
+}

@@ -1,0 +1,56 @@
+\frame{
+\frametitle{Käytännön bipolaaritransistorit}
+Valintaan vaikuttavat muun muassa
+\begin{itemize}
+\item Virtavahvistus
+\item Suurin sallittu kollektorivirta
+\item Kollektori-emitteri -liitoksen jännitteenkesto
+\item Yksikkövahvistuksen rajataajuus $f_{\rm T}$
+\end{itemize}
+}
+
+\frame{
+\frametitle{Virtavahvistus}
+\begin{itemize}
+\item Transistorin valmistaja takaa yleensä jonkin vähimmäisvirtavahvistuksen tietyllä kollektorivirralla.
+\item Toleranssit ovat suuria.
+\item (Muuten) samaa transistoria myydään usein eri virtavahvistuksilla, esim. BC547A, BC547B ja BC547C.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Suurin sallittu kollektorivirta ja SOA}
+\begin{itemize}
+\item Kuumenemisteho rajoittaa transistorin virrankestoa.
+\item SOA = Safe Operating Area on valmistajan ilmoittama alue sallituille kollektori-emitteri -jännitteille ja kollektorivirroille.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jännitteenkesto}
+\begin{itemize}
+\item Jos kollektorin ja emitterin välinen jännite on liian suuri, tapahtuu läpilyönti.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Hajakapasitanssit ja yksikkövahvistuksen rajataajuus}
+\begin{itemize}
+\item Transistorin sisäiset kapasitanssit saavat aikaan sen, että taajuuden kasvaessa vahvistuskerroin pienenee.
+\item Valmistaja ilmoittaa usein yksikkövahvistuksen rajataajuuden $f_{\rm T}$ eli taajuuden, jolla $\beta$ on laskenut
+arvoon 1.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Early-jännite}
+\begin{itemize}
+\item Perinteisessä transistorimallissa virtavahvistuskerroin oletetaan vakioksi. Todellisuudessa kollektorivirta kasvaa,
+kun kollektorin ja emitterin välinen jännite kasvaa.
+\item Ominaiskäyrille piirretyt jatkeet leikkaavat pisteessä $-U_{\rm A}$, missä $U_{\rm A}$ on Early-jännite.
+\item Tätä voidaan mallintaa kollektorin ja emitterin välille piirrettävällä vastuksella
+\[
+r_0=\frac{|U_{\rm A}|+|U_{\rm CE}|}{I_{\rm C}}\approx \frac{|U_{\rm A}|}{I_{\rm C}}
+\]
+\end{itemize}
+}

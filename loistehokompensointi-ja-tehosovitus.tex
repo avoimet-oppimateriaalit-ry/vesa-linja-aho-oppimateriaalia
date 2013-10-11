@@ -1,0 +1,305 @@
+\frame{
+\frametitle{Loistehokompensointi}
+\begin{itemize}
+\item Loisteho on  ei-toivottu ilmiö. Esimerkiksi sähkömoottori ottaa sähköverkosta loistehoa, koska
+siinä on käämejä (=induktanssia).
+\item Tehdas, jossa on satoja tai tuhansia sähkömoottoreita, kuormittaa sähköverkkoa tarpeettomasti.
+\item Loisteho sykkii moottorien ja voimalaitoksen välillä kuormittaen johtimia turhaan.
+\item Teollisuuslaitoksilta peritään loistehosta maksua, joka on usein suurempi kuin pätötehomaksu!
+\item Tämän takia loisteho pyritään kompensoimaan pois.
+\item Kompensointi tapahtuu yleensä rinnakkaiskondensaattorilla.
+\item Perustapa: laitetaan induktiivisen kuorman rinnalle kondensaattori, joka kumoaa
+loistehon niin, että kuorma näyttää sähköverkkoon päin (lähes) pelkältä vastukselta.
+\item Kompensoinnin voisi tehdä myös sarjakondensaattorilla, mutta se ei ole käytännössä järkevää. Miksi?
+\end{itemize}
+}
+
+\frame{
+\frametitle{Induktiivisen loistehon kompensointi rinnakkaiskondensaattorilla}
+\begin{itemize}
+\item Sarjakompensoinnin haittana on, että koko kuorman ottama virta kulkee silloin kondensaattorin läpi (kuormittaa
+kondensaattoria).
+\item Rinnakkaiskondensaattorin läpi kulkee vain loistehon kompensointiin vaadittava virta.
+\item Kondensaattorin koko valitaan siten, että kuorman (kela ja vastus) sekä kondensaattorin
+muodostaman kokonaisuuden loisteho on nolla, eli impedanssin imaginaariosa on nolla!
+\end{itemize}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vl{100,0}{L}
+\vst{0,0}{E}
+\hln{0,0}{100}
+%\hln{50,50}{50}
+\hz{50,50}{R}
+%\hl{0,50}{L}
+\hln{0,50}{50}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+\color{blue}
+\vc{50,0}{C}
+
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+\frametitle{Esimerkki}
+Loistehokompensointi rinnakkaiskondensaattorilla perustuu siihen, että kondensaattori ottaa
+sähköverkosta (jännitelähteestä) yhtä suuren mutta vastakkaismerkkisen loistehon kuin
+induktiivinen kuorma. Kondensaattorin mitoituksen voi laskea kahdella tavalla:
+\begin{description}
+\item[Tapa 1] Lasketaan kuorman (kuvassa vastus + kela) ottama loisteho. Sitten lasketaan, kuinka
+suuri kondensaattorin täytyy olla, jotta se ottaa yhtä suuren mutta vastakkaismerkkisen loistehon.
+\item[Tapa 2] Lasketaan kondensaattorin, kelan ja vastuksen muodostaman kokonaisuuden
+impedanssi, ja sitten valitaan kondensaattori niin, että tämän impedanssin imaginaariosa on nolla.
+\end{description}
+Tapa 2 on usein helpompi.
+
+
+% (C=14\uF)
+}
+
+\frame{
+\frametitle{Esimerkki - Tapa 1}
+
+\[
+U=230 \V \quad L=0,5\ {\rm H} \quad \omega=100\pi \quad R=100\ohm
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vl{100,0}{L}
+\vst{0,0}{U}
+\hln{0,0}{100}
+%\hln{50,50}{50}
+\hz{50,50}{R}
+%\hl{0,50}{L}
+\hln{0,50}{50}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+\color{blue}
+\vc{50,0}{C}
+
+\end{picture}
+\end{center}
+% (C=14\uF)
+
+Kela ja vastuksen sarjaankytkennän näennäisteho on {\small
+\[
+S=UI^*=U\left(\frac{U}{Z_{\rm R}+Z_{\rm L}}\right)^*=U\frac{U^*}{(R+\jj \omega L)^*}=\frac{|U|^2}{R-\jj \omega L}=\frac{|U|^2(R+\jj \omega L)}{R^2+(\omega L)^2}
+\]
+}
+Näennäistehon reaaliosa on pätöteho ($P$, watteja) ja imaginaariosa on loisteho ($Q$, vareja). Loistehon suuruus on
+\[
+Q=\frac{|U|^2\omega L}{R^2+(\omega L)^2}\approx 239,647\ldots\quad (\rm var)
+\]
+}
+
+\frame{
+\frametitle{Esimerkki - Tapa 1 jatkuu}
+Seuraavaksi mitoitetaan kondensaattori siten, että se kuluttaa yhtä suuren mutta vastakkaismerkkisen loistehon kuin äsken laskettu
+loisteho. Kondensaattorin näennäisteho on
+\[
+S_{\rm C}=UI^*=U\left(\frac{U}{Z_{\rm C}}\right)^*=U\frac{U^*}{\left(\frac{1}{\jj \omega C}\right)^*}=\frac{|U|^2}{\left(-\jj\frac{1}{\omega C}\right)^*}=\frac{|U|^2}{\jj\frac{1}{\omega C}}=
+-\jj|U|^2 \omega C 
+\]
+eli sen loisteho on $-|U|^2 \omega C$ (kondensaattori ei koskaan kuluta pätötehoa!). Tämän pitää olla yhtä suuri (mutta vastakkaismerkkinen) kuin edellisellä kalvolla
+laskettu $Q$:
+\[
+|U|^2 \omega C=\frac{|U|^2\omega L}{R^2+(\omega L)^2} \quad \Rightarrow C=\frac{L}{R^2+(\omega L)^2}\approx 14,4\cdot 10^{-6}
+\]
+eli tarvitaan 14,4 mikrofaradin kondensaattori.
+}
+
+
+\frame{
+\frametitle{Esimerkki - Tapa 2}
+
+\[
+U=230 \V \quad L=0,5\ {\rm H} \quad \omega=100\pi \quad R=100\ohm
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vl{100,0}{L}
+\vst{0,0}{U}
+\hln{0,0}{100}
+%\hln{50,50}{50}
+\hz{50,50}{R}
+%\hl{0,50}{L}
+\hln{0,50}{50}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+\color{blue}
+\vc{50,0}{C}
+
+\end{picture}
+\end{center}
+% (C=14\uF)
+
+Kela ja vastus ovat keskenään sarjassa, ja niiden muodostama sarjaankytkentä on rinnan kondensaattorin kanssa:
+\[
+Z=\frac{1}{\frac{1}{Z_{\rm C}}+\frac{1}{R+Z_{\rm L}}}=\frac{1}{\jj\omega C+\frac{1}{R+\jj\omega L}}
+\]
+Jotta piiri ei kuluttaisi loistehoa, tulee impedanssin olla reaalinen (=reaaliluku). Osoittajassa
+on reaaliluku (ykkönen), joten impedanssi on reaalinen, jos ja vain jos nimittäjä on reaalinen. 
+}
+
+\frame{
+\frametitle{Esimerkki - Tapa 2 jatkuu}
+Tutkitaan nimittäjää:{\small
+\[
+\jj\omega C+\frac{1}{R+\jj\omega L}=\jj\omega C + \frac{R-\jj\omega L}{R^2+(\omega L)^2}=\underbrace{\jj\omega C}_{\rm imaginaarinen} + \underbrace{\frac{R}{R^2+(\omega L)^2}}_{\rm reaalinen}+\underbrace{\frac{-\jj\omega L}{R^2+(\omega L)^2}}_{\rm imaginaarinen}
+\]
+}
+Jotta luku olisi reaalinen, täytyy imaginaariosan olla nolla. Ratkaistaan, millä kapasitanssin arvolla imaginaariosa saadaan nollaksi:
+\[
+\jj\omega C + \frac{-\jj\omega L}{R^2+(\omega L)^2}=0 \quad \Rightarrow C = \frac{ L}{R^2+(\omega L)^2} \approx 14,4\cdot 10^{-6}
+\]
+Vastaus on sama kuin mitä saatiin edellisellä tavalla laskemalla.
+}
+
+
+\frame{
+\frametitle{Tehosovitus} % TODO Painota, että tehosovituksessa jos kuorma tiedetään, niin lähderesistanssia ei tule säätää samaksi!
+\begin{itemize}
+\item Eri asia kuin loistehokompensointi!
+\item Tehosovituksessa pyritään valitsemaan kuorman impedanssi siten, että kuormaan kulkeva
+pätöteho on suurimmillaan.
+\item Esimerkiksi jos vahvistimen lähtöimpedanssi tiedetään, valitaan kaiuttimen impedanssi siten, että
+teho on mahdollisimman suuri. Toisin sanoen: jos $Z_{\rm S}$ tiedetään, kuinka $Z_{\rm L}$ tulee
+valita, jotta $Z_{\rm L}$:ään siirtyvä teho maksimoituu.
+\item Toinen esimerkki: radioantennin kytkeminen lähetinvahvistimeen.
+\end{itemize}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vz{100,0}{Z_{\rm L}}
+\vst{0,0}{E}
+\hln{0,0}{100}
+%\hln{50,50}{50}
+\hln{50,50}{50}
+%\hl{0,50}{L}
+\hz{0,50}{Z_{\rm S}}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+%\color{blue}
+%\vc{50,0}{C}
+
+\end{picture}
+\end{center}
+
+}
+
+
+
+\frame{
+\frametitle{Tehosovitus vaihtosähköllä}
+\begin{itemize}
+\item Vaihtosähköpiirissä tulee $Z_{\rm L}$ valita siten, että $Z_{\rm L}$:n imaginaariosa
+kumoaa $Z_{\rm S}$:n imaginaariosan. Tällöin virta on suurin ja pätöteho kuormassa on suurin.
+\item Lähteestä, jonka $Z_{\rm S}$ tunnetaan, suurinta mahdollista ulos tulevaa tehoa kutsutaan {\bf yltötehoksi}.
+\item Perustelu on samanlainen kuin seuraavassa esimerkissä suoritettava perustelu; lasketaan vain kompleksiluvuilla.
+\item Voidaan perustella myös maalaisjärjellä: resistansseille suoritetun tehosovituksen lisäksi pitää hankkiutua
+impedanssin imaginaariosasta eroon, jolloin kuormaan kulkee niin suuri virta kuin mahdollista.
+\end{itemize}
+\[
+R_{\rm L}=R_{\rm S}\quad \mbox{ja vaihtosähköllä}\quad  Z_{\rm L}=Z_{\rm S}^*
+\]
+
+}
+
+
+
+
+
+
+
+
+\frame{
+\frametitle{Esimerkki}
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vz{100,0}{R_{\rm L}}
+\vst{0,0}{E}
+\hln{0,0}{100}
+%\hln{50,50}{50}
+\hln{50,50}{50}
+%\hl{0,50}{L}
+\hz{0,50}{R_{\rm S}}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+%\color{blue}
+%\vc{50,0}{C}
+
+\end{picture}
+\end{center}
+
+Osoita, että\footnote{P.S. Tämä on ihan puhdas tasasähköpiiritehtävä, eli nyt et tarvitse kompleksilukuja.} kuormavastuksen $R_{\rm L}$ teho on suurimmillaan silloin, kun $R_{\rm L}$
+on arvoltaan yhtä suuri kuin $R_{\rm S}$. {Ohje:} Muodosta lauseke $R_{\rm L}$ teholle. 
+Arvot $E$ ja $R_{\rm S}$ ovat {\bf vakioita}. Sitten derivoi lauseke $R_{\rm L}$:n suhteen
+ja etsi tehon maksimi derivaatan avulla. 
+}
+
+
+\frame{
+\frametitle{Esimerkki}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vz{100,0}{R_{\rm L}}
+\vst{0,0}{E}
+\hln{0,0}{100}
+%\hln{50,50}{50}
+\hln{50,50}{50}
+%\hl{0,50}{L}
+\hz{0,50}{R_{\rm S}}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+%\color{blue}
+%\vc{50,0}{C}
+
+\end{picture}
+\end{center}
+
+Osoita, että\footnote{P.S. Tämä on ihan puhdas tasasähköpiiritehtävä, eli nyt et tarvitse kompleksilukuja.} kuormavastuksen $R_{\rm L}$ teho on suurimmillaan silloin, kun $R_{\rm L}$
+on arvoltaan yhtä suuri kuin $R_{\rm S}$. {Ohje:} Muodosta lauseke $R_{\rm L}$ teholle. 
+Arvot $E$ ja $R_{\rm S}$ ovat {\bf vakioita}. Sitten derivoi lauseke $R_{\rm L}$:n suhteen
+ja etsi tehon maksimi derivaatan avulla.
+
+Ratkaisu: teho vastuksessa $R_{\rm L}$ on
+\[
+P_{\rm L}=U_{\rm L}I=R_{\rm L}I^2=R_{\rm L}\left(\frac{E}{R_{\rm S}+R_{\rm L}}\right)^2= \frac{E^2R_{\rm L}}{R_{\rm S}^2+2R_{\rm S}R_{\rm L}+R_{\rm L}^2}.
+\]
+
+}
+
+
+\frame{
+Osamäärän derivaatta on
+\[
+\left(\frac{f}{g}\right)'=\frac{f'g-fg'}{g^2}
+\]
+Derivoidaan äsken saatu lauseke $R_{\rm L}$:n suhteen. Muut muuttujat ovat vakioita:
+\[
+P_{\rm L}=\frac{E^2R_{\rm L}}{R_{\rm S}^2+2R_{\rm S}R_{\rm L}+R_{\rm L}^2}
+\]
+\[
+P_{\rm L}'=E^2\frac{R_{\rm S}^2+2R_{\rm S}R_{\rm L}+R_{\rm L}^2-R_{\rm L}(2R_{\rm S}+2R_{\rm L})}{(R_{\rm S}^2+2R_{\rm S}R_{\rm L}+R_{\rm L}^2)^2}
+\]
+Derivaatan nollakohta
+\[
+R_{\rm S}^2+2R_{\rm S}R_{\rm L}+R_{\rm L}^2-R_{\rm L}(2R_{\rm S}+2R_{\rm L})=0
+\]
+\[
+R_{\rm L}=\pm R_{\rm S}
+\]
+
+}
+
+\frame{
+Hylätään negatiivinen vastaus, koska negatiivinen vastus ei kuluta vaan luovuttaa tehoa. Varmistetaan vielä, että löydetty derivaatan
+nollakohta todella on maksimi. Jatkuvan ja derivoituvan funktion maksimi voi sijaita vain välin päätepisteissä ja derivaatan nollakohdissa.
+Päätepisteissä (nolla, ääretön) tehon raja-arvo on nolla. Löydetty derivaatan nollakohta on maksimi, koska jos $R_{\rm L}$ on suurempi kuin 
+$R_{\rm S}$, derivaatta on negatiivinen ja jos pienempi kuin $R_{\rm S}$, derivaatta on positiivinen. Siis kyseessä on maksimi.
+
+Kuormavastuksen teho on siis suurimmillaan, kun se valitaan yhtä suureksi kuin $R_{\rm S}$.
+}
+

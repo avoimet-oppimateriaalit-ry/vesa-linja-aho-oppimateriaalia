@@ -1,0 +1,40 @@
+\frame{
+\frametitle{Komponenttien jäähdytys}
+\begin{itemize}
+\item Lämmöntuotanto on ongelma monessa elektronisessa laitteessa (audiovahvistimet, tietokoneet, sähkömoottorin ohjauselektroniikka).
+\item Nyrkkisääntö: TO-3-kotelo kestää jäähdyttämättömänä noin 3 W ja TO-220-kotelo noin 2 W tehon.
+\item Suurtehosovelluksissa käytetään pakotettua ilmajäähdytystä (=tuuletinta) tai nestejäähdytystä.
+\item Muutamien kymmenien wattien lämpöteho voidaan käsitellä passiivisella ilmajäähdytyksellä, mikäli laitteen kotelo pääsee tuulettumaan hyvin.
+\item Lämmön johtumista pois komponentista ympäristön ilmaan mallinnetaan {\bf lämpöresistanssilla}.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Lämpöresistanssi}
+\begin{itemize}
+\item Lämmön johtumista pois komponentista voidaan mallintaa melko hyvin lineaarisella mallilla, jossa komponentin ja jäähdytyselementin muodostaman lämmönsiirtopiirin lämmönjohtavuutta (tai oikeastaan sen käänteislukua) mallinnetaan lämpöresistanssilla.
+\item Yhden watin tehonlisäys komponentissa kasvattaa komponentin ja ympäristön lämpötilaeroa koko lämmönsiirtopiirin lämpöresistanssin osoittamalla määrällä
+\[
+\Delta T=\theta \cdot P
+\]
+\item $\Delta T$=lämmönlähteen (=puolijohteen) ja ympäristön (=ilman) lämpötilaero.
+\item $\theta$=Lämmönsiirtopiirin lämpöresistanssi, joka koostuu komponentin kotelon, kotelon ja jäähdytyselementin välisen liitoksen sekä jäähdytyselementin lämpöresistanssista.
+\item $P=$ komponentin lämpenemisteho.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Lämpöresistanssi: laskuesimerkki}
+TO-3-kotelossa oleva puolijohdekomponentti kuumenee 15 watin teholla. Lämpöresistanssi puolijohteesta TO-3-koteloon on $\theta_{\rm JC}=2\ ^\circ \rm C /W$, komponentin ja jäähdytyslevyn liitoksen lämpöresistanssiksi oletetaan $\theta_{\rm CS}=1\ ^\circ \rm C /W$ ja jäähdytyselementin lämpöresistanssi on $\theta_{\rm SA}=5\ ^\circ \rm C /W$. Kuinka kuumaksi puolijohde lämpenee, jos ympäristön lämpötila pysyy 30 asteessa?
+\[
+\Delta T=\theta \cdot P = (\theta_{\rm JC}+\theta_{\rm CS}+\theta_{\rm SA}) \cdot P = 8\ ^\circ \rm C /W \cdot 15\,W=120\ ^\circ \rm C
+\]
+Puolijohteen lämpötila on täten
+\[
+T=T_{\rm A}+\Delta T=30 \ ^\circ \rm C + 120 \ ^\circ \rm C=150\ ^\circ \rm C
+\]
+
+\begin{alertblock}{Huomaa!}
+Jos ympäristön lämpötila nousee (esimerkiksi elektroniikkalaitteen huonosti tuulettuvan kotelon takia) 40 asteella, nousee myös puolijohteen lämpötila 40 asteella!
+\end{alertblock}
+}

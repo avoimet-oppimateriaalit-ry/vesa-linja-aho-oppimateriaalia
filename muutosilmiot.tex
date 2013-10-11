@@ -1,0 +1,274 @@
+% TODO Kerro mikä on aikavakio.
+\frame{
+\frametitle{Muutosilmiöt}
+\begin{itemize}
+\item Tasajännitteen ja sinimuotoisen vaihtojännitteen lisäksi tärkeitä tarkasteltavia ovat muutosilmiöt.
+\item Muutosilmiö tapahtuu esimerkiksi laitteita päälle kytkettäessä.
+\item Esimerkiksi jos kondensaattorin ja vastuksen sarjaankytkentä kytketään jännitelähteeseen, kondensaattori varautuu.
+\item Tällöin jännite muuttuu ajan funktiona. Miten se muuttuu? Edellyttää differentiaaliyhtälön ratkaisemista!
+\item Monimutkaisemmat differentiaaliyhtälöt kannattaa ratkaista Laplace-muunnoksella.
+\item Piirit, joissa on yksi kondensaattori tai kela, on helppo ratkaista {\rm yritteen} avulla.
+\item Monimutkaisemmankin piirin voi ratkaista yritteen avulla, mutta yritteen keksiminen voi olla vaikeaa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kondensaattori}
+Kondensaattori on komponentti, jonka jännitteelle ja virralle pätee yhtälö:
+\[
+i=C\Du
+\]
+
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vc{25,0}{C}
+\di{25,40}{i}
+\du{40,0}{u}
+\end{picture}
+\end{center}
+Aivan kuten aiemmin on opittu, että vastukselle pätee yhtälö $u=Ri$.
+
+}
+
+\frame{
+\frametitle{Kondensaattori}
+Yhtälö
+\[
+i=C\Du
+\]
+tarkoittaa, että mitä suurempi virta kondensaattorin läpi kulkee, sitä nopeammin sen jännite muuttuu.
+Tai sama toisinpäin: mitä nopeammin kondensaattorin jännite muuttuu, sitä suurempi virta sen läpi
+kulkee.
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vc{25,0}{C}
+\di{25,40}{i}
+\du{40,0}{u}
+\end{picture}
+\end{center}
+Symboli $C$ tarkoittaa kondensaattorin kapasitanssia, jonka yksikkö on faradi (F).
+}
+
+\frame{
+\frametitle{Kondensaattori}
+Integroimalla yhtälö
+\[
+i=C\Du
+\]
+puolittain saadaan:
+\[
+u=\frac{1}{C}\int i{\rm d}t + {\rm integrointivakio}
+\]
+tai määrättynä integraalina (valitsemalla alkuhetkeksi $t=0$ ja loppuhetkeksi joku
+ajanhetki $t$)
+\[
+u=\frac{1}{C}\int_0^t i {\rm d}t + u(0).
+\]
+Termi $u(0)$ tarkoittaa kondensaattorin jännitettä ajanhetkellä nolla, ja sitä merkitään
+usein myös $U_{\rm C0}$ tai $U_{0}$:
+\[
+u=\frac{1}{C}\int_0^t i {\rm d}t + U_{0}.
+\]
+}
+
+\frame{
+\frametitle{Yksinkertainen esimerkki}
+Ladataan virtalähteellä kondensaattoria. Lukuarvot ovat:
+\[
+J=6\A  \qquad C=2\,{\rm F}\qquad U_0=0\V
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vj{0,0}{J}
+\hln{0,0}{100}
+\hln{0,50}{100}
+\du{115,0}{u}
+\ri{50,50}{i}
+
+\end{picture}
+\end{center}
+\[
+u=\frac{1}{C}\int_0^t i {\rm d}t + U_0=\frac{1}{2}\int_0^t 6 {\rm d}t+0=\frac{1}{2}\int_0^t 6 {\rm d}t=\frac{1}{2} 6t=3t
+\]
+Kondensaattorin jännite on alussa 0 volttia, sekunnin kuluttua 3 volttia, kahden sekunnin kuluttua 6 volttia\ldots
+
+}
+
+\frame{
+\frametitle{Kondensaattori ja differentiaaliyhtälö}
+Muutetaan hieman piiriä. Kytkin suljetaan ajanhetkellä $t=0$:
+\[
+E=12\V  \qquad C=2\,{\rm F}\qquad R=3\ohm \qquad U_0=5\V
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vst{0,0}{E}
+\hso{0,50}{t=0}
+\hln{0,0}{100}
+%\hln{0,50}{50}
+\hz{50,50}{R}
+\du{115,0}{u}
+\ri{50,50}{i}
+
+\end{picture}
+\end{center}
+Kirchhoffin lakien ja kondensaattorin yhtälön mukaan
+\[
+i=\frac{E-u}{R}\ \mbox{ja}\ i=C\Du \Longrightarrow \frac{E-u}{R}=C\Du \Longrightarrow RC\Du + u = E
+\]
+Ratkeaa yritteellä
+\[
+u=B+Ae^{-\frac{t}{\tau}}.
+\]
+
+}
+
+\frame{
+\frametitle{Differentiaaliyhtälön ratkaiseminen}
+Lasketaan yritteen derivaatta
+\[
+u=B+Ae^{-\frac{t}{\tau}} \Longrightarrow \Du=-\frac{A}{\tau}e^{-\frac{t}{\tau}}
+\]
+Ja sijoitetaan yrite derivaattoineen yhtälöön:
+\[
+RC\Du + u = E \Longrightarrow -\frac{RCA}{\tau}e^{-\frac{t}{\tau}}+B+Ae^{-\frac{t}{\tau}}=E
+\]
+Jotta yhtälö olisi tosi kaikilla $t$:n arvoilla, tulee päteä $\tau=RC$ ja $B=E$. Tällöin:
+\[
+-Ae^{-\frac{t}{\tau}}+Ae^{-\frac{t}{\tau}}=0
+\]
+Mistä saadaan $A$? Kondensaattorin alkujännitteestä. Ajanhetkellä $t=0$ tulee kaavan antaa
+jännitteeksi 5 volttia:
+\[
+u=B+Ae^{-\frac{t}{\tau}} \Longrightarrow u=E+Ae^{-\frac{t}{RC}} \Longrightarrow 5=12+Ae^{-\frac{0}{2\cdot 3}}
+\Rightarrow A=-7.
+\]
+Lopullinen vastaus jännitteelle:
+\[
+u=12-7e^{-\frac{t}{6}}.
+\]
+
+}
+
+\frame{
+\frametitle{Kela}
+Tavallaan "kondensaattorin vastakohta"\  {--} yhtälöissä on jännitteet ja virrat vaihtaneet
+paikkaa verrattuna kondensaattorin yhtälöihin:
+\[
+u=L\Di
+\]
+
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vl{25,0}{L}
+\di{25,43}{i}
+\du{40,0}{u}
+\end{picture}
+\end{center}
+Sama integraalimuodossa
+\[
+i=\frac{1}{L}\int_0^t u {\rm d}t + I_{0}.
+\]
+}
+
+
+
+% TODO Lisää konkan purkuesimerkki 85 uf ja 325 volttia ja 10 kohm
+
+
+\frame{
+\frametitle{Esimerkki}
+Ratkaise kondensaattorin jännite $u$ ajan funktiona. Kytkin suljetaan ajanhetkellä $t=0$.
+\[
+R_1=R_2=1\ohm\quad C=1\,{\rm F}\quad E=10\V\quad U_0=0\V
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vst{-50,0}{E}
+\hso{-50,50}{t=0}
+\vz{50,0}{R_2}
+\hln{-50,0}{150}
+\hln{50,50}{50}
+\hz{0,50}{R_1}
+\du{115,0}{u}
+\ri{75,50}{i}
+
+\end{picture}
+\end{center}
+{\tiny Lopputulos: $u=5-5e^{-2\cdot t}=5(1-e^{-2\cdot t})\ (\rm volttia)$}
+
+}
+
+
+\frame{
+\frametitle{Esimerkki}
+
+Ratkaise kondensaattorin jännite $u$ ajan funktiona. Kytkin suljetaan ajanhetkellä $t=0$.
+\[
+R_1=R_2=1\ohm\quad C=1\,{\rm F}\quad E=10\V\quad U_0=0\V
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vst{-50,0}{E}
+\hso{-50,50}{t=0}
+\vz{50,0}{R_2}
+\hln{-50,0}{150}
+\hln{50,50}{50}
+\hz{0,50}{R_1}
+\du{115,0}{u}
+\ri{75,50}{i}
+
+\end{picture}
+\end{center}
+
+\begin{eqnarray*}
+i=C\Du \qquad i&=&\frac{E-u}{R_1}-\frac{u}{R_2}\qquad \Rightarrow\\
+\frac{R_1R_2C}{R_1+R_2}\Du+u&=&\frac{R_2}{R_1+R_2}E
+\end{eqnarray*}
+
+}
+
+\frame{
+\[
+\frac{R_1R_2C}{R_1+R_2}\Du+u=\frac{R_2}{R_1+R_2}E
+\]
+Sijoitetaan yhtälöön tunnilta tuttu yrite derivaattoineen:
+\[
+u=B+Ae^{-\frac{t}{\tau}} \Rightarrow \Du=-\frac{A}{\tau}e^{-\frac{t}{\tau}}
+\]
+jolloin saadaan
+\[
+\frac{R_1R_2C}{R_1+R_2}(-\frac{A}{\tau}e^{-\frac{t}{\tau}})+B+Ae^{-\frac{t}{\tau}}=\frac{R_2}{R_1+R_2}E
+\]
+Jotta vakiotermit olisivat samat, täytyy päteä: $B=\frac{R_2}{R_1+R_2}E$. Eksponenttitermissä
+täytyy olla $\tau=\frac{R_1R_2C}{R_1+R_2}$. Nyt yhtälö on ratkaistu:
+\[
+-Ae^{-\frac{t}{\tau}}+Ae^{-\frac{t}{\tau}}=0\qquad u=\frac{R_2}{R_1+R_2}E+Ae^{-\frac{t}{\frac{R_1R_2C}{R_1+R_2}}} 
+\]
+}
+
+\frame{
+Sijoitetaan vastaukseen lukuarvot:
+\[
+u=5+Ae^{-2t} 
+\]
+Vakio $A$ ratkeaa alkuehdosta. Ajanhetkellä $t=0$ kondensaattorin jännitteen tulee olla
+nolla:
+\[
+0=5+Ae^{-2\cdot 0}\quad \Rightarrow \quad A=-5
+\]
+Lopullinen vastaus on siis:
+\[
+u=5-5e^{-2\cdot t}=5(1-e^{-2\cdot t})\ (\rm volttia).
+\]
+
+}
+
+

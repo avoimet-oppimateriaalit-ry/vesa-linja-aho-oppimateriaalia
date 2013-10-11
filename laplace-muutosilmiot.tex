@@ -1,0 +1,440 @@
+
+
+\frame{
+\frametitle{Muutosilmiöt}
+\begin{itemize}
+\item Muutosilmiöiden käsittely on helppoa, jos piirissä on vain yksi kela tai kondensaattori.
+\item Jos niitä on useampi, muodostuva differentiaaliyhtälö on erittäin hankala ratkaista (ilman syvällisempää
+differentiaaliyhtälöiden osaamista).
+\item Monimutkaisempi differentiaaliyhtälö on helppo ratkaista Laplace-muunnoksen avulla.
+\item Laplace-muunnoksen avulla voidaan differentiaaliyhtälö muuntaa tavalliseksi yhtälöksi, josta selviää
+tavallisella kaavanpyörittelyllä. Avuksi tarvitaan {\bf Laplace-muunnostaulukko} (löytyy Tuubissa olevasta kaavakokoelmasta).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Laplace-muunnoksen idea}
+Laplace-muunnos on niin kutsuttu integraalimuunnos. Se määritellään seuraavasti:
+\[
+\lap (f(t))=\int_0^\infty f(t)e^{-st}{\rm d}t
+\]
+Laplace-muunnosten laskeminen on työlästä. Siksi käytännön sovelluksissa käytetään valmista Laplace-muunnostaulukkoa.
+
+Muuttuja $s$ on nimeltään Laplace-muuttuja. Laplace-muunnettua ajan funktiota $f(t)$ merkitään usein isolla kirjaimella $F(s)$.
+
+}
+
+\frame{
+\frametitle{Mitä hyötyä Laplace-muunnoksesta on?}
+\begin{itemize}
+\item Laplace-muunnoksen avulla voidaan differentiaaliyhtälö muuntaa tavalliseksi (=algebralliseksi) yhtälöksi.
+\item Sitten algebrallinen yhtälö ratkaistaan.
+\item Ja lopuksi se Laplace-käänteismuunnetaan takaisin ajan funktioksi.
+\item VERTAUS: Aivan kuten osoitinlaskennassa ensin sinimuotoinen jännitelähde muutetaan kompleksiluvuksi,
+sitten lasketaan kompleksiluvuilla ja lopuksi tulos muunnetaan sinimuotoiseksi.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Askelfunktio ja impulssifunktio}
+Määritellään pari uutta funktiota:
+\begin{itemize}
+\item Askelfunktiolla tarkoitetaan sellaista (ajan $t$) funktiota $\epsilon(t)$, joka saa arvon 1, jos $t\ge 0$
+ja 0, jos $t<0$. Tällä funktiolla voidaan esimerkiksi mallintaa kytkintä, joka suljetaan ajanhetkellä $t=0$.
+\item Impulssifunktiolla tarkoitetaan funktiota\footnote{Pilkunviilaus: impulssifunktio ei tarkalleen ottaen ole funktio, koska
+siltä puuttuu joitain funktiolle tyypillisiä ominaisuuksia.} $\delta(t)$, jonka arvo on $\infty$, kun $t=0$, ja 0, kun $t\neq 0$. Impulssifunktiolla
+voidaan mallintaa äkillistä virta- tai jännitepiikkiä. Esimerkiksi jos kelan virta katkaistaan yhtäkkiä, niin kelan jännite hyppää (teoriassa)
+äärettömäksi.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Muutama tavallinen Laplace-muunnos}
+Laplace-muunnos on lineaarinen, joten vakiokerroin voidaan siirtää Laplace-muunnoksen "läpi" (aivan kuten derivoinnissakin),
+ja summalausekkeessa termit voidaan Laplace-muuntaa yksi kerrallaan (aivan kuten summalauseke voidaan derivoida termi kerrallaan).
+Alla pari tärkeää muunnosta:
+\begin{itemize}
+\item $\lap \{A\epsilon(t)\}=\frac{A}{s}$
+\item $\lap \{\delta(t)\}=1$
+\item $\lap \{t\}=\frac{1}{s^2}$
+\item $\lap \{{\rm e}^{-at}\}=\frac{1}{s+a}$
+
+\end{itemize}
+Laplace-muunnos on määritelty vain ajanhetkillä $t\ge 0$. Tämä tarkoittaa, että jokainen muunnettava funktio voidaan ajatella kerrotuksi
+askelfunktiolla. Siis: $\lap \{\epsilon(t)\}=\lap \{1\}=\frac{1}{s}$ ja vakiolle $\lap \{A\}=\lap \{A\epsilon(t)\}=\frac{A}{s}$.
+}
+
+\frame{
+\frametitle{Komponenttien Laplace-muunnokset}
+Virtapiirejä laskettaessa ei tarvitse ensin kirjoittaa differentiaaliyhtälöä ja sitten muuntaa sitä, vaan komponentit
+voidaan muuntaa suoraan. Kela ja kondensaattori Laplace-muunnettuna ovat:
+\begin{center}
+\begin{picture}(100,70)(0,0)
+\hl{0,0}{sL}
+\hc{0,50}{\frac{1}{sC}}
+
+\end{picture}
+\end{center}
+Kaavat on helppo muistaa, ne muistuttavat impedanssin kaavoja, nyt vain $\jj \omega$:n tilalla on Laplace-muuttuja $s$.
+Tämä ei ole sattumaa --- aiheesta lisää ensi tunnilla! 
+
+}
+
+\frame{
+\frametitle{Komponenttien Laplace-muunnokset}
+Mikäli kelassa kulkee alkuvirta (virta hetkellä $t=0$) tai kondensaattorissa on alkujännite (jännite hetkellä $t=0$), muunnos
+tapahtuu seuraavasti:
+\begin{center}
+\begin{picture}(100,70)(0,0)
+\hl{0,0}{L}
+\ri{50,0}{I_{\rm L0}}
+
+\hc{0,50}{C}
+\ru{0,65}{U_{\rm C0}}
+
+\hl{100,0}{sL}
+\hst{150,0}{LI_{\rm L 0}}
+
+\hc{100,50}{\frac{1}{sC}}
+\hlst{150,50}{\frac{U_{\rm C 0}}{s}}
+
+
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+\frametitle{Lähteiden Laplace-muunnokset}
+Tasajännitelähde ja tasavirtalähde muunnetaan yksinkertaisesti jakamalla tasavirta tai tasajännite Laplace-muuttujalla $s$.
+\begin{center}
+\begin{picture}(100,70)(0,-10)
+\hst{0,0}{E}
+
+\hj{0,50}{J}
+
+\hst{100,0}{\frac{E}{s}}
+
+\hj{100,50}{\frac{J}{s}}
+
+\end{picture}
+\end{center}
+Mikäli lähde on ajasta riippuva, esimerkiksi sinimuotoinen, niin lähteen ajan funktio vain muunnetaan
+Laplace-muunnostaulukon avulla.
+  \begin{alertblock}{Tärkeää (ja kätevää)}
+Laplace-muunnetulle piirille pätevät kaikki tutut laskusäännöt (Kirchhoff, Ohm, jännitteenjako \ldots)!
+  \end{alertblock}
+
+
+}
+
+\frame{
+\frametitle{Yksinkertainen esimerkki}
+Ratkaistaan kelan jännite $u$ Laplace-muunnoksen avulla.
+\[
+E=12\V  \qquad L=2\,{\rm H}\qquad R=6\ohm %\qquad U_0=5\V
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vl{100,0}{L}
+\vst{0,0}{E}
+\hso{0,50}{t=0}
+\hln{0,0}{100}
+%\hln{0,50}{50}
+\hz{50,50}{R}
+\du{115,0}{u}
+\ri{50,50}{i}
+
+\end{picture}
+\end{center}
+Laplace-muunnetaan piiri (ks. seuraava kalvo).
+
+}
+
+\frame{
+\frametitle{Yksinkertainen esimerkki - jatkuu}
+Ratkaistaan kelan jännite $u$ Laplace-muunnoksen avulla.
+\[
+E=12\V  \qquad L=2\,{\rm H}\qquad R=6\ohm %\qquad U_0=5\V
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vl{100,0}{sL}
+\vst{0,0}{\frac{E}{s}}
+%\hso{0,50}{t=0}
+\hln{0,0}{100}
+\hln{0,50}{50}
+\hz{50,50}{R}
+\du{115,0}{U}
+\ri{50,50}{I}
+
+\end{picture}
+\end{center}
+Nyt kelan jännite ratkeaa jännitteenjakosäännöllä:
+\[
+U=\frac{E}{s}\frac{sL}{R+sL}={E}\frac{1}{\frac{R}{L}+s}
+\]
+Muunnetaan vastaus takaisin ajan funktioksi:
+\[
+\lap^{-1}\left\{{E}\frac{1}{\frac{R}{L}+s}\right\}=E{\rm e}^{-\frac{R}{L}t}
+\]
+
+}
+\frame{
+\frametitle{Osamurtokehitelmä}
+\begin{itemize}
+\item Edellinen esimerkki oli helppo, koska Laplace-muodossa oleva ratkaisu oli helppo pyöräyttää muotoon, johon löytyi suora
+muunnoskaava Laplace-taulukosta.
+\item Jos lauseke on hankalampi, se tulee pilkkoa murtolausekkeiden summaksi (=osamurtokehitelmä).
+\item Osamurtokehitelmän laskeminen on helppoa, mutta siinä on myös helppo tehdä virheitä (monta välivaihetta).
+\item Osamurtokehitelmän idea on, että siinä ikään kuin tehdään takaperin kahden tai useamman murtolausekkeen yhteenlasku.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Osamurtokehitelmä}
+Esimerkiksi lauseke $\frac{1}{s^2+sa}$ eli $\frac{1}{s(s+a)}$ voidaan lausua muodossa
+\[
+\frac{A}{s}+\frac{B}{s+a},
+\]
+missä $A$ ja $B$ ovat vakioita, joita emme vielä tiedä. Ne selvitetään seuraavasti:
+\begin{eqnarray*}
+\frac{A}{s}+\frac{B}{s+a}&=&\frac{1}{s(s+a)}\\
+\frac{A(s+a)}{s(s+a)}+\frac{Bs}{s(s+a)}&=&\frac{1}{s(s+a)}\\
+\frac{As+Aa+Bs}{s(s+a)}&=&\frac{1}{s(s+a)}\\
+\end{eqnarray*}
+Jatkuu seuraavalla kalvolla\ldots
+}
+
+\frame{
+\frametitle{Osamurtokehitelmä}
+
+Jotta osoittajat olisivat samat, tulee olla $A=-B$ (jotta $s$-termi häviää) ja  $A=\frac{1}{a}$ (jotta osoittajaan jää ykkönen).
+Eli:
+\[
+\frac{\frac{1}{a}}{s}+\frac{-\frac{1}{a}}{s+a}=\frac{1}{s(s+a)}
+\]
+Nyt vasemmanpuoleiset termit voidaan muuntaa taulukkoa käyttämällä.
+
+Lisää esimerkkejä löytyy googlaamalla "Partial Fraction Decomposition"\ tai vaikkapa Wikipediasta
+\url{http://en.wikipedia.org/wiki/Partial_fraction}.
+
+Vinkki: jotkut laskimet (esim. TI-89) osaavat laskea osamurtokehitelmän.
+
+}
+
+\frame{
+\frametitle{Esimerkki: muutosilmiökalvojen esimerkki Laplace-muunnoksella}
+Ratkaise kondensaattorin jännite $u$ ajan funktiona. Kytkin suljetaan ajanhetkellä $t=0$.
+\[
+R_1=R_2=1\ohm\quad C=1\,{\rm F}\quad E=10\V\quad U_0=0\V
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vst{-50,0}{E}
+\hso{-50,50}{t=0}
+%\hln{-50,50}{50}
+\vz{50,0}{R_2}
+\hln{-50,0}{150}
+\hln{50,50}{50}
+\hz{0,50}{R_1}
+\du{115,0}{u}
+\ri{75,50}{i}
+
+\end{picture}
+\end{center}
+
+
+}
+
+\frame{
+\frametitle{Esimerkki}
+Laplace-muunnetaan piiri
+\[
+R_1=R_2=1\ohm\quad C=1\,{\rm F}\quad E=10\V\quad U_0=0\V
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{\frac{1}{sC}}
+\vst{-50,0}{\frac{E}{s}}
+%\hso{-50,50}{t=0}
+\hln{-50,50}{50}
+\vz{50,0}{R_2}
+\hln{-50,0}{150}
+\hln{50,50}{50}
+\hz{0,50}{R_1}
+\du{115,0}{U}
+%\ri{75,50}{}
+
+\end{picture}
+\end{center}
+$R_2$ ja $C$ ovat rinnakkain, ja niiden rinnankytkennän impedanssi on $Z_{R_2C}=\frac{\frac{R_2}{sC}}{R_2+\frac{1}{sC}}=\frac{R_2}{R_2sC+1}$.
+Jännitteenjakosäännön mukaan jännite U on
+\[
+U=\frac{E}{s}\frac{Z_{R_2C}}{R_1+Z_{R_2C}}=\frac{E}{s}\frac{1}{\frac{R_1}{Z_{R_2C}}+1}= \frac{E}{s}\frac{1}{R_1\frac{R_2sC+1}{R_2}+1}
+\] 
+
+
+}
+
+\frame{
+\frametitle{Esimerkki}
+\[
+U= \frac{E}{s}\frac{1}{R_1\frac{R_2sC+1}{R_2}+1}=\frac{E}{R_1C}\frac{1}{s(s+\frac{R_1+R_2}{R_1R_2C})}
+\] 
+Tehdään lyhennysmerkintä (tilan säästämiseksi): $a=\frac{R_1+R_2}{R_1R_2C}$. Nyt:
+\[
+U=\frac{E}{R_1C}\frac{1}{s(s+a)}
+\]
+Nyt pitää tehdä osamurtokehitelmä, mutta onneksi se on tehty tällaiselle kaavalle jo kolme kalvoa sitten:
+\[
+U=\frac{E}{R_1C}\frac{1}{s(s+a)}=\frac{E}{R_1C}\left (\frac{\frac{1}{a}}{s}+\frac{-\frac{1}{a}}{s+a}\right )
+\]
+}
+
+\frame{
+\frametitle{Esimerkki}
+Suoritetaan Laplace-käänteismuunnos:
+\[
+u(t)=\lap^{-1}\{U(s)\}=\lap^{-1}\left\{\frac{E}{R_1C}\left(\frac{\frac{1}{a}}{s}+\frac{-\frac{1}{a}}{s+a}\right)\right\}
+\]
+\[
+=\frac{E}{R_1C}\frac{1}{a}\lap^{-1}\left\{\left(\frac{1}{s}-\frac{1}{s+a}\right)\right\}=\frac{E}{R_1C}\frac{1}{a}(1-{\rm e}^{-at})
+\]
+\[
+=\frac{E}{R_1C}\frac{1}{\frac{R_1+R_2}{R_1R_2C}}(1-{\rm e}^{-\frac{R_1+R_2}{R_1R_2C}t})={E}\frac{R_2}{R_1+R_2}(1-{\rm e}^{-\frac{R_1+R_2}{R_1R_2C}t})
+\]
+Huomautus! Tässä kyseisessä tapauksessa Laplace-muunnos oli työläämpi kuin yritteen käyttö. Jos piirissä on useampi kuin yksi kela tai kondensaattori,
+Laplace-muunnoksen käyttö on käytännössä välttämätöntä.
+}
+
+\frame{
+\frametitle{Esimerkki: kela ja kondensaattori}
+Kondensaattorin alkujännite $U_{\rm C0}$ on 5 volttia. Millainen virta piirissä lähtee kulkemaan, kun kytkin suljetaan
+ajanhetkellä $t=0$. 
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{0,0}{C=1\,{\rm F}}
+\vl{100,0}{L=1\,{\rm H}\hspace{-1.7cm}}
+\ri{95,50}{i}
+\hln{0,0}{100}
+\hln{0,50}{50}
+\hso{50,50}{t=0}
+%\di{50,0}{I_{\rm L 0}}
+\dcru{5,0}{U_{\rm C0}=5\V}
+
+\end{picture}
+\end{center}
+Laplace-muunnetaan piiri. Koska kondensaattorilla on alkujännite, muunnokseen tulee mukaan
+jännitelähde (ks. seuraava kalvo).
+}
+
+\frame{
+\frametitle{Esimerkki: kela ja kondensaattori}
+Kondensaattorin alkujännite $U_{\rm C0}$ on 5 volttia. Millainen virta piirissä lähtee kulkemaan, kun kytkin suljetaan
+ajanhetkellä $t=0$. 
+\begin{center}
+\begin{picture}(100,60)(0,-10)
+\vc{0,0}{\frac{1}{sC}}
+\vl{100,0}{sL}
+\ri{95,50}{I}
+\hln{0,0}{100}
+\hln{0,50}{100}
+\hlst{0,0}{\frac{U_{\rm C0}}{s}}
+%\hso{50,50}{t=0}
+%\di{50,0}{I_{\rm L 0}}
+%\dcru{5,0}{U_{\rm C0}=5\V}
+
+\end{picture}
+\end{center}
+Seuraavaksi ratkaistaan Ohmin lain avulla munnetusta piiristä virta $I$:
+\[
+I=\frac{\frac{U_{\rm C0}}{s}}{\frac{1}{sC}+sL}=\frac{U_{\rm C0}}{\frac{1}{C}+s^2L}=\frac{U_{\rm C0}}{\frac{1}{C}+s^2L}
+\]
+Jatkuu\ldots
+
+}
+
+\frame{
+\frametitle{Esimerkki: kela ja kondensaattori}
+\scriptsize
+Nyt lauseke pitää vääntää sellaiseen muotoon, että siihen voidaan soveltaa jotain kaavakokoelman
+muunnoskaavaa. Virran lausekkeen nimittäjässä on toinen $s$:n potenssi plus vakio. Sopivalta
+kaavalta näyttää
+\[
+\lap\{\sin \omega t\} = \displaystyle \frac{\omega}{s^2 + \omega^2}
+\]
+Järjestetään virran lauseke niin, että se näyttää samalta
+\[
+I=\frac{U_{\rm C0}}{\frac{1}{C}+s^2L}=U_{\rm C0}\frac{1}{\frac{1}{C}+s^2L}=\frac{U_{\rm C0}}{L}\frac{1}{\frac{1}{LC}+s^2}=
+\frac{U_{\rm C0}}{L}\sqrt{LC}\frac{\frac{1}{\sqrt{LC}}}{\frac{1}{LC}+s^2}
+\]
+Ja käänteismuunnetaan ja sijoitetaan lukuarvot
+\[
+i(t)=\lap^{-1}\left\{ \frac{U_{\rm C0}}{L}\sqrt{LC}\frac{\frac{1}{\sqrt{LC}}}{\frac{1}{LC}+s^2} \right\}=\frac{U_{\rm C0}}{L}\sqrt{LC}\lap^{-1}\left\{\frac{\frac{1}{\sqrt{LC}}}{\frac{1}{LC}+s^2} \right\}
+\]
+\[
+=\frac{U_{\rm C0}}{L}\sqrt{LC}\sin\frac{1}{\sqrt{LC}}t=5\sin(t)
+\]
+Eli piirissä jää kiertämään 5 ampeerin sinimuotoinen virta, kulmataajuudella $\omega=\frac{1}{\sqrt{LC}}=1$.
+
+}
+
+
+
+\frame{
+\frametitle{Esimerkki}
+Ajanhetkellä $t=0$ kondensaattorin jännite on 0 V ja kelan virta on 1 A. Miten
+piirin virta $i$ käyttäytyy ajanhetken $t=0$ jälkeen? Selvitä se Laplace-muunnoksen avulla.
+\[
+C=1\,{\rm F}\quad L=1\,{\rm H} \quad U_{\rm C0}=0\V \quad I_{\rm L 0}=1\A
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{0,0}{C}
+\vl{50,0}{L}
+\ri{25,50}{i}
+\hln{0,0}{50}
+\hln{0,50}{50}
+\di{50,0}{I_{\rm L 0}}
+\dcru{5,0}{U_{\rm C0}}
+
+\end{picture}
+\end{center}
+
+%{\tiny Oikea lopputulos: $i(t)=\sin(t+\frac{\pi}{2})$}
+
+Ratkaisu: muunnetaan piiri (seuraava kalvo).
+
+}
+
+\frame{
+\frametitle{Esimerkki}
+
+\[
+C=1\,{\rm F}\quad L=1\,{\rm H} \quad U_{\rm C0}=0\V \quad I_{\rm L 0}=1\A
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{0,0}{\frac{1}{sC}}
+\vl{50,0}{sL}
+\ri{25,50}{I}
+\hln{0,0}{50}
+\hln{0,50}{50}
+%\di{50,0}{I_{\rm L 0}}
+%\dcru{5,0}{U_{\rm C0}}
+\hlst{0,0}{LI_{\rm L0}}
+\end{picture}
+\end{center}
+Virta Laplace-tasossa on
+\[
+I=\frac{LI_{\rm L0}}{\frac{1}{sC}+sL}=\frac{1}{\frac{1}{s}+s}=\frac{s}{s^2+1}
+\]
+Käänteismuunnetaan:
+\[
+i(t)=\lap^{-1}\left\{ \frac{s}{s^2+1} \right\}=\cos(1\cdot t)=\cos(t)=\sin(t+\frac{\pi}{2})
+\]
+}
+
+

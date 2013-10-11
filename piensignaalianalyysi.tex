@@ -1,0 +1,514 @@
+% TODO: Yhteisemitterikytkennän piensignaalianalyysin aukilaskenta puuttuu
+% TODO: Diodipiirin tarkan ratkaisemisen aukilaskenta puuttuu
+
+\frame{
+\frametitle{Diodipiirin ratkaisu "tarkasti"}
+\begin{center}
+\begin{picture}(180,100)(0,0)
+
+\vst{0,0}{E=1\V}
+\hz{25,50}{R=100\ohm}
+\hln{75,50}{25}
+\hln{0,50}{25}
+\dd{100,0}{}
+\hln{0,0}{100}
+\du{120,0}{U}
+
+\end{picture}
+\end{center}
+
+\[
+I=I_{\rm S}\left(e^\frac{U}{nU_T}-1\right)\qquad U_T=\frac{{\rm k}T}{\rm q}
+\]
+
+\[
+I=\frac{E-U}{R}
+\]
+
+ }
+
+
+ \frame{
+ \frametitle{Piensignaalianalyysi}
+ \begin{itemize}
+ \item Kun epälineaarisia komponentteja sisältävän piirin toimintaa tutkitaan, voidaan käyttää joko tarkkoja yhtälöitä (haastavaa, vaatii käytännössä tietokoneen avuksi) tai karkeaa mallia (kuten diodin jännitteen olettaminen 0,7 voltiksi ja transistorin kaava $I_{\rm C}=\beta I_{\rm B}$).
+\item Näiden ääripäiden välimuoto on {\em piensignaalianalyysin} käyttäminen.
+\item Piensignaalianalyysissä lasketaan ensin komponentin tasajännitetoimintapiste.
+\item Tämän jälkeen komponentin ominaiskäyrää (virran riippuvuutta jännitteestä) mallinnetaan ominaiskäyrän derivaatalla.
+\item Piensignaalianalyysi antaa kohtuullisen tarkan tuloksen, mikäli signaalitaso on niin pieni\footnote{Tästä nimi piensignaalianalyysi!}, että se ei muuta komponentin toimintapistettä. Toisin sanoen, jos signaalitaso on niin suuri, että ominaiskäyrän derivaatta ja ominaiskäyrä poikkeavat toisistaan paljon, tulos on epätarkka.
+ \end{itemize}
+ }
+
+\frame{
+\frametitle{Diodin piensignaalisijaiskytkentä}
+
+\begin{center}
+\begin{picture}(100,40)(0,-10)
+\rd{0,0}{}
+\ri{10,0}{I}
+\rcuu{0,10}{U}
+\end{picture}
+\end{center}
+\[
+I=I_{\rm S}\left(e^\frac{U}{nU_T}-1\right)\qquad U_T=\frac{{\rm k}T}{\rm q}
+\]
+\[
+\rm q=1,602\cdot 10^{-19}\, {\rm As}\qquad {\rm k}=1,381
+\cdot 10^{-23}\frac{J}{K}
+\]
+Derivoidaan:
+\[
+\frac{{\rm d}I}{{\rm d}U} = I_{\rm S}\frac{1}{nU_T}e^\frac{U}{nU_T}=\frac{1}{nU_T}\underbrace{I_{\rm S}e^\frac{U}{nU_T}}_{\approx I}\approx \frac{I}{nU_T}
+\]
+Koska virta derivoitiin jännitteen suhteen, äsken laskettu suure on konduktanssia. Diodin piensignaaliresistanssi on siis tämän konduktanssin käänteisluku:
+\[
+r_{\rm d}=\frac{\Delta u}{\Delta i}=\frac{1}{\frac{I}{nU_T}}=\frac{nU_T}{I}
+\]
+
+}
+
+ \frame{
+ \frametitle{Piensignaalianalyysi diodipiirille}
+ \begin{itemize}
+ \item Laske ensin diodin tasajännitetoimintapiste: sammuta vaihtojännitelähteet ja laske diodin virta (esimerkiksi) olettamalla johtavan diodin jännitteeksi 0,7 volttia (= tekniikka, joka opeteltiin ensimmäisellä tunnilla).
+\item Kun diodin läpi kulkeva (tasa)virta on laskettu, lasketaan diodin dynaaminen resistanssi kaavasta
+\[
+r_{\rm d}=\frac{nU_T}{I}.
+\]
+Terminen jännite $U_T$ on huoneenlämmössä noin 26 millivolttia ja emissiovakioksi voi olettaa $n\approx 2$.
+\item Lopuksi sammutetaan kaikki tasajännitelähteet, korvataan diodi dynaamisella resistanssilla ja lasketaan vaihtojännitteen vaikutus piiriin.
+ \end{itemize}
+ }
+
+ \frame{
+ \frametitle{Piensignaalianalyysi: yksinkertainen esimerkki}
+
+\begin{center}
+\begin{picture}(100,100)(0,0)
+\vst{0,0}{E=1 \V}
+\vst{0,50}{e_{\rm ac}=100\mV}
+\hz{0,100}{R=100\ohm}
+\dd{50,0}{}
+\hln{0,0}{50}
+\vln{50,50}{50}
+\dcru{55,0}{U+u_{\rm ac}}
+\end{picture}
+\end{center}
+
+ }
+
+ \frame{
+ \frametitle{Vaihe 1/3}
+Sammutetaan vaihtojännitelähde (tai lähteet, jos niitä on useita), ja lasketaan diodin läpi kulkeva tasavirta.
+
+\begin{center}
+\begin{picture}(100,100)(0,0)
+\vst{0,0}{E=1 \V}
+\vln{0,50}{50}
+\hz{0,100}{R=100\ohm}
+\dd{50,0}{}
+\hln{0,0}{50}
+\vln{50,50}{50}
+\dcru{55,0}{U=0,7 \V}
+\di{50,75}{I}
+\end{picture}
+\end{center}
+\[
+I=\frac{E-U}{R}=\frac{1 \V - 0,7 \V }{100\ohm}=3\mA
+\]
+
+ }
+
+ \frame{
+ \frametitle{Vaihe 2/3}
+Lasketaan diodin dynaaminen resistanssi:
+\[
+r_{\rm d}=\frac{nU_T}{I}=\frac{2\cdot 26\mV}{3\mA}\approx 17\ohm
+\]
+
+}
+
+ \frame{
+ \frametitle{Vaihe 3/3}
+ Sammutetaan tasajännitelähde, korvataan diodi dynaamisella resistanssilla ja lasketaan vaihtojännitteen vaikutus piiriin (tässä tapauksessa näppärästi jännitteenjakosäännöllä).
+\begin{center}
+\begin{picture}(100,100)(0,0)
+\vst{0,50}{e_{\rm ac}=100\mV}
+\vln{0,0}{50}
+\hz{0,100}{R=100\ohm}
+\vz{50,0}{r_{\rm d}=17\ohm\hspace{-2.2mm}}
+\hln{0,0}{50}
+\vln{50,50}{50}
+\dcru{55,0}{u_{\rm ac}}
+\end{picture}
+\end{center}
+\[
+u_{\rm ac}=e_{\rm ac}\frac{r_{\rm d}}{R+r_{\rm d}}=100\mV\frac{17\ohm}{100\ohm+17\ohm}\approx 15\mV
+\]
+
+ }
+
+ \frame{
+ \frametitle{Piensignaalianalyysin käytössä huomioitavaa}
+Piensignaalianalyysi antaa melko tarkan tuloksen silloin, kun käsiteltävä (vaihtojännite)signaali on amplitudiltaan niin pieni, että se ei muuta piirin toimintapistettä. Toisin sanoen, jos signaalin vaikutusalueella komponentin ominaiskäyrä ja derivaatta poikkeavat toisistaan merkittävästi, piensignaalianalyysi antaa epätarkan tuloksen.
+
+\begin{block}{Esimerkki}
+Jos edellisessä esimerkissä vaihtojännitteen amplitudi olisi ollut 10 volttia, piensignaalianalyysin tulos olisi pahasti metsässä. Esimerkiksi voltin amplitudinen sinimuotoinen vaihtojännite pakottaisi diodin estotilaan, jolloin sen dynaaminen resistanssi on satoja kilo-ohmeja tai enemmän.
+\end{block}
+Piensignaalianalyysi toimii nimensä mukaisesti vain pienillä signaaleilla!
+ }
+ 
+ \frame{
+ \frametitle{Esimerkki}
+
+\begin{center}
+\begin{picture}(100,40)(0,0)
+\vst{0,0}{E=10 \V}
+\vst{0,50}{e_{\rm ac}=100\mV}
+\hz{0,100}{R=1\kohm}
+\dd{50,0}{}
+\hln{0,0}{50}
+\vln{50,50}{50}
+\dcru{55,0}{U+u_{\rm ac}}
+\end{picture}
+\end{center}
+
+Ratkaise piensignaalianalyysin avulla, kuinka suuri on diodin yli vaikuttava vaihtojännite $u_{\rm ac}$.
+
+% (0.052/(9.3/1000))/(1000+(0.052/(9.3/1000)))*0.1
+}
+
+
+ \frame{
+ \frametitle{Esimerkki}
+
+
+
+Ratkaiseminen tapahtuu kuten edellisen luennon esimerkissä. Lasketaan ensin tasavirta diodin läpi:
+\[
+I=\frac{10\V-0,7\V}{1\kohm}=9,3\mA
+\]
+Tasavirran perusteella lasketaan diodin dynaaminen resistanssi:
+\[
+r_{\rm d}=\frac{nU_T}{I}=\frac{2\cdot 26\mV}{9,3\mA}\approx 5,59 \ohm
+\]
+Ja ratkaistaan diodin yli oleva vaihtojännite jännitteenjakosäännöllä:
+\[
+u_{\rm ac}=100\mV\frac{5,59 \ohm}{1\kohm + 5,59 \ohm}\approx 0,556\mV
+\]
+% (0.052/(9.3/1000))/(1000+(0.052/(9.3/1000)))*0.1
+}
+
+ \frame{
+ \frametitle{Transistorivahvistimen piensignaalianalyysi}
+ \begin{itemize}
+  \item Yksinkertaisella sijaiskytkennällä (= pelkkä virtaohjattu virtalähde) CE-transistorivahvistimen analyysi ei anna tarkkaa tulosta, varsinkin jos emitterivastus $R_{\rm E}$ ohitetaan kondensaattorilla tai jätetään pois (vahvistuskerroin olisi mallin mukaan ääretön (muka)).
+  \item Ohituskondensaattorin käyttö on erittäin tavallista.
+  \item Tarkemman tuloksen saa, kun otetaan huomioon transistorin kanta-emitteridiodin dynaaminen resistanssi.
+  \item Transistorilla emissiovakioksi oletetaan yleensä $n\approx 1$.
+ \end{itemize}
+ }
+
+
+ \frame{
+\frametitle{Epätarkka malli}
+\begin{center}
+\begin{picture}(100,120)(0,0)
+\vdj{50,50}{i_{\rm c}=\beta i_{\rm b}}
+\hln{0,50}{50}
+\vln{50,0}{50}
+\ri{25,50}{i_{\rm b}}
+\di{50,25}{i_{\rm b}+i_{\rm c}}
+
+\out{50,0}
+\out{50,100}
+\out{0,50}
+\end{picture}
+\end{center}
+
+}
+
+ \frame{
+ \frametitle{Tarkempi piensignaalimalli: otetaan huomioon kanta-emitteridiodin dynaaminen resistanssi}
+\begin{center}
+\begin{picture}(100,120)(0,0)
+\vdj{50,50}{i_{\rm c}=\beta i_{\rm b}}
+\hln{0,50}{50}
+\ri{25,50}{i_{\rm b}}
+\vz{50,0}{r_{\rm e}=\frac{nU_T}{I_{\rm E}}}
+
+\out{50,0}
+\out{50,100}
+\out{0,50}
+\end{picture}
+\end{center}
+
+Tätä mallia kutsutaan T-sijaiskytkennäksi. On olemassa myös $\pi$-sijaiskytkentä.
+}
+
+ \frame{
+ \frametitle{Merkinnöistä}
+Sopimus:
+ \begin{itemize}
+ \item Piensignaalianalyysissä tasavirtoja ja -jännitteitä (joista lasketaan piensignaalisijaiskytkennän parametrit, kuten $r_{\rm e}$) merkitään isolla kirjaimella.
+\item Piensignaalivirtoja ja -jännitteitä merkitään pienillä kirjaimilla.
+\item Esimerkiksi $I_{\rm E}$ on tasavirta, jota käytetään laskettaessa transistorin toimintapistettä.
+\item $i_{\rm e}$ on sen sijaan piensignaalivirta (vaihtovirta).
+ \end{itemize}
+ }
+
+
+
+ \frame{
+ \frametitle{Transistorivahvistin (yhteisemitterikytkentä)}
+\begin{center}
+\begin{picture}(180,160)(-30,-50)
+
+\vz{0,0}{R_2=33\kohm\vspace{-1cm}}
+\vz{0,50}{R_1=82\kohm}
+
+\vst{200,0}{12\V}
+\vln{200,50}{75}
+\vz{100,75}{R_{\rm C}=1\kohm}
+\hln{100,125}{100}
+
+\hln{0,125}{100}
+\vln{0,100}{25}
+\hln{0,50}{50}
+\npn{50,50}{}
+\hln{0,-50}{200}
+\vln{0,-50}{50}
+\vln{200,-50}{50}
+\vln{100,0}{25}
+\vz{100,-50}{R_{\rm E}=470\ohm}
+
+\hc{-50,50}{C_{\rm IN}}
+\hc{100,75}{C_{\rm OUT}}
+\cn{0,50}
+
+\hln{-100,50}{50}
+\du{-100,00}{\Uin}
+\hg{-100,0}
+
+\du{150,25}{\Uout}
+\hg{150,25}
+\hgp{0,-50}
+
+\end{picture}
+\end{center}
+ }
+
+\frame{
+ \frametitle{CE-vahvistimen analysointi}
+\begin{center}
+\begin{picture}(180,160)(-30,-50)
+
+\vz{0,0}{R_2=33\kohm\vspace{-1cm}}
+\vz{0,50}{R_1=82\kohm}
+
+\vln{200,0}{50}
+\vln{200,50}{75}
+\vz{100,75}{R_{\rm C}=1\kohm}
+\hln{100,125}{100}
+
+\hln{0,125}{100}
+\vln{0,100}{25}
+\hln{0,50}{50}
+\vdj{100,25}{\beta i_{\rm B}}
+\hln{50,25}{50}
+\vln{50,25}{25}
+\ri{75,25}{i_{\rm B}}
+
+\hln{0,-50}{200}
+\vln{0,-50}{50}
+\vln{200,-50}{50}
+\vln{100,0}{25}
+\vz{100,-50}{R_{\rm E}+r_{\rm e}}
+
+\hln{-50,50}{50}
+\hln{100,75}{50}
+
+\ri{-25,50}{i_{\rm in}}
+
+\cn{0,50}
+
+\hln{-100,50}{50}
+\du{-100,00}{u_{\rm in}}
+\hg{-100,0}
+
+\du{150,25}{u_{\rm out}}
+\hg{150,25}
+\hgp{0,-50}
+
+\end{picture}
+\end{center}
+ }
+
+
+\frame{
+ \frametitle{Esimerkki: yhteiskollektorikytkentä} % emitterivirta on 3,9 ma ja lopputulos on 15,8 kohm.
+\begin{center}
+\begin{picture}(180,150)(-30,-50)
+
+\vz{0,0}{R_2=33\kohm\vspace{-1cm}}
+\vz{0,50}{R_1=82\kohm}
+
+\vst{200,0}{12\V}
+\vln{200,50}{75}
+\vz{100,75}{R_{\rm C}=1\kohm}
+\hln{100,125}{100}
+
+\hln{0,125}{100}
+\vln{0,100}{25}
+\hln{0,50}{50}
+\npn{50,50}{\beta=100}
+\hln{0,-50}{200}
+\vln{0,-50}{50}
+\vln{200,-50}{50}
+\vln{100,0}{25}
+\vz{100,-50}{R_{\rm E}=470\ohm}
+
+\hc{-50,50}{C_{\rm IN}}
+\hc{100,20}{C_{\rm OUT}}
+\cn{0,50}
+
+\hln{-100,50}{50}
+\du{-100,00}{\Uin}
+\hg{-100,0}
+
+\du{150,-30}{\Uout}
+\hg{150,-30}
+\hgp{0,-50}
+
+
+\end{picture}
+\end{center}
+Laske piensignaalianalyysin avulla kuvan vahvistimelle tulo- ja lähtöresistanssit $R_{\rm in}$ ja $R_{\rm out}$ sekä jännitevahvistus
+$\frac{\Uout}{\Uin}$.
+
+%\tiny $R_{\rm in}\approx 15,8\kohm $,  $R_{\rm out}\approx 6,569 \ohm  \approx 7 \ohm$ $\frac{\Uout}{\Uin}\approx 0,99$.
+ }
+% Wolfram:
+% (0.026/((11.3/82000-0.7/33000)/(1/(101*470)+1/33000+1/82000)/470))
+% (1/33000+1/82000+1/(101*(6.6621+470)))^-1
+% 1/(1/6.6621047841709686024069918877783182438687608855972760509014+1/470.)
+
+
+
+
+\frame{
+ \frametitle{Esimerkki}
+Lasketaan ensin emitterivirta piensignaalisijaiskytkennän dynaamisen resistanssin $r_{\rm e}$ selvittämiseksi:
+\[
+I_{\rm E}=(\beta+1)\left( \frac{12\V-U_{\rm E}-0,7\V}{R_1}-\frac{U_{\rm E}+0,7\V}{R_2}  \right)
+\]
+ja
+\[
+I_{\rm E}=\frac{U_{\rm E}}{R_{\rm E}}
+\]
+josta ratkeaa
+\[
+U_{\rm E}\approx 1,83426\V
+\]
+ja
+\[
+I_{\rm E}\approx 3,90 \mA,
+\]
+joten
+\[
+r_{\rm e}=\frac{nU_{\rm T}}{I_{\rm E}}\approx\frac{1\cdot 26\mV}{3,9\mA}\approx 6,67 \ohm.
+\]
+}
+
+\frame{
+ \frametitle{Esimerkki} % emitterivirta on 3,9 ma ja lopputulos on 15,8 kohm.
+Muodostetaan piensignaalisijaiskytkentä:
+
+\begin{center}
+\begin{picture}(180,170)(-30,-50)
+
+\vz{0,0}{R_2=33\kohm\vspace{-1cm}}
+\vz{0,50}{R_1=82\kohm}
+
+\vln{200,0}{50}
+\vln{200,50}{75}
+\vz{100,75}{R_{\rm C}=1\kohm}
+\hln{100,125}{100}
+
+\hln{0,125}{100}
+\vln{0,100}{25}
+\hln{0,50}{50}
+\vdj{100,25}{\beta i_{\rm B}}
+\hln{50,25}{50}
+\vln{50,25}{25}
+\ri{75,25}{i_{\rm B}}
+
+\hln{0,-50}{200}
+\vln{0,-50}{50}
+\vln{200,-50}{50}
+\vln{100,0}{25}
+\vz{100,-50}{R_{\rm E}+r_{\rm e}}
+
+\hln{-50,50}{50}
+\hln{100,25}{50}
+\cn{100,25}
+\ri{-25,50}{i_{\rm in}}
+
+\cn{0,50}
+
+\hln{-100,50}{50}
+\du{-100,00}{u_{\rm in}}
+\hg{-100,0}
+
+
+\du{150,-30}{u_{\rm out}}
+\hg{150,-30}
+\hgp{0,-50}
+
+\end{picture}
+\end{center}
+
+ }
+
+\frame{
+ \frametitle{Esimerkki}
+Piensignaalikantavirta on
+\[
+i_{\rm b}=\frac{u_{\rm IN}}{(r_{\rm e}+R_{\rm e})(1+\beta)},
+\]
+josta saadaan piirin lähtöjännitteksi
+\[
+u_{\rm out}=i_{\rm e}R_{\rm e}=(1+\beta)i_{\rm b}R_{\rm e}=(1+\beta)\frac{u_{\rm IN}}{(r_{\rm e}+R_{\rm e})(1+\beta)}R_{\rm e}
+\]
+joten
+\[
+\frac{u_{\rm out}}{u_{\rm in}}=\frac{R_{\rm E}}{R_{\rm E}+r_{\rm e}}\approx 0,99.
+\]
+}
+
+\frame{
+ \frametitle{Esimerkki}
+Lähtöresistanssin selvittämiseksi ajatellaan piirin lähtöön (eli $R_{\rm E}$:n rinnalle) kuormavastus $R_{\rm L}$. Tällöin
+kuormalle menevä todellinen lähtöjännite on 
+\[
+u_{\rm L}=\frac{R_{\rm E}||R_{\rm L}}{R_{\rm E}||R_{\rm L}+r_{\rm e}}u_{\rm in}
+\]
+Jännitteenjakosäännön mukaan vahvistimen lähtöresistanssille ja kuormittamattomalle jännitteelle pätee
+\[
+u_{\rm L}=\frac{R_{\rm L}}{R_{\rm OUT}+R_{\rm L}}u_{\rm out}=\frac{R_{\rm L}}{R_{\rm OUT}+R_{\rm L}}\frac{R_{\rm E}}{R_{\rm E}+r_{\rm e}}u_{\rm in}
+\]
+Edellisistä yhtälöistä ratkeaa
+\[
+R_{\rm OUT}=\frac{r_{\rm e}R_{E}}{r_{\rm e}+R_{E}}\approx 7\ohm.
+\]
+}
+
+\frame{
+ \frametitle{Esimerkki}
+Tuloresistanssi ratkeaa kuten yhteisemitterikytkennässäkin. Nyt myös mahdollinen emitterille kytketty kuorma $R_{\rm L}$ vaikuttaa lähtöresistanssiin:
+\[
+R_{\rm IN}=R_1||R_2||(1+\beta)(r_{\rm e}+R_{\rm E}||R_{\rm L})
+\]
+Jos kuormavastusta ei ole kytketty, tuloresistanssiksi saadaan $15,8\kohm$.
+
+}

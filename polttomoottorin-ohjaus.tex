@@ -1,0 +1,1642 @@
+\frame {
+\frametitle{Mitä moottorin ohjauksella tarkoitetaan?}
+Moottorin ohjauksella tarkoitetaan moottorin tuottaman vääntömomentin säätämistä.
+
+}
+
+\frame {
+\frametitle{Ottomoottorin ohjauksen menetelmät}
+Ottomoottorin tuottamaa vääntömomenttia säädetään vaikuttamalla
+\begin{itemize}
+\item sylinterin täytökseen (vaikutetaan sylinterin ilmamäärään)
+\item seoksen muodostukseen (kuinka paljon polttoainetta ja millä hetkellä)
+\item sytytykseen (sytytyshetken säätö)
+\end{itemize}
+}
+
+\frame {
+\frametitle{Dieselmoottorin ohjauksen menetelmät}
+Dieselmoottorin tuottamaa vääntömomenttia säädetään vaikuttamalla
+\begin{itemize}
+\item polttoaineen ruiskutukseen (millä hetkellä ja kuinka paljon)
+\item dieselmoottorin imuilmaa ei kuristeta
+\end{itemize}
+}
+
+
+\frame {
+\frametitle{Sytytys}
+Sytytysjärjestelmän perusperiaate pysynyt samana 1800-luvun lopulta asti: ilman ja polttoaineen seos
+sytytetään sähkökipinällä. Moottorinohjauksella vaikutetaan {\bf sytytyshetkeen}.
+Sytytyshetken valinta vaikuttaa seuraaviin asioihin
+\begin{itemize}
+\item moottorista ulos saatava teho
+\item polttonesteen kulutus
+\item nakuttaako moottori vai ei
+\item kuinka puhtaita ovat pakokaasut
+\end{itemize}
+Kaikkia asioita ei saada parhaaseen mahdolliseen arvoon samanaikaisesti, vaan on tehtävä kompromissi.
+Esimerkiksi sytytyksen aikaistaminen lisää moottorin tehoa ja vähentää kulutusta, mutta lisää hiilivety- (HC) ja
+typenoksidipäästöjä (NO$\rm _x$).
+
+}
+
+\frame {
+\frametitle{Dieselmoottorin polttoaineenruiskutus}
+Nykyisin käytössä olevat ruiskutusjärjestelmät ovat
+\begin{description}
+\item[rivipumppu] Jokaisella sylinterillä on oma nokka-akselin käyttämä pumppuelementti.
+\item[jakajapumppu] Yksi pumppumäntä, joka sekä kehittää paineen että jakaa sen sylintereille.
+\item[pumppusuutin] Pumppu ja suutin on integroitu
+\item[yhteispaineruiskutus] Erillinen korkeapainepumppu, jonka toiminta ei ole sidottu ruiskutushetkiin. Ruiskutusventtiilejä
+ohjataan sähköisesti.
+\end{description}
+}
+
+\frame {
+\frametitle{Moottorinohjausjärjestelmän anturit}
+Moottorinohjausjärjestelmä tarvitsee säätöä varten tietoa eri suureista, kuten 
+\begin{itemize}
+\item Lämpötila
+\item Kierrosluku
+\item Vaihe (nokka-akselin asento)
+\item Ilmamäärä (tilavuus tai massa)
+\item Nakutus
+\item Paine
+\item Happipitoisuus (Lambda)
+\item Asento (esimerkiksi kaasupolkimen asento)
+\end{itemize}
+}
+
+
+\frame {
+\frametitle{Palaminen ottomoottorissa}
+
+\begin{itemize}
+\item Ilmakertoimella $\lambda$ (lambda) tarkoitetaan ilma-polttonestemassasuhteen poikkeamaa ideaalisesta
+polttonestemassasuhteesta.
+\item 1 kilogramma polttonestettä vaatii palaakseen noin 14,7 kilogrammaa ilmaa ($\lambda=1$). Tätä kutsutaan stökiometriseksi
+seossuhteeksi.
+\item Tilavuuksina ilmaistuna: 1 litra polttonestettä vaatii 9500 litraa ilmaa.
+\item Imusarjasuihkutteisesta moottorista saadaan suurin teho kun $\lambda\approx 0,85\ldots 0,95$ (rikas seos). Pienin polttoaineenkulutus
+taas saavutetaan arvolla $\lambda\approx 1,1\ldots 1,2$ (laiha seos).
+\item Kolmitoimikatalysaattorin käyttö edellyttää erittäin tarkkaa seossuhteen säätöä ($\lambda=1 \pm 0,005$).
+
+\end{itemize}
+}
+
+
+\frame {
+\frametitle{Bensiinimoottorin seoksenmuodostusjärjestelmät}
+Kaksi päätapaa
+\begin{itemize}
+\item kaasutin
+\item suihkutusjärjestelmät
+\end{itemize}
+Kaasutin oli pitkään suosittu yksinkertaisuutensa vuoksi (=halpa, toimintavarma).
+\begin{itemize}
+\item Kiristyvät pakokaasupäästönormit vaativat yhä monimutkaisempia kaasutinrakenteita.
+\item 1980-luvun lopussa suihkutusjärjetelmät syrjäyttivät kaasuttimen lähes kokonaan. 
+\item Pakokaasujen puhdistaminen kolmitoimikatalysaattorilla vaatii erittäin tarkan seossuhteen
+säädön.
+\end{itemize}
+}
+
+
+\frame {
+\frametitle{Suihkutusjärjestelmät}
+Polttoaineensuihkutus ei ole uusi keksintö
+\begin{itemize}
+\item Käytössä mm. lentokoneissa toisen maailmansodan aikana (BMW 801). Kaasuttimet olivat
+arkoja jäätymiselle ja g-voimille.
+\item Henkilöautoihin 1952.
+\item Kehitystä 1970-luvulla.
+\item Vuonna 1987 julkaistu Mono-Jetronic oli riittävän edullinen korvaamaan kaasuttimen
+myös edullisissa pikkuautoisssa.
+\end{itemize}
+
+}
+
+\frame {
+\frametitle{Suihkutusjärjestelmien päätyypit}
+\begin{description}
+\item[Yksipistesuihkutus] Polttoaine suihkutetaan kaasuläpälle.
+\item[Yksittäissuihkutus] (tai monipistesuihkutus) Jokaisella sylinterillä oma suihkutusventtiili.
+\item[Suorasuihkutus] Polttoaine suihkutetaan suoraan palotilaan.
+\end{description}
+
+}
+
+\frame{
+\frametitle{Boschin suihkutusjärjestelmien historia}
+\begin{tabular}{ l l p{7cm} }
+Nimi & Vuosi & Ominaisuudet\\
+  D-Jetronic & -67 & Imusarjaohjattu ei-jatkuva monipistesuihkutus. Ohjattu analogiaelektroniikalla.\\
+  K-Jetronic & -73 & Mekaanis-hydraulisesti ohjattu jatkuva monipistesuihkutus.\\
+  L-Jetronic & -73 & Ilmanvirtausohjattu, elektroninen ei-jatkuva monipistesuihkutus. \\
+  LH-Jetronic & -81 & Ilmamassaohjattu, elektroninen ei-jatkuva monipistesuihkutus. \\
+  KE-Jetronic & -82 & Elektronisesilla lisäohjauksilla täydennetty K-Jetronic.  \\
+  Mono-Jetronic & -87 & Ei-jatkuva yksipistesuihkutus. Ohjattu moottorin nopeuden ja kaasuläpän asennon avulla.\\
+
+\end{tabular}
+}
+
+\frame {
+\frametitle{D-Jetronic}
+\begin{itemize}
+\item Vuodelta 1967, imusarjaohjattu ei-jatkuva monipistesuihkutus. Ohjattu analogiaelektroniikalla.
+\item D = drücksensorsteuert = paineanturiohjattu
+\item Ohjausyksikkö seuraa imusarjan painetta, imuilman lämpötilaa, moottorin lämpötilaa ja 
+moottorin kierroslukua.
+\item Imusarjan paine = pääohjaussuure. % http://www.scribd.com/doc/7303245/D-Jetronic
+\item Käytössä  mm. Saab (99E), Volvo (1800E, 1800ES, ), Porsche (914), MB, BMW \ldots % http://www.pyhimyskerho.com/v2/index.php/huolto/51-d-jetronic
+\end{itemize}
+}
+
+\frame {
+\frametitle{K-Jetronic} % http://www.autotieto.net/polttonestelaitteet/kjetronic_periaate.htm
+\begin{itemize}
+\item Vuodelta 1973, mekaanis-hydraulisesti ohjattu jatkuva monipistesuihkutus. Käytössä 1995 asti.
+\item K = kontinueirlich = jatkuva. Polttoainetta suihkutetaan jatkuvasti; kun imuventtiili aukeaa, se imaisee 
+venttiilin etupuolella olevan polttoainepilven sisään.
+\item Ilmamäärää mitataan mekaanisen levyanturin avulla. Levy ohjaa polttoaineen määränjakajaa. Vastakkaiseen suuntaan
+määränjakajan mäntää painaa {\bf ohjauspaine}, jonka avulla säädetään seosta rikkaammaksi lämpiämisvaiheessa.
+\item Voidaan käyttää myös Lambda-säädön kanssa.
+\item Edullisempi ja luotettavampi kuin D-Jetronic
+\begin{itemize}
+\item Vielä 1970-luvulla elektroniikka oli kallista ja mekaniikka halpaa (nykyään tilanne on päinvastoin). Myös elektroniikan
+luotettavuus on kehittynyt huomattavasti. 
+\end{itemize} 
+\end{itemize}
+}
+
+\frame {
+\frametitle{L-Jetronic}
+\begin{itemize}
+\item Vuodelta 1973, ilmanvirtausohjattu, elektroninen ei-jatkuva monipistesuihkutus.
+\item Järjestelmässä on kehitetty D-Jetronicista saatujen kokemusten perusteella. Suora ilmanvirtausmittaus
+mahdollistaa moottorin muutoksiin reagoimisen (toisin kuin D-Jetronicin paineeseen perustuva säätö), kuten
+palotilan karstoittuminen, kuluminen, venttiilivälysten muutokset.
+\item L3-Jetronic = kuten L-Jetronic mutta toteutettu digitaalielektroniikalla.
+\item L = Luft = ilma.
+\item Lambdalla tai ilman.
+\end{itemize}
+}
+
+\frame {
+\frametitle{LH-Jetronic}
+\begin{itemize}
+\item Vuodelta 1981, ilmamassaohjattu, elektroninen ei-jatkuva monipistesuihkutus.
+\item Erona L-Jetroniciin on se, että ilmanvirtauksen (l/h) sijasta mitataan ilmamassaa (kg/h).
+\item Anturina on kuumakalvo- tai kuumalankavastus. Lankaan syötetään vakiovirta, jolloin
+langan jännitettä mittaamalla voidaan päätellä sisään virtaava ilmamassa.
+\item LH-Jetronicin digitaaliseen ohjainlaitteeseen on tallennettu säätökäyrästö
+(seoksen säätö kuormituksen ja pyörintänopeuden perusteella).
+\item Joissain malleissa on ilman pyörteilyyn perustuva Kauman-Vortex -tilavuusvirtausmittari.
+
+\end{itemize}
+}
+
+\frame {
+\frametitle{KE-Jetronic}
+\begin{itemize}
+\item Vuodelta 1982, elektronisesilla lisäohjauksilla täydennetty K-Jetronic. Ohjauspainetta
+säädetään elektronisesti.
+\end{itemize}
+}
+
+\frame {
+\frametitle{Mono-Jetronic}
+\begin{itemize}
+\item Vuodelta 1987, ei-jatkuva yksipistesuihkutus. Ohjattu mikroprosessorilla.
+\item Ohjaussuureina voidaan käyttää kaasuläpän asentoa, kierroslukua, tuloilman
+lämpötilaa, pakokaasun jäännöshappipitoisuutta ($\lambda$-säätö), ilmastointikompressorin
+käyntitietoa ym.
+\item Mikroprosessoriohjaus mahdollistaa "oppivan" järjestelmän. Pakokaasupäästöt ja optimaalinen
+suorituskyky kohtuullisina koko auton käyttöiän ajan.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jetronicit nykyään}
+\begin{itemize}
+\item K-Jetronic oli tuotannossa vuoteen 1995 asti, LH vielä vuoteen 1998 asti.
+\item Uudet Boschin ohjausjärjestelmät kulkevat Motronic-nimen alla.
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Motronic}
+\begin{itemize}
+\item Tuotantoon vuonna 1979, kehitetty jatkuvasti.
+\item Yhdistetty sytytyksen ja suihkutuksen ohjausjärjestelmä.
+\item M-Motronic, mekaaninen kaasupoljin.
+\item ME-Motronic, elektroninen kaasupoljin.
+\item ME7-Motronic, ohjausjärjestelmä yhdelle mikrosirulle (1998).
+\item MED-Motronic, suorasuihkutusjärjestelmä (2000).
+\item Bifuel-Motronic (maakaasu \& bensiini).
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Nykyaikainen MED-Motronic}
+\begin{itemize}
+\item Suorasuihkutuksen avulla voidaan polttoaineen kulutusta vähentää noin 20 \%.
+\item Perusajatus: syöttämällä polttoaine suoraan palotilaan (eikä imukanavaan) voidaan
+kontrolloida, muodostuuko palotilaan homogeeninen (tasainen) seos vai ei.
+\item Täyskuormalla käytetään homogeenista seosta.
+\item Osakuormalla käytetään {\bf kerrossyöttöä}. Kerrossyötössä riittää, että sytytystulpan tienoilla on
+syttymiskelpoinen seos. Muualla sylinterissä on jäännöskaasuja ja ilmaa (sylinterissä ilmaylimäärä). Tämä saavutetaan suihkuttamalla
+polttoaine juuri ennen sytytyshetkeä.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Kerrossyöttö}
+\begin{itemize}
+\item Kerrossyötössä moottori käy ilmaylimäärällä ($\lambda>1$), mikä vähentää polttoaineenkulutusta mutta 
+lisää NO$_{\rm X}$-päästöjä. Kerrossyöttötilassa kaasuläppä on täysin auki, moottoria ei kuristeta.
+\item Tämä edellyttää tehokkaampaa pakokaasujen puhdistusta.
+\item Pakokaasujen takaisinkierrätyksen (EGR) avulla NO$_{\rm X}$-päästöjä saadaan vähennettyä
+jopa 70 \%.
+\item Nykyiset pakokaasumääräykset ovat niin tiukkoja, että tämäkään ei riitä, vaan on käytettävä
+NO$_{\rm X}$-varaajakatalysaattoria.
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Polttoaineensyöttöjärjestelmä}
+Polttoaineensyöttöjärjestelmän tehtävä on kuljettaa polttoainetta suihkusuuttimille
+\begin{itemize}
+\item riittävällä virtaamalla
+\item oikeansuuruisella paineella.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Imusarjasuihkutuksen ja suorasuihkutuksen vaatimukset}
+\begin{itemize}
+\item Imusarjasuihkutuksessa ei tarvita korkeaa painetta. Riittää, että yksi pumppu pumppaa
+polttoaineen polttoainesäiliöltä suihkusuuttimille.
+\item Suorasuihkutuksessa suoraan palotilaan vaaditaan korkea paine. Tällöin käytetään
+kahta pumppua. Pienpainepumppu tuo polttoaineen polttoainesäiliöltä moottoritilaan, jossa
+korkeapainepumpun avulla kehitetään suorasuihkutuksen vaatima paine.
+
+\end{itemize}
+}
+
+\frame{
+\frametitle{Imusarjasuihkutus}
+\begin{itemize}
+\item Paine tyypillisesti $<$ 5 baaria.
+\item Riittävä paine estää höyrykuplien muodostumisen polttoainelinjaan.
+\item Pumppuun integroitu takaiskuventtiili pitää paineen polttoainelinjassa vielä moottorin
+sammuttamisen jälkeen, jolloin linjaan ei muodostu höyrykuplia.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Paluukierrolla varustettu järjestelmä}
+\begin{itemize}
+\item Pumppu pumppaa polttoainetta jakoputkelle.
+\item Jakoputkella on paineentasaaja (regulaattori), joka pitää suihkusuuttimien ja imusarjan välisen paineen vakiona.
+\item Säätö tapahtuu paluuvirtausta kontrolloimalla.
+\item Mitä huonoja puolia tässä järjestelmässä on?
+\end{itemize}
+}
+
+\frame{
+\frametitle{Paluukierroton järjestelmä}
+\begin{itemize}
+\item Jatkuva polttoaineen kierrättäminen moottoritilan läpi takaisin polttoainesäiliöön
+nostaa säiliössä olevan polttoaineen lämpötilaa. Tämä taas johtaa suurempiin polttoainehöyrypäästöihin.
+\item Ratkaisu: paluukierroton järjestelmä.
+\item Paluukierrottomassa järjestelmässä paineentasaaja sijaitsee polttoainesäiliöllä. Paluukiertoa ei tarvita.
+\item Koska paineentasaaja ei ole jakoputkella vaan polttoainesäiliöllä eikä pidä suhteellista suihkutuspainetta (=imusarjan ja jakoputken paine-eroa) vakiona,
+ tulee moottorinohjausyksikön huolehtia imusarjan paineen huomioon ottamisesta ja muuttaa suihkutuksen kestoa tarpeen mukaan.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tarveohjattu järjestelmä}
+\begin{itemize}
+\item Mekaanisen paineentasaajan sijasta järjestelmässä on polttoainepaineanturi.
+\item Moottorinohjausyksikkö säätää pumpun käyntiä 
+\end{itemize}
+Järjestelmän edut:
+\begin{itemize}
+\item Ei pumpun hukkakäyntiä $\to$ vielä vähemmän säiliön lämpenemistä.
+\item Suihkutuspaineen vapaampi säätö (esim. ahdetuissa moottoreissa).
+\item Tarkempi säätö ylipäätään (kun tiedetään polttoainelinjan ja imusarjan paine tarkasti).
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Polttoaineensyöttö suorasuihkutuksessa}
+\begin{itemize}
+\item Suorasuihkutus suoraan palotilaan vaatii korkean paineen.
+\item Miksi?
+\end{itemize}
+}
+
+\frame{
+\frametitle{Polttoaineensyöttö suorasuihkutuksessa}
+\begin{itemize}
+\item Suorasuihkutus suoraan palotilaan vaatii korkean paineen, koska
+aikaikkuna polttoaineen suihkuttamiselle on erittäin lyhyt.
+\item Korkea paine mahdollistaa riittävän polttoainemäärän suihkuttamisen
+nopeasti.
+\item Polttoainejärjestelmä jakautuu {\bf matalapainepiiriin} ja {\bf korkeapainepiiriin}.
+\item Miksi tarvitaan erillinen matalapainepiiri?
+\end{itemize}
+}
+
+\frame{
+\frametitle{Polttoaineensyöttö suorasuihkutuksessa}
+\begin{itemize}
+\item Korkeapainepumppu tarvitsee riittävän korkean syöttöpaineen, ettei
+tuloletkuun synny höyrykuplia.
+\item Matalapainepiirin syöttöjärjestelmä ei juurikaan eroa imusarjasuihkutteisten järjestelmien
+polttoainejärjestelmästä. Tarveohjattuja pienpainepumppuja käytetään yleisesti.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Polttoaineensyöttö suorasuihkutuksessa}
+\begin{itemize}
+\item Uusissa järjestelmissä suihkutuspaine voi olla jopa 200 baaria, vanhemmissa 50-12 baaria.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jatkuvasyöttöinen järjestelmä (vanhempi tekniikka)}
+\begin{itemize}
+\item Korkeapainepumppu syöttää vakiovirtauksella polttoainetta jakoputkeeen.
+\item Jakoputken päässä on paineenalennusventtiili, joka syöttää ylimääräisen polttoaineen takaisin
+pienpainepiiriin.
+\item Turha pumppaaminen kuluttaa energiaa ja polttoaineen kierrättäminen nostaa polttoainepiirin lämpötilaa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tarveohjattu järjestelmä}
+\begin{itemize}
+\item Moottorinohjausyksikkö ohjaa pumpun säätöventtiiliä niin, että jakoputkessa pysyy moottorin
+toimintatilaan nähden oikea paine.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Polttoainepumput}
+\begin{itemize}
+\item Korkeapainepumppu on tyypillisesti nokka-akselilta tehonsa saava mäntäpumppu.
+\item Pienpainepiirissä käytetään sähkömoottoripumppua, joka on toimintaperiaatteeltaan joko
+tilavuuspumppu (positive-displacement pump) tai virtauspumppu.
+\item Tilavuuspumppu eli syrjäytyspumppu siirtää nestemääriä suljetuissa kammioissa eteenpäin. Tilavuuspumppuja
+ovat esimerkiksi keskipakorullapumppu ja sisähammasrataspumppu.
+\item Virtauspumppu on toinen pumpputyyppi. Polttonestepumppuina käytetään mm. ulkokehä- ja sivukanavapumppuja, jotka
+ovat virtauspumppuja.  
+\end{itemize}
+}
+
+\frame{
+\frametitle{Polttoaineensuodattimet}
+\begin{itemize}
+\item Polttoaineensuodattimen tehtävä on poistaa polttoaineen seasta hiukkasia, jotka voivat a) tukkia järjestelmän b) aiheuttavat
+eroosiota.
+\item Uusin suuntaus on, että polttoainesuodatin suunnitellaan koko auton eliniän kestäväksi ja se integroidaan säiliöasennusyksikköön.
+\item Edelleen käytetään myös polttoainelinjaan kiinnitettäviä suodattimia.
+\item Miksi polttoaineensuihkutusjärjestelmän käyttö asettaa tiukemmat vaatimukset polttoaineensuodattimille kuin kaasuttimen käyttö?
+\end{itemize}
+}
+
+\frame{
+\frametitle{Polttoaineensuodattimet}
+\begin{itemize}
+\item Materiaalina käytetään mikrokuitupaperia ja keinokuitukudoksia.
+\item Polttoaineensuodattimen huokoskoko tulee olla luokkaa 10 $\mu$m (imusarjasuihkutus) tai 5 $\mu$m
+(suorasuihkutus).
+\item Polttoaineensuodattimien vaihtoväli on tyypillisesti luokkaa 30 000 km - 90 000 km. Polttoainesäiliöön asennettavissa
+suodattimissa vaihtoväli on 160 000 km tai pidempi (jopa 250 000 km). 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Boschin korkeapainepumput}
+Korkeapainepumppu = Hochdruckpumpe = HDP
+\begin{itemize}
+\item HDP1 (kolme mäntää)
+\item HDP2 (yksi mäntä)
+\item HDP5 (yksi mäntä; uusinta tekniikkaa)
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jakoputki}
+\begin{itemize}
+\item (Korkeapaine)pumppu syöttää polttoaineen jakoputkeen ({\em fuel rail}). Suihkutussuuttimet ovat kiinni suoraan
+jakoputkessa.
+\item Jakoputken tehtävä on taata jokaiselle suuttimelle yhtäläinen polttoaineen jakelu (jokaisella suuttimella sama paine).
+\item Lisäksi jakoputkeen on kiinnitetty paineanturi, 
+\item Putken koko on mitoitettava käytettävän moottorin mukaan. Suuttimien toiminta ei saa aiheuttaa
+(merkittäviä) paineen vaihteluja putkeen.
+\item Boschin KSZ-HD -jakoputki on valmistettu alumiinista (HDP1 ja HDP2) tai ruostumattomasta teräksestä HDP5.
+\end{itemize}
+}
+
+% Sytytys käsitellään omassa filessään, sytytysjarjestelma.tex
+
+
+
+\frame{
+\frametitle{Suorasuihkutus bensiinimoottorissa (GDI)}
+\begin{itemize}
+\item Määritelmä: polttoaine suihkutetaan suoraan palotilaan, eikä esim. imusarjaan.
+\item Toisin sanoen seoksenmuodostus tapahtuu sylinterin sisällä (nk. sisäinen seoksenmuodostus).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Historia}
+\begin{itemize}
+\item Tekniikka ei ole mitenkään uusi.
+\begin{itemize}
+\item Hesselman-moottori vuonna 1925.
+\item Toimi bensiinillä ja petrolilla, matala puristussuhde.
+\item Käytössä vuoteen 1947 asti.
+\end{itemize}
+\item Lentokonemoottorissa vuonna 1937.
+\item Gutbrod -henkilöauto vuonna 1951.
+\item Mercedes 300 SL vuonna 1954.
+\item "Tavallisiin" autoihin vasta edellisten 15 vuoden aikana.
+\item Mitsubishi GDI (1996).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Haasteet}
+\begin{itemize}
+\item Moottorinohjauksen haasteet (ohjaus vaikeaa toteuttaa mekaanisesti).
+\item Materiaali- ja valmistustekniikka.
+\item Liittyen edellisiin: huollontarve.
+\item Elektroniikan ja materiaalitekniikan kehitys johtanut suorasuihkutuksen yleistymiseen. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Sisäisen seoksenmuodostuksen edut}
+\begin{itemize}
+\item Kun polttoaine voidaan suihkuttaa puristustahdin aikana, voidaan suihkutushetken valinnalla vaikuttaa erittäin
+paljon siihen, millainen seos palotilaan muodostuu.
+\item Edellyttää palotilan ja imukanavien tarkkaa muotoilua.
+\item Pienempi polttoaineenkulutus, koska moottoria ei tarvitse kuristaa.
+\item Polttoaineen suihkutus suoraan palotilaan aikaansaa sisäisen jäähdytyksen $\to$ puristussuhdetta
+voidaan nostaa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Toimintatilat}
+\begin{itemize}
+\item Suorasuihkutusmoottorin toiminta voidaan jakaa kahteen päätoimintatilaan.
+\item Homogeenikäyttö. Suihkutus tapahtuu aikaisessa vaiheessa, jolloin palotilaan muodostuu tasainen seos.
+\item Kerrossyöttö. Suihkutus tapahtuu puristustahdin lopussa niin, että polttoainepilvi saavuttaa sytytystulpan, mutta
+ympärille jää puhdasta ilmaa.
+\item Perustiloja voidaan yhdistellä ja muuttaa eri käyttötiloihin sopiviksi.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Homogeenikäyttö}
+\begin{itemize}
+\item Polttoaine suihkutetaan imutahdin aikana.
+\item Seossuhde yleensä $\lambda=1$, täyskuormalla myös hieman alle 1.
+\item Koko sylinteri saadaan käyttöön, maksimiteho ulos moottorista.
+\item Käytännössä samanlainen toiminta kuin imusarjasuihkutuksessa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kerrossyöttö}
+\begin{itemize}
+\item Polttoaine suihkutetaan puristustahdin lopussa juuri ennen sytytystä. 
+\item Suuttimesta tuleva polttoaine(ilmaseos)pilvi ohjataan tulpalle.
+\item Muualla sylinterissä on (teoriassa) pelkkää ilmaa.
+\item Koko palotilassa on ilmaylimäärä. Tämä nostaa NO$_{\rm x}$-päästöjä.
+\item Hyöty: moottoria ei tarvitse kuristaa (kaasuläppä auki), lämpö ei karkaa seinämien kautta, pienempi polttoaineen kulutus. 
+\item Ei toimi suurilla ($>3000$ rpm) moottorin nopeuksilla (polttoainepilvi ei ehdi homogenisoitua sisäisesti).
+\item Pieni kierrosluku suurella kuormalla ei toimi myöskään tässä tilassa (nokeaminen).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Homogeeninen laihaseoskäyttö}
+\begin{itemize}
+\item Käytetään kerrossyötön ja homogeenikäytön "välitilassa".
+\item Kaasuläppä täysin auki, pienempi polttoaineenkulutus.
+\item Haittana NO$_{\rm x}$-päästöt.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Homogeeninen kerrossyöttö}
+\begin{itemize}
+\item Ensin suihkutetaan 75 \% polttoaineesta imutahdissa, ja juuri ennen sytytystä loput 25 \%.
+\item Käytetään siirryttäessä kerrossyötön ja homogeenikäytön välillä. Syy: tasaisempi muutos väännössä.
+\item Voidaan käyttää myös pienillä kierrosnopeuksilla nokemisen estoon.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Homogeeninen split-mode}
+\begin{itemize}
+\item Suihkutuksen ajoitus kuten homogeenisessa kerrossyötössä, mutta sytytys annetaan myöhässä (YKK:n jälkeen).
+\item Tällöin vääntö ei kasva, mutta pakokaasujen lämpötila nousee.
+\item Käytetään katalysaattorin nopeaan lämmitykseen käynnistyksen jälkeen.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Homogeeninen nakutuksenestotila}
+\begin{itemize}
+\item Käytetään matalilla kierroksilla täyskuormalla ehkäisemään nakutusta.
+\item Seoksen kerrostuminen ehkäisee nakutusta.
+\item Suihkutus kuten homogeenisessa kerrossyötössä.
+\item Kun nakutus ehkäistään syöttöä muuttamalla eikä sytytystä myöhentämällä, väännössä ei menetetä.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Katalysaattorin lämmitys kerrossyötöllä}
+\begin{itemize}
+\item Normaalin kerrossyötön lisäksi polttoainetta suikutetaan myös työtahdin aikana.
+\item Nostaa pakokaasujen lämpötilaa.
+\item Ei toimi kylmällä moottorilla yhtä hyvin kuin split-tila.
+\item Käytetään myös varaajakatalysaattorin puhdistukseen (rikinpoisto), koska tällä menetelmällä on helppo
+saavuttaa erittäin korkea pakokaasujen lämpötila (yli 650 astetta) laajalla kuormitusalueella.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Käynnistys kerrossyötöllä}
+\begin{itemize}
+\item Polttoaine suihkutetaan puristustahdin aikana, jolloin ilma on kuumempaa kuin imutahdin aikana. Tällöin
+polttoaine höyrystyy paremmin.
+\item Vähentää polttoainekalvon muodostumista sylinterin reunoille.
+\item Vähentää hiilivetypäästöjä käynnistyksen aikana.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Seoksenmuodostusjärjestelmät}
+\begin{itemize}
+\item Kerrossyötön seoksenmuodostus voidaan toteuttaa kolmella eri tavalla: suihkuohjattu, seinämäohjattu ja ilmaohjattu seoksenmuodostus.
+\item Tavoitteena on saada syttymiskelpoinen seospilvi sytytystulpalle oikealla hetkellä.
+\item Suihkuohjatussa seoksenmuodostuksessa suihkusuutin on sijoitettu keskelle sylinterin kattoa. Polttoaine suihkutetaan suoraan tulppaan.
+Huono puoli: erittäin lyhyt aika seoksenmuodostumiselle, vaatii korkean suihkutuspaineen. Myös tulpan kemiallinen rasitus on suuri. Hyvä puoli:
+tällä tekniikalla saavutetaan pienin polttoaineenkulutus.
+\item Seinämäohjatussa seoksenmuodostuksessa polttoaine suihkutetaan männässä olevaan koloon, josta suihku ohjautuu tulpalle.
+\item Ilmaohjatussa seoksenmuodostuksessa palotilan ilmavirtaukset ohjaavat seospilven tulpalle.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Sytytys}
+\begin{itemize}
+\item Homogeenikäytössä sytytys ei käytännössä eroa mitenkään imusarjasuihkutteisesta moottorista.
+\item Kerrossyötöllä seinämä- ja ilmaohjatussa seoksenmuodostuksessa sytytyshetken valinnassa ei ole juurikaan
+vapautta: seos sytytetään silloin, kun polttoainepilvi on tulpan kohdalla.
+\item Suihkuohjatussa seoksenmuodostuksessa polttoaineen suihkuttaminen suoraan tulpalle takaa sen, että myös myöhäisellä suihkutushetkellä
+tulpalla on riittävästi seosta, vaikka suihkutettu määrä olisi pienikin.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Suihkusuuttimen toiminta suorasuihkutusmoottorissa}
+\begin{itemize}
+\item Suihkusuuttimen tehtävä on suihkuttaa palotilaan oikea määrä polttoainetta oikealla hetkellä. 
+\item Suorasuihkutus vaatii korkean suihkutuspaineen, koska suihkutuksen on tapahduttava nopeasti ja 
+polttoaineen on höyrystyttävä nopeasti.
+\item Rakenteeltaan suihkusuutin on magneettiventtiili.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Suihkusuutin imusarjasuihkutuksessa}
+\begin{itemize}
+\item Perustekniikka sama kuin suorasuihkutuksessa.
+\item Suuttimen suihkun muoto riippuu moottorin rakenteesta. Esimerkiksi kahdella imuventtiilillä
+varustettuihin sylintereihin voidaan käyttää kaksoissuihkun tuottavaa suutinta.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Pakokaasujen takaisinkierrätys (EGR)}
+\begin{itemize}
+\item NO$_{\rm x}$-päästöjen määrä kasvaa eksponentiaalisesti palamislämpötilan noustessa.
+\item Kierrättämällä pakokaasuja imuilman sekaan, voidaan palamislämpötilaa laskea ja näin vähentää NO$_{\rm x}$-päästöjä jopa 70 \%.
+\item Voidaan toteuttaa sisäisesti ja/tai ulkoisesti.
+\item Sisäinen pakokaasujen takaisinkierrätys tapahtuu avaamalla imuventtiili poistotahdin loppupuolella.
+\item Ulkoinen kierrätys tapahtuu pako- ja imusarjan välisen kierrätyslinjan kautta.
+\item Pakokaasujen takaisinkierrätys vähentää myös polttoaineenkulutusta, koska se vähentää moottorin kuristamistarvetta.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Diagnoositekniikka}
+\begin{itemize}
+\item Nykyaikainen moottorinohjausjärjestelmä tallentaa tiedot vioista ja poikkeavuuksista moottorinohjausyksikön
+muistiin.
+\item Tiedot voidaan lukea sopivalla työkalulla diagnoosiliitännästä.
+\item Liitäntä on standardoitu (ISO 15031-1).
+\item 1990-luvulla eri automerkeillä oli omat diagnoosiliitäntänsä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Mitä diagnostiikkajärjestelmä valvoo?}
+\begin{itemize}
+\item Loogisuustarkastukset (esimerkiksi: kampiakselin pyörintänopeustunnistimen ja nokka-akselin asemantunnistimen kesken).
+\item Reagointitarkastus (esimerkiksi: tapahtuuko mitään, kun EGR-venttiilin asemaa muutetaan).
+\item Signaalialueen tarkastus (esimerkiksi: antaako lämpötila-anturi mielekkään lämpötilan).
+\item Moottorin sammuttamisen jälkeen tehdään aikaavievät testit (esimerkiksi EPROM-muistin tarkastus).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Vikaan reagoiminen}
+\begin{itemize}
+\item Vikaan reagoidaan tapauskohtaisesti.
+\item Signaalipiiri luokitellaan vialliseksi, kun vika säilyy päällä tietyn ajanjakson.
+\item Järjestelmä käyttää viimeiseksi saatua loogista arvoa, kunnes vika on todettu pysyväksi.
+\item Kun vika on todettu pysyväksi, käytetään jotain sopivaa oletusarvoa (esimerkiksi
+oletetaan, että moottorin lämpötila on 90 $^\circ$C).
+\item Jos signaali palautuu itsestään, se hyväksytään, kun se on pysynyt loogisena tietyn ajanjakson.
+Signaalin puuttuminen tallennetaan vikamuistiin.
+\item Vikamuistiin tallennetaan myös olosuhteet, joilla vika on ilmentynyt (kierrosluku, lämpötila ym.).
+\item Kuljettajalle sytytetään vikamerkkivalo (MIL = malfunction indicator light).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Vikatietojen lukeminen}
+\begin{itemize}
+\item Vikatiedot luetaan erillisellä diagnoosilaitteella.
+\item Kommunikointi tapahtuu K-linjan tai CAN-protokollan avulla.
+\item Testilaitteita on erilaisia. Anturitietojen lukemiseen sekä vikakoodien lukemiseen ja nollaamiseen kykeneviä laitteita saa
+alle sadalla eurolla. Merkkikohtaiset ja/tai monipuoliset korjaamotesterit, joilla voidaan ajaa eri testejä (esimerkiksi puristuspainetesti)
+maksavat muutamia tuhansia euroja.
+\end{itemize}
+}
+
+\frame{
+\frametitle{OBD = On-Board Diagnosis}
+\begin{itemize}
+\item Vuodesta 1988 alkaen CARB (California Air Resources Board) vaati kaikkiin Kaliforniassa rekisteröityihin autoihin pakollisen OBD-järjestelmän (OBD I).
+\item OBD I:ssä riitti, että pakokaasujenpuhdistusjärjestelmää valvottiin oikosulkujen ja katkosten varalta.
+\item Viasta ilmoitettiin kuljettajalle vikamerkkivalolla. Vian sijainti piti pystyä lukemaan ilman ulkoisia
+apuvälineitä esimerkiksi diagnoosivalon vilkkukoodina.
+\end{itemize}
+}
+
+\frame{
+\frametitle{OBD II}
+\begin{itemize}
+\item Vuonna 1994 Kaliforniassa voimaan tiukempi OBD II.
+\item Voimaan myös muissa osavaltioissa, hieman lievemmillä rajoituksilla.
+\item OBD II vaatii, että kaikkia sellaisia järjestelmiä valvotaan, joiden rikkoutumisella on merkitystä pakokaasupäästöjen takia.
+\item Ei valvota pelkästään anturien toimintaa, vaan puututaan järjestelmän epäloogiseen toimintaan. Esimerkiksi, jos moottorin
+käyntilämpötila on kauan alle 10 $^\circ C$, annetaan vikahälytys.
+\item Vikakoodien lukeminen tapahtuu standardoidun diagnoosiliitännän kautta. Avoin standardi mahdollistaa koodien lukemisen
+vapaasti ostettavan testerin avulla.
+\end{itemize}
+}
+
+\frame{
+\frametitle{EOBD}
+\begin{itemize}
+\item EOBD = eurooppalaisiin olosuhteisiin sovitettu OBD II. Pakollinen bensiinimoottorilla varustetuissa henkilöautoissa
+vuodesta 2001 ja dieselmoottorilla varustetuissa henkilöautoissa vuodesta 2004.
+\item EOBD poikkeaa OBD II:sta mm. siten, että päästöraja-arvot ovat absoluuttisia. OBD II:ssa raja-arvot ovat 1,5-kertaiset
+kyseisen päästökategorian raja-arvoihin verrattuna. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Järjestelmätestit}
+\begin{itemize}
+\item Varsinaisen vikatunnistuksen lisäksi diagnostiikka tekee useita eri kuntotestejä
+ajoneuvon järjestelmille.
+\item EOBD vaatii mm. katalysaattorin kuntotestin, palamiskatkosten ja lambda-anturien kuntotestit.
+\item CARB-OBD (Kalifornia) on huomattavasti tiukempi, sisältäen vaatimukset mm. polttonestesäiliön
+vuotodiagnoosille ja kampikammion tuuletuksen diagnoosille.  
+\end{itemize}
+}
+
+\frame{
+\frametitle{Protokollat}
+\begin{itemize}
+\item Testeri voi kommunikoida diagnoosiliitännän kautta K-linjan tai CAN-väylän välityksellä.
+\item Koska ajoneuvon sisällä käytetään CAN-väylää viestintään, tämä on yleistyvä tapa.
+\item Liittimessä on nastat eri protokollille.
+\item Nastat 2 ja 10: SAE J1850 (PWM ja VPWM)
+\item Nastat 7 (K-linja) ja 15 (L-linja): ISO 14230-(1-4) (KWP 2000), KWP 71 ja ISO 9141-2
+\item Nastat 6 ja 14: ISO 15765-4 (CAN) 
+\end{itemize}
+Sovelluskerroksen protokollana käytetään McMess-protokollaa (K-linja) ja CCP-protokollaa (CAN).
+}
+
+%http://www.kbmsystems.net/obd_tech.htm
+\frame{
+\frametitle{Protokollat}
+Protokollien käyttö (karkeasti) eri valmistajilla:
+\begin{itemize}
+\item CAN-väylä käytössä mm. uusissa: Ford, Mazda, Volvo.
+\item VPWM: GM, Chrysler
+\item PWM: ennen vuotta 2004 valmistetut Fordit ja Mazdat.
+\item KWP2000: Useimmat eurooppalaiset ja aasialaiset autot.
+\item Bittien käsitteleminen on helppoa: halpakin koodinlukija tukee usein kaikkia protokollia.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Motronic}
+\begin{itemize}
+\item Tuotantoon vuonna 1979, kehitetty jatkuvasti.
+\item Yhdistetty sytytyksen ja suihkutuksen ohjausjärjestelmä.
+\item M-Motronic, mekaaninen kaasupoljin.
+\item ME-Motronic, elektroninen kaasupoljin.
+\item ME7-Motronic, ohjausjärjestelmä yhdelle 16-bittiselle mikrosirulle (1998).
+\item ME9-Motronic, 32-bittinen suoritin.
+\item MED-Motronic, suorasuihkutusjärjestelmä (2000).
+\item Bifuel-Motronic (maakaasu \& bensiini).
+\item MEG-Motronic (integroitu vaihteistonohjaukseen), MP-Motronic (integroitu MAP-anturi) \ldots
+\end{itemize}
+Laajasti käytössä eurooppalaisissa autoissa.
+}
+
+\frame{
+\frametitle{Nimeäminen}
+\begin{itemize}
+\item Kirjainkoodi kertoo päätyypin (ME, MED jne.)
+\item Numero kertoo version ("sukupolven"), esim. M1, M3, M7, ME7.
+\item Ajoneuvovalmistajien vaatimusten perusteella kehitetyt variaatiot
+nimetään versionumeron jälkeisellä pisteellä (esim. M4.3 (Volvo), MED9.1 (VAG: VW, Seat, Audi\ldots)).
+\item Huom! Pisteen jälkeinen numero vaihtelee eri sarjoissa: esim. Motronic 4.1 käytettiin Opelissa ja Peugeotissa,
+ja MED9.1 on käytössä VAG:n autoissa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Motronic}
+Ohjausjärjestelmä säätää
+\begin{itemize}
+\item Kaasuläppää
+\item Sytytysennakkoa
+\item Suihkutuksen ajankohtaa
+\item Hukkaporttia (ahdetut moottorit)
+\item Venttiileitä (muuttuva venttiilien ajoitus, Valvetronic)
+\end{itemize}
+}
+
+\frame{
+\frametitle{M-Motronic}
+\begin{itemize}
+\item Vanhat M-motronicit käsittelivät vääntömomenttitoiveen erikseen joka järjestelmässä:
+säätämällä sytytystä, muuttamalla suihkutusaikaa.
+\item Uusissa (7-versiosta alkaen) järjestelmissä vääntömomenttitoive käsitellään keskitetysti.
+\end{itemize}
+}
+
+\frame{
+\frametitle{ME-Motronic}
+\begin{itemize}
+\item Erona M-Motroniciin: elektroninen kaasuläpän ohjaus, vääntömomenttiohjaukseen perustuva ohjelmisto.
+\end{itemize}
+}
+
+\frame{
+\frametitle{MED-Motronic}
+\begin{itemize}
+\item Keskeinen ero ME-Motroniciin verrattuna on varaajakatalysaattorin ohjausmahdollisuus sekä suorasuihkutuksen ohjaus.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Alijärjestelmät päätoimintoineen}
+\begin{itemize}
+\item Järjestelmädokumentointi ja -ohjaus (SD, SC)
+\item Vääntömomenttitoive (TD)
+\item Vääntömomenttiohjaus (TS)
+\item Täytöksen säätö (AS)
+\item Polttoainejärjestelmä (FS)
+\item Sytytysjärjestelmä (IS)
+\item Pakokaasujärjestelmä (ES)
+\item Toimintotiedot (OD) ja  Tiedonsiirto (CO)
+\item Oheislaiteohjaus (AC)
+\item Valvonta (MO) ja Diagnostiikka (DS)
+\end{itemize}
+}
+
+\frame{
+\frametitle{Järjestelmädokumentointi ja -ohjaus (SD, SC)}
+\begin{itemize}
+\item Järjestelmädokumentointiin on tallennettu ajoneuvon ja moottorin tiedot.
+\item Järjestelmäohjaus sisältää ohjausyksikön "käyttöjärjestelmän": mitä tehdään
+järjestelmän käynnistyksessä, mitä normaalitilassa ja mitä sytytysvirran katkaisun
+jälkeen (esim. puhaltimen jälkikäyttö, laitteistotestit).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Vääntömomenttitoive (TD)}
+Järjestelmä käsittelee kaasupolkimelta tulevan momenttipyynnön.
+\begin{itemize}
+\item Molempien potentiometrien asennot luetaan ja esikäsitellään.
+\item Polkimen asennosta lasketaan ohjearvo vääntömomentille.
+\item Vääntömomenttipyynnölle lasketaan toimintatilan mukaiset rajoitteet (pyörintänopeuden rajoitus, värähtelynvaimennus).
+\item Tyhjäkäynnille lasketaan sopiva vääntömomentti mm. moottorin lämpötilan, akkujännitteen ja ilmastoinnin toimintatilan mukaan.
+\item Vakionopeudensäädin voi myös pyytää vääntömomenttia.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Vääntömomenttiohjaus (TS)}
+\begin{itemize}
+\item Yksikkö laskee sopivan sylinterintäytöksen (ilmamäärän) ja sytytyshetken.
+\item Vääntömomenttimallinnusyksikkö laskee täytöksen, lambdan, sytytyshetken, suihkutuksen ja
+kierrosluvun perusteella optimaalisen vääntömomentin.
+\item Viestit välitetään eteenpäin sytytys-, täytöksen säätö- ja polttonestejärjestelmälle.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Täytöksen säätöjärjestelmä (AS)}
+\begin{itemize}
+\item Järjestelmä laskee kaasuläpän kulman ja mahdollisen pyörteytysläpän asennon. Jos moottorissa on
+säädettävä venttiilinajoitus, lasketaan ohjearvot myös niille.
+\item Järjestelmä säätää myös pakokaasujen takaisinkierrätysventtiiliä ja ahtopainetta.
+\end{itemize}
+}
+
+\frame{
+\frametitle{FS, IS ja ES}
+\begin{itemize}
+\item Polttonestejärjestelmä laskee suihkutushetken/hetket ja määrän vääntömomenttiohjaukselta tulevan tiedon perusteella.
+\item Järjestelmä reagoi vikoihin ja kulumisiin. Esimerkiksi imusarjan vuoto otetaan huomioon. FS huolehtii myös polttonestehöyryjen
+ talteenottojärjestelmän aktiivihiilisäiliön tuuletuksesta.
+\item Sytytysjärjestelmä laskee sytytyshetken toimintatilan perusteella, ottaen huomioon mahdollisen muuttuvan venttiilienajoituksen sekä 
+nakutustunnistimilta saatavan tiedon.
+\item Pakokaasujärjestelmä huolehtii lambda-säädöstä ja varaajakatalysaattorin ohjauksesta. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Toimintotiedot (OD)}
+\begin{itemize}
+\item OD-järjestelmä valvoo kaikkien antureilta saatavien parametrien loogisuutta, ja antaa tarvittaessa korvaavan arvon väärän arvon tilalle.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tiedonsiirto (CO)}
+\begin{itemize}
+\item Tiedonsiirtoyksikkö huolehtii kommunikaatiosta muiden järjestelmien kanssa.
+\item Esimerkiksi ajonestolaitteen, vaihteiston ohjausyksikön ja testerin kanssa kommunikoidaan keskitetysti CO-yksikön kautta.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Oheislaiteohjaus (AC)}
+\begin{itemize}
+\item Oheislaiteohjaus ohjaa nimensä mukaisesti oheislaitteita: ilmastointi, puhallin, vesipumppu, laturi\ldots
+\end{itemize}
+}
+
+\frame{
+\frametitle{Valvonta (MO) ja Diagnostiikka (DS)}
+\begin{itemize}
+\item Valvontapiiri valvoo moottorinohjausyksikön sisäisten järjestelmien toimintaa. Esimerkiksi jumiin
+mennyt mikrokontrolleri käynnistetään välittömästi uudelleen.
+\item Diagnostiikkajärjestelmä tallentaa viat ja esiintymisolosuhteet ja ohjaa vikamerkkivaloa.
+\end{itemize}
+}
+
+
+
+\frame {
+\frametitle{Dieselmoottorin ohjauksen menetelmät}
+Dieselmoottorin tuottamaa vääntömomenttia säädetään vaikuttamalla
+\begin{itemize}
+\item polttoaineen ruiskutukseen (millä hetkellä ja kuinka paljon)
+\item dieselmoottorin imuilmaa ei kuristeta
+\end{itemize}
+}
+
+\frame{
+\frametitle{Dieselmoottorin historia}
+\begin{itemize}
+\item Rudolf Diesel $\to$ patentti vuonna 1892
+\item Dieselin tavoitteena oli kehittää kilpailija höyrykoneelle.
+\item Alkuperäinen tarkoitus oli käyttää polttoaineena hiilipölyä.
+\item Toimiva prototyyppi vuonna 1897
+\begin{itemize}
+\item Paino 4500 kg
+\item Korkeus 3 m
+\item Käytti raskasta polttoöljyä
+\item Hyötysuhde 26 \%.
+\item Polttoaine ruiskutettiin paineilman avulla.
+\item Samaa ruiskutustekniikkaa käytettiin myöhemmin Daimlerin kuorma-autoissa.
+\end{itemize}
+
+
+\end{itemize}
+}
+
+\frame{
+\frametitle{Historia: esikammio}
+\begin{itemize}
+\item Seuraava edistysaskel oli esikammio, johon polttoaine ruiskutettiin suurella paineella.
+\item Osa polttoaineesta palaa esikammiossa. Lämpötila ja paine nousevat ja seos syöksyy palotilaan.
+\item Esikammion tehtävä on seoksenmuodostus. Ruiskutuspaineet aluksi 100-300 baaria.
+\item Vasta moderni korkeapaineruiskutustekniikka teki esikammion tarpeettomaksi.
+\item Suoraruiskutustekniikka rupesi vähitellen yleistymään 1960-luvulta alkaen.
+\item Henkilöautoissa esikammiotekniikka oli käytössä vielä 1990-luvun alkuun asti. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Historia: yleistyminen}
+\begin{itemize}
+\item Dieselmoottorit kuorma-autoihin 1920-luvulla.
+\item Aluksi polttoaineena ruskohiilestä tislattu öljy (oli halvempaa kuin kovasti verotettu bensiini :).
+\item Daimler käytti paineilmaruiskutusta, Benz esikammiota ja MAN suoraruiskutusta.
+\item Henkilöautoon 1936 (Mercedes 260D, 45 hv).
+\item Suosio henkilöautoissa kasvoi vasta turboahtamisen ja korkeapaineruiskutuksen myötä 1990-luvulla.
+\item Nykyään Euroopassa (noin) joka toinen rekisteröity henkilöauto on diesel.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Käyttö muualla}
+\begin{itemize}
+\item Dieselmoottorilaiva (1903).
+\item Dieselveturi (1913).
+\item Käytettiin ilmalaivoissa, kokeiltiin lentokoneissa.
+\item \ldots
+\end{itemize}
+}
+
+
+
+\frame {
+\frametitle{Dieselmoottorin polttoaineenruiskutus}
+Nykyisin käytössä olevat ruiskutusjärjestelmät ovat
+\begin{description}
+\item[rivipumppu] Jokaisella sylinterillä on oma nokka-akselin käyttämä pumppuelementti.
+\item[jakajapumppu] Yksi pumppumäntä, joka sekä kehittää paineen että jakaa sen sylintereille.
+\item[pumppusuutin] Pumppu ja suutin on integroitu
+\item[yhteispaineruiskutus] Erillinen korkeapainepumppu, jonka toiminta ei ole sidottu ruiskutushetkiin. Ruiskutusventtiilejä
+ohjataan sähköisesti.
+\end{description}
+}
+
+\frame{
+\frametitle{Eroja bensiinimoottoriin verrattuna}
+\begin{itemize}
+\item Ei kuristusläppää.
+\item Dieselmoottoria käytetään ilmaylimäärällä ($\lambda>1$) nokeamisen estämiseksi.
+\item Syttyminen tapahtuu itsestään (ei sytytystulppia).
+\item Ahtaminen käytännössä "pakollista" (parantaa hyötysuhdetta, tekee ylipäätään mielekkääksi).
+\item Vedentunnistin.
+\item Usein monimutkaisempi pakokaasujen puhdistus.
+\item Käynnistysapulaitteet
+\end{itemize}
+}
+
+\frame{
+\frametitle{Samankaltaisuuksia}
+\begin{itemize}
+\item Perustoimintaidea.
+\item Pakokaasujen takaisinkierrätys (alempi palamislämpötila, vähemmän NO$_{\rm X}$).
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Nykyaikainen henkilöauton dieselmoottori}
+\begin{itemize}
+\item Yhteispaineruiskutus (common rail) mahdollistaa tarkan säädön. Suurempi teho, pienemmät päästöt ja polttoaineenkulutus.
+\item Pietsosuuttimet.
+\item Ruiskutuspaineet melkein tai yli 2000 baaria.
+\item Suoraruiskutus, ei käytetän esi- tai swirl-kammiota.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Common rail: etuja}
+\begin{itemize}
+\item Ruiskutuspaineen säätö pyörimisnopeudesta riippumatta. Mahdollistaa tarkan säädön ja riittävän ruiskutuspaineen
+kaikille kierrosluvuilla.
+\item Vapaa ruiskutushetken valinta. Useat ruiskutukset työtahtia kohden helppo toteuttaa.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Pakokaasujen puhdistus}
+\begin{itemize}
+\item Tavallinen hapetuskatalysaattori + DPF
+\item Denoxtronic (urearuiskutus hapetuskatalysaattorin jälkeen + SCR-katalysaattori)
+\item Varaava katalysaattori.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{DPF (Diesel Particulate Filter)}
+\begin{itemize}
+\item Kerää nokihiukkasia pakokaasuista.
+\item Suodatin tulee regeneroida (puhdistaa) noin 500 kilometrin välein. Puhdistus kestää noin 10 minuuttia.
+\item Noen pois polttaminen vaatisi 600 asteen lämpötilan. 
+\item Käyttämällä hapetuskatalysaattoria ennen suodatinta, voidaan typpimonoksidi hapettaa typpidioksidiksi. 
+Typpidioksidi puolestaan reagoi noen kanssa (muodostaen hiilidioksidia ja typpimonoksidia) jo noin 300 asteen lämpötilassa.
+\item Regenerointi voidaan myös toteuttaa ruiskuttamalla polttoaineeseen lisäainetta, joka nostaa pakokaasujen
+lämpötilaa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{SCR-katalysaattori}
+\begin{itemize}
+\item Ruiskuttamalla ammoniakkia tai ureaa pakokaasujen joukkoon, voidaan typenoksidit pelkistää
+typeksi. 
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Dieselmoottorin polttoaineensyöttö}
+\begin{itemize}
+\item Perusperiaate sama kuin bensiinimoottorissa.
+\item Syöttöjärjestelmän rakenne riippuu erittäin paljon käytettävästä ruiskutusjärjestelmästä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Dieselmoottorin polttoaineensuodatin}
+\begin{itemize}
+\item Polttoaineensuodattimen tehtävänä on erottaa hiukkasepäpuhtaudet ja vesi pois polttoaineesta.
+\item Dieselpolttoaineessa on tyypillisesti enemmän epäpuhtauksia kuin bensiinissä.
+\item Korkeat ruiskutuspaineet (2000 baaria) vaativat erittäin tarkan polttoaineen puhdistuksen.
+\item Usein käytetään esisuodatinta polttoainesäiliössä; etenkin maissa, joissa polttoaineen laatu on huono.
+\item Joissain suodattimissa on erillinen vedenpoistoventtiili.
+\item On mahdollista myös käyttää polttoaineen esilämmitystä; tämä estää muodostuvia parafiinikiteitä
+tukkimasta suodatinta talvella.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Siirtopumppu}
+\begin{itemize}
+\item Kuten (suora)suihkutusbensiinimoottoreissa, nykyaikaisessa dieselmoottorissa on kaksi pumppua:
+siirtopumppu (matalapainepumppu) ja ruiskutuspumppu (korkeapainepumppu).
+\item Useissa jakajapumppujärjestelmissä siirtopumppu on integroitu korkeapainepumppuun.
+\item Dieselmoottorin siirtopumppu on perinteisesti ollut keskipakorullapumppu.
+\item Polttoaine virtaa pumpun sähkömoottorin läpi jäähdyttäen ja voidellen sitä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Hammaspyöräpumppu ja siipilevypumppu}
+\begin{itemize}
+\item Uusissa yhteispaineruiskutusjärjestelmissä käytetään usein hammaspyöräpumppua.
+\item Pumppu voi olla erillinen imupumppu moottoritilassa, tai se on integroitu korkeapainepumppuun.
+\item Pumppusuuttimien kanssa käytetään myös siipilevypumppua.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tandempumppu}
+\begin{itemize}
+\item Tandempumppuun on yhdistetty samaan yksikköön pumppusuuttimien matalapainepumppu sekä
+jarrutehostimen alipainepumppu.
+\item Itse polttoainepumppuosana on joko hammaspyöräpumppu tai siipilevypumppu.
+\item Pumpun polttonestekanavat on suunniteltu niin, että jos tankin ajaa tyhjäksi, pumppu ei
+tyhjene.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Muita osia}
+\begin{itemize}
+\item Paineensäätöventtiili. Käytetään pumppu(putki)suuttimien paluupiirissä vakioimaan syöttöpainetta.
+\item Moottorinohjausyksikön jäähdytin. Ohjausyksikön jäähdytys tapahtuu tavallisesti polttoaineen avulla.
+\item Palaavan polttoaineen jäähdytin. Palaava polttoaine on usein niin kuumaa, että sitä on pakko jäähdyttää
+ennen palautusta polttoainetankkiin. Tämä tehdään erillisen jäähdytinpiirin avulla.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Rivipumppu}
+\begin{itemize}
+\item "Perinteinen" dieselmoottorin polttoaineenruiskutusjärjestelmä.
+\item Yksinkertainen rakenne $\to$ kestävä $\to$ tarvitsee vähän huoltoa.
+\item Käytössä nykyäänkin suurissa dieselmoottoreissa. Ei asenneta enää uusiin henkilöautoihin.
+\item Pumppuyksikön voitelu tapahtuu moottoriöljyllä, ei dieselöljyllä.
+\item Ruiskutuspaine noin 500-1300 baaria.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Rivipumpun säätäminen}
+\begin{itemize}
+\item Rivipumpussa pyörintänopeutta säädetään mekaanisella tai elektronisella säätimellä.
+\item Usein käytetään myös erillistä ennankonsäädintä (engl. timing device).
+\item Luistiohjatussa rivipumpussa voidaan määrän lisäksi säätää myös syötön alkuhetkeä, jolloin
+erillistä ennakonsäädintä ei tarvita.
+\item Vääntömomentti on suurin piirtein suoraan verrannollinen ruiskutusmäärään.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Mekaaninen pyörintänopeussäädin}
+\begin{itemize}
+\item Mekaaninen säädin on toiminnaltaan keskipakosäädin.
+\item Idea on vanha: käytetty Wattin höyrykoneessa ja sitä ennen tuulimyllyissä.
+\item Kaksi painoa siirtyvät sitä kauemmas toisistaan, mitä suurempi on pyörimisnopeus.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Mekaaninen säädin}
+\begin{itemize}
+\item Yksinkertaisimmillaan mekaaninen säädin rajoittaa vain maksimipyörintänopeuden
+kaasuvivun asennon mukaan. (RQ)
+\item RQU-säädin säätää vakioi myös tyhjäkäyntinopeuden.
+\item Nykyaikaiset säätimet säätävät ruiskutusmäärää koko pyörimisnopeusalueella.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ennakonsäädin}
+\begin{itemize}
+\item Ennakonsäädin aikaistaa ruiskutushetkeä pyörimisnopeuden kasvaessa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Elektroninen säätöjärjestelmä}
+\begin{itemize}
+\item Keskipakosäädin ja ennakonsäädin voidaan helposti korvata elektronisella säädöllä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Rivipumpun polttoaineensyöttö}
+\begin{itemize}
+\item Rivipumpun siirtopumppu on yleensä moottoritilaan asennettu, nokan käyttämä mäntäimupumppu.
+\item Joissain tapauksissa siirtopumppua ei tarvita (esimerkiksi traktoreissa, joissa polttoainesäiliö
+on moottorin yläpuolella).
+\item Siirtopumpun yhteydessä on käsipumppu, jolla polttoainelinja ja siirtopumppu saadaan täytettyä
+huollon tai säiliön kuivaksiajamisen jälkeen. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Bosch PE-rivipumpun toiminta}
+\begin{itemize}
+\item PE-rivipumpun ruiskutusmäärää säädetään muuttamalla männän tehollisen iskun pituutta.
+\item Männässä on viisto ohjausreuna, joka mahdollistaa tehollisen iskun pituuden säätämisen
+mäntää kiertämällä.
+\item Maksimiruiskutuspaine tällä pumpputyypillä on tavallisesti yli 400-1350 baaria.
+\item Sylinterin yläpäässä on paineventtiili, joka aukeaa syötön alkaessa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Paineventtiilityypit}
+Pumpun paineventtiili sulkeutuu nopeasti, kun syöttö loppuu. Tämä nopea paineen aleneminen aikaansaa
+ruiskusuuttimen nopean sulkeutumisen, jolloin palotilaan ei tihku ylimääräistä polttoainetta.
+\begin{itemize}
+\item Vakiotilavuusventtiili sallii paineenvaihtelut korkeapainelinjassa, ja päästää läpi vakiotilavuuden polttoainetta.
+\item Vakiopaineventtiili pitää linjan paineen vakiona. Tätä venttiilityyppiä käytetään nopeissa dieselmoottoreissa,
+joissa on korkea ruiskutuspaine.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ennakonsäädin}
+\begin{itemize}
+\item Mekaaninen ennakonsäädin perustuu keskipakosäätöön (kuten pyörimisnopeudensäädin).
+\item Kierrosluvun kasvaessa säädin kääntää rivipumpun nokka-akselia niin, että ruiskutus alkaa aikaisemmin.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Luistiohjattu rivipumppu}
+\begin{itemize}
+\item Luistiohjatussa rivipumpussa ennakonsäätö tapahtuu pumpun sisäisellä ohjausluistilla, ei nokka-akselia kääntämällä
+\item Luistiohjauttua rivipumppua säädetään elektronisesti.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Jakajapumppu}
+\begin{itemize}
+\item Pienikokoinen, soveltuu pieniin 3-6-sylinterisiin nopeakäyntisiin dieselmoottoreihin.
+\item Käyttöön vuonna 1962.
+\item Voitelu tapahtuu polttoaineella, ei moottoriöljyllä.
+\item Käytössä vielä 2000-luvun alussa; 2000-luvulla pumppusuuttimet ja yhteispaineruiskutus korvasivat nopeasti.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Pumpputyypit}
+Männän toteutuksen perusteella:
+\begin{itemize}
+\item Aksiaalimäntäjakajapumppu
+\item Säteismäntäjakajapumppu
+\end{itemize}
+Ruiskutusmäärän annostelun perusteella:
+\begin{itemize}
+\item Porttiohjaus
+\item Solenoidiventtiiliohjaus
+\end{itemize}
+Säädön perusteella
+\begin{itemize}
+\item Mekaaninen säätö
+\item Elektroninen säätö
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Siirtopumppu}
+\begin{itemize}
+\item Jakajapumppujärjestelmä voi käyttää joko pumppuun integroitua siirtopumppua tai polttoainesäiliössä olevaa sähköistä pumppua.
+\end{itemize}
+}
+\frame{
+\frametitle{Jakajapumpun toiminta}
+\begin{itemize}
+\item Jakajapumpussa yksi mäntä kehittää ruiskutuspaineen ja jakaa sen sylintereille.
+\item Tavallaan sama toiminta-ajatus kuin bensiinimoottorin virranjakajassa.
+\item Mäntä kehittää paineen edestakaisella liikkeellä ja kohdesylinterin valinta tapahtuu männän
+pyörivällä liikkeellä.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Magneettiventtiiliohjattu jakajapumppu}
+\begin{itemize}
+\item Magneettiventtiiliohjatussa jakajapumpussa magneettiventtiilillä valitaan ruiskutuksen aloitushetki.
+\item Mahdollistaa tarkan säädön
+\end{itemize}
+}
+
+\frame{
+\frametitle{Säteismäntäjakajapumppu}
+\begin{itemize}
+\item Säteismäntäjakajapumpulla on mahdollista saavuttaa korkeampi (1950 baaria) ruiskutuspaine kuin aksiaalimäntäjakajapumpulla (n. 1500 baaria).
+\item Korkea paine saavutetaan käyttämällä useampaa mäntää.
+\item Jakaminen tapahtuu pyörivällä männällä kuten aksiaalipumpussakin.
+\item Säteismäntäpumput ovat aina elektronisesti ohjattuja.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jakajapumpun ohjaus}
+\begin{itemize}
+\item Kuten rivipumpussa (tai missä tahansa laitteessa), ohjaus voidaan toteuttaa joko mekaanisesti tai elektronisesti.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jakajapumpun mekaaninen säätö}
+\begin{itemize}
+\item Ruiskutusennakkoa säädetään kääntämällä pumpun rullarengasta.
+\item Ruiskutusmäärää säädetään säätöluistin avulla.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jakajapumpun elektroninen säätö}
+\begin{itemize}
+\item Jakajapumppua voidaan säätää elektronisesti yksinkertaisesti ohjaamalla solenoidin
+avulla ennakonsäätölaitetta ja säätöluistia.
+\item Magneettiventtiiliohjatussa jakajapumpussa ruiskutuksen alkuhetki ja kesto säädetään
+magneettiventtiilin avulla.
+\item Erillistä säätöluistia ei tarvita, ei myöskään rullarenkaan kääntämiseen perustuvaa ennakon säätöä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Elektronisen säädön edut}
+Pääetu: tarkempi säätö.
+\begin{itemize}
+\item matalampi polttoaineen kulutus
+\item pienemmät päästöt
+\item suurempi teho
+\item tasaisempi tyhjäkäynti
+\item mahdollisuus sovittaa tyhjäkäynti apulaitteisiin (esim. ilmastointi)
+\item diagnostiikkatoiminnot
+\item tietojenvaihto muiden ajoneuvon järjestelmien (esimerkiksi automaattivaihteisto) kanssa
+\end{itemize}
+}
+
+
+
+
+
+\frame{
+\frametitle{Ruiskusuuttimet}
+Suuttimen perustehtävinä on taata 
+\begin{itemize}
+\item optimaalinen polttoaineen purkautuminen sylinteriin (tasainen paineen nousu)
+\item optimaalinen polttoaineen sumuuntuminen
+\item sekä eristää palotila polttoainejärjestelmästä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Vaatimukset}
+\begin{itemize}
+\item Ruiskusuutin altistuu tärinälle ja nopeille paineiskuille, sekä korkealle lämpötilalle. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Suutintyypit}
+\begin{itemize}
+\item Suutin voi olla joko itsenäinen yksikkö, tai kiinni suutinpitimessä. Yhteispaineruiskutusjärjestelmissä ja pumppusuuttimissa
+ei erillistä pidintä käytetä.
+\item Jaetulla palotilalla (= esi- tai pyörrekammio) varustetussa moottorissa käytetään (kuristin)tappisuuttimia,
+suoraruiskutteisissa moottoreissa taas reikäsuuttimia.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kuristintappisuutin}
+\begin{itemize}
+\item Kuristintappisuutin muodostaa kapean, suuttimen akselin suuntaisen suihkun.
+\item Suutinneulan nousun määrä vaikuttaa ruiskutusmäärään.
+\item Suuttimen painekammion alaosa on muotoiltu siten, että kun neula nousee, polttonesteen määrä kasvaa jyrkästi.
+\item Alussa virtaa polttonestettä vähän, lopussa paljon $\to$ positiivinen vaikutus käyntiääneen. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Reikäsuutin}
+\begin{itemize}
+\item Reikäsuuttimessa on suutinneula, joka toimii venttiilinä polttoaineelle. Polttoaine suihkuaa useista rei'istä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Suutinpidin}
+\begin{itemize}
+\item Suutinpitimen tarkoituksena on tarjota jousivoima suuttimen neulalle, joka avautuu paineen vaikutuksesta.
+\item Esiruiskutuksella voidaan vaikuttaa suotuisasti moottorin käyntimeluun. Esiruiskutus voidaan aikaansaada
+käyttämällä kaksijousisuutinpidintä: paineen noustessa ensin toinen jousi päästää suuttimen avautumaan
+vähän, ja hetkeä myöhemmin toinen jousi avaa suutinta lisää, jolloin tapahtuu pääruiskutus.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Pumppusuutin ja yhteispaineruiskutus}
+\begin{itemize}
+\item Edellä kuvatut suuttimet avautuvat paineen vaikutuksesta.
+\item Pumppusuutin- ja yhteispaineruiskutuksessa suuttimen avautumista ohjataan elektronisesti (sähkömagneetilla tai pietsosähköisesti).
+\end{itemize}
+}
+
+
+
+\frame{
+\frametitle{Yksikköpumput}
+\begin{itemize}
+\item pumppusuutin
+\item pumppuputkisuutin.
+\end{itemize}
+Yksikköpumppujen ruiskutuspaineiden suuruusluokka on noin 2000 baaria.
+}
+
+\frame{
+\frametitle{Pumppusuutin}
+\begin{itemize}
+\item Pumppusuuttimessa on nokka-akselin keinuvivun välityksellä käyttämä pumppu ja elektronisesti
+ohjattu suutin integroitu samaan pakettiin.
+\item Mahdollistaa erittäin vapaan säädön. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Pumppuputkisuutin}
+\begin{itemize}
+\item Kuten pumppusuutin, mutta suuttimen ja pumpun välillä on lyhyt korkeapaineputki.
+\item Pumppu voidaan sijoittaa suoraan nokka-akselille, joten keinuvipuja ei tarvita. 
+\item Pumppuputkisuuttimia käytetään myös raskaalla polttoöljyllä käyvissä dieselmoottoreissa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Käyttökohteet}
+\begin{itemize}
+\item Pumppusuuttimia käytetään henkilöautoissa ja hyötyajoneuvoissa.
+\item Pumppuputkisuuttimia käytetään raskaissa kuorma-autoissa, työkoneissa,
+vetureissa ja laivoissa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Magneettiventtiilin toiminta}
+\begin{itemize}
+\item Kun magneettiventtiili suljetaan, ruiskutus alkaa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Yksikköpumpun historia}
+\begin{itemize}
+\item Ajatus yksikköpumpusta jo Rudolf Dieselin patenttidokumentissa vuonna 1905.
+\item 1994 pumppusuutin hyötyajoneuvoihin.
+\item 1995 pumppuputkisuutin kuorma-autoihin.
+\item 1998 pumppusuutin henkilöautoihin.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Yhteispaineruiskutus (common rail)}
+\begin{itemize}
+\item Paineentuotto on riippumaton kierrosnopeudesta.
+\item Kaikki suuttimet on kytketty samaan korkeapainelinjaan.
+\item Ruiskutushetki ja määrä ovat täysin vapaasti valittavissa.
+\item Ohjausjärjestelmä samantyyppinen kuin yksikköpumpuissa.
+\item Ruiskutuspaineet 2000 baaria tai enemmän.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Korkeapainepumppu}
+\begin{itemize}
+\item Henkilöautoissa käytetään säteismäntäpumppua, ja hyötyajoneuvoissa rivityyppistä pumppua.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Esi- ja jälkiruiskutus}
+\begin{itemize}
+\item Esi- ja jälkiruiskutuksen avulla voidaan tasata moottorin käyntiääntä (vähentää terävää "nakutusta").
+\item Common rail -järjestelmä mahdollistaa myös myöhäisen jälkiruiskutuksen. Esiruiskutus on mahdollista
+myös muissa elektronisesti ohjatuissa järjestelmissä.
+\end{itemize}
+}
+
+
+
+\frame{
+\frametitle{Korkeapainejärjestelmä}
+\begin{itemize}
+\item Paineensäätö tapahtuu ohjaamalla korkeapainepumppua ja paluulinjan venttiiliä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Solenoidisuutin}
+\begin{itemize}
+\item Yhteispaineruiskutuksessa käytetään nopeita reikäsuuttimia.
+\item Nopea avautuminen tarvitsee erittäin suuren virtapiikin.
+\item Virtapiikki kehitetään hakkuriteholähteellä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Pietsosuuttimet}
+\begin{itemize}
+\item Perustuu pietsosähköiseen ilmiöön.
+\item Kun pietsokidettä puristetaan, siihen muodostuu jännite (hyödynnetään esimerkiksi tupakansytyttimissä).
+\item Toimii myös kääntäen: kun pietsokiteeseen kytketään jännite, se vetäytyy kasaan.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Korkeapainepumppu}
+\begin{itemize}
+\item Dieselmoottorin korkeapainepumpun perusperiaate on sama kuin bensiinimoottoreissakin.
+\item Kehitettävä paine on luonnollisesti korkeampi.
+\item Henkilöautoissa käytetään tyypillisesti kolmesylinteristä säteismäntäpumppua.
+\item Hyötyajoneuvoissa käytetään myös rivityyppisiä mäntäpumppuja.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jakoputki}
+\begin{itemize}
+\item Jakoputken suunnittelussa on olennaista suunnitella putken rakenne sellaiseksi, että 
+yksittäiset ruiskutukset eivät aiheuta merkittäviä paineaaltoja putkeen.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Käynnistysapulaitteet}
+\begin{itemize}
+\item Dieselpolttoaine vaatii (itse)syttyäkseen noin 250 asteen lämpötilan.
+\item Tämä lämpötila saavutetaan suoraruiskutusmoottoreissa vielä noin
+nollan asteen lämpötiloissa.
+\item Jaetulla palotilalla varustettu moottori vaatii apulaitteiden käyttöä
+lämpimämmässäkin.
+\item Esikammiomoottori vaatii apulaitteiden käyttöä jo alle +40 asteen lämpötiloissa ja
+pyörrekammiolla varustettu jo alle +20 asteen lämpötiloissa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Hehkutus}
+\begin{itemize}
+\item Sylinterissä oleva hehkutulppa lämmittää sylinterissä olevaa imuilmaa niin, että polttoaineen ja ilman seos syttyy.
+\item Hehkutulppa on käytännössä metallitupen sisällä oleva lämmitysvastus.
+\item Nykyaikaisissa moottoreissa käynnistyminen matalilla akkujännitteillä on varmistettu siten, että hehkutulpat on mitoitettu
+akkujännitettä matalammalle jännitteelle, ja niitä ohjataan elektronisesti.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Liekkihehkutus}
+\begin{itemize}
+\item Suurissa moottoreissa imuilma lämmitetään liekkihehkutulpan avulla.
+\item Imusarjassa olevaan hehkutulppaan suihkutetaan polttoainetta niin, että imusarjassa palaa liekki,
+joka lämmittää imusarjassa olevan ilman.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Elektroninen dieselsäätö (EDC)}
+\begin{itemize}
+\item Käytännössä kaikki nykyaikaiset dieselmoottorit ovat elektronisesti ohjattuja.
+\item Säätösuureita ovat ainakin
+\begin{itemize}
+\item Kampiakselin kulma ja kierrosluku.
+\item Jakoputken paine.
+\item Imusarjan paine.
+\item Polttonesteen, jäähdytysnesteen ja imuilman lämpötila.
+\item Mitattu ilmamassavirtaus.
+\item Auton nopeus.
+\end{itemize}
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Elektronisen dieselsäädön edut}
+\begin{itemize}
+\item Tarkempi säätö $\to$ pienemmät päästöt, suurempi teho\ldots
+\item Samat hyödyt siis kuin bensiinimoottorilla.
+\item Elektronisella dieselsäädöllä voidaan toteuttaa lisäsäätöjä, jotka olisivat vaikeita tai mahdottomia toteuttaa mekaanisilla säätimillä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tärinänvaimennus ja kulumisen kompensointi}
+\begin{itemize}
+\item Nopeat vääntömomentin vaihtelut rasittavat voimansiirtolinjaa ja aiheuttavat epämiellyttäviä
+värähtelyjä.
+\item Esimerkiksi jos nostaa kuorma-autossa kytkimen liian nopeasti, tai henkilöautossa painaa matalilla
+kierroksilla kaasun pohjaan.
+\item Elektronisella ohjauksella voidaan lieventää tällaisia värähtelyjä aktiivisesti.
+\item Dieselmoottori kuluu epätasaisesti. Tällöin joku sylintereistä saattaa tarvita hieman enemmän tai
+vähemmän ruiskutusta kuin muut.
+\item Säätämällä ruiskutusmäärät kulumisen mukaan, saadaan moottori käymään tasaisemmin, etenkin tyhjäkäynnillä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Sylinterien poiskytkentä}
+\begin{itemize}
+\item Hyötyajoneuvoissa (ja joissain henkilöautoissa) kytketään usein puolet sylintereistä pois
+päältä, jos kuormitus on erittäin pieni.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Moottorinohjausyksikkö ja anturit}
+\begin{itemize}
+\item Käytännössä sama mikä pätee bensiinimoottorin ohjausyksikköön ja antureihin, pätee myös dieselmoottoreihin.
+\end{itemize}
+}
+
+
+

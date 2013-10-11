@@ -1,0 +1,186 @@
+% Tammen kirjasta Turvalaitteet 556 ja alustan sähköjärjestelmät luku 16
+
+\frame{
+\frametitle{Turvatekniikka}
+\begin{itemize}
+\item Turvallisuus on hyvä myyntiargumentti, olipa kyseessä sanomalehtiotsikko tai kulkuväline.
+\item Turvatekniikka on kehittynyt reilusti eteenpäin viimeisen 20 vuoden aikana.
+\item Moni asia on keksintönä vanha: esimerkiksi turvatyyny on 1950-luvun keksintö. Joihinkin autoihin se tuli 1970-luvulla. Vakiovarusteena se
+yleistyi vasta 1990-luvulla.
+\item Aktiiviset turvalaitteet pyrkivät estämään onnettomuuden. Passiiviset turvalaitteet pyrkivät minimoimaan onnettomuuden vaikutukset.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Turvatyyny}
+\begin{itemize}
+\item Idea on yksinkertainen: kaasulla täyttyvä tyyny ottaa vastaan kuljettajan liike-energian.
+\item Useita eri nimiä: Airbag, SRS (Supplement Restraint System), SIR (Supplemental Inflatable Restraint). 1970-luvulla GM:n autoissa
+kauppanimellä Air Cushion Restraint System (ACRS).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Turvatyyny}
+\begin{itemize}
+\item Laukaisu voidaan tehdä mekaanisesti tai elektronisesti tai molempien yhdistelmänä.
+\item Täyttö tapahtuu räjähdyspanoksen avulla. Räjähdyksessä vapautuva kaasu (yleensä typpeä) täyttää tyynyn.
+\item Joissain järjestelmissä räjähdyspanos ainoastaan rikkoo korkeapainesäiliön, josta vapautuva kaasu täyttää turvatyynyn.
+\item Tyynyssä olevat reiät huolehtivat siitä, että tyyny tyhjenee välittömästi onnettomuuden jälkeen.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Turvatyynyn turvallisuus}
+\begin{itemize}
+\item Turvatyynyn laukeaminen turhaan voi aiheuttaa vakavan vaaratilanteen.
+\item Nykyjärjestelmissä usean kiihtyvyysanturin tietoja analysoidaan ja turvatyynyt laukaistaan vain, jos on pakko.
+\item Vaiheittainen täyttö (2 eri räjähdyspanosta), kuljettajan istuimen sijainti ja tieto turvavyön käytöstä vaikuttavat laukaisuun.
+\item Etumatkustajan turvatyynyn tulee olla poiskytkettävissä lastenistuimen asentamista varten.
+\item Vanhoissa järjestelmissä turvatyynyn laukaisulaite sijaitsi itse tyynyssä. Nykyjärjestelmissä erillinen ohjain laukaisee tyynyn/tyynyt.
+\end{itemize}
+% http://en.wikipedia.org/w/index.php?title=Airbag&oldid=386324286
+Vuosina 1990--2008, Yhdysvalloissa tapahtui 175 turvatyynyn {\em aiheuttamaa} kuolemaa. Suuri osa (104) oli lapsia. Kyseisenä ajanjaksona
+turvatyynylaukeamisia tapahtui 3,3 miljoonaa ja turvatyynyt pelastivat arviolta 6400 ihmisen hengen ja estivät lukuisia loukkaantumisia.
+}
+
+\frame{
+\frametitle{Anturit}
+\begin{itemize}
+\item Perinteinen laukaisuanturi perustuu massajousiviritelmään.
+\item Nykyisin käytetään useisiin paikkoihin sijoitettuja mikromekaanisia kiihtyvyysantureita.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Turvavyön esikiristimet}
+\begin{itemize}
+\item Vammautumisriskiä pienentää, jos turvavöistä otetaan "löysät pois" törmäystilanteessa.
+\item Esikiristyslaitteet toimivat räjähdyspanoksen avulla. Toteutustavat vaihtelevat valmistajittain.
+\item Pienissä törmäyksissä laukaistaan pelkät esikiristimet, ei turvatyynyjä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Rengaspaineen valvonta}
+\begin{itemize}
+\item Renkaan tyhjeneminen kesken ajon voi aiheuttaa vakavan vaaratilanteen.
+\item Kokematon kuljettaja ei välttämättä huomaa renkaan tyhjenemistä. Osa renkaista on suunniteltu sellaisiksi, että niillä pystyy ajamaan myös
+niiden tyhjennyttyä. Tällaisesta renkaasta on paineen alenemista vaikea havaita.
+\item Elektroninen rengaspaineen valvonta perustuu rengasventtiiliin integroituun anturiin, joka lähettää radioimpulssina painetiedon muutaman sekunnin välein.
+\item Kuljettajaa varoitetaan merkkivalolla tai teksti-ilmoituksella tyhjentyneestä renkaasta.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ajonvakautusjärjestelmä (ESP)}
+\begin{itemize}
+\item ESP = Electronic Stability Program
+\item Perusajatus: tietokone seuraa anturitietoja ja vertaa niitä kuljettajan syötteeseen.
+\item Jos auton käyttäytyminen aikoo poiketa kuljettajan ohjaustoimenpiteistä, aloitetaan korjaustoimenpiteet:
+\begin{itemize}
+\item Jarrutetaan yksittäisiä pyöriä.
+\item Kiihdytetään vetäviä pyöriä.
+\end{itemize}
+ESP tunnistaa ongelmatilanteen yleensä ennen kuljettajaa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ajonvakautusjärjestelmä (ESP)}
+ESP koostuu useista alijärjestelmistä (joista moni on ja on ollut käytössä yksinäänkin)
+\begin{itemize}
+\item ASR = Vetoluiston esto (Anti-Slip Regulation, myös: TCS eli Traction Control System)
+\item \begin{itemize}
+\item ABD = luiston tasaus jarrulla (Automatic Brake Differential) % Lisää wikipediaan
+\item MSR = moottorijarrutusmomentin säätö (Motor Slip Regulation) % Lisää wikipediaan
+\end{itemize}
+\item ABS = lukkiutumattomat jarrut (Anti-lock Braking System)
+\begin{itemize}
+\item EBV = Elektroninen jarruvoiman jako (Elektronischer Bremskraftverteiler) % Lisää wikipediaan
+\end{itemize}
+\item BAS = Jarruassistentti (Brake Assist System)
+\end{itemize}
+}
+
+\frame{
+\frametitle{ESP}
+Tulodata
+\begin{itemize}
+\item Ohjauspyörän kääntökulma
+\item Momenttipyyntö (kaasupolkimen asento)
+\item Esipaine (jarrutustoivomus)
+\item Ajoneuvon nopeus
+\item Kiihtyvyysanturitiedot
+\item Kitkakerroin (lasketaan kiihtyvyys-, nopeus- ja jarrupainetiedoista)
+\end{itemize}
+Toimenpiteet:
+\begin{itemize}
+\item Jarrutetaan yksittäisiä pyöriä.
+\item Kiihdytetään vetäviä pyöriä.
+\end{itemize}
+Auton käyttäytymistä mallinnetaan differentiaaliyhtälöillä ja auton kulkutila pyritään säätämään kuljettajan ohjaustoiveen mukaiseksi.
+}
+
+\frame{
+\frametitle{Lukkiutumattomat jarrut (ABS)}
+\begin{itemize}
+\item Pitämällä pyörien luisto erittäin pienenä, saadaan minimoitua jarrutusmatka sekä ennen kaikkea säilytettyä ohjattavuus.
+\item Tietokone laskee 1000 kertaa sekunnissa pyörien pyörimisnopeuden ja säätää jarruvoimaa magneettiventtiilin ja pumpun avulla.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Elektroninen jarruvoiman jako (EBV)}
+\begin{itemize}
+\item Elektroninen järjestelmä korvaa 2000-luvun autoissa mekaanisen taka-akselin jarrutusvoiman säätimen.
+\item Jarruvoima jaetaan pyörimisnopeustunnistimien tietojen perusteella. Kaarrejarrutuksessa säätö optimoidaan mahdollisimman suuren
+sivuttaispidon aikaansaamiseksi.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Luistonesto (ASR)}
+\begin{itemize}
+\item ASR-luistonesto pyrkii estämään pyörien sutimisen kiihdytettäessä.
+\item Auton nopeus tunnistetaan ei-vetävien pyörien nopeudesta.
+\item Moottorin momenttia alennetaan, kunnes pito palaa.
+\item Momentin nopea säätö on mahdollista nykyaikaisissa suorasuihkutusjärjestelmissä.
+\item ASR on yleensä kytkettävissä pois päältä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jarruassistentti (BAS)}
+\begin{itemize}
+\item Usein hätäjarrutuksessa poljinta painetaan riittävän nopeasti, mutta ei riittävän kovaa.
+\item BAS-järjestelmässä on erillinen painevaraaja. Jarrupolkimen nopea liike tunnistetaan ja magneettiventtiili aukeaa tuoden
+painevaraajasta välittömästi riittävän paineen jarrupiiriin.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Luistontasaus jarrulla (ABD)}
+\begin{itemize}
+\item Jarruttamalla luistamaan pyrkivää pyörää, siirtyy tasauspyörästön ansiosta suurempi momentti pitävälle pyörälle.
+\item Säätöä ei voida tehdä jatkuvasti, etteivät jarrut kuumene.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Moottorijarrutusmomentin säätö (MSR)}
+\begin{itemize}
+\item Liukkaalla kelillä äkillinen moottorijarrutus voi johtaa auton epästabiiliin käyttäytymiseen.
+\item MSR-järjestelmä viestittää luisutiedon moottorinohjausjärjestelmälle, joka lisää hieman moottorin vääntömomenttia.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Lainsäädäntö patistaa turvatekniikan käyttöön}
+\begin{itemize}
+\item Marraskuun 2011 jälkeen kaikki uudet tyyppihyväksytyt henkilöautot ja pikkupakettiautot varustettava ESP:lla.
+\item Marraskuun 2014 jälkeen kaikki uudet ajoneuvot varustettava ESP:lla.
+\end{itemize}
+}

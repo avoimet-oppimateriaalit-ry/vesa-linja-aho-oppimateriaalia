@@ -1,0 +1,311 @@
+\frame{
+\frametitle{Yleistetty Ohmin laki}
+\begin{itemize}
+\item Tasasähkölle meillä oli $U=RI$. Sama pätee myös vaihtosähkölle ja vastuksille.
+\item Vaihtosähkölle voidaan kirjoittaa yleistetty Ohmin laki $U=ZI$.
+\item Yleistetyssä Ohmin laissa vaihtojännitteet ovat osoittimia = kompleksilukuja.
+\item Muunnoskaava $u(t)=\hat{u}\sin(\omega t+ \phi) \Rightarrow U=\frac{\hat{u}}{\sqrt{2}}\angle \phi$.
+\item $Z$ on kompleksinen impedanssi. $Z$ koostuu resistanssista $R$ ja reaktanssista $X$.
+\item $Z=R+X\jj$.
+\item Aivan kuten resistanssin käänteisluku on konduktanssi ja $GU=I$, yleistetylle Ohmin laille
+pätee $YU=I$, missä $Y$ on admittanssi. $Y$ koostuu konduktanssista $G$ ja suskeptanssista $B$.
+\end{itemize}
+}
+
+
+
+\frame{
+%\frametitle{Esimerkki 1}
+
+\begin{block}{Esimerkki 1}
+Ratkaise virta $I$ ja jännite $U$. 
+\end{block}
+\begin{center}
+\begin{picture}(50,68)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vc{100,0}{C}
+\hln{0,0}{100}
+\hln{50,50}{50}
+\di{100,2}{I}
+\rcuu{0,53}{U}
+
+\end{picture}
+\[
+E=10\angle0^\circ \V\qquad R_1=7,5\kohm \qquad R_2=5\kohm\qquad C=1\uF\qquad \omega=1000\frac{1}{\rm s}
+\]
+\end{center}
+
+\tiny Vastaus: $U \approx 9,67\angle 7,13^\circ \V \qquad I \approx 1,26\angle 18^\circ \mA$
+}
+
+
+\frame{
+%\frametitle{}
+\begin{block}{Esimerkki 2}
+Ratkaise {\bf kerrostamismenetelmällä} virta $I$ ja jännite $U$.
+\end{block}
+\begin{center}
+\begin{picture}(50,80)(0,0)
+\vz{0,0}{R}
+\hln{0,50}{50}
+\vj{50,0}{J}
+\vst{100,0}{E}
+\hln{0,0}{100}
+\hc{50,50}{C}
+\di{0,2}{I}
+\rcuu{50,53}{U}
+%\vst{0,0}{1,5 \V}
+%\vst{0,50}{1,5 \V}
+%\vz{50,25}{R=20\ohm\hspace{-2.5cm}}
+%\vln{50,0}{25}
+%\vln{50,75}{25}
+%\hln{0,100}{50}
+%\hln{0,0}{50}
+%\di{50,25}{I}
+\end{picture}
+\[
+E=3\angle 30^\circ \V\qquad R=1\ohm\qquad C=1\,{\rm F}\qquad J=1\angle0^\circ \A \qquad \omega=1\frac{1}{s}
+\]
+\end{center}
+
+\tiny Vastaus: $U \approx 1,55\angle 178^\circ \V \qquad I \approx 1,87\angle 56^\circ \A$
+
+}
+
+\frame{
+%\frametitle{Esimerkki 3}
+
+\begin{block}{Esimerkki 3}
+Ratkaise virrat $I_1$, $I_2$ ja $I_3$. 
+\end{block}
+\begin{center}
+\begin{picture}(50,68)(0,0)
+\vst{0,0}{E}
+\hln{0,50}{50}
+%\hz{0,50}{R}
+\vl{50,0}{L}
+\vc{100,0}{C}
+\hln{0,0}{100}
+\hln{50,50}{50}
+\di{100,2}{I_3}
+\di{50,2}{I_2}
+\ri{25,50}{I_1}
+%\rcuu{0,53}{U}
+
+\end{picture}
+\[
+E=10\angle0^\circ \V \qquad L=1\,{\rm H}\qquad C=1\,{\rm F}\qquad \omega=1\frac{1}{\rm s}
+\]
+\end{center}
+\tiny Vastaus: $I_1=0\A \qquad I_2=-10\jj\A \qquad I_3=10\jj\A$
+}
+
+
+
+
+
+\frame{
+\frametitle{Esimerkki 4}
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{-25,0}{E\angle 0^\circ}
+%\vc{25,0}{C}
+\hl{10,50}{L}
+\hln{-25,50}{35}
+\dcru{70,0}{U}
+%\ri{15,50}{I}
+\vz{60,0}{R}
+%\du{40,0}{u}
+\hln{-25,0}{85}
+%\hln{0,50}{85}
+
+\end{picture}
+\end{center}
+a) Millä kulmataajuudella $\omega$ tapahtuu niin, että $|U|=|E|\frac{1}{\sqrt{2}}$?\footnote{Eli jännitteen $U$ amplitudi
+on noin 0,707-kertainen verrattuna jännitteen $E$ amplitudiin.} b) Paljonko silloin
+on $U$:n vaihekulma? c) Entä paljonko on $U$, jos $\omega=0$? d) Paljonko on $U$ jos $\omega\to\infty$?
+\[
+L=1{\rm H} \quad  R=100\ohm
+\]
+}
+
+
+\frame{
+\frametitle{Esimerkki 4}
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{-25,0}{E\angle 0^\circ}
+%\vc{25,0}{C}
+\hl{10,50}{L}
+\hln{-25,50}{35}
+\dcru{70,0}{U}
+%\ri{15,50}{I}
+\vz{60,0}{R}
+%\du{40,0}{u}
+\hln{-25,0}{85}
+%\hln{0,50}{85}
+
+\end{picture}
+\end{center}
+a) Millä kulmataajuudella $\omega$ tapahtuu niin, että $|U|=|E|\frac{1}{\sqrt{2}}$?\footnote{Eli jännitteen $U$ amplitudi
+on noin 0,707-kertainen verrattuna jännitteen $E$ amplitudiin.} b) Paljonko silloin
+on $U$:n vaihekulma? c) Entä paljonko on $U$ jos $\omega=0$? d) Paljonko on $U$ jos $\omega\to\infty$?
+\[
+L=1{\rm H} \quad  R=100\ohm
+\]
+Jännitteenjakosäännön mukaan:
+\[
+U=E\frac{R}{R+Z_{\rm L}}=E\frac{R}{R+\jj \omega L}=E\frac{1}{1+\jj \omega\frac{L}{R}}
+\]
+}
+
+\frame{
+Selvitetään, milloin $|U|=|E|\frac{1}{\sqrt{2}}$ eli $\frac{|U|}{|E|}=\frac{1}{\sqrt{2}}$. Koska
+$U=E\frac{1}{1+\jj \omega\frac{L}{R}}$, niin
+\[
+\frac{|U|}{|E|}=\left| \frac{1}{1+\jj \omega\frac{L}{R}}\right|= \frac{|1|}{|1+\jj \omega\frac{L}{R}|}=\frac{1}{\sqrt{1^+(\omega\frac{L}{R})^2}}
+\]
+Milloin suhde on $\frac{1}{\sqrt{2}}$:
+\[
+\frac{1}{\sqrt{2}}=\frac{1}{\sqrt{1^+(\omega\frac{L}{R})^2}} \Longrightarrow 2 =  \left (\omega\frac{L}{R}\right)^2+1 \Rightarrow \omega=\frac{R}{L}
+\]
+Eli kuvan lukuarvoilla a)-kohdan vastaus on $\omega=\frac{R}{L}=\frac{100\ohm}{1 \rm H}=100 \frac{1}{\rm s}$.
+}
+
+\frame{
+b) -kohtaa varten selvitetään vaihekulma:
+\[
+\frac{U}{E}=\frac{1}{1+\jj \omega\frac{L}{R}}
+\]
+Osoittajan vaihekulma on $0^\circ$, nimittäjän vaihekulma on $\arctan{\frac{\omega\frac{L}{R}}{1}}$. Koska
+kompleksi(murto)luvun vaihekulma on osoittajan vaihekulma miinus nimittäjän vaihekulma, on kysytty
+vaihekulma
+\[
+0^\circ-\arctan{\frac{\omega\frac{L}{R}}{1}}=-\arctan\omega\frac{L}{R}.
+\]
+Ja b)-kohdan lopullinen vastaus: kun $\omega = \frac{R}{L}$ (a-kohta), niin kulma on
+\[
+-\arctan\frac{R}{L}\frac{L}{R}=-\arctan 1 = -45^\circ.
+\]
+
+c) -kohta on helppo: jos omega on nolla, lausekkeen imaginaariosa häviää:
+\[
+U=E\frac{1}{1+\jj\cdot 0 \frac{L}{R}}=E
+\]
+
+}
+
+\frame{
+d) -kohdassa $\omega\to \infty$. Tarkastellaan lauseketta
+\[
+U=E\frac{1}{1+\jj \omega\frac{L}{R}}
+\]
+Jos nimittäjä lähestyy ääretöntä ja osoittajassa on vakio, murtolausekkeen arvo lähestyy nollaa. Eli kun 
+$\omega\to \infty$, niin $U\to 0$. Jos ollaan tarkkoja, niin $U\to 0\angle-90^\circ$, koska $-\arctan\omega\frac{L}{R}$
+lähestyy arvoa $-90^\circ$, kun $\omega\to \infty$.
+
+}
+
+\frame{
+\frametitle{Esimerkki 5}
+Ratkaise kondensaattorin jännite $U$ kompleksilukulaskennalla.
+\[
+R_1=R_2=1\ohm\quad C=1\,{\rm F}\quad E=10\angle 20^\circ \quad \omega=100\pi
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vst{0,0}{E}
+\vz{50,0}{R_2}
+\hln{0,0}{100}
+\hln{50,50}{50}
+\hz{0,50}{R_1}
+\du{115,0}{U}
+\ri{75,50}{I}
+
+\end{picture}
+\end{center}
+$E$ on siis sinimuotoinen jännitelähde, jonka tehollisarvo on 10 volttia,
+vaihekulma 20 astetta ja taajuus 50 Hz eli kulmataajuus on $100\pi$.
+}
+
+\frame{
+\frametitle{Ratkaisu}
+\[
+R_1=R_2=1\ohm\quad C=1\,{\rm F}\quad E=10\angle 20^\circ \quad \omega=100\pi
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vst{0,0}{E}
+\vz{50,0}{R_2}
+\hln{0,0}{100}
+\hln{50,50}{50}
+\hz{0,50}{R_1}
+\du{115,0}{U}
+\ri{75,50}{I}
+
+\end{picture}
+\end{center}
+$E$ on siis sinimuotoinen jännitelähde, jonka tehollisarvo on 10 volttia,
+vaihekulma 20 astetta ja taajuus 50 Hz eli kulmataajuus on $100\pi$.
+
+}
+\frame{
+\vspace{-0.5cm}
+\[
+R_1=R_2=1\ohm\quad C=1\,{\rm F}\quad E=10\angle 20^\circ \quad \omega=100\pi
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vst{0,0}{E}
+\vz{50,0}{R_2}
+\hln{0,0}{100}
+\hln{50,50}{50}
+\hz{0,50}{R_1}
+\du{115,0}{U}
+\ri{75,50}{I}
+
+\end{picture}
+\end{center}
+Merkitään $R_2$:n ja $C$:n rinnankytkennän impedanssia $Z_{R_2C}$. Tällöin
+jännite $U$ on jännitteenjakosäännön mukaan
+\[
+U=E\frac{Z_{R_2C}}{Z_{R_2C}+R_1}
+\]
+Lasketaan rinnankytkennän resistanssi
+\[
+Z_{R_2C}=\frac{1}{\frac{1}{R_2}+\frac{1}{\frac{1}{\jj\omega C}}}=\frac{R_2}{1+\jj \omega CR_2}
+\]
+ja sijoitetaan se ylempään kaavaan
+\[
+U=E\frac{\frac{R_2}{1+\jj \omega CR_2}}{\frac{R_2}{1+\jj \omega CR_2}+R_1}=
+E\frac{R_2}{R_2+R_1(1+\jj \omega C R_2)}=
+ \frac{10\angle 20^\circ}{2+\jj 100\pi}.
+\]
+}
+
+\frame{
+Lasketaan lopullinen arvo:
+\[
+U= \frac{10\angle 20^\circ}{2+\jj 100\pi}=\frac{10\angle 20^\circ}{\sqrt{2^2+(100\pi)^2}
+\angle \arctan \frac{100\pi}{2}}
+\approx \frac{10\angle 20^\circ}{314\angle 89,6^\circ}
+\]
+\[
+\approx 0,032\angle -69,6^\circ.
+\]
+Eli kondensaattorin (ja vastuksen $R_2$) yli on 32 millivoltin jännite, jonka vaihekulma
+on -69,6 eli se on 89,6 astetta jäljessä jännitelähdettä $E$.
+Jos ei halua pyöritellä välivaiheita, voi käyttää sopivaa laskinta tai Wolfram
+Alphaa\footnote{\url{http://www.wolframalpha.com/input/?i=\%2810e^\%28i*pi\%2F9\%29\%29\%2F\%282\%2B100*pi*i\%29}}.
+}
+
+
+
+
+

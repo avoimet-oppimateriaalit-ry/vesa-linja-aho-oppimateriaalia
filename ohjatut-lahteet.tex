@@ -1,0 +1,260 @@
+\frame{
+\frametitle{Ohjattu lähde}
+\begin{itemize}
+\item Tähän mennessä (jännite- ja virta)lähteet ovat olleet vakioarvoisia.
+\item Jos lähteen arvo ei riipu piirin muista jännitteistä, lähdettä kutsutaan
+{\bf riippumattomaksi}. Vakioarvoiset tai ajan funktiona muuttuvat lähteet
+ovat riippumattomia lähteitä.
+\item Jos lähteen arvo riippuu jonkin toisen piirin osan virrasta tai jännitteestä,
+lähde on {\bf ohjattu lähde}.
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Jänniteohjattu jännitelähde (VCVS)}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\cn{0,0}
+\cn{0,50}
+\du{0,0}{u}
+\vst{100,0}{e=Au}
+\end{picture}
+\end{center}
+\begin{itemize}
+\item VCVS:n jännite $e$ riippuu jostain toisesta jännitteestä $u$.
+\item Kerrointa $A$ kutsutaan jännitevahvistukseksi.
+\item Käytännön esimerkki: audiovahvistin.
+\end{itemize}
+
+
+}
+\frame{
+
+\frametitle{ Virtaohjattu jännitelähde (CCVS)}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\cn{0,0}
+\cn{0,50}
+\vln{0,0}{50}
+\di{0,25}{i}
+\vst{100,0}{e=ri}
+\end{picture}
+\end{center}
+\begin{itemize}
+\item CCVS:n jännite $e$ riippuu jostain virrasta $i$.
+\item Kerrointa $r$ kutsutaan siirto- tai transresistanssiksi.
+\item Käytännössä harvinainen (voidaan rakentaa {\em operaatiovahvistimen} avulla).
+\end{itemize}
+}
+
+\frame{
+
+\frametitle{Jänniteohjattu virtalähde (VCCS)}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\cn{0,0}
+\cn{0,50}
+\du{0,0}{u}
+\vj{100,0}{j=gu}
+\end{picture}
+\end{center}
+\begin{itemize}
+\item VCCS:n virta $j$ riippuu jostain toisesta jännitteestä $u$.
+\item Kerrointa $g$ kutsutaan siirto- tai transkonduktanssiksi.
+\item Käytännön esimerkki: kanavatransistori.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Virtaohjattu virtalähde (CCCS)}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\cn{0,0}
+\cn{0,50}
+\vln{0,0}{50}
+\di{0,25}{i}
+\vj{100,0}{j=\beta i}
+\end{picture}
+\end{center}
+\begin{itemize}
+\item CCCS:n virta $j$ riippuu jostain virrasta $i$.
+\item Kerrointa $\beta$ kutsutaan virtavahvistukseksi.
+\item Käytännön esimerkki: bipolaaritransistori.
+\end{itemize}
+
+}
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise jännite $U$ oheisesta tasasähköpiiristä.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad
+\quad r=2\ohm
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\vz{100,0}{R_3}
+\ri{50,50}{i}
+%\hl{100,50}{L}
+\hln{100,50}{50}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+%\hc{50,50}{C}
+\vst{200,0}{e_2=ri}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+Huomaa, että oikeanpuoleinen lähde on ohjattu lähde.
+
+}
+
+%LUENTO11
+
+\frame{
+\begin{block}{Ratkaisu}
+Ratkaise jännite $U$ oheisesta tasasähköpiiristä.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad
+\quad r=2\ohm
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\vz{100,0}{R_3}
+\ri{50,50}{i}
+%\hl{100,50}{L}
+\hln{100,50}{50}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+%\hc{50,50}{C}
+\vst{200,0}{e_2=ri}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+Huomaa, että oikeanpuoleinen lähde on ohjattu lähde.
+
+}
+
+\frame{
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\vz{100,0}{R_3}
+\ri{50,50}{i}
+%\hl{100,50}{L}
+\hln{100,50}{50}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+%\hc{50,50}{C}
+\vst{200,0}{e_2=ri}
+\hz{150,50}{R_4}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\dcru{105,0}{U}
+\end{picture}
+\end{center}
+Merkitään $R_1$:n ja $R_2$:n sarjaankytkentää symbolilla $R_{12}$ ja kirjoitetaan solmuyhtälö:
+\[
+UG_3=(E_1-U)G_{12}+(ri-U)G_4
+\]
+Yhtälössä on kaksi tuntematonta, joten kirjoitetaan toinen yhtälö, jossa esiintyvät samat
+tuntemattomat:
+\[
+i=(E_1-U)G_{12}
+\]
+Sijoitetaan $i$ ylempään yhtälöön:
+\[
+E_1G_{12}-UG_{12}+rG_4G_{12}E_1-rG_4G_{12}U-UG_4=UG_3
+\]
+}
+
+\frame{
+\[
+E_1G_{12}-UG_{12}+rG_4G_{12}E_1-rG_4G_{12}U-UG_4=UG_3
+\]
+josta
+\[
+G_{12}E_1(1+rG_4)=U(G_3+G_{12}+G_4+rG_4G_{12})
+\]
+sijoitetaan lukuarvot ja ratkaistaan $U$:
+\[
+U=\frac{\frac{10}{30}(1+\frac{2}{40})}{\frac{1}{30}+\frac{1}{30}+\frac{1}{40}+\frac{2}{40\cdot 30}}
+=3,75 \V
+\]
+
+}
+
+
+\frame{
+\begin{block}{Esimerkki}
+Laske jännite $U_3$.
+\end{block}
+\[
+G_1=1\,{\rm S}\quad G_2=2\,{\rm S} \quad G_3=3\,{\rm S}\quad G_4=4\,{\rm S}
+\quad G_5=5\,{\rm S} \quad g=6\,{\rm S}\quad J=3\A
+\]
+
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vj{0,0}{J}
+\vz{50,0}{G_1\hspace{-2mm}}
+\vz{100,0}{G_2}
+\vz{150,0}{G_3}
+\hz{50,50}{G_4}
+\hz{100,50}{G_5}
+\hlj{100,100}{gU_1}
+\du{15,0}{U_1}
+\du{160,0}{U_3}
+\hln{0,0}{150}
+\hln{0,50}{50}
+
+\vln{100,50}{50}
+\vln{150,50}{50}
+\cn{100,50}
+
+\end{picture}
+\end{center}
+\tiny $U_3=-\frac{48}{115}\V \approx -417 \mV$
+}

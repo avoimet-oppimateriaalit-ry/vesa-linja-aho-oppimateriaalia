@@ -1,0 +1,55 @@
+% KAIPAA JOHDANTOKALVOA
+\frame{
+\frametitle{Solmumenetelmä}
+Tarkastellaan edellisen esimerkin yhtälöitä
+\[
+G_1(E_1-U_3)=G_2(U_3-U_4)+G_3U_3\ \mbox{ja}\
+G_2(U_3-U_4)=G_4U_4+G_5(U_4-E_2)
+\]
+Kerrotaan sulut auki
+\begin{eqnarray*}
+G_1E_1-G_1U_3 &=& G_2U_3-G_2U_4+G_3U_3\\
+G_2U_3-G_2U_4 &=& G_4U_4+G_5U_4-G_5E_2
+\end{eqnarray*}
+Ja järjestellään termejä ja siirretään vakiotermit toiselle puolelle
+\begin{eqnarray*}
+G_1U_3+G_2U_3-G_2U_4+G_3U_3&=& G_1E_1\\
+-G_2U_3+G_2U_4+G_4U_4+G_5U_4&=& G_5E_2
+\end{eqnarray*}
+Ja otetaan jännitteet yhteisiksi tekijöiksi
+\begin{eqnarray*}
+(G_1+G_2+G_3)U_3-G_2U_4&=& G_1E_1\\
+-G_2U_3+(G_2+G_4+G_5)U_4&=& G_5E_2
+\end{eqnarray*}
+}
+\frame{
+\frametitle{Solmumenetelmä jatkuu}
+\begin{eqnarray*}
+(G_1+G_2+G_3)U_3-G_2U_4&=& G_1E_1\\
+-G_2U_3+(G_2+G_4+G_5)U_4&=& G_5E_2
+\end{eqnarray*}
+Yhtälöiden logiikka on seuraava:
+\begin{itemize}
+\item Jokaiselle solmulle (=tuntemattomalle jännitteelle) on yksi yhtälö.
+\item Kyseiseen solmuun liittyvien konduktanssien summa on kunkin
+solmujännitteen kertoimena.
+\item Yhtälön vasemmalla puolella lähtevät virrat ovat positiivisia, oikealla puolella
+saapuvat virrat ovat positiivisia.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Huomattavaa}
+\begin{itemize}
+\item Solmumenetelmä ja solmujännitemenetelmä ovat kaksi eri menetelmää (vaikkakin
+hyvin samankaltaisia).
+\item Jos yhtälöiden muodostamislogiikassa on vähänkin epäselvää,
+ratkaise piiri suoraan Kirchhoffin laeilla (älä yritä oikaista).
+\item Virtapiirin ratkaisemiseksi on useita muitakin menetelmiä kuin solmujännitemenetelmä: haaravirtamenetelmä,
+silmukkamenetelmä, solmumenetelmä, modifioitu solmupistemenetelmä\ldots
+\item Mikäli piirissä on ideaalisia jännitelähteitä (=jännitelähteitä, jotka liittyvät suoraan
+solmuun ilman että välissä on vastus), yhtälöihin tulee yksi tuntematon arvo lisää (=jännitelähteen
+virta) sekä yksi yhtälö lisää (jännitelähde määrää solmujen jännite-eron).
+\end{itemize}
+}

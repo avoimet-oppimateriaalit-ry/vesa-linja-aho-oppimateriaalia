@@ -1,0 +1,285 @@
+\frame {
+\frametitle{Sähkövirta}
+\begin{itemize}
+\item Sähkövirta on varauksenkuljettajien liikettä.
+\item Yksikkö on ampeeri (A).
+\item Suureen lyhenne on $I$.
+\item Sähkövirtaa voidaan verrata letkussa kulkevaan veteen.
+\item Virta kiertää aina jossain silmukassa (se ei puristu kasaan eikä häviä olemattomiin).
+\item Virtapiirissä virta merkitään nuolella johtimeen:
+\end{itemize}
+
+\begin{center}
+\begin{picture}(100,25)(0,0)
+
+\hln{0,0}{100}
+\ri{50,0}{I=2\mA}
+
+\end{picture}
+\end{center}
+}
+
+\frame {
+\frametitle{Kirchhoffin virtalaki}
+\begin{itemize}
+\item Kuten edellä todettiin, sähkövirta ei häviä mihinkään.
+\end{itemize}
+\begin{block}{Kirchhoffin virtalaki (myös: Kirchhoffin ensimmäinen laki)}
+Virtapiirin jollekin alueelle tulevien virtojen summa on yhtä suuri kuin sieltä lähtevien
+virtojen summa.
+\end{block}
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+
+\hln{0,0}{100}
+\hln{0,50}{100}
+\vln{0,0}{50}
+\vln{50,0}{50}
+\vln{100,0}{50}
+
+\ri{25,0}{I_1=3\mA}
+\ri{75,0}{I_2=2\mA}
+\ui{50,25}{I_3=1\mA}
+\end{picture}
+\end{center}
+Piirsitpä ympyrän mihin tahansa kohtaan piiriä, ympyrän sisään menee yhtä paljon virtaa
+kuin mitä tulee sieltä ulos!
+
+}
+
+\frame {
+\frametitle{Ole tarkka etumerkkien kanssa!}
+\begin{itemize}
+\item Voidaan sanoa: "pankkitilin saldo on -50 euroa" tai "olen 50 euroa velkaa pankille".
+\item Voidaan sanoa: "Yrityksen tilikauden tulos oli -500000 euroa" tai "firma teki tappiota 500000 euroa".
+\item Jos mittaat johtimen virtaa virtamittarilla ja se näyttää $-15 \mA$, niin kääntämällä mittarin
+toisin päin se näyttää $15\mA$.
+\item Aivan samalla tavalla voidaan virran suunta ilmoittaa etumerkillä. Alla on kaksi täysin samanlaista piiriä.
+\end{itemize}
+
+\begin{picture}(100,50)(-25,0)
+\hln{0,0}{100}
+\hln{0,50}{100}
+\vln{0,0}{50}
+\vln{50,0}{50}
+\vln{100,0}{50}
+\ri{25,0}{I_1=3\mA}
+\ri{75,0}{I_2=2\mA}
+\ui{50,25}{I_3=1\mA}
+\end{picture}
+\begin{picture}(100,50)(-75,0)
+\hln{0,0}{100}
+\hln{0,50}{100}
+\vln{0,0}{50}
+\vln{50,0}{50}
+\vln{100,0}{50}
+\li{25,0}{I_{\rm a}=-3\mA}
+\li{75,0}{I_{\rm b}=-2\mA\hspace{-1cm}}
+\ui{50,25}{I_3=1\mA}
+\end{picture}
+
+
+}
+
+\frame {
+\frametitle{Jännite}
+\begin{itemize}
+\item Jännite on kahden pisteen välinen potentiaaliero.
+\item Suureen lyhenne on $U$.
+\item Virtapiirianalyysissä ei oteta kantaa siihen, miten potentiaaliero on luotu.
+\item Jännitteen yksikkö on voltti (V).
+\item Jännitettä voi verrata paine-eroon putkessa tai korkeuseroon.
+\item Jännitettä merkitään pisteiden välille piirretyllä nuolella.
+\end{itemize}
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{0,0}{12 \V}
+\du{20,0}{U=12 \V}
+\hln{0,0}{20}
+\hln{0,50}{20}
+\end{picture}
+\end{center}
+}
+
+\frame {
+\frametitle{Kirchhoffin jännitelaki}
+\begin{itemize}
+\item Kahden pisteen välillä vaikuttaa sama jännite tarkastelureitistä riippumatta.
+\item Tämä on helpoin hahmottaa rinnastamalla jännite korkeuseroihin.
+\end{itemize}
+\begin{block}{Kirchhoffin jännitelaki (myös: Kirchhoffin toinen laki)}
+{\bf Silmukan jännitteiden summa on }etumerkit huomioon ottaen {\bf nolla}.
+\end{block}
+
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\hst{0,0}{1,5 \V}
+\hst{50,0}{1,5 \V}
+\hst{100,0}{1,5 \V}
+\vln{0,0}{50}
+\vln{150,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+\lu{50,50}{4,5 \V}
+\cn{50,50}
+\cn{100,50}
+\end{picture}
+\end{center}
+}
+
+\frame{
+\frametitle{Ohmin laki}
+\begin{itemize}
+\item Mitä suurempi virta, sitä suurempi jännite -- ja päinvastoin.
+\item Resistanssilla tarkoitetaan kappaleen kykyä vastustaa sähkövirran kulkua.
+Resistanssi on jännitteen ja virran suhde.
+\item Resistanssin tunnus on $R$ ja yksikkö ohmi ($\ohm$).
+\end{itemize}
+
+\begin{center}
+$U=RI$
+
+\begin{picture}(50,50)(0,0)
+
+\hz{0,0}{R}
+\ru{0,10}{U}
+\ri{5,0}{I}
+\hln{50,0}{15}
+\hln{-15,0}{15}
+
+\end{picture}
+\end{center}
+}
+
+\frame {
+  \frametitle{Käsitteitä}
+\begin{description}
+\item[Virtapiiri] Elektronisista komponenteista koostuva järjestelmä, jossa sähkövirta kulkee.
+\item[Tasasähkö] Sähköiset suureet (jännite, virta) eivät muutu - tai muuttuvat vain vähän - ajan kuluessa.
+\item[Tasasähköpiiri] Virtapiiri, jossa jännitteet ja virrat ovat ajan suhteen vakioita.
+\end{description}
+\begin{exampleblock}{Esimerkki}
+Taskulampussa on tasasähköpiiri (paristo, kytkin ja polttimo). Polkupyörän dynamo ja lamppu
+puolestaan muodostavat vaihtosähköpiirin.
+\end{exampleblock}
+
+}
+
+\frame {
+  \frametitle{Vaihtoehtoinen tasasähkön määritelmä}
+Tasajännitteellä ja -virralla voidaan tarkoittaa myös jännitettä ja virtaa, jonka suunta (etumerkki)
+pysyy samana, mutta suuruus voi vaihdella. Esimerkiksi tavallinen lyijyakkujen laturi tuottaa yleensä
+nk. {\em sykkivää tasajännitettä}, jonka suuruus vaihtelee välillä 0 V ... $\approx$ 18 V. Tätäkin
+kutsutaan yleensä tasajännitteeksi.
+\begin{alertblock}{Sopimus}
+Piiriteoriassa tasajännitteellä (virralla) tarkoitetaan vakiojännitettä (virtaa). Sekä
+suunta että suuruus pysyvät ajan suhteen vakiona.
+\end{alertblock}
+}
+
+
+\frame{
+\frametitle{Yksinkertainen virtapiiri}
+\begin{itemize}
+\item Akkuun kiinnitetty hehkulamppu. Hehkulangan resistanssi on $10 \ohm$. 
+\end{itemize}
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{0,0}{12 \V}
+\uncover<-1>{\vlamp{50,0}{}}
+\uncover<2->{\vz{50,0}{10\ohm}}
+\uncover<-3>{\ri{25,50}{I=?}}
+\uncover<4->{\ri{25,50}{I=1,2\A}}
+\hln{0,0}{50}
+\hln{0,50}{50}
+\uncover<3->{\du{65,0}{12\V}}
+\end{picture}
+\end{center}
+
+
+\uncover<4->{$U=RI$\\
+$I=\frac{U}{R}=\frac{12 \V}{10 \ohm}=1,2 \A$}
+}
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise jännite $E$.
+\end{block}
+\begin{center}
+\begin{picture}(50,100)(0,0)
+\vst{0,0}{E}
+\vst{0,50}{1,5 \V}
+\vz{50,25}{R=20\ohm\hspace{-2.5cm}}
+\vln{50,0}{25}
+\vln{50,75}{25}
+\hln{0,100}{50}
+\hln{0,0}{50}
+\di{50,25}{I=50\mA}
+\end{picture}
+\end{center}
+
+}
+
+
+%LUENTO2
+
+%\frame{\tableofcontents}
+
+%\subsection{1. Kotitehtävän ratkaisu}
+
+\frame{
+\begin{block}{Ratkaisu}
+Ratkaise jännite $E$.
+\end{block}
+\begin{center}
+\begin{picture}(50,100)(0,0)
+\vst{0,0}{E}
+\vst{0,50}{1,5 \V}
+\vz{50,25}{R=20\ohm\hspace{-2.5cm}}
+\vln{50,0}{25}
+\vln{50,75}{25}
+\hln{0,100}{50}
+\hln{0,0}{50}
+\di{50,25}{I=50\mA}
+\uncover<2->{\du{12,0}{E} } 
+\uncover<2->{\du{12,50}{U} }
+\uncover<2->{\du{41,25}{\hspace{-0.65cm}U_{\rm R}} }
+\end{picture}
+\end{center}%\uncover<3->{\[ U_1+U_2-U_{\rm R}=0 \Leftrightarrow U_{\rm R}=U_1+U_2 \]}\uncover<4->{\[ U=RI \Rightarrow U_{\rm R}=RI \Rightarrow I=\frac{U_{\rm R}}{R}=\frac{U_1+U_2}{R}=\frac{1,5 \V+1,5 \V}{20\ohm}=150 \mA \]}
+\uncover<2->{\[ E+U-U_{\rm R}=0 \Leftrightarrow U_{\rm R}=E+U\quad U_{\rm R}=RI=20\ohm\cdot50\mA=1\V\]}
+\uncover<3->{\vspace{-\baselineskip}
+\[  \Rightarrow  U_{\rm R}=E+U \Rightarrow 1\V=E+1,5\V \Rightarrow E=-0,5\V  \]}
+}
+
+
+\frame{
+\frametitle{Esimerkki} % Arska 1 kotitehtävä 1 2009
+\[
+R_2=5\ohm \quad E_1=3\V \quad E_2=2\V
+\]
+
+\begin{center}
+\begin{picture}(150,110)(0,0)
+\vst{0,25}{E_1}
+\vst{100,50}{E_2}
+\vz{50,0}{R_2}
+\vz{50,50}{R_1}
+\ri{25,100}{I_1}
+\li{75,100}{I_2}
+\hln{0,100}{100}
+\hln{0,0}{50}
+\hln{50,50}{50}
+\vln{0,0}{25}
+\vln{0,75}{25}
+
+\end{picture}
+\end{center}
+a) Millä $R_1$:n arvolla $I_2=0\A$?\\
+b) Mikä on silloin virta $I_1$?\\
+\tiny a) $10 \ohm$ ja b) $0,2 \A$.
+}
+

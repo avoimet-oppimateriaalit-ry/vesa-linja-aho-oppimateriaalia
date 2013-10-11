@@ -1,0 +1,29 @@
+\frame{
+\frametitle{Desibeli}
+\begin{itemize}
+\item Desibeli on dimensioton yksikkö, joka kuvaa tehosuureiden suhdetta logaritmisella asteikolla.
+\item Desibeleistä puhuttaessa pitää aina tietää vertailuun käytetty teho.
+\item Teho desibeleinä:
+\[
+10\log_{10} \frac{\rm teho}{\rm vertailuteho}=10\log_{10} \frac{P}{P_{\rm ref}}
+\]
+\item Radiotekniikassa yleinen yksikkö on dBm, mikä tarkoittaa tehoa verrattuna yhden milliwatin tehoon.
+\item Esimerkiksi 1 watin teho on $10\log_{10} \frac{1\, \rm W}{1\, \rm mW}=30\, \rm dBm$
+\end{itemize}
+}
+
+\frame{
+\frametitle{Amplitudisuureet desibeleinä}
+\begin{itemize}
+\item Teho on verrannollinen amplitudin neliöön (esimerkiksi ääniteho on verrannollinen äänenpaineen neliöön ja vastuksen teho on verrannollinen virran tai jännitteen neliöön).
+\item Amplitudeista puhuttaessa desibeliyksikössä on kertoimena 20, ei 10. Esimerkiksi sähköteholle ja virralle:
+\[
+10\log_{10} \frac{P}{P_{\rm ref}}=10\log_{10} \frac{RI^2}{RI_{\rm ref}^2}=10\log_{10} \Bigg(\frac{I}{I_{\rm ref}}\Bigg)^2=20\log_{10} \frac{I}{I_{\rm ref}}
+\]
+\item Radiotekniikassa käytetään jännitetasojen ilmaisemiseen mm. desibelimikrovoltteja. Esimerkiksi 1 voltti on
+\[
+20\log_{10} \frac{1\,\rm V}{1\, \rm \mu V}= 120\, \rm dB\mu V
+\]
+
+\end{itemize}
+}

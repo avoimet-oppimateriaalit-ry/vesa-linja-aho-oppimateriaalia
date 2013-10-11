@@ -1,0 +1,703 @@
+\frame{
+\frametitle{Kirchhoffin lakien systemaattinen soveltaminen}
+Virtapiiriyhtälöt kannattaa kirjoittaa systemaattisesti, ettei sekoa omaan näppäryyteensä.
+Yksi tapa on {\bf solmujännitemenetelmä}:
+\begin{enumerate}
+\item Valitse joku solmuista maasolmuksi
+\item Nimeä jännitteet maasolmua vasten eli piirrä jännitenuoli jokaisesta solmusta maasolmuun.
+\item Lausu vastusten jännitteet nimettyjen jännitteiden avulla (piirrä jokaisen vastuksen yli jännitenuoli).
+\item Kirjoita virtayhtälö jokaiselle solmulle, jossa on tuntematon jännite.
+\item Ratkaise jännitteet virtayhtälöistä.
+\item Ilmoita kysytty jännite/jännitteet ja/tai virta/virrat.
+\end{enumerate}
+
+}
+
+\frame{
+\frametitle{Esimerkki}
+Ratkaise virta $I$.
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vst{100,0}{E_2}
+\vz{50,0}{R_3\hspace{-0.65cm}}
+\hz{0,50}{R_1\vspace{0.8cm}}
+\hz{50,50}{R_2\vspace{0.8cm}}
+\di{50,1}{I}
+\hln{0,0}{100}
+
+\pause
+\color{red}
+\hgp{25,0}
+%\ri{48,50}{I_1}
+%\li{52,50}{}
+%\txt{55,60}{I_2}
+
+\pause
+\color{blue}
+
+\du{58,0}{U_3}
+
+
+%\pause
+%\color{violet}
+%\txt{160,25}{I=I_1+I_2}
+%\tx{160,10}
+
+
+\pause
+\color{cyan}
+\ru{0,60}{E_1-U_3}
+\lu{50,60}{E_2-U_3}
+
+
+\end{picture}
+\end{center}
+\pause
+\[
+\color{magenta} \frac{U_3}{R_3}=\frac{E_1-U_3}{R_1}+\frac{E_2-U_3}{R_2}
+\pause
+\color{orange} \Longrightarrow
+U_3=R_3\frac{R_2E_1+R_1E_2}{R_1R_2+R_2R_3+R_1R_3}
+\]
+\pause
+\[
+\color{brown} I=\frac{U_3}{R_3}=\frac{R_2E_1+R_1E_2}{R_1R_2+R_2R_3+R_1R_3}
+\]
+}
+
+\frame{
+\frametitle{Huomautuksia}
+\begin{itemize}
+\item Yhtälöt voi kirjoittaa monella eri logiikalla, ei ole yhtä oikeaa menetelmää.
+\item Vaatimuksena ainoastaan a) Kirchhoffin lakien noudattaminen b) Ohmin lain\footnote{
+Ohmin lakia voi käyttää vain vastuksille. Jos piirissä on muita komponentteja, tulee tietää
+niiden virta-jänniteyhtälö eli tietää, miten komponentin virta riippuu jännitteestä.}
+ noudattaminen
+sekä se, että yhtälöitä on yhtä monta kuin tuntemattomia.
+\item Jos piirissä on virtalähde, se säästää (yleensä) laskentatyötä, koska silloin tuntemattomia
+virtoja on yksi vähemmän.
+\item Käyttämällä konduktansseja yhtälöt näyttävät siistimmiltä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Toinen esimerkki}
+
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vst{150,0}{E_2}
+\vz{50,0}{R_3\hspace{-0.65cm}}
+\hz{0,50}{R_1\vspace{0.8cm}}
+\hz{50,50}{R_2\vspace{0.8cm}}
+\hln{0,0}{150}
+\vz{100,0}{R_4\hspace{-0.65cm}}
+\hz{100,50}{R_5\vspace{0.8cm}}
+
+%\color{green}
+%\ri{8,50}{I_1}
+%\ri{58,50}{I_2}
+%\di{50,1}{I_3}
+%\ri{108,50}{I_5}
+%\di{100,1}{I_4}
+%\txt{200,25}{I_1=I_2+I_3}
+%\txt{200,10}{I_2=I_4+I_5}
+
+\color{blue}
+\du{58,0}{U_3}
+\du{108,0}{U_4}
+
+
+\end{picture}
+\end{center}
+
+\[\color{blue}
+\frac{E_1-U_3}{R_1}=\frac{U_3-U_4}{R_2}+\frac{U_3}{R_3} \quad \mbox{ja}\quad
+\frac{U_3-U_4}{R_2}=\frac{U_4}{R_4}+\frac{U_4-E_2}{R_5}
+\]
+\[\color{red}
+G_1(E_1-U_3)=G_2(U_3-U_4)+G_3U_3\ \mbox{ja}\
+G_2(U_3-U_4)=G_4U_4+G_5(U_4-E_2)
+\]
+Kaksi yhtälöä, kaksi tuntematonta, voidaan ratkaista. Lopputulos on sama, käytitpä konduktansseja tai resistansseja!
+}
+
+
+\frame{
+\frametitle{Huomattavaa}
+\begin{itemize}
+\item Virtapiirin ratkaisemiseksi on useita muitakin menetelmiä kuin solmujännitemenetelmä: haaravirtamenetelmä,
+silmukkamenetelmä, solmumenetelmä, modifioitu solmupistemenetelmä\ldots
+\item Mikäli piirissä on ideaalisia jännitelähteitä (=jännitelähteitä, jotka liittyvät suoraan
+solmuun ilman että välissä on vastus), yhtälöihin tulee yksi tuntematon arvo lisää (=jännitelähteen
+virta) sekä yksi yhtälö lisää (jännitelähde määrää solmujen jännite-eron).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jännitelähde kahden solmun välillä}
+Jos piirissä on kahden (muun kuin maa)solmun välillä jännitelähde, niin ongelmaan tulee yksi yhtälö ja yksi muuttuja lisää.
+\begin{enumerate}
+\item Jännitelähteen virtaa ei tunneta $\to$ merkitse sitä $I$:llä.
+\item Jännitelähde pakottaa kahden solmun välille tietyn jännite-eron. Kirjoita tälle jännite-erolle yhtälö.
+\end{enumerate}
+}
+
+\frame{
+\frametitle{Jännitelähde kahden solmun välillä: esimerkki}
+Entäpä jos edellisessä esimerkissä olisi ollut $R_2$:n tilalla jännitelähde $E_3$:
+\begin{center}
+\begin{picture}(150,70)(0,0)
+\vst{0,0}{E_1}
+\vst{150,0}{E_2}
+\vz{50,0}{R_3\hspace{-0.65cm}}
+\hz{0,50}{R_1\vspace{0.8cm}}
+\hst{50,50}{E_3\vspace{0.2cm}}
+\hln{0,0}{150}
+\vz{100,0}{R_4\hspace{-0.65cm}}
+\hz{100,50}{R_5\vspace{0.8cm}}
+
+%\ri{8,50}{I_1}
+%\ri{58,50}{I_2}
+%\di{50,1}{I_3}
+%\ri{108,50}{I_5}
+%\di{100,1}{I_4}
+%\txt{200,25}{I_1=I_2+I_3}
+%\txt{200,10}{I_2=I_4+I_5}
+
+\pause
+
+\color{blue}
+\du{58,0}{U_3}
+\du{108,0}{U_4}
+
+\pause
+\color{red}
+\ru{0,60}{E_1-U_3}
+\ru{50,65}{U_3-U_4}
+
+\ru{100,60}{U_4-E_2}
+
+
+\end{picture}
+\end{center}
+Jännitelähteen virtaa ei voi laskea Ohmin lailla, koska Ohmin laki pätee vain vastukselle, ei jännitelähteelle:
+\pause
+\[%\color{blue}
+\frac{E_1-U_3}{R_1}=\cancel{\color{orange}\frac{U_3-U_4}{R_2}}+\frac{U_3}{R_3} \quad \mbox{ja}\quad
+\cancel{\color{orange} \frac{U_3-U_4}{R_2}}=\frac{U_4}{R_4}+\frac{U_4-E_2}{R_5}
+\]
+Ratkaisu: merkitään jännitelähteen virtaa $I$:llä.
+\[%\color{blue}
+\frac{E_1-U_3}{R_1}=I+\frac{U_3}{R_3} \quad \mbox{ja}\quad
+I=\frac{U_4}{R_4}+\frac{U_4-E_2}{R_5}
+\]
+
+}
+
+\frame{
+\frametitle{Jännitelähde kahden solmun välillä: esimerkki}
+\begin{center}
+\begin{picture}(150,70)(0,0)
+\vst{0,0}{E_1}
+\vst{150,0}{E_2}
+\vz{50,0}{R_3\hspace{-0.65cm}}
+\hz{0,50}{R_1\vspace{0.8cm}}
+\hst{50,50}{E_3\vspace{0.2cm}}
+\hln{0,0}{150}
+\vz{100,0}{R_4\hspace{-0.65cm}}
+\hz{100,50}{R_5\vspace{0.8cm}}
+
+\color{orange}
+\ri{58,50}{}
+\txt{56,58}{I}
+
+\color{blue}
+\du{58,0}{U_3}
+\du{108,0}{U_4}
+
+\color{red}
+\ru{0,60}{E_1-U_3}
+\ru{50,65}{U_3-U_4}
+
+\ru{100,60}{U_4-E_2}
+
+
+\end{picture}
+\end{center}
+Ratkaisu: merkitään jännitelähteen virtaa $I$:llä.
+\[%\color{blue}
+\frac{E_1-U_3}{R_1}={\color{orange} I}+\frac{U_3}{R_3} \quad \mbox{ja}\quad
+{\color{orange} I}=\frac{U_4}{R_4}+\frac{U_4-E_2}{R_5}
+\]
+Koska meillä on nyt kolme tuntematonta, tarvitaan vielä yksi yhtälö:
+\[
+-E_3=U_3-U_4
+\]
+Kolme yhtälöä, kolme tuntematonta $\to$ voidaan ratkaista.
+}
+
+\frame{
+\frametitle{Jännitelähde kahden solmun välillä: yhteenveto}
+\begin{itemize}
+\item Koska jännitelähteen virtaa ei voida laskea Ohmin laista, jännitelähteen virta tuo yhden tuntemattoman lisää piiriyhtälöihin:
+\[%\color{blue}
+\frac{E_1-U_3}{R_1}={\color{orange} I}+\frac{U_3}{R_3} \quad \mbox{ja}\quad
+{\color{orange} I}=\frac{U_4}{R_4}+\frac{U_4-E_2}{R_5}
+\]
+\item Koska meille tuli yksi tuntematon lisää, tarvitaan myös yksi yhtälö lisää.
+\item Tämä yhtälö saadaan Kirchhoffin jännitelaista:
+\[
+-E_3=U_3-U_4
+\]
+\end{itemize}
+
+}
+
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise virta $I_4$. Tarkista tuloksesi siten, että merkitset kuvaan kaikki jännitteet ja virrat ja toteat, että tuloksesi ei ole ristiriidassa Kirchhoffin lakien kanssa.
+\end{block}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\hz{0,50}{R_1}
+%\hz{50,50}{R_3}
+\hst{50,50}{E}
+\hz{100,50}{R_4}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\vz{150,0}{R_5}
+\hln{0,0}{150}
+\di{100,1}{I_4}
+\end{picture}
+$R_1=R_2=R_3=R_4=R_5=1\ohm\qquad E=9\V\qquad J=1\A$
+\end{center}
+
+}
+
+
+
+\frame {
+  \frametitle{Ratkaisu}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\hz{0,50}{R_1}
+%\hz{50,50}{R_3}
+\hst{50,50}{E}
+\hz{100,50}{R_4}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\vz{150,0}{R_5}
+\hln{0,0}{150}
+\di{100,1}{I_4}
+\color{red}
+\du{57,0}{U_2}
+\du{107,0}{U_3}
+\hgp{100,0}
+\ri{96,50}{I}
+\end{picture}
+$R_1=R_2=R_3=R_4=R_5=1\ohm\qquad E=9\V\qquad J=1\A$
+\end{center}
+
+Kirjoitetaan kaksi virtayhtälöä ja yksi jänniteyhtälö. Merkitään vastusten $R_4$ ja $R_5$
+sarjaankytkennän konduktanssia symbolilla $G_{45}$.
+\begin{eqnarray*}
+J&=&U_2G_2+I\\
+I&=&U_3G_3+U_3G_{45} \\
+U_2+E&=&U_3
+\end{eqnarray*}
+
+Sijoittamalla toisesta yhtälöstä $I$:n ensimmäiseen yhtälöön ja sijoittamalla tähän kolmannesta yhtälöstä
+saatavan $U_2$:n, saadaan
+\[
+J=(U_3-E)G_2+U_3(G_3+G_{45})
+\]
+}
+\frame{
+Sijoitetaan yhtälöön lukuarvot ja ratkaistaan:
+
+\[
+U_3=4 \V
+\]
+
+\begin{itemize}
+\item Joten kysytty virta on $4 \V \cdot 1 \Siemens=4\A$.
+\item Jänniteyhtälöstä $U_2+E=U_3$ ratkeaa $U_2=-5\V$, siispä vastuksen $R_2$ virta on $5\A$ alhaalta ylöspäin.
+\item Virraksi $I$ saadaan $1\A+5\A=6\A$, josta $4\A$ kulkee $R_3$:n läpi ja loput $2\A$ vastusten $R_4$ ja $R_5$ läpi.
+\item Jännitteet ja virrat täsmäävät Kirchhoffin lakien kanssa, joten piiri on laskettu oikein.
+\end{itemize}
+}
+
+
+
+\frame{
+\frametitle{Esimerkki 1}
+% Silvonen 153 http://users.tkk.fi/~ksilvone/Lisamateriaali/teht100.pdf
+Ratkaise $I$ ja $U$.
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vst{50,0}{E_2}
+\hst{50,100}{E_3}
+\hz{0,50}{R_1}
+\vz{100,0}{R_2}
+\vj{150,0}{J}
+\di{0,42}{I}
+\du{110,0}{U}
+
+\hln{0,0}{150}
+\hln{100,100}{50}
+\hln{0,100}{50}
+
+\vln{0,50}{50}
+\vln{100,50}{50}
+\vln{150,50}{50}
+
+\uncover<2->{\color{red} \li{50,100}{I_3}}
+\end{picture}
+\end{center}
+\pause
+\begin{eqnarray*}
+J&=&UG_2+I_3\\
+I_3&=&I+(E_1-E_2)G_1\\
+U&=&E_1+E_3
+\end{eqnarray*}
+}
+
+
+\frame{
+\frametitle{Esimerkki 2}
+% Silvonen 162
+Ratkaise $U_2$ ja $I_1$.
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vst{50,0}{E_2}
+\vst{100,0}{E_3}
+\hj{0,50}{J_1}
+\hlj{50,50}{J_2}
+\hz{25,100}{R}
+\hln{0,0}{100}
+\vln{0,50}{50}
+\vln{100,50}{50}
+\hln{0,100}{25}
+\hln{75,100}{25}
+\lu{50,67}{U_2}
+\li{25,0}{I_1}
+
+\end{picture}
+\end{center}
+\pause
+\begin{eqnarray*}
+I_1&=&(E_1-E_3)G+J_1\\
+E_2+U_2&=&E_3
+\end{eqnarray*}
+}
+
+\frame{
+\frametitle{Mistä lisäharjoitusta?}
+\begin{itemize}
+\item Silvosen kirjaan on lisämateriaalia osoitteessa \url{http://users.tkk.fi/~ksilvone/Lisamateriaali/lisamateriaali.htm}
+\item Sieltä löytyy tasavirtapiiritehtäviä 175 kappaletta \url{http://users.tkk.fi/~ksilvone/Lisamateriaali/teht100.pdf}
+\item Tehtäviin on pdf:n lopussa myös ratkaisut, joten saat välittömän palautteen osaamisestasi!
+\item Jos intoa riittää, voi opetella käyttämään piirisimulaattoria. Sillä on helppo mm. tarkistaa kotitehtävät:
+\url{http://www.linear.com/designtools/software/ltspice.jsp}
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Esimerkki 3}
+% Silvonen 162
+Ratkaise $U_4$.
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hln{0,0}{100}
+\du{110,0}{U_4}
+\pause
+\color{red}
+\du{58,0}{U_2}
+\hgp{25,0}
+\end{picture}
+\end{center}
+\begin{eqnarray*}
+(E-U_2)G_1&=&U_2G_2+(U_2-U_4)G_3\\
+(U_2-U_4)G_3&=&G_4U_4
+\end{eqnarray*}
+}
+
+\begin{comment}
+\frame{
+\frametitle{Esimerkki 4}
+% Silvonen 162
+Ratkaise $U_4$.
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_4}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hln{0,0}{50}
+\hst{50,0}{E_2}
+\hj{50,100}{J}
+\vln{50,50}{50}
+\vln{100,50}{50}
+\cn{50,50}
+
+\du{110,0}{U_4}
+
+\pause
+%\color{red}
+%\du{58,0}{U_2}
+%\hgp{25,0}
+\end{picture}
+\end{center}
+\begin{eqnarray*}
+(E-U_2)G_1&=&U_2G_2+(U_2-U_4)G_3\\
+(U_2-U_4)G_3&=&G_4U_4
+\end{eqnarray*}
+}
+\end{comment}
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise jännite $U_1$. Kaikki vastukset ovat $10 \ohm$ vastuksia, $E=10\V$ ja $J=1\A$.
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+\hz{50,0}{R_4}
+\vst{150,0}{E}
+\hln{0,0}{50}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+\du{57,0}{U_1}
+\end{picture}
+\end{center}
+
+
+}
+
+
+
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise jännite $U_1$. Kaikki vastukset ovat $10 \ohm$ vastuksia, $E=10\V$ ja $J=1\A$.
+\end{block}
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vj{0,0}{J}
+\vz{50,0}{R_1}
+\vz{100,0}{R_3}
+\hz{50,50}{R_2}
+\hz{50,0}{R_4}
+\vst{150,0}{E}
+\hln{0,0}{50}
+\hln{100,0}{50}
+\hln{0,50}{50}
+\hln{100,50}{50}
+\du{57,0}{U_1}
+
+\color{red}
+\put(97,47){\vector(-1,-1){45}}
+\stx{89,31}{$U_2$}
+\lu{50,-19}{}
+\txt{75,-25}{U_3}
+\hgp{25,0}
+\ri{125,50}{I}
+
+\color{blue}
+\ru{50,60}{U_1-U_2}
+\du{110,0}{}
+\stx{125,15}{$U_2-U_3$}
+\end{picture}
+\end{center}
+
+\begin{eqnarray*}
+J&=&U_1G_1+(U_1-U_2)G_2\\
+(U_1-U_2)G_2&=&(U_2-U_3)G_3+I\\
+G_3(U_2-U_3)+I&=&U_3G_4\\
+U_2-U_3&=&E
+\end{eqnarray*}
+
+}
+
+
+\frame{
+\frametitle{Ratkaisu jatkuu}
+\begin{eqnarray*}
+J&=&U_1G_1+(U_1-U_2)G_2\\
+(U_1-U_2)G_2&=&EG_3+I\\
+G_3E+I&=&U_3G_4\\
+U_2-U_3&=&E
+\end{eqnarray*}
+Ratkaistaan kolmannesta yhtälöstä $I$ ja sijoitetaan se toiseen yhtälöön. Ratkaistaan viimeisestä yhtälöstä $U_3$
+ja sijoitetaan se paikalleen.
+\begin{eqnarray*}
+J&=&U_1G_1+(U_1-U_2)G_2\\
+(U_1-U_2)G_2&=&EG_3+(U_2-E)G_4-G_3E\\
+\end{eqnarray*}
+\vspace{-1cm}
+\begin{eqnarray*}
+1&=&0,2U_1-0,1U_2\\
+0,1U_1-0,1U_2&=&0,1U_2-1
+\end{eqnarray*}
+}
+\frame{
+\frametitle{Ratkaisu jatkuu}
+\begin{eqnarray*}
+1&=&0,2U_1-0,1U_2\\
+0,1U_1-0,1U_2&=&0,1U_2-1
+\end{eqnarray*}
+
+Jonka ratkaisu on
+\begin{eqnarray*}
+U_1&=&10\\
+U_2&=&10
+\end{eqnarray*}
+Eli kysytty jännite $U_1$ on 10 volttia. Tämän voi vielä tarkistaa simulaattorilla.
+
+}
+
+
+\frame{
+\frametitle{Esimerkki} % Piirianalyysi laskari 2 tehtävä 2
+\[
+R_1=100\ohm\quad R_2=500\ohm\quad R_3=1,5\kohm\quad R_4=1\kohm \quad E_1=5\V
+\]
+\[
+\quad J_1=100\mA\quad J_2=150\mA
+\]
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vj{0,0}{J_1}
+\vz{50,0}{R_1}
+\vst{100,0}{E_1}
+\vz{150,0}{R_4}
+\hz{50,50}{R_2}
+\hz{100,50}{R_3}
+\hj{100,100}{J_2}
+\hln{0,0}{150}
+\hln{0,50}{50}
+\vln{100,50}{50}
+\cn{100,50}
+\vln{150,50}{50}
+\du{160,0}{U_4}
+\end{picture}
+\end{center}
+Ratkaise $U_4$.\\
+\tiny $U_4=92\V$
+}
+
+\frame{
+\frametitle{Esimerkki} % http://users.tkk.fi/ksilvone/Lisamateriaali/teht100.pdf t. 114
+\[
+R_1=12\ohm\quad R_2=25\ohm\quad J=1 \A \quad E_1=1\V\quad
+E_2=27\V
+\]
+\begin{center}
+\begin{picture}(150,100)(0,0)
+\vst{0,0}{E_1}
+\vj{50,0}{J}
+\hst{75,50}{E_2}
+\hz{0,50}{R_1}
+\vz{125,0}{R_2\hspace{-1.3cm}}
+\hln{0,0}{125}
+\hln{50,50}{25}
+\du{70,0}{U}
+\end{picture}
+\end{center}
+Laske jännite $U$.\\
+\tiny
+Vastaus: $\frac{1}{37}\V \approx 27 \mV$
+}
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise jännite $U$.
+\end{block}
+\[
+R_1=1\ohm \quad R_2=2\ohm\quad J_1=1\A \quad J_2=2\A\quad E=3\V
+\]
+\begin{center}
+\begin{picture}(100,100)(0,0)
+\vj{0,0}{J_1}
+\vst{100,0}{E}
+\vz{50,0}{R_1}
+\hz{50,50}{R_2}
+\hlj{50,100}{J_2}
+\hln{0,0}{100}
+\hln{0,50}{50}
+\vln{50,50}{50}
+\vln{100,50}{50}
+\cn{50,50}
+\cn{100,50}
+\du{58,0}{U}
+\end{picture}
+\end{center}
+
+
+}
+
+
+
+
+\frame{
+\frametitle{Esimerkki}
+%\begin{block}{Kotitehtävä 4}
+%Ratkaise jännite $U$.
+%\end{block}
+\[
+R_1=1\ohm \quad R_2=2\ohm\quad J_1=1\A \quad J_2=2\A\quad E=3\V
+\]
+\begin{center}
+\begin{picture}(100,100)(0,0)
+\vj{0,0}{J_1}
+\vst{100,0}{E}
+\vz{50,0}{R_1}
+\hz{50,50}{R_2}
+\hlj{50,100}{J_2}
+\hln{0,0}{100}
+\hln{0,50}{50}
+\vln{50,50}{50}
+\vln{100,50}{50}
+\cn{50,50}
+\cn{100,50}
+\du{58,0}{U}
+\color{blue}
+\lu{50,58}{E-U}
+\end{picture}
+\end{center}
+\[
+J_1+J_2+G_2(E-U)=G_1U
+\]
+\[
+1+2+0,5(3-U)=1\cdot U
+\]
+\[
+4,5=1,5U
+\]
+\[
+U=3
+\]
+
+
+}
+

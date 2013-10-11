@@ -1,0 +1,82 @@
+\frame{
+\frametitle{Operaatiovahvistimen epäideaalisuudet}
+Ideaalinen operaatiovahvistin
+\begin{itemize}
+\item on äärettömän nopea.
+\item $A \to \infty$
+\item Tulonapoihin ei mene virtaa
+\item  Lähtövirta ja -jännite voi olla kuinka suuri tahansa
+\end{itemize}
+Negatiivisesti takaisinkytkettynä ideaalisen operaatiovahvistimen tulonavoissa on täsmälleen sama jännite.
+}
+
+\frame{
+\frametitle{Käytännön operaatiovahvistin}
+\begin{itemize}
+\item On hidas
+\item Vahvistuskerroin $A$ on suuri muttei ääretön.
+\item Tulonapoihin menee pieni virta.
+\item Lähtövirta on rajallinen, kuten myös lähtöjännite.
+\item Tulonavat eivät ole samassa potentiaalissa, vaan niiden välillä on pieni jännite-ero.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tulonsiirrosjännite}
+\begin{itemize}
+\item Negatiivisesti takaisinkytketyn operaatiovahvistimen tulonapojen välillä on pieni jännite, jota kutsutaan
+offset-jännitteeksi eli tulonsiirrosjännitteeksi.
+\item Suuruusluokka on muutamasta millivoltista satoihin mikrovoltteihin.
+\item Joissain operaatiovahvistimissa on liitännät potentiometrille, jolla voidaan nollata tulonsiirrosjännite.
+\item Joissain malleissa on automaattinen offset-jännitteen nollaus.
+\item $U_{\rm offset}=U_+-U_-$.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tuloesivirta ja tulonsiirrosvirta}
+\begin{itemize}
+\item Molempiin tulonapoihin menee pieni virta. Virrat eivät ole samansuuruisia ($I_+ \not = I_-$).
+\item Tuloesivirta = $\frac{I_+ -  I_-}{2}$
+\item Tulonsiirrosvirta = $I_+ -  I_-$
+\item Virrat ovat yleensä nanoampeeriluokkaa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Toteutustavat}
+\begin{itemize}
+\item Bipolaaritransistorioperaatiovahvistimilla offset-jännite on yleensä pieni ja tulovirrat suurempia kuin kanavatransistorioperaatiovahvistimilla, joilla puolestaan offset-jännite voi olla suurehko.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Äärellinen nopeus}
+\begin{itemize}
+\item Operaatiovahvistimen lähtöjännite ei voi muuttua äärettömän nopeasti.
+\item Slew rate eli seurantanopeus kertoo, kuinka nopeasti operaatiovahvistimen lähtöjännite voi muuttua.
+\item Suuruusluokka on voltteja tai kymmeniä voltteja per mikrosekunti.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Äärellinen lähtövirta ja lähtöjännite}
+\begin{itemize}
+\item Lähtöjännite ei voi mennä ylitse (eikä alitse) käyttöjännitteiden.
+\item Kaikilla operaatiovahvistimilla lähtöjännite ei yllä edes käyttöjännitteisiin.
+\item Jos lähtöjännite yltää molempiin käyttöjännitteisiin, puhutaan rail-to-rail -operaatiovahvistimesta.
+\item Lähtövirta on myös äärellinen.
+\end{itemize}
+}
+
+\frame{
+\frametitle{CMRR}
+\begin{itemize}
+\item Common Mode Rejection Ratio eli yhteismuodon vaimennussuhde.
+\item Ideaalinen operaatiovahvistin vahvistaa vain jännite-eroa, ei yhteismuotoista tulojännitettä.
+\item CMRR = $\frac{A_{\rm D}}{A_{\rm C}}$.
+\item Ilmoitetaan yleensä desibeleinä, kuten myös käyttöjännitteen vaimennussuhde (PSRR), joka kertoo, kuinka
+paljon käyttöjännitteen heilahtelu näkyy lähtöjännitteessä.
+\end{itemize}
+}

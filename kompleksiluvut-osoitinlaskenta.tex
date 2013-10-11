@@ -1,0 +1,378 @@
+% TODO Korosta, että vastaus (virta tai jännite) aina kulmamuodossa! RI-muoto ei kerro mitään.
+% TODO Mieti asioiden esittelyjärjestystä (kompleksiluvut vs. niiden soveltaminen).
+
+\frame{
+\frametitle{Kompleksiluvut}
+\begin{itemize}
+\item Vaihtosähköpiirilaskuja on helppo laskea osoittimilla.
+\item Osoittimia on puolestaan helppo käsitellä kompleksilukujen avulla.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kompleksiluvut}
+Kompleksilukuaritmetiikka perustuu imaginaariyksikköön i, joka määritellään seuraavasti:
+\[
+{\rm i}^2=-1
+\]
+Perinteisessä reaalilukuaritmetiikassa mikään luku korotettuna toiseen ei ole -1, mutta
+mikään ei estä määrittelemästä sellaista. Ettei pikku-i mene sekaisin virran kanssa, sähkötekniikassa
+imaginaariyksikölle käytetään symbolia $\jj$:
+\[
+\jj^2=-1
+\]
+}
+
+\frame{
+\frametitle{Kompleksiluvut}
+Kompleksiluku jakaantuu reaaliosaan ja imaginaariosaan. Esimerkiksi jos lasketaan yhteen reaaliluku 3 ja 
+imaginaariyksikkö $\jj$, saadaan luku
+\[
+3+\jj
+\]
+ }
+
+\frame{
+\frametitle{Laskeminen kompleksiluvuilla}
+Peruslaskutoimitusten  laskeminen kompleksiluvuilla ei käytännössä eroa reaaliluvuilla laskemisesta:
+\[
+3(\jj + 2)= 3\jj + 6
+\]
+\[
+(1+2\jj)(1+\jj)=1+\jj+2\jj + 2\jj^2=1+3\jj -2=-1+3\jj
+\]
+
+
+
+}
+
+\frame{
+\frametitle{Eulerin kaava}
+Kompleksiluvuille pätee Eulerin kaava. Sen todistaminen on mahdollista sarjakehitelmien avulla
+ja kuuluu (yliopisto)matematiikan tunnille. Otamme kaavan käyttöön perustelematta:
+\[
+e^{\jj \phi}=\cos \phi + \jj \sin \phi
+\]
+Eulerin kaava on tärkeä, kun kompleksilukuja muunnetaan summamuodosta kulmamuotoon.
+Kompleksitason piste $2+2\jj$ voidaan esittää joko summamuodossa:
+\[
+z=2+2\jj
+\] 
+tai kulmamuodossa (Eulerin kaavan avulla)
+\[
+2\cdot e^{\jj\frac{\pi}{2}}=2(\cos \frac{\pi}{2} +\jj\sin\frac{\pi}{2} )
+\]
+Kompleksiluvun $2+2\jj$ kulma eli argumentti on 45 astetta ja itseisarvo on 2.
+}
+
+\frame{
+\frametitle{Eulerin kaavan geometrinen tulkinta}
+Kompleksiluvun itseisarvo tarkoittaa kompleksitason pisteen etäisyyttä origosta. Kompleksiluvun
+kulma tarkoittaa pisteen suuntaa $x$-akselilta katsottuna.
+
+Eulerin kaavan käyttö ei ole itsetarkoitus sähkötekniikassa. Sen takia kulmamuodossa olevaa kompleksilukua
+ei kirjoiteta näkyviin muodossa $r e^{\phi \jj}$, vaan käytetään muotoa $r\angle \phi$. Kyseessä on vain
+lyhennysmerkintä.
+}
+
+
+\frame{
+\frametitle{Kompleksiluku}
+Kompleksiluku $z$ voidaan esittää joko reaali-imaginaarimuodossa
+\[
+z=x+y\jj
+\]
+tai kulmamuodossa
+\[
+z=r\angle \phi
+\]
+Muunnoskaavat ovat
+\[
+r=\sqrt{x^2+y^2} \quad {\rm ja} \quad \phi=\arctan\frac{y}{x}
+\]
+ja toiseen suuntaan
+\[
+x=r\cos \phi \quad {\rm ja} \quad y=r\sin \phi
+\]
+Kyse ei ole sen monimutkaisemmasta asiasta, kuin että pisteen sijainti koordinaatistossa, jossa x-akseli
+kuvaa reaaliosaa ja y-akseli imaginaariosaa.
+}
+
+\frame{
+\frametitle{Älä tee näin!}
+\begin{columns}
+\column{5cm}
+Joka vuosi kokeessa joku korottaa imaginaariyksikön vahingossa toiseen,
+kun laskee kompleksiluvun itseisarvoa:
+$z=3 + 4\jj \Rightarrow r=\sqrt{3^2 + (4{\color{red}\jj})^2}$
+$\color{red}=\sqrt{9-16}=\sqrt{-7}$
+
+Oikein on:
+$z=3 + 4\jj \Rightarrow r=\sqrt{3^2 + 4^2}$
+$=\sqrt{9+16}=\sqrt{25}=5$.
+
+Kyse ei ole mistään monimutkaisemmasta kuin Pythagoraan lauseen soveltamisesta,
+sinne ei imaginaariyksikköä sotketa!
+
+\column{40mm}
+\includegraphics[width=40mm]{mittaustekniikka_pics/epicfail.jpg}
+\end{columns}
+}
+
+
+\frame{
+\frametitle{Kompleksilukujen laskusääntöjä}
+Nyrkkisääntö: yhteen- ja vähennyslaskut ovat helppoja reaali-imaginaarimuodossa
+($x+y\jj$), jako- ja kertolasku ovat helppoja kulmamuodossa.
+
+Kertolasku kulmamuodossa:
+\[
+r_1\angle\phi_1 \cdot r_2\angle\phi_2=(r_1r_2)\angle \phi_1+\phi_2
+\]
+eli itseisarvot kerrotaan keskenään, ja kulmat lasketaan yhteen.
+
+Jakolasku kulmamuodossa:
+\[
+\frac{r_1\angle\phi_1}{r_2\angle\phi_2}=\frac{r_1}{r_2}\angle \phi_1-\phi_2
+\]
+eli itseisarvoille suoritetaan jakolasku ja kulmat vähennetään toisistaan.
+}
+
+
+
+
+
+\frame{
+\frametitle{Osoitinlaskenta kompleksiluvuilla (johdanto)}
+\begin{itemize}
+\item Jos piirissä on yksi lähde ja yksi kela tai kondensaattori, lasku on helppo.
+\item Jos niitä on useampi, laskeminen on mielettömän työlästä.
+\item Onneksi voidaan käyttää kompleksilukuihin perustuvaa {\bf osoitinlaskentaa}.
+\item Osoitinlaskennassa jännitteet ja virrat ovat kompleksilukuja, jotka sisältävät
+sekä jännitteen tehollisarvon että vaihekulman.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Tehollisarvon käsite}
+\begin{itemize}
+\item Osoitinlaskennassa käytetään tehollisarvon osoittimia, koska tällöin 
+tehon kaava on siistimmän muotoinen kuin huippuarvon osoittimia käytettäessä.
+\item Vaihtosähköteho käsitellään seuraavalla tunnilla: nyt riittää, että tiedämme, että:
+\item Sinimuotoisen vaihtovirran ja -jännitteen huippuarvon ja tehollisarvon suhde on $\sqrt{2}$.
+\item Tehollisarvolla tarkoitetaan sitä, kuinka suurta tasajännitettä vaihtojännite vastaa
+lämmitysteholtaan, jos siihen kytketään resistiivinen kuorma. Esimerkiksi hehkulamppu
+loistaa yhtä kirkkaasti, kytkipä sen 230 voltin akustoon (tasajännite) tai 230 voltin verkkosähköön
+(vaihtojännite). Verkkojännitteen huippuarvo on $230\cdot \sqrt{2}\approx325$ volttia.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Osoitinlaskenta kompleksiluvuilla}
+\begin{itemize}
+\item Uusi käsite: impedanssi ($Z$). Vastuksen impedanssi on $R$. Kelan
+impedanssi $Z_L=\jj \omega L$ ja kondensaattorin impedanssi $Z_C=\frac{1}{\jj \omega C}$. 
+\item $\jj$ on matematiikan tunnilta tuttu imaginaariyksikkö: $\jj^2=-1$.
+Sähkötekniikassa ei käytetä lyhennettä $i$, koska se tarkoittaa virtaa.
+\item Jännite ja virta ilmaistaan kompleksilukuna siten, että kompleksiluvun
+itseisarvona on jännitteen/virran tehollisarvo ja kulmana (argumenttina)
+jännitteen/virran vaihekulma.
+\item $u= \hat{u}\sin(\omega t+ \phi) \Leftrightarrow U=\frac{\hat{u}}{\sqrt{2}}\angle\phi$
+\item Merkintä $r\angle \phi$ tarkoittaa kompleksilukua, jonka itseisarvo on $r$ ja argumentti
+$\phi$.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Kondensaattori ja sinimuotoinen jännite osoitinlaskennalla}
+Aiempi esimerkki osoitinlaskennalla.
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{-25,0}{u(t)=\hat{u}\sin(\omega t+ \phi)}
+\vc{25,0}{C}
+\di{25,40}{i}
+%\du{40,0}{u}
+\hln{-25,0}{50}
+\hln{-25,50}{50}
+
+\end{picture}
+\end{center}
+Muunnetaan jännitelähteen arvo kompleksiluvuksi:
+$u(t)=\hat{u}\sin(\omega t+ \phi) \Rightarrow U=\frac{\hat{u}}{\sqrt{2}}\angle \phi$.
+Virta on Ohmin lain mukaan
+\[
+I=\frac{U}{Z}=\frac{\frac{\hat{u}}{\sqrt{2}}\angle \phi}{\frac{1}{\jj\omega C}}=\jj\omega C\cdot \frac{\hat{u}}{\sqrt{2}}\angle \phi
+=\omega C\angle90^\circ \cdot \frac{\hat{u}}{\sqrt{2}}\angle \phi=
+\frac{\hat{u}\omega C}{\sqrt{2}}\angle \phi+90^\circ
+\]
+Muunnetaan takaisin ajan funktioksi:
+\[
+i=C\omega\hat{u}\sin(\omega t+ \phi+\frac{\pi}{2})
+\]
+Eli jännitteen ja virran suhde on $\frac{1}{C\omega}$ ja niiden välillä on 90 asteen ($\frac{\pi}{2}$
+radiaanin) vaihe-ero. Virta on 90 astetta jännitettä edellä.
+}
+
+\frame{
+\frametitle{Osoitinlaskennan teoreettinen perusta}
+\scriptsize
+\begin{itemize}
+\item Jokainen sinimuotoinen jännite ja virta voidaan ajatella pyörivänä viisarina. Viisari pyörii
+kulmanopeudella $\omega$ ja sen pituus on jännitteen/virran huippuarvo (jos lasketaan huippuarvoilla)
+tai tehollisarvo (jos lasketaan tehollisarvoilla).
+\item Vaihekulma $\phi$ kertoo kohdan, josta viisari lähtee pyörimään.
+\item Jos kelaan syötetään virta $I$, kelan jännite on 90 astetta $I$:tä edellä ja jännitteen suuruus
+on $\omega L$-kertainen.
+\item Kelan jänniteviisari saadaan virtaviisarista siis kääntämällä viisaria 90 astetta eteenpäin ja
+kasvattamalla sen pituus $\omega L$-kertaiseksi.
+\item Jos kondensaattoriin syötetään virta $I$, kondensaattorin jännite on 90 astetta virtaa $I$ jäljessä
+ja jännite on $\frac{1}{\omega C}$-kertainen.
+\item Kondensaattorin jänniteviisari saadaan virtaviisarista siis kääntämällä viisaria 90 astetta taaksepäin ja
+kasvattamalla sen pituus $\frac{1}{\omega C}$-kertaiseksi.
+\item Kompleksilukujen laskusäännöt sopivat tähän kuin nyrkki silmään: kertomalla virta kompleksisella
+impedanssilla, muuttuu sekä pituus että vaihe. $\jj$:llä kertominenhan kääntää kompleksiluvun kulmaa
+eteenpäin ja $\jj$:llä jakaminen taaksepäin 90 astetta.
+\item Kompleksilukulaskennan voi perustella myös Fourier-muunnoksen avulla.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Yksinkertainen laskuesimerkki}
+\[
+R_1=1\ohm\quad C=1\,{\rm F}\quad E=10\angle 20^\circ \quad \omega=1
+\]
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vc{100,0}{C}
+\vst{0,0}{E}
+\hln{0,0}{100}
+\hln{50,50}{50}
+\hz{0,50}{R}
+\du{115,0}{U}
+\ri{75,50}{I}
+
+\end{picture}
+\end{center}
+Lasketaan $I$ ja $U$. Vastuksen impedanssi on $R$ ja kondensaattorin impedanssi on
+$\frac{1}{\jj \omega C}$ ja niiden sarjaankytkennän impedanssi on tietysti $Z=R+\frac{1}{\jj \omega C}$.
+Nyt virta $I$ on
+\[
+I=\frac{E}{Z}=\frac{10\angle 20^\circ}{1+1\frac{1}{\jj}}=\frac{10\angle 20^\circ}{1-\jj}
+=\frac{10\angle 20^\circ}{\sqrt{2}\angle -45^\circ}=\frac{10}{\sqrt{2}}\angle 20^\circ-(-45^\circ)
+\]
+\[
+\approx 7 \angle 65^\circ {\rm ampeeria}.
+\]
+}
+
+
+
+\frame{
+\frametitle{Esimerkki}
+
+a) Muunna summamuotoon (pyöristä tulos tarvittaessa):
+\begin{itemize}
+\item $3\angle 30^\circ$
+\item $5\angle 90^\circ$
+\end{itemize}
+Muunna kulmamuotoon (pyöristä tulos tarvittaessa):
+\begin{itemize}
+\item $1-\jj$
+\item $-3+4\jj$
+\end{itemize}
+b) Laske, ja ilmoita lopputulos sekä kulma- että summamuodossa:
+\begin{itemize}
+\item $(1+\jj)(2-\jj)$
+\item $\frac{1}{1-\jj}$
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Esimerkki}
+
+Muunna summamuotoon (pyöristä tulos tarvittaessa):
+\begin{itemize}
+\item $3\angle 30^\circ=3(\cos 30^\circ+\jj \sin 30^\circ)\approx 2,6 + 1,5\jj$
+\item $5\angle 90^\circ=5\jj$ (90 asteen kulma = puhdas imaginaariluku)
+\end{itemize}
+Muunna kulmamuotoon (pyöristä tulos tarvittaessa):
+\begin{itemize}
+\item $1-\jj=\sqrt{1^2+(-1)^2}\angle \arctan{\frac{-1}{1}}=\sqrt{2}\angle -45^\circ$
+\item $-3+4\jj=\sqrt{(-3)^2+4^2}\angle \arctan{\frac{-4}{3}}=5\angle 127^\circ$\footnote{Varo! Laskin 
+sanoo $-53^\circ$ -- sinun pitää itse siirtää kulma oikeaan neljännekseen!}
+\end{itemize}
+Laske, ja ilmoita lopputulos sekä kulma- että summamuodossa:
+\begin{itemize}
+\item $(1+\jj)(2-\jj)=2-\jj+2\jj-\jj^2=3+\jj=\sqrt{3^2+1^2}\angle \arctan\frac{1}{3}\approx 3,16\angle 18,4^\circ$
+\item $\frac{1}{1-\jj}=\frac{1\cdot(1+\jj)}{(1-\jj)(1+\jj)}=\frac{1+\jj}{2}=0,5+0,5\jj\approx 0,7\angle 45^\circ$
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Esimerkki 2}
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{-25,0}{U=12\angle 0^\circ}
+\vc{25,0}{C}
+\ri{15,50}{I}
+\vz{60,0}{R}
+%\du{40,0}{u}
+\hln{-25,0}{85}
+\hln{-25,50}{85}
+
+\end{picture}
+\end{center}
+Ratkaise virta $I$ (kompleksilukuna -- jännite on ilmoitettu tehollisarvona, ilmoita myös virta
+tehollisarvona).
+\[
+C=1\uF\quad  R=10\kohm \quad \omega=1000\frac{\rm rad}{s}
+\]
+}
+
+
+\frame{
+\frametitle{Esimerkki 2}
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{-25,0}{U=12\angle 0^\circ}
+\vc{25,0}{C}
+\ri{15,50}{I}
+\vz{60,0}{R}
+%\du{40,0}{u}
+\hln{-25,0}{85}
+\hln{-25,50}{85}
+
+\end{picture}
+\end{center}
+Ratkaise virta $I$ (kompleksilukuna -- jännite on ilmoitettu tehollisarvona, ilmoita myös virta
+tehollisarvona).
+\[
+C=1\uF\quad  R=10\kohm \quad \omega=1000\frac{\rm rad}{s}
+\]
+Lasketaan rinnankytkennän impedanssi
+\[
+Z=\frac{1}{\frac{1}{Z_C}+\frac{1}{R}}=\frac{Z_C R}{Z_C+R}=\frac{\frac{1}{\jj \omega C}R}{\frac{1}{\jj \omega C}+R}
+=\frac{R}{1+\jj\omega RC}
+\]
+Virta $I$ saadaan yleistetystä Ohmin laista
+\[
+I=\frac{U}{Z}=U\frac{1+\jj\omega RC}{R}=\frac{12}{10000}(1+\jj 1000\cdot 10^{-6}\cdot10000) 
+=0,0012(1+10\jj)
+\]
+}
+
+\frame{
+\[
+0,0012(1+10\jj)\approx 0,012\angle 84,3^\circ
+\]
+Eli virta on 12 milliampeeria kulmassa 84,3$^\circ$.
+} 

@@ -1,0 +1,322 @@
+\frame{
+\frametitle{Jännitteenjakosääntö}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\hln{0,0}{50}
+\du{0,0}{U}
+\du{60,0}{U_2}
+\ru{0,60}{U_1}
+
+\end{picture}
+\end{center}
+\begin{itemize}
+\item $U_1=U\frac{R_1}{R_1+R_2}$ ja $U_2=U\frac{R_2}{R_1+R_2}$
+\item Elektroniikkapiirissä tarvitaan usein vertailujännite, joka muodostetaan jostain suuremmasta jännitteestä.
+\item Kaava toimii myös useamman vastuksen sarjaankytkennälle. Nimittäjään tulee kaikkien vastusten summa
+ja osoittajaan se vastus, jonka yli olevaa jännitettä kysytään.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Virranjakosääntö}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\hln{0,50}{100}
+%\hz{0,50}{R_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_2}
+\hln{0,0}{100}
+\ri{9,50}{I}
+\di{50,42}{I_1}
+\di{100,42}{I_2}
+
+%\du{0,0}{U}
+%\du{60,0}{U_2}
+%\ru{0,60}{U_1}
+
+\end{picture}
+\end{center}
+
+\begin{itemize}
+\item $I_1=I\frac{G_1}{G_1+G_2}$ ja $I_2=I\frac{G_2}{G_1+G_2}$
+\item Kaava pätee myös monen vastuksen rinnankytkennälle.
+\item Tätä ei tarvita yhtä tavallisesti kuin jännitteenjakosääntöä, mutta on luontevaa ottaa se esille jännitteenjakosäännön yhteydessä.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Esimerkki 1}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\hz{0,50}{R_4}
+\hln{50,50}{100}
+%\hz{0,50}{R_1}
+\vz{50,0}{R_1}
+\vz{100,0}{R_2}
+\vz{150,0}{R_3}
+\hln{0,0}{150}
+%\ri{9,50}{I}
+\di{50,42}{I_1}
+\di{100,42}{I_2}
+\di{150,42}{I_3}
+\vj{0,0}{J}
+\end{picture}
+\end{center}
+\pause
+$I_1=J\frac{G_1}{G_1+G_2+G_3}\quad$
+\pause
+$I_2=J\frac{G_2}{G_1+G_2+G_3}\quad$
+\pause
+$I_3=J\frac{G_3}{G_1+G_2+G_3}$
+}
+
+\frame{
+\frametitle{Esimerkki 2}
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\hz{0,50}{R_1}
+%\hln{50,50}{100}
+%\hz{0,50}{R_1}
+\hz{50,50}{R_2}
+\hz{100,50}{R_3}
+\vz{150,0}{R_4}
+\hln{0,0}{150}
+%\ri{9,50}{I}
+%\di{50,42}{I_1}
+%\di{100,42}{I_2}
+%\di{150,42}{I_3}
+\vst{0,0}{E}
+\color{red}
+\rcuu{0,55}{U_1}
+\rcuu{50,55}{U_2}
+\rcuu{100,55}{U_3}
+\dcru{155,0}{U_4}
+
+\end{picture}
+\end{center}
+\pause
+$U_1=E\frac{R_1}{R_1+R_2+R_3+R_4}\quad$
+\pause
+$U_2=E\frac{R_2}{R_1+R_2+R_3+R_4}\quad$
+\pause
+$U_3=E\frac{R_3}{R_1+R_2+R_3+R_4}\quad$
+\pause
+$U_4=E\frac{R_4}{R_1+R_2+R_3+R_4}\quad$
+}
+
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise jännite $U$ jännitteenjakosääntöä hyväksikäyttämällä.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad R_5=50 \ohm
+\quad E_2=15\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hz{100,50}{R_4}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+\ru{50,50}{U}
+\vst{200,0}{E_2}
+\hz{150,50}{R_5}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\end{picture}
+\end{center}
+
+}
+
+%LUENTO9
+
+\frame{
+\begin{block}{Ratkaisu}
+Ratkaise jännite $U$ jännitteenjakosääntöä hyväksikäyttämällä.
+\end{block}
+\[
+E_1=10\V \quad R_1=10 \ohm \quad R_2= 20 \ohm \quad R_3=30 \ohm
+\]
+\[
+ R_4=40 \ohm \quad R_5=50 \ohm
+\quad E_2=15\V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hz{100,50}{R_4}
+%\hz{50,0}{R_4}
+%\out{150,0}
+%\out{150,50}
+%\ri{58,50}{I_2}
+\ru{50,50}{U}
+\vst{200,0}{E_2}
+\hz{150,50}{R_5}
+\hln{0,0}{200}
+\hln{100,0}{50}
+%\hln{100,50}{50}
+%\du{57,0}{U_1}
+%\ri{57,50}{I}
+\color{red}
+\du{60,0}{U_2}
+\du{108,0}{U_3}
+
+\end{picture}
+\end{center}
+$U_2=E_1\frac{R_2}{R_1+R_2}=10\V\frac{20\ohm}{10\ohm+20\ohm}=6\frac{2}{3}\V$
+$U_3=E_2\frac{R_3}{R_3+R_4+R_5}=15\V\frac{30\ohm}{30\ohm+40\ohm+50\ohm}=3,75\V$
+$U=U_2-U_3=2\frac{11}{12}\V\approx 2,92\V$.
+}
+
+\frame{
+\begin{block}{Esimerkki}
+Tiedetään, että virta $I_3=0\A$. Laske $E_1$.
+\end{block}
+\[
+R_1=5 \ohm \quad R_2=4 \ohm \quad R_3=2 \ohm \quad R_4=5 \ohm \quad R_5=6 \ohm \quad
+E_2=30 \V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\vst{150,0}{E_2}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_2}
+\vz{50,0}{R_4}
+\vz{100,0}{R_5}
+\hln{0,0}{150}
+\ri{97,50}{I_3}
+\end{picture}
+\end{center}
+}
+
+%LUENTO12
+
+\frame{
+\begin{block}{Ratkaisu}
+Tiedetään, että virta $I_3=0\A$. Laske $E_1$.
+\end{block}
+\[
+R_1=5 \ohm \quad R_2=4 \ohm \quad R_3=2 \ohm \quad R_4=5 \ohm \quad R_5=6 \ohm \quad
+E_2=30 \V
+\]
+
+\begin{center}
+\begin{picture}(150,50)(0,0)
+\vst{0,0}{E_1}
+\vst{150,0}{E_2}
+\hz{0,50}{R_1}
+\hz{50,50}{R_3}
+\hz{100,50}{R_2}
+\vz{50,0}{R_4}
+\vz{100,0}{R_5}
+\hln{0,0}{150}
+\ri{97,50}{I_3}
+\pause
+\color{red}
+\du{57,0}{U_4}
+\du{107,0}{U_5}
+
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+Koska $I_3=0\A$,  vastusten $R_1$ ja $R_4$ läpi kulkee sama virta, ja samoin vastusten
+$R_2$ ja $R_5$ läpi kulkee sama virta. Näin ollen ne ovat sarjassa\footnote{Siksi ja vain siksi
+että tiedetään, että $I_3$ on nolla.} ja niihin voidaan soveltaa jännitteenjakosääntöä. Vastuksen $R_5$ yli oleva jännite on $U_5=E_2\frac{R_5}{R_2+R_5}=18\V$. Tällöin vastuksen
+$R_4$ yli on myös $18 \V$. Nyt jännitteenjakosäännön mukaan:
+\[
+U_4=E_1\frac{R_4}{R_1+R_4} \quad \Rightarrow \quad 18\V=E_1\frac{5\ohm}{5\ohm+5\ohm}
+\]
+josta ratkeaa $E_1=36\V$.
+
+Huom! Aivan yhtä oikein olisi ollut kirjoittaa solmujänniteyhtälöt piirille ja ratkaista niistä
+$E_1$.
+}
+
+\frame{
+\begin{block}{Esimerkki}
+Ratkaise virta $I$ ja jännite $U$.
+\end{block}
+\begin{center}
+\begin{picture}(50,68)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hln{0,0}{100}
+\hln{50,50}{50}
+\di{100,2}{I}
+\rcuu{0,53}{U}
+%\vst{0,0}{1,5 \V}
+%\vst{0,50}{1,5 \V}
+%\vz{50,25}{R=20\ohm\hspace{-2.5cm}}
+%\vln{50,0}{25}
+%\vln{50,75}{25}
+%\hln{0,100}{50}
+%\hln{0,0}{50}
+%\di{50,25}{I}
+\end{picture}
+\[
+E=10\V\qquad R_1=7,5\kohm \qquad R_2=R_3=5\kohm
+\]
+\end{center}
+
+}
+
+
+\frame{
+%\frametitle{Kotitehtävä 1a }
+\begin{block}{Esimerkki}
+Ratkaise virta $I$ ja jännite $U$.
+\end{block}
+\begin{center}
+\begin{picture}(50,68)(0,0)
+\vst{0,0}{E}
+\hz{0,50}{R_1}
+\vz{50,0}{R_2}
+\vz{100,0}{R_3}
+\hln{0,0}{100}
+\hln{50,50}{50}
+\di{100,2}{I}
+\rcuu{0,53}{U}
+\end{picture}
+\[
+E=10\V\qquad R_1=7,5\kohm \qquad R_2=R_3=5\kohm
+\]
+\end{center}
+Jännitteenjakosäännön mukaan
+\[
+U=E \frac{R_1}{R_1+R_2||R_3}=7,5\V.
+\]
+Ratkaistaan vastuksen $R_3$ jännite Kirchhoffin jännitelailla, ja sitten virta Ohmin lailla:
+\[
+I=\frac{E-U}{R_3}=0,5\mA
+\]
+}
+

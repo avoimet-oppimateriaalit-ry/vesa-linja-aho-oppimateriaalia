@@ -1,0 +1,83 @@
+\frame{
+\frametitle{Ei-portti}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\hln{-10,15}{10}
+\hnot{0,0}
+\end{picture}
+\end{center}
+Jos tulo on 0, lähtö on 1. Jos tulo on 1, lähtö on 0.
+}
+
+\frame{
+\frametitle{Ja-portti}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\hand{0,0}
+\hln{-10,0}{10}
+\hln{-10,20}{10}
+
+\end{picture}
+\end{center}
+Lähtö on 1 jos ja vain jos kaikki tulot ovat 1, muuten lähtö on 0.
+}
+
+
+\frame{
+\frametitle{Tai-portti}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\hor{0,0}
+\hln{-10,0}{10}
+\hln{-10,20}{10}
+
+\end{picture}
+\end{center}
+Lähtö on 0 jos ja vain jos kaikki tulot ovat 0, muuten lähtö on 1.
+}
+
+\frame{
+\frametitle{Yksinomainen tai -portti (XOR)}
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\hxor{0,0}
+\hln{-10,0}{10}
+\hln{-10,20}{10}
+
+\end{picture}
+\end{center}
+Lähtö on 1 jos jompikumpi (mutta ei molemmat) tuloista on 1, muuten lähtö on 0.
+}
+
+\frame{
+\frametitle{Esimerkki}
+Suunnittele logiikkaporttipiiri, joka antaa lähtösignaalin 1 (antaa äänimerkin), jos auton avaimet eivät ole virtalukossa,
+ovi on auki ja ajovalot ovat päällä. Tulosignaalit ovat:\\
+$A$ = "Avaimet ovat virtalukossa"\\
+$B$ = "Ovi on auki"\\
+$C$ = "Ajovalot ovat päällä"\\
+
+{\bf Yksi esimerkki toimivasta ratkaisusta}:
+\begin{center}
+\begin{picture}(100,100)(0,0)
+\hnot{20,50}
+\vln{50,20}{43}
+\hln{50,20}{20}
+
+\hand{70,0}
+\txt{0,60}{A}
+\txt{0,30}{B}
+\txt{0,0}{C}
+\hln{0,60}{20}
+
+\hln{0,0}{70}
+\hln{0,30}{30}
+\vln{30,10}{20}
+\hln{30,10}{40}
+
+
+\end{picture}
+\end{center}
+
+
+}

@@ -1,0 +1,81 @@
+
+
+
+
+\frame{
+\frametitle{Hakkuritekniikka}
+\begin{itemize}
+\item Tavallisten verkkomuuntajaan perustuvien teholähteiden ongelmia ovat rajallinen tehontuotto, suuri fyysinen koko sekä paino.
+\item Lisäksi suurilla virroilla hurinajännitteen eliminointi vaatisi todella suuren suodatuskondensaattorin.
+\item Tasasuuntaamalla verkkojännite sellaisenaan, ja syöttämällä se suurella taajuudella katkottuna muuntajaan, voidaan käyttää fyysisesti pienikokoista suurtaajuusmuuntajaa.
+\item Tällaista verkkolaitetta kutsutaan hakkuriteholähteeksi tai hakkuriverkkolaitteeksi.
+\item Hakkuritekniikka soveltuu myös tasajännitteen jännitetason laskemiseen sekä -- toisin kuin lineaarinen regulaattoritekniikka -- tasajännitteen jännitetason nostamiseen.
+\item Elektroniikan tuotantomenetelmien kehittyminen ja tuotantomäärien kasvaminen on johtanut hintojen laskuun niin, että lähes kaikissa laitteissa on nykyään hakkuriteholähde.
+
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Hakkuriteholähde lyhyesti}
+\begin{itemize}
+\item Hakkuriteholähteessä jännitteen muuntaminen perustuu nopeaan elektroniseen kytkimeen (transistoriin).
+\item Hakkuriteholähteeseen perustuvassa verkkolaitteessa verkkojännite tasasuunnataan, jonka jälkeen se syötetään nopean kytkimen välityksellä suurtaajuusmuuntajaan.
+\item Nopean katkomisen ansiosta saadaan muuntajaan suuri magneettivuon muutosnopeus $\to$ pärjätään pienikokoisella muuntajalla.
+\item Suuren taajuuden ansiosta myös tarvittavat suodatuskondensaattorit ovat pieniä. Koska jännitteen säätö tapahtuu on-off-kytkimellä, lämpöhäviöt ovat pieniä.
+\item Pieni koko ja hyvä hyötysuhde ovat hakkuriteholähteen tärkein etu. Haittapuolia ovat monimutkaisuus ja nopean virran katkomisen tuottamat häiriöt.
+
+\end{itemize}
+}
+
+\frame{
+
+\frametitle{Buck- eli step-down-hakkuri}
+Jännitettä laskeva hakkuri:
+
+\begin{center}
+\begin{picture}(100,100)(0,0)
+\pnpb{0,0}{}
+\hln{25,50}{25}
+\hl{50,50}{}
+\ud{50,0}{}
+\vc{100,0}{}
+\hln{50,0}{50}
+\end{picture}
+\end{center}
+
+Toteutettavissa esimerkiksi piirillä LM2574.
+}
+
+\frame{
+\frametitle{Boost- eli step-up-hakkuri}
+Jännitettä nostava hakkuri:
+\begin{center}
+\begin{picture}(100,100)(0,0)
+\hl{0,50}{L}
+\rd{50,50}{}
+\npnnc{5,25}{}
+\vc{100,0}{}
+\hln{0,0}{100}
+\end{picture}
+\end{center}
+
+}
+
+\frame{
+\frametitle{Buck-boost-hakkuri}
+Napaisuuden kääntävä hakkuri:
+\begin{center}
+\begin{picture}(100,100)(0,0)
+\pnpb{0,0}{}
+\hln{25,50}{25}
+\ld{50,50}{}
+\vl{50,0}{}
+\vc{100,0}{}
+\hln{50,0}{50}
+\end{picture}
+\end{center}
+
+Toteutettavissa esimerkiksi piirillä LM2574.
+
+}

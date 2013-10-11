@@ -1,0 +1,121 @@
+
+\frame{
+\frametitle{Sarja- ja rinnakkaisresonanssi}
+\begin{itemize}
+\item Sarjaresonanssissa kelan ja kondensaattorin sarjaankytkennän impedanssi on nolla.
+\item Rinnakkaisresonanssissa kelan ja kondensaattorin rinnankytkennän impedanssi on ääretön.
+\end{itemize}
+Yleisemmin: resonanssitaajuudella piirin impedanssin imaginaariosa on nolla (sarjaresonanssi) tai
+admittanssin imaginaariosa on nolla (rinnakkaisresonanssi).
+Jos piirissä on kela ja kondensaattori sarjassa tai rinnan, resonanssikulmataajuus $\omega_0=\frac{1}{\sqrt{LC}}$.
+}
+
+\frame{
+\frametitle{Suodatin}
+Suodatin on elektroninen piiri, jonka avulla signaalia muokataan halutunlaiseksi.
+\begin{itemize}
+\item Alipäästösuodatin: vaimentaa korkeita taajuuksia, päästää läpi matalat taajuudet.
+\item Ylipäästösuodatin: vaimentaa matalia taajuuksia, päästää läpi korkeat taajuudet.
+\item Kaistanestosuodatin: päästää läpi korkeat ja matalat taajuudet, mutta vaimentaa tietyllä välillä olevia taajuuksia.
+\item Kaistanpäästösuodatin: vaimentaa liian matalia ja liian korkeita taajuuksia, mutta päästää läpi tietyllä välillä olevat taajuudet.
+\end{itemize}
+Suodattimen asteluku kertoo suodattimen siirtofunktion (yleensä: jännitevahvistus) nimittäjäpolynomin asteluvun.
+}
+
+\frame{
+\frametitle{Alipäästösuodatin}
+Alipäästösuodatin voidaan toteuttaa yksinkertaisesti vastuksen ja kondensaattorin sarjaankytkennällä.
+Ensimmäisen asteen siirtofunktion perusmuoto on alipäästösuodattimella
+\[
+\frac{\Uout}{\Uin}=\frac{1}{\frac{\jj \omega}{\omega_0}+1}
+\]
+ja ylipäästösuodattimella
+\[
+\frac{\Uout}{\Uin}=\frac{\frac{\jj \omega}{\omega_0}}{\frac{\jj \omega}{\omega_0}+1}
+\]
+Ensimmäisen asteen ali- tai ylipäästösuodattimen jännitevahvistus on ominaiskulmataajuudella $\frac{1}{\sqrt{2}}$ eli
+tehovahvistus on 0,5.
+}
+
+
+
+\frame{
+\frametitle{Esimerkki}
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vl{100,0}{L}
+\vst{0,0}{\Uin}
+\hln{0,0}{150}
+%\hln{50,50}{50}
+\hln{50,50}{100}
+%\hl{0,50}{L}
+\hz{0,50}{R}
+\vc{150,0}{C}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+%\color{blue}
+%\vc{50,0}{C}
+\dcru{155,00}{\Uout}
+\end{picture}
+\end{center}
+Laske piirin jännitevahvistus $\frac{\Uout}{\Uin}$. Hahmottele jännitevahvistuksen amplitudivaste (vaaka-akselille $\omega$, pystyakselille $|\frac{\Uout}{\Uin}|$). Onko piiri alipäästö-, ylipäästö-, kaistanpäästö- vai kaistanestosuodatin?
+
+\[
+L=1\, {\rm H}\quad C = 1\, {\rm F}\quad R=1\ohm
+\]
+
+{\tiny Oikeita lopputuloksia: $\frac{\Uout}{\Uin}=\frac{1}{\jj(\omega-\frac{1}{\omega})+1}$ $\left| \frac{\Uout}{\Uin}\right|=\frac{1}{\sqrt{1+(\omega-\frac{1}{\omega})^2}}$}
+
+}
+
+
+\frame{
+\frametitle{Esimerkki}
+
+\begin{center}
+\begin{picture}(100,50)(0,0)
+\vl{100,0}{L}
+\vst{0,0}{\Uin}
+\hln{0,0}{150}
+%\hln{50,50}{50}
+\hln{50,50}{100}
+%\hl{0,50}{L}
+\hz{0,50}{R}
+\vc{150,0}{C}
+%\du{115,0}{U}
+%\ri{75,50}{I}
+%\color{blue}
+%\vc{50,0}{C}
+\dcru{155,00}{\Uout}
+\end{picture}
+\end{center}
+Laske piirin jännitevahvistus $\frac{\Uout}{\Uin}$. Hahmottele jännitevahvistuksen amplitudivaste (vaaka-akselille $\omega$, pystyakselille $|\frac{\Uout}{\Uin}|$). Onko piiri alipäästö-, ylipäästö-, kaistanpäästö- vai kaistanestosuodatin?
+\[
+L=1\, {\rm H}\quad C = 1\, {\rm F}\quad R=1\ohm
+\]
+Lasketaan kelan ja kondensaattorin rinnankytkennän impedanssi ("tulo jaettuna summalla"\ -kaavalla) ja
+sijoitetaan lukuarvot:
+\[
+Z_{\rm LC}=\frac{\jj\omega L \frac{1}{\jj\omega C}}{ \jj\omega L +\frac{1}{\jj\omega C} }=\frac{\frac{L}{C}}{ \jj\omega L -\jj\frac{1}{\omega C} }=\frac{1}{\jj \omega-\jj\frac{1}{\omega}}
+\]
+}
+
+\frame{
+Nyt $\Uout$ ratkeaa jännitteenjakosäännöllä:
+\[
+\Uout=\Uin\frac{Z_{\rm LC}}{R+Z_{\rm LC}}\Rightarrow \frac{\Uout}{\Uin}=\frac{1}{\frac{R}{Z_{\rm LC}}+1}
+\]
+Sijoitetaan $R=1$ sekä edellisellä kalvolla laskettu $Z_{\rm LC}$:
+\[
+\frac{\Uout}{\Uin}=\frac{1}{\jj(\omega-\frac{1}{\omega})+1}
+\]
+Lasketaan itseisarvo (amplitudivaste):
+\[
+\left| \frac{\Uout}{\Uin}\right|=\frac{1}{\sqrt{1+(\omega-\frac{1}{\omega})^2}}
+\]
+Amplitudivasteen kulkua voi tarkastella matemaattisesti, mutta sitä ei vaadita tehtävässä. Käyrällä on maksimi
+kohdassa $\omega=1$. Raja-arvot nollassa sekä äärettömyydessä ovat nollia. Kyseessä on siis kaistanpäästösuodatin.
+
+}
+

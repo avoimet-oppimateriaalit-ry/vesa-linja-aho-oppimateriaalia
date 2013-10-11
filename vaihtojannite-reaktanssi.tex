@@ -1,0 +1,188 @@
+
+\frame{
+\frametitle{Sinimuotoinen vaihtojännite}
+\begin{itemize}
+\item Pistorasiasta saatava jännite on {\em sinimuotoista}.
+\item Kaikki jaksolliset vaihtojännitteet voidaan esittää siniaaltojen summana
+(Fourier'n teoreema).
+\item Lineaarisessa piirissä sinimuotoinen heräte tuottaa sinimuotoisen vasteen.
+\item Sinimuotoisilla signaaleilla laskeminen on helppoa.
+\end{itemize}
+}
+
+
+
+\frame{
+\frametitle{Sinimuotoinen jännite (tai virta)}
+Sinimuotoinen jännite (tai virta) määritellään
+\[
+u(t)=\hat{u}\sin(2\pi f t+ \phi)
+\]
+Usein merkitään $\omega=2\pi f$, jolloin kaava lyhenee:
+\[
+u(t)=\hat{u}\sin(\omega t+ \phi)
+\]
+Suuretta $\omega$ kutsutaan {\em kulmataajuudeksi} ja sen yksikkö on $\frac{\rm rad}{\rm s}$. Kulma $\phi$ on {\em vaihekulma}.
+Kerroin $\hat{u}$ (luetaan u-hattu) on jännitteen {\em amplitudi} eli huippuarvo. Huippuarvosta saadaan jännitteen {\em tehollisarvo} jakamalla
+se luvulla $\sqrt{2}$.
+}
+
+\frame{
+\frametitle{Kondensaattori ja sinimuotoinen jännite}
+Yhtälöstä
+\[
+i=C\Du
+\]
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{-25,0}{u(t)=\hat{u}\sin(\omega t+ \phi)}
+\vc{25,0}{C}
+\di{25,40}{i}
+%\du{40,0}{u}
+\hln{-25,0}{50}
+\hln{-25,50}{50}
+
+\end{picture}
+\end{center}
+Virta on siis
+\[
+i=C\Du=C\omega\hat{u}\cos(\omega t+ \phi)=C\omega\hat{u}\sin(\omega t+ \phi+\frac{\pi}{2})
+\]
+Eli jännitteen ja virran suhde on $\frac{1}{C\omega}$, ja niiden välillä on 90 asteen ($\frac{\pi}{2}$
+radiaanin) vaihe-ero. Virta on 90 astetta jännitettä edellä.
+}
+
+\frame{
+\frametitle{Reaktanssin käsite}
+Kondensaattorille
+\[
+i=C\Du
+\]
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{-25,0}{u(t)=\hat{u}\sin(\omega t+ \phi)}
+\vc{25,0}{C}
+\di{25,40}{i}
+%\du{40,0}{u}
+\hln{-25,0}{50}
+\hln{-25,50}{50}
+
+\end{picture}
+\end{center}
+\[
+i(t)=C\Du=C\omega\hat{u}\cos(\omega t+ \phi)=C\omega\hat{u}\sin(\omega t+ \phi+\frac{\pi}{2})
+\]
+Jännitteen ja virran {\bf amplitudien} suhde on:
+\[
+X=\frac{\hat{u}}{C\omega \hat{u}}=\frac{1}{\omega C}
+\]
+Tätä jännitteen ja virran suhdetta $X$ kutsutaan {\bf reaktanssiksi}, aivan kuten jännitteen ja virran suhdetta
+vastuksessa kutsutaan resistanssiksi.
+}
+
+\frame{
+\frametitle{Kela ja sinimuotoinen jännite}
+Yhtälöstä
+\[
+u=L\Di
+\]
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vj{-25,0}{i(t)=\hat{i}\sin(\omega t+ \phi)}
+\vl{25,0}{L}
+\di{25,40}{i}
+\du{40,0}{u}
+\hln{-25,0}{50}
+\hln{-25,50}{50}
+
+\end{picture}
+\end{center}
+Jännite on 
+\[
+u=L\Di=L\omega\hat{i}\cos(\omega t+ \phi)=L\omega\hat{i}\sin(\omega t+ \phi+\frac{\pi}{2})
+\]
+Eli jännitteen ja virran suhde on ${L\omega}$, ja niiden välillä on 90 asteen ($\frac{\pi}{2}$
+radiaanin) vaihe-ero. Virta on 90 astetta jännitettä jäljessä.
+}
+
+\frame{
+\frametitle{Kelan reaktanssi}
+Yhtälöstä
+\[
+u=L\Di
+\]
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vj{-25,0}{i(t)=\hat{i}\sin(\omega t+ \phi)}
+\vl{25,0}{L}
+\di{25,40}{i}
+\du{40,0}{u}
+\hln{-25,0}{50}
+\hln{-25,50}{50}
+
+\end{picture}
+\end{center}
+Jännite on 
+\[
+u=L\Di=L\omega\hat{i}\cos(\omega t+ \phi)=L\omega\hat{i}\sin(\omega t+ \phi+\frac{\pi}{2})
+\]
+Jännitteen ja virran suhde eli kelan reaktanssi on:
+\[
+X=\frac{L\omega\hat{i}}{\hat{i}}=\omega L
+\]
+}
+
+\frame{
+\begin{block}{Esimerkki} % TODO: Ratkaisu puuttuu
+Kuinka suuri on virran $I$ a) tehollisarvo b) huippuarvo ($\hat{i}$). Onko virta jännitettä edellä vai jäljessä,
+ja kuinka paljon? Jännitelähteen taajuus on 50 Hz ja tehollisarvo 230 volttia.
+\end{block}
+\begin{center}
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vst{-25,0}{E}
+\vc{25,0}{C}
+\di{25,40}{I}
+%\du{40,0}{u}
+\hln{-25,0}{50}
+\hln{-25,50}{50}
+
+\end{picture}
+\end{center}
+\[
+C=1\uF
+\]
+\end{center}
+
+}
+
+
+\frame{
+\frametitle{Esimerkki} % Arska 1 kotitehtävä 1 2009
+\[
+J=1\A\ (f=50\Hz)\quad L=1\,{\rm H} \quad C=100\uF
+\]
+
+\begin{center}
+\begin{picture}(150,110)(0,0)
+\vj{0,0}{J}
+\vc{50,0}{C}
+\vl{50,50}{L}
+\hln{0,0}{50}
+\hln{0,100}{50}
+\vln{0,50}{50}
+\du{70,0}{u_{\rm C}}
+\du{70,50}{u_{\rm L}}
+
+\end{picture}
+\end{center}
+Laske jännitteet $u_{\rm C}$ ja $u_{\rm L}$ ja ilmoita ne ajan funktiona muodossa $u=\hat{u}\sin(\omega t+\phi)$. Miksi näiden jännitteiden tehollisarvojen (tai huippuarvojen) summa
+ei ole suoraan virtalähteen jännite?
+
+\tiny $u_{\rm L}\approx 444\V\cdot\sin(2\pi 50\Hz\cdot t+90^\circ)$, $u_{\rm C}\approx 45\V\cdot\sin(2\pi 50\Hz\cdot t-90^\circ)$
+}
+

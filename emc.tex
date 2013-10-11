@@ -1,0 +1,769 @@
+% TODO?: Täällä on pari duplikaattikalvoa, desibelit ja johtimen magneettikenttä...
+% TODO?: ... jääköön, ettei riko eheää kokonaisuutta.
+\frame{
+\frametitle{EMC = Electromagnetic compatibility}
+\begin{itemize}
+\item EMC = Sähkömagneettinen yhteensopivuus.
+\item Sähkö- ja elektroniikkalaitteet on suunniteltava niin, että ne eivät {\bf häiritse} ympäristöä eivätkä {\bf häiriinny} ympäristön tavanomaisista häiriöistä.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Käytännön esimerkkejä}
+\begin{itemize}
+\item Oletteko kohdanneet käytännön elämässä tilanteita sähkömagneettisesta yhteensopimattomuudesta?
+\end{itemize}
+}
+
+\frame{
+\frametitle{Käytännön esimerkkejä}
+\begin{itemize}
+\item GSM-puhelimen "laulu".
+\item Radion rätinä kun naapuri poraa taulun seinään.
+\item Radio napsuu kun loistelamput syttyvät.
+\item Autonkeskuslukitus ja sähkökatto reagoivat kännykkään.
+\item Sähköpyörätuoli koukkasi laiturilta veteen kun poliisiveneessä painettiin radiopuhelimen tangenttia.
+\item Pietsosytkäri avaa pysäköintialueen puomin.
+\item Hitsausmuuntajan päällekytkentä naapurirakennuksessa kaatoi telakan keskustietokoneen.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Häiriölähteet} % EMC ja rakennusten sähkötekniikka s. 33
+Häiriölähteet voidaan jakaa
+\begin{itemize}
+\item Luonnollisiin häiriöihin: salamointi ja kosminen taustasäteily.
+\item Teknisiin häiriöihin: staattinen sähkö, digitaalipiirit, sähköverkon muutokset ja langaton viestintä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Häiriöiden kytkeytymistavat}
+\begin{itemize}
+\item Kytkeytyminen johtumalla
+\item Kapasitiivinen kytkeytyminen (sähkökentän kautta)
+\item Induktiivinen kytkeytyminen (magneettikentän kautta)
+\item Sähkömagneettinen säteily
+\end{itemize}
+}
+
+
+
+\frame{
+\frametitle{Säännökset}
+Jokaisen markkinoilla olevan sähkölaitteen on täytettävä sähköturvallisuus- ja EMC-määräykset.
+\begin{itemize}
+\item EMC-direktiivi 2004/108/EY
+\item Radio- ja telepäätelaitteilla oma direktiivinsä 1999/5/EC
+\item Ajoneuvoja koskee EMC-direktiivi 2004/104/EC.
+\item Sähköturvallisuuslaki
+\item Laki radiotaajuuksista ja telelaitteista
+\item Standardit
+\end{itemize}
+}
+
+\frame{
+\frametitle{EMC-direktiivi}
+\ldots lähestymistavan mukaan laitteiston suunnittelussa ja valmistuksessa on noudatettava sähkömagneettista yhteensopivuutta koskevia olennaisia vaatimuksia. Nämä vaatimukset ilmaistaan yhdenmukaistettuina eurooppalaisina standardeina, jotka useat eurooppalaiset standardointielimet, Euroopan standardointikomitea (CEN), Euroopan sähkötekniikan standardointikomitea (CENELEC) ja Euroopan telealan standardointilaitos (ETSI) hyväksyvät. CEN, CENELEC ja ETSI ovat toimivaltaisia hyväksymään tämän direktiivin soveltamisalaan kuuluvat yhdenmukaistetut standardit, jotka ne laativat niiden ja komission välisestä yhteistyöstä annettujen yleisten suuntaviivojen sekä teknisiä standardeja ja määräyksiä\ldots
+}
+
+\frame{
+\frametitle{Sähköturvallisuuslaki}
+Sähkölaitteet ja -laitteistot on suunniteltava, rakennettava, valmistettava ja korjattava niin sekä niitä on huollettava ja käytettävä niin, että:
+
+1) niistä ei aiheudu kenenkään hengelle, terveydelle tai omaisuudelle vaaraa;
+
+2) niistä ei sähköisesti tai sähkömagneettisesti aiheudu kohtuutonta häiriötä; sekä
+
+3) niiden toiminta ei häiriinny helposti sähköisesti tai sähkömagneettisesti.
+}
+
+\frame{
+\frametitle{Standardit}
+\begin{itemize}
+\item Monelle laitetyypille on oma standardinsa. Yleisstandardia sovelletaan, mikäli laitekohtaista ei ole olemassa.
+\end{itemize}
+
+\url{http://www.tukes.fi/fi/Toimialat/Sahko-ja-hissit/EMC/}
+
+}
+
+\frame{
+\frametitle{Häiriötestit}
+\begin{itemize}
+\item Häiriöpäästöt: Radiotaajuiset päästöt ja pientaajuuspäästöt.
+\item Häiriönsieto: ESD, Radiotaajuinen sm-kenttä, nopeat kytkentätransientit ("jännitepiikit"), syöksyaalto, radiotaajuinen jännite, harmoniset taajuudet,
+magneettikenttä, pulssimuotoinen magneettikenttä, jännitekatkokset, \ldots
+\end{itemize}
+}
+
+\frame{
+\frametitle{Viranomaisvalvonta}
+Laitteita ei tarkasteta erikseen viranomaisten toimesta, vaan testaus on valmistajan vastuulla.
+Turvatekniikan keskus (Tukes) voi määrätä myyntikieltoon EMC-säännöksiä rikkovan laitteen.
+
+\url{http://marek.tukes.fi/}
+
+}
+
+\frame{
+\frametitle{Häiriöiden torjunta}
+\begin{itemize}
+\item Häiriön synnyn estäminen
+\item Etenemisen katkaiseminen
+\item Sietokyvyn parantaminen
+\end{itemize}
+}
+
+\frame{
+\frametitle{Häiriöiden torjunta}
+\begin{itemize}
+\item Johtimien järjestely
+\item Symmetrointi
+\item Suodatus
+\item Digitaalitekniikan käyttö
+\item Valokaapelin käyttö
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Fysikaalista taustaa}
+\begin{itemize}
+\item Sähkövirta ja/tai muuttuva sähkökenttä saa aikaan magneettikentän.
+\item Muuttuva magneettikenttä indusoi johtimeen jännitteen.
+\item Sähkövaraus aikaansaa sähkökentän.
+\end{itemize}
+}
+
+
+
+
+\frame{
+\frametitle{Coulombin laki ja sähkökenttä}
+Samanmerkkiset sähkövaraukset hylkivät toisiaan ja erimerkkiset vetävät toisiaan puoleensa voimalla
+\[
+F=k\frac{|q_1q_2|}{r^2}\qquad k=\frac{1}{4\pi \epsilon_0}
+\]
+Sähkökenttä määritellään testivarauksen avulla. Mitä suurempi voima testivaraukseen vaikuttaa, sitä voimakkaampi
+on sähkökenttä.
+\[
+\vec{E}=\frac{\vec{F}}{q}
+\]
+Kentänvoimakkuuden $E$ yksikkö on $\rm \frac{N}{C}$ tai tavallisemmin $\rm \frac{V}{m}$.
+}
+
+\frame{
+\frametitle{Magneettikentän voimakkuus}
+\begin{itemize}
+\item Suorassa johtimessa kulkeva sähkövirta $I$ aiheuttaa johtimen ympärille magneettikentän.
+\item Magneettikentän voimakkuus etäisyydellä $r$ on $H=\frac{I}{2\pi r}$. Yksikkö on $\rm \frac{A}{m}$.
+\item Yleisemmin: nopeudella $v$ liikkuva varaus aikaansaa magneettikentän
+\[
+\vec{B}=\frac{\mu_0}{4\pi}\int \frac{q\vec{v}\times \hat{r}}{r^2}
+\]
+\end{itemize}
+}
+
+\frame{
+\frametitle{Magneettivuo}
+\begin{itemize}
+\item Magneettivuon tiheys $B$ riippuu magneettikentän voimakkuudesta $H$ ja väliaineen permeabiliteetista $\mu$
+\[
+B=\mu H
+\]
+\item Vuontiheyden yksikkö on tesla (T). Puhekielessä magneettikentän voimakkuus ja magneettivuon tiheys menevät usein sekaisin (esim. mitataan vuontiheyttä ja puhutaan kentänvoimakkuudesta).
+\item Pinta-alan $A$ läpi kulkeva magneettivuo $\phi$ on
+\[
+\phi = \int_A \vec{B}\cdot {\rm d} \vec{A}
+\]
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Sähkömagneettinen induktio}
+\begin{itemize}
+\item Faradayn lain mukaan muuttuva magneettivuo $\phi$ indusoi käämiin jännitteen, jonka suuruus on
+\[
+e=-\frac{{\rm d}\phi }{{\rm d}t}
+\]
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Kapasitiivisten häiriöiden torjunta}
+\begin{itemize}
+\item Metallikotelointi
+\item Johtimien välisen etäisyyden ja suunnan muuttaminen
+\item Johtimien sijoittelu lähelle maatasoa
+\item Impedanssitason pienentäminen
+\end{itemize}
+}
+
+\frame{
+\frametitle{Induktiivisten häiriöiden torjunta}
+\begin{itemize}
+\item Johtimien sijoittelu
+\item Impedanssitason pienentäminen
+\end{itemize}
+}
+
+\frame{
+\frametitle{Impedanssitason pienentäminen}
+\begin{itemize}
+\item Impedanssitason pienentämisellä on välitön vaikutus vastaanotettujen häiriöiden voimakkuuteen.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Sähkömagneettinen yhteensopivuus ei ole erillinen asia}
+Laitetta ei voi suunnitella niin, että ensin suunnitellaan laite je sitten lopuksi ihmetellään, miten se saadaan sähkömagneettisesti yhteensopivaksi.
+{\bf EMC pitää ottaa huomioon koko suunnitteluprosessin ajan.}
+}
+
+
+\frame{
+\frametitle{Häiröiden lähteet ja niiden kytkeytyminen}
+\begin{itemize}
+\item Häiriölähteiden mallintaminen on yleensä monimutkaista käsiteltäväksi matemaattisesti.
+\item Edellyttää Maxwellin yhtälöiden ratkaisemista.
+\item Usein pärjätään likimääräisillä kaavoilla tai pelkästään kvalitatiivisella käsittelyllä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kapasitiivisesti kytkeytyvän häiriön mallitaminen}
+\begin{itemize}
+\item Kapasitiivinen kytkeytyminen eli sähkökentän kautta kytkeytyminen voidaan mallintaa kondensaattorilla.
+\item $\epsilon = \epsilon_o\epsilon_r$
+\item Levykondensaattorin kapasitanssi
+\[
+C=\epsilon \frac{A}{d}
+\]
+\item Kahden yhdensuuntaisen johtimen välinen kapasitanssi
+\[
+C\approx \frac{\pi \epsilon l}{\ln \frac{d}{\sqrt{r_1r_2}}}
+\]
+missä $l$ on johtimen pituus, $r$ johtimen säde ja $d$ johtimien välinen etäisyys. Kaava on likimääräinen ja toimii
+vain, kun $d>> r_1r_2$.
+
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kapasitiivisesti kytkeytyvän häiriön mallitaminen}
+\begin{itemize}
+\item Johtimen ja sen kanssa yhdensuuntaisen tason välinen kapasitanssi on
+\[
+C=\frac{2\pi\epsilon l}{\ln \frac{d+\sqrt{d^2-r^2}}{r}}
+\]
+missä $d$ on johtimen keskiakselin etäisyys tasosta.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Esimerkkejä}
+\begin{itemize}
+\item Hakkuriteholähteen toimintataajuus on 100 kHz ja virtajohtimesta noin 10 cm pätkä kulkee aivan laitteen kotelon pintaa pitkin. Johtimen säde on 2 mm ja eristeen
+paksuus on 1 mm. Kuinka suuri on kyseinen hajakapasitanssi ja kuinka suuri virta sen läpi kulkee, jos johtimessa oleva 100 kHz:n hurinajännite on amplitudiltaan
+50 millivolttia?
+\item Kuinka suuren magneettivuon tiheyden johdin aiheuttaa 10 cm etäisyydelle (oletetaan, että johdin on pitkä ts. käytetään yksinkertaista kaavaa)?
+\item Jos johtimessa kulkee 50 ampeerin virta ja se katkaistaan yhtäkkiä (5 millisekunnissa), kuinka suuren jännitteen se indusoi 10 senttimetrin etäisyydellä olevaan
+silmukkaan, joka on kohtisuorassa vuota vastaan ja jonka pinta-ala on 10 cm$^2$.
+\item Oletetaan molemmissa tapauksissa väliaineen materiaaliksi tyhjiö ($\epsilon_0\approx 8,854\cdot 10^{-12} \rm \frac{F}{m}$ ja $\mu_0\approx 1,26\cdot 10^{-6}\rm \frac{H}{m}$ ).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Verkkosuodatin ja vuotovirta maahan}
+\begin{itemize}
+\item Jos tietokoneen liittää maadoittamattomaan pistorasiaan, sen rungosta voi saada vaimean sähköiskun.
+\item Tämä johtuu verkkosuodattimen kondensaattoreista.
+\item Verkkosuodattimen tarkoitus on estää hakkuriteholähteen ja digitaalipiirien häiriöjännitteiden karkaaminen sähköverkkoon.
+\item Suodatin rakentuu differentiaalisesta kelasta sekä kondensaattoreista. Joskus käytetään myös VDR-vastuksia.
+\item Vuotovirta saa olla enintään 0,5 milliampeeria (EN 60601-1-1).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Yhteismuotoinen häiriö ja eromuotoinen häiriö} % EMC-kirja s. 323
+Ajatellaan kahta piiriä, jotka on kytketty toisiinsa kaksinapaisella kaapelilla.
+\begin{itemize}
+\item Eromuotoinen jännite tarkoittaa johtimien välistä jännitettä ja eromuotoinen virta tarkoittaa johtimissa eri suuntiin kulkevia mutta yhtä suuria virtoja.
+\item Yhteismuotoinen jännite tarkoittaa johtimien ja maatason välistä jännitettä ja yhteismuotoinen virta johtimissa yhteen suuntaan kulkevaa virtaa.
+\end{itemize}
+Yhteismuotoinen kytkentä aikaansaa yhden suuren silmukan piirien välille yhdessä maatason kanssa.
+}
+
+\frame{
+\frametitle{Komponenttien jännitteenkesto}
+Verkkosuodattimen komponenttien tulee täyttää standardin EN132400 mukaiset jännitteenkesto- ja paloturvallisuusvaatimukset.
+\begin{itemize}
+\item Kondensaattorien tulee kestää 2,5 kilovoltin 50 $\mu$s pulsseja. 
+\item Kondensaattorien tulee suoriutua 1000 tunnin kestotestistä 1,25-kertaisella nimellisjännitteellä siten, että tunnin välein niitä häiritään 1 kV vaihtosähköpiikillä.
+\end{itemize}
+}
+
+% Layout and grounding, kappale 11 EMC for product designers
+
+\frame{
+\frametitle{EMC ja tuotesuunnittelu}
+\begin{itemize}
+\item Häiriöiden lähetys ja vastaanotto tulee pitää mielessä koko suunnitteluprosessin ajan.
+\item Komponenttien asettelu on tärkeä osa EMC-suunnittelua.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kolmitasoinen suojaus}
+\begin{itemize}
+\item Piirilevyn asettelu
+\item Rajapintojen suodattimet
+\item Suojakotelo
+\end{itemize}
+}
+
+\frame{
+\frametitle{Suojauksen tarve}
+\begin{itemize}
+\item Ei-kriittisissä sovelluksissa pärjätään usein pelkällä piirilevyn asettelun huomioon ottamisella.
+\item Näin on varsinkin, jos laitetta ei liitetä muualla kaapeleilla. Esimerkki: television kauko-ohjain.
+\item Laitteen suojaaminen metallivaipalla on valmistusteknisesti kallista.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Komponenttien asettelu piirilevylle}
+\begin{itemize}
+\item 90 prosenttia suunnittelun jälkeisistä EMC-ongelmista johtuu huonosta piirilevysuunnittelusta.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tärkeimmät suunnitteluperiaatteet}
+\begin{itemize}
+\item Jaa järjestelmä osiin.
+\item Ajattele maata virran kulkualueena.
+\item Maadoituksella voi estää häiriövirtojen pääsyn signaalipiireihin. Valitse maadoituspisteet huolella ja minimoi maadoitusimpedanssi.
+\item Muista mekaniikkasuunnittelua tehdessäsi, että jokainen johtava osa voi kuljettaa häiriövirtoja.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Järjestelmän osiointi}
+\begin{itemize}
+\item Jaa piirit kriittisiin ja ei-kriittisiin osiin.
+\item Piirit, jotka eivät häiriinny eivätkä häiritse helposti, sijoitetaan omiin piirilevyn osiin tai kokonaan eri piirilevyille.
+\item Häiriöherkkyyteen vaikuttavat mm. signaalitasot, kaistanleveydet ja tietenkin piirin tarkoitus ja toiminta.
+\item Esimerkiksi lineaariset teholähteet, ilman kellopulssia toimivat logiikkapiirit ja tehovahvistimet eivät juuri häiriinny eivätkä häiritse.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Maadoittaminen}
+\begin{block}{Helsingin Sanomat 22.8.2005: Georgiasta löydetty 1,8 miljoonaa vanha pääkallo }
+Arkeologit uskovat löytäneensä Georgiasta maadoittamattoman pääkallon, jota epäillään 1,8 miljoonaa vuotta vanhaksi. \ldots
+\end{block}
+\begin{itemize}
+\item Earthing, suojamaadoitus. Laitteen rungon kytkeminen sähköverkon maapotentiaaliin.
+\item Grounding, maadoitus. Kytketään piirielementtejä samaan yhteiseen referenssipotentiaaliin.
+\end{itemize}
+Koska maataso ei ole ideaalinen, potentiaali vaihtelee maatason sisällä. Ks. esimerkki (Williams, s. 262).
+}
+
+\frame{
+\frametitle{Toinen kevennys}
+\begin{block}{Helsingin Sanomat 11.4.1990}
+"Tuoreen norjalaistutkimuksen mukaan matkapuhelimen antennista säteilee lähetysvaiheessa sähkömagneettisia aaltoja."
+\end{block}
+No shit, Sherlock!
+}
+
+\frame{
+\frametitle{Maadoitustapoja}
+\begin{itemize}
+\item Yksipistemaadoitus. Ehkäisee häiriöjännitteitä, jotka syntyvät yhteisten impedanssien läpi kulkevista virroista. Suurilla taajuuksilla maadoitusjohtimet käyttäytyvät kuin siirtojohdot, jolloin komponentit eivät ole enää samassa potentiaalissa.
+\item Monipistemaadoitus. Toimii hyvin suurilla taajuuksilla. Jokaisella piirillä on oma maa, ja nämä maat yhdistetään toisiinsa lyhyillä johtimilla.
+\end{itemize}
+Yksipistemaadoitus on yleinen esimerkiksi hakkuriteholähteissä. Nyrkkisääntö: alle 1 MHz taajuuksilla yksipistemaadoitus, ja yli 10 MHz:n taajuuksilla monipistemaadoitus.
+}
+
+\frame{
+\frametitle{Asettelu yksipuoleiselle piirilevylle}
+\begin{itemize}
+\item Piirilevyn johtimen sarjainduktanssi riippuu johtimen dimensioista. Esimerkiksi 0,5 mm levyisen 10 cm pituisen kupariliuskan
+induktanssi on noin 60 nH. Kymmenien megahertsien taajuuksilla impedanssi on jo merkittävä.
+\item Maadoitus tulee tapahtua ristikkomaisella liuskarakenteella. Kampamainen on huonoin mahdollinen (Williams s. 270).
+\item Maatasoon ei saa jäädä isoja koloja (Williams s. 275).
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Maatason käyttö}
+\begin{itemize}
+\item Monikerrospiirilevyllä maadoitus on helppo toteuttaa käyttämällä laajaa maatasoa.
+\item Nopeilla digitaalipiireillä ja radiotaajuuksilla maatason käyttö on käytännössä pakollista.
+\item Maatason päätarkoitus on tarjota matala maadoitusimpedanssi. Toissijainen tarkoitus on suojata sähkökentiltä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Monikerrospiirilevyt}
+\begin{itemize}
+\item Massavalmistetussa elektroniikassa käytetään yleensä nelikerrospiirilevyä.
+\item Yksi taso on maataso, toinen on käyttöjännitteen syöttötaso, johtimet ovat kahdella muulla tasolla.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ylikuuluminen}
+\begin{itemize}
+\item Kaksi vierekkäistä johdinta piirilevyllä on (valitettavasti) kytketty toisiinsa induktiivisesti ja kapasitiivisesti.
+\item Toisen johtimen signaali voi "ylikuulua"\ (crosstalk) toiseen.
+\item Käytännössä ylikuulumista ei esiinny, jos johtimet ovat yli 1 cm päässä toisistaan.
+\item Maatason käyttö ja impedanssitason pudottaminen ehkäisevät ylikuulumista.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tehonsiirto ja jäähdytys}
+\begin{itemize}
+\item Suurtaajuuspiireissä käyttöjännitteiden syöttötasot tulee pilkkoa pieniin osiin, jotka kytketään toisiinsa RF-kuristimien välityksellä. Tarkoituksena on estää ilmiö, jossa maatason ja käyttöjännitetason muodostama voileipämäinen rakenne käyttäytyy antennina.
+\item Mahdolliset jäähdytyselementit tulee maadoittaa useasta kohdasta. Eristetty jäähdytyselementti aiheuttaa ongelmia (s. 282).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Tarkistuslista}
+\begin{itemize}
+\item Vältä pitkiä johtimia piirilevyllä.
+\item Herkkiä ja häiritseviä komponentteja ei vierekkäin.
+\item Herkkiä piirin osia ei sijoitella maatason reunoille.
+\item Osioi piiri huolellisesti.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Rajapinnat ja suodatus}
+\begin{itemize}
+\item Piirilevytason EMC-suunnittelun lisäksi on tärkeää ottaa huomioon kytkentärajapintojen käyttö.
+\item Vain harva laite on sellainen, jota ei kytketä johtimilla mihinkään (kaukosäädin, taskulaskin).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ferriittikuristimet} % O'hara s. 31
+\begin{itemize}
+\item Yleisiä esimerkiksi datakaapeleissa.
+\item Lisää sarjainduktanssin kaapeliin.
+\item Vaimentaa taajuuksia suurin piirtein välillä 1--1000 MHz.
+\item Haittapuolena on suhteellisen pieni vaimennus (enimmillään 10--20 dB). Hyvänä puolena on jälkiliitettävyys (komponentilla voidaan
+paikata jälkikäteen suunnittelukömmähdyksiä).
+\item Ferriittikuristin vaimentaa tehokkaasti myös ESD-purkausten aiheuttamia nopeita transienttipulsseja.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Staattiselta sähköltä suojautuminen}
+\begin{itemize}
+\item Oletteko koskaan rikkoneet laitteita staattisella sähköllä?
+\item Mitä varotoimia tarvitaan esimerkiksi tietokoneen näytönohjainta asennettaessa (tai muuta tietotekniikkahuoltoa tehtäessä).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Staattiselta sähköltä suojautuminen} % O'hara s. 55
+\begin{itemize}
+\item JFET- ja erityisesti MOSFET-komponentit ovat herkkiä staattiselle sähkölle.
+\item Hilakapasitanssi on pieni. Jos siihen tulee suuri sähkövaraus, jännite kipuaa satoihin voltteihin ja tapahtuu läpilyönti.
+\item Suojaus diodeilla tai hilavastuksella.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jännitepiikeiltä suojautuminen}
+\begin{itemize}
+\item VDR-vastus.
+\item Ylijännitesuoja (GDT, Gas Discharge Tube).
+\item Kaasupurkausputket pystyvät käsitteleämään huomattavan suuria virtoja (kymmeniä kiloampeereja).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kaapelien suojaus} % O'hara s. 95- ja Williams s. 344
+\begin{itemize}
+\item Kaapeli voidaan suojata suojavaipalla.
+\item Molemmista päistä maadoitettu vaippa suojaa hyvin magneettisilta häiriöiltä.
+\item Toisesta päästä maadoitettu vaippa suojaa hyvin sähköisiltä häiriöiltä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kierretty pari}
+\begin{itemize}
+\item Edullinen suojausratkaisu, toimii muutamaan megahertsiin asti.
+\item Suojaamalla kaapeli suojavaipalla voidaan taajuuskaistaa laajentaa entisestään.
+\item Suojavaippa tulee kiinnittää joka puolelta. "Porsaanhäntäkytkentä", jossa vaippa kiinnitetään runkoon yhdellä johtimella,
+aiheuttaa sarjainduktanssin, joka käytännössä katkaisee maadoituksen suurilla taajuuksilla.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kytkinten suojaaminen} % O'hara s. 105
+\begin{itemize}
+\item Mekaaniset kytkimet aiheuttavat häiriöitä kahdella tavalla.
+\item Toisiaan lähellä olevien kytkinliuskojen välille voi syttyä valokaari.
+\item Kytkinliuskat koskevat toisiinsa monta kertaa ennen kuin sulkeutuvat ("bouncing").
+\item Vaimennus kytkimen rinnalle asennettavalla RC-sarjapiirillä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Releet}
+\begin{itemize}
+\item Rele tuottaa häiriöitä sekä kosketinpuolella että solenoidissa.
+\item Häiriöitä voidaan vaimentaa RC-vaimentimella tai suojadiodilla.
+\item Suojadiodin käyttö on usein välttämätöntä relettä ohjaavan transistorin suojelemiseksi jännitepiikiltä.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Moottorit}
+\begin{itemize}
+\item Sähkömoottorit ovat voimakkaita sähkömagneettisten häiriöiden lähteitä.
+\item Moottori itsessään luo ympärilleen magneettikentän, ja virran katkeaminen ja kytkeminen sekä kipinöinti kommutaattorissa
+aiheuttavat laajakaistaisia radiotaajuisia häiriöitä.
+\item Moottorin metallirunko estää häiriöiden etenemistä, mutta usein on järkevää sijoittaa suojakondensaattorit moottorin napojen väliin
+sekä kummankin navan ja maan väliin.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Lainsäädäntö ja standardit}
+\begin{itemize}
+\item Sivuttu jo: kalvot 11-14.
+\item Standardien ulkoa opetteleminen ei ole tarkoituksenmukaista. Esimerkiksi SFS-käsikirja 660, johon on koottu olennaisimmat standardit, sisältää yli 400 sivua.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Standardien suhde lainsäädäntöön}
+\begin{itemize}
+\item EU:n EMC-direktiivin mukaisuus voidaan (ei ole pakko) osoittaa EN-standardeja käyttämällä.
+\item Käytännössä vaatimustenmukaisuuden osoittaminen käyttämättä standardeja on niin monimutkaista, että standardien käyttö on käytännössä pakollista.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Standardit}
+\begin{itemize}
+\item Perusstandardeissa määritellään EMC-testausmenetelmät ja testiympäristöjen vaatimukset.
+\item Yleisstandardeissa määritellään tiettyihin toimintaympäristöihin tarkoitettujen laitteiden vaatimukset.
+\item Tuote- ja tuoteperhestandardeissa määritellään nimensä mukaisesti jonkun tuotteen tai tuoteperheen tarkemmat EMC-vaatimukset. Jos tuotteella ei ole omaa standardia, käytetään yleisstandardeja.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Standardien synty}
+\begin{itemize}
+\item IEC (International Electrotechnical Commission) on maailman suurin sähköalan standardointiorganisaatio.
+\item Sen komiteoissa IEC/CISPR ja IEC/TC 77 laaditaan EMC-standardeja.
+\item Kun eurooppalainen sähköalan standardointiorganisaatio CENELEC hyväksyy standardin, siitä tulee EN-standardi.
+\item Suomessa standardit hyväksyy SESKO ja ne vahvistetaan edelleen SFS-EN-standardeiksi.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Lähteitä}
+\begin{itemize}
+\item Standardien hankkiminen on yleensä kallista.
+\item Suomessa neuvoa antava viranomainen on Tukes (Turvatekniikan keskus).
+\item Kun aloittaa laitteen suunnittelun, voi Tukesilta kysyä tietoa ajantasaisista standardeista.
+\item \url{http://www.edilex.fi/tukes/fi/}
+\item \url{http://www.tukes.fi/fi/Toimialat/Sahko-ja-hissit/EMC/}
+\item \url{http://www.ake.fi/AKE/Katsastus_ja_ajoneuvotekniikka/Tutkimuslaitokset+ja+hyväksytyt+asiantuntijat/}
+\item Hyvä tiivistelmä: \url{http://www.sahkoautot.fi/wiki:saehkoeautojen-emc-hyvaeksynnaet}
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ajoneuvot} % http://www.fi.sgs.com/sgssites/fimko/fi/ajoneuvoelektroniikan-testaukset.htm
+\begin{itemize}
+\item Ajoneuvojen EMC-direktiivi 2004/104/EC
+\item EN 55012:2002 Ajoneuvot, veneet ja polttomoottorikäyttöiset laitteet — Radiohäiriöt — Raja-arvot
+ja mittausmenetelmät radiovastaanoton suojaamiseksi lukuun ottamatta ajoneuvoon/
+veneeseen/laitteeseen itseensä tai viereiseen ajoneuvoon/veneeseen/laitteeseen asennettuja
+vastaanottimia
+\item EN 14010:2003 Mm. moottoriajoneuvojen konekäyttöiset pysäköintilaitteistot.
+\item Ajoneuvoon asennettava elektroniikka on testattava puolueettomassa laboratoriossa (esim. Nemko, SGS Fimko jne.).
+\end{itemize}
+}
+
+
+
+\frame{
+\frametitle{Tärkeitä standardeja}
+\begin{itemize}
+\item EN 61000-4-[3-4] Perusstandardit häiriöpäästöjen testaukselle.
+\item EN 61000-6-[1-6] Perusstandardit häiriönsiedon testaukselle.
+\item EN 55022 Tietoteknisten laitteiden tuoteperhestandardi häiriöpäästöille.
+\item EN 55024  Tietoteknisten laitteiden tuoteperhestandardi häiriönsiedolle.
+\item Ajoneuvoille on omat standardit (2004/104/EY).
+\item Sotilas-, ilmailu-, ja rautatielaitteille omat standardit.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ajoneuvoelektroniikan standardit}
+\begin{itemize}
+\item Päästöille CISPR\footnote{Comité International Spécial des Perturbations Radioélectriques} 12 ja 25.
+\item Siedolle ISO 7637, 11451 ja 11452.
+\item Ks. Williams s. 102--103.
+\end{itemize}
+}
+
+%\frame{
+%\frametitle{Ajoneuvon testit}
+%\begin{itemize}
+%\item Ajoneuvoa ei liitetä johdoilla mihinkään, joten käytännössä sille suoritetaan ainoastaan sähkö- ja magneettikentänsietotesti joka suunnasta sekä mitataan sähkö- ja magneettikenttäpäästöt.
+%\end{itemize}
+%}
+
+
+\frame{
+\frametitle{EMC-päästömittaukset}
+\begin{itemize}
+\item Yksinkertaisia mittauksia voi tehdä spektrianalysaattorin avulla (hinnat useista tuhansista kymmeniin tuhansiin euroihin).
+\item Erityisesti EMC-testeihin suunnitellut mittavastaanottimet maksavat kymmeniä tuhansia euroja.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Miksi käyttää varta vasten suunniteltua EMC-mittavastaanotinta}
+\begin{itemize}
+\item Parempi herkkyys
+\item Paremmat sisääntuloliitäntöjen suojaukset
+\item Laitteen ominaisuudet on valmiiksi suunniteltu täyttämään standardien vaatimukset.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Mitta-antennit}
+\begin{itemize}
+\item Suuri osa kaukokenttäpäästömittauksista tehdään 30MHz-1GHz alueella.
+\item Mittaus onnistuu esimerkiksi kaksoiskartio- ja logperiodiantennien yhdistelmällä (BiLog).
+\item Lähikentän mittaukseen (sähkö- ja magneettikenttä) käytetään sauva- ja silmukka-antennia.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Magneettikentän mittaus silmukalla}
+\begin{itemize}
+\item Magneettikentän voimakkuus on helppo mitata silmukka-antennilla
+\[
+U=\mu_0 N A 2\pi f H
+\]
+\end{itemize}
+}
+
+\frame{
+\frametitle{Sähkökentän mittaus sauva-antennilla}
+\begin{itemize}
+\item 1 metrin mittainen sauva-antenni mittaa pystysuoran sähkökentän voimakkuuden, käytetään mm. standardien CISPR 12 ja 25 mukaisissa testeissä. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Päästöjen paikallistaminen}
+\begin{itemize}
+\item Koaksiaalikaapelista on helppo askarrella lähikenttäantenni, jonka avulla voi etsiä piirin osan, josta jokin tietty häiriö on peräisin.
+\item Ks. Williams s. 139
+\end{itemize}
+}
+
+\frame{
+\frametitle{Virhelähteet}
+\begin{itemize}
+\item Mittalaitteiden epätarkkuus.
+\item Kaapelihäviöt.
+\item Väärä impedanssisovitus.
+\item Heijastukset seinistä.
+\item Ulkopuoliset kentät.
+\item Inhimilliset virheet.
+\end{itemize}
+}
+
+\frame{
+\frametitle{EMC-sietomittaukset}
+\begin{itemize}
+\item Moduloitava signaaligeneraattori
+\item Tehovahvistin
+\item Välineet kentänvoimakkuuden valvontaan
+\item Radioaalloilta eristetty kaiuton huone
+\item ESD-pulssigeneraattori
+\end{itemize}
+}
+
+\frame{
+\frametitle{Johtuvien häiriöiden sieto}
+\begin{itemize}
+\item Häiriöt syötetään kytkentäjohtoihin erityisen kytkentäverkon, virtamuuntajan tai ferriittipihdin avulla (EN 6100-4-6).
+\item Sähköverkon häiriöiden mallintamiseen on omat mittageneraattorinsa (jännitekatkokset, jännitepiikit, harmoniset yliaallot).
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Desibelien kertausta}
+\begin{itemize}
+\item Desibeli on dimensioton yksikkö, joka kuvaa tehosuureiden suhdetta logaritmisella asteikolla.
+\item Desibeleistä puhuttaessa pitää aina tietää vertailuun käytetty teho.
+\item Teho desibeleinä:
+\[
+10\log_{10} \frac{\rm teho}{\rm vertailuteho}=10\log_{10} \frac{P}{P_{\rm ref}}
+\]
+\item Radiotekniikassa yleinen yksikkö on dBm, mikä tarkoittaa tehoa verrattuna yhden milliwatin tehoon.
+\item Esimerkiksi 1 watin teho on $10\log_{10} \frac{1\, \rm W}{1\, \rm mW}=30\, \rm dBm$
+\end{itemize}
+}
+
+\frame{
+\frametitle{Amplitudisuureet desibeleinä}
+\begin{itemize}
+\item Teho on verrannollinen amplitudin neliöön (esimerkiksi ääniteho on verrannollinen äänenpaineen neliöön ja vastuksen teho on verrannollinen virran tai jännitteen neliöön).
+\item Amplitudeista puhuttaessa desibeliyksikössä on kertoimena 20, ei 10. Esimerkiksi sähköteholle ja virralle:
+\[
+10\log_{10} \frac{P}{P_{\rm ref}}=10\log_{10} \frac{RI^2}{RI_{\rm ref}^2}=10\log_{10} \Bigg(\frac{I}{I_{\rm ref}}\Bigg)^2=20\log_{10} \frac{I}{I_{\rm ref}}
+\]
+\item Radiotekniikassa käytetään jännitetasojen ilmaisemiseen mm. desibelimikrovoltteja. Esimerkiksi 1 voltti on
+\[
+20\log_{10} \frac{1\,\rm V}{1\, \rm \mu V}= 120\, \rm dB\mu V
+\]
+
+\end{itemize}
+}
+
+
+
+
+\frame{
+\frametitle{Käytännön EMC-esimerkkejä}
+\url{http://www.ofcom.org.uk/static/archive/ra/topics/research/RAwebPages/Radiocomms/pages/interfer.htm}
+}
+
+\frame{
+\frametitle{Kirjallisuutta}
+\begin{itemize}
+\item Tim Williams: EMC for Product Designers, 4th edition, 2007.
+\item Martin O'Hara: EMC at Component and PCB Level, 1998.
+\item Sähkötieto ry: EMC ja rakennusten sähkötekniikka, 2008.
+\item SFS ry: SFS-käsikirja 660 EMC, 1. painos, 2008. 
+\end{itemize}
+}

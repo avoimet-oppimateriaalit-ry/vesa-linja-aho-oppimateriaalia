@@ -1,0 +1,410 @@
+% HUOM! ANTURIKALVOISTA SUURI OSA LAINATTU MOOTTORINOHJAUKSEN K2010 LUENTO6 JA
+% VÄYLÄKALVOT LUENTO8.
+
+
+
+\frame{
+\frametitle{Anturin määritelmä}
+\begin{itemize}
+\item Anturi on laite, joka muuttaa jonkin suureen (esimerkiksi kemiallisen tai fysikaalisen)  käsiteltävään muotoon
+(jännitteeksi, virraksi, digitaaliseksi signaaliksi\ldots).
+%\item
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Moottorinohjausjärjestelmän anturit}
+\begin{description}
+\item[1950-luku] $\lambda$-happianturi 
+\item[1960] sähkömekaaninen paineanturi, pietsosähköinen nakutusanturi
+\item[1970] hall-anturi, turvatyynyn venymäliuska-anturi, silikonipaineanturi
+\item[1980] kuumalanka- ja ohutkalvoilmamassamittarit, integroitu paineanturi
+\item[1990] mems-kiihtyvyysanturit, pietsosähköinen kiertonopeusanturi, mikromekaaninen
+ilmamassa-anturi, mikromekaaninen kiertonopeusanturi
+
+\end{description}
+}
+
+
+
+\frame{
+\frametitle{Älykkäät anturit}
+\begin{itemize}
+\item Anturilta tulevan signaalin käsitteleminen tapahtuu itse anturiyksikössä.
+\item Älykäs anturi voidaan kalibroida automaattisesti, käyttämällä useita antureita yhtäaikaa.
+\item Suorittamalla signaalinkäsittely paikan päällä anturissa, moottorinohjausyksiköltä
+vaaditaan vähemmän laskentatehoa.
+\item Anturiliitäntä voidaan standardoida.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Merkitys autotekniikassa}
+\begin{itemize}
+\item Sähkö- ja elektroniikkajärjestelmän osuus ajoneuvon arvosta on noin 26 \%.
+\item Maailmassa valmistettavista antureista noin joka toinen sijoitetaan ajoneuvoon.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Luotettavuus}
+\begin{itemize}
+\item Vikataajuus ilmoitetaan todennäköisyytenä, yksikkönä yleensä ppm/aikayksikkö.
+\item Eli monenko miljoonasosan todennäköisyydellä anturi hajoaa aikayksikön aikana.
+\item Ajoneuvoanturin vikataajuudeksi halutaan yleensä alle 10 ppm/10 vuotta.
+\item Vrt. matkapuhelin (koko laite) 5000 ppm\footnote{Lähde: Autojen anturit (2009). Suhtaudun skeptisesti tuohon lukuun: ettäkö
+vain viisi tuhannesta matkapuhelimesta hajoaa 10 vuoden aikana, huh?}.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Kustannukset}
+\begin{itemize}
+\item Uudet ajoneuvot sisältävät helposti $>>150$ anturia...
+\item Anturien oltava halpoja, tyypillisesti 1-30 euroa.
+\item Luotettavuus- ja käyttöolosuhdevaatimukset kovia
+\item Tärinä, iskut, lämpötila, kosteus, kemikaalit, sähköiset häiriöt\ldots
+\item Toisissa sovelluksissa vaaditaan enemmän luotettavuutta kuin toisissa:
+ohjaus, jarrutus, turvalaitteet, moottori/voimansiirto, alusta/renkaat, mukavuus,
+diagnoosi, informaatio, varkaudenesto.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Mittausperiaatteet}
+\begin{itemize}
+\item Asema-anturi
+\item Nopeus- ja pyörintänopeusanturi
+\item Kiihtyvyysanturi
+\item Paineanturi
+\item Voima- ja momenttianturi
+\item Virtausmittari
+\item Kaasu- ja pitoisuusanturi
+\item Lämpötila-anturi
+\item Optiset anturit
+\end{itemize}
+}
+
+\frame{
+\frametitle{Anturityypit}
+\begin{itemize}
+\item Moottorin pyörintänopeusanturit
+\item Hall-vaiheanturit
+\item Vaihteiston ohjauksen nopeusanturit
+\item Pyörän nopeusanturit
+\item Mikromekaaniset kiertonopeusanturit
+\item Pietsosähköinen äänirauta-kiertonopeusanturi
+\item Mikromekaaniset paineanturit
+\item Korkeapaineanturit
+\item Lämpötila-anturit
+\item Kaasupoljinanturit
+\item Ohjauskulman anturit
+\item Vaihteiston ohjauksen asema-anturit
+\item Akselianturit
+\item Kuumakalvoilmamassamittarit
+\item Pietsosähköinen nakutusanturi
+\end{itemize}
+}
+
+\frame{
+\frametitle{Lisää antureita}
+\begin{itemize}
+\item SMM-kiihtyvyysanturi
+\item Tilavuusmikromekaaniset piikiihtyvyysanturit
+\item Pietsosähköiset kiihtyvyysanturit
+\item iBolt-voima-anturi
+\item Momenttianturi
+\item Ultraäänianturi
+\item Sade- ja valoanturi
+\item Lika-anturi
+\item Kaksitasoinen $\lambda$-anturi
+\item Laajakaistainen $\lambda$-anturi
+\item Ilmastoinnin hiilidioksidianturi
+\end{itemize}
+}
+
+\frame{
+\frametitle{Potentiometri asema-anturina}
+\begin{itemize}
+\item Potentiometri = säätövastus.
+\item Halpa, yksinkertainen, helppo varmentaa.
+\item Kuluminen, iskut ja kiihdytykset vaikuttavat mittaustulokseen.
+\item Käytetään esimerkiksi kaasupolkimen asennon, polttoainesäiliön pinnankorkeuden sekä
+mittalevyn (KE- ja L-Jetronic) asennon tunnistamiseen.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Lämpötila-anturit}
+\begin{itemize}
+\item Perustuvat tavallisesti NTC-vastukseen (PTC-vastusta käytetään harvoin).
+\item Moottorin, imuilman, öljyn ja polttoaineen lämpötila (Diesel).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Moottorin pyörintänopeus}
+\begin{itemize}
+\item Induktiivinen anturi
+\item Hall-anturi
+\item AMR-anturi
+\end{itemize}
+}
+
+\frame{
+\frametitle{Vaiheanturit (kampikulma)}
+\begin{itemize}
+\item Nokka-akselianturi tarvitaan kertomaan, mitkä sylintereistä ovat puristus- ja mitkä poistotahdissa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ilmamäärä}
+\begin{itemize}
+\item Voidaan mitata joko massaa, virtausta tai painetta.
+\item Kuumakalvomittari mittaa suoraan ilmamassan. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Nakutus}
+\begin{itemize}
+\item Pietsosähköinen anturi havaitsee nakutuksen.
+\item Pietsokiteen puristaminen/taivuttaminen aikaansaa jännitteen (sama 
+tekniikka on käytössä mm. savukkeensytyttimissä ja grilleissä).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Paine}
+\begin{itemize}
+\item Imusarjan paine
+\item Öljynpaine
+\item Polttoaineen paine
+\end{itemize}
+}
+
+\frame{
+\frametitle{Jäännöshappipitoisuus ($\lambda$)}
+\begin{itemize}
+\item Kaksitasoinen ja laajakaistainen anturi.
+\item Laajakaista-anturi mittaa tarkasti myös silloin, kun $\lambda$ ei ole noin 1.
+
+\end{itemize}
+}
+
+% ECU Gasoline-kirjasta, sivut 262--267
+\frame{
+\frametitle{Moottorinohjausyksikkö (ECU)}
+\begin{itemize}
+\item ECU = Engine Control Unit = moottorinohjausyksikkö
+\item Huom! Toinen merkitys lyhenteelle: ECU voi tarkoittaa myös
+elektronista ohjainyksikköä (Electronic Control Unit) yleensä. Esimerkiksi
+ilmatyynyn ohjainyksikkö (ACU) ja vaihteiston ohjausyksikkö (TCU) ovat
+ECUja sanan jälkimmäisessä merkityksessä.
+\item Moottorinohjausyksikkö lukee tietoa antureilta ja säätää (pääasiassa)
+sytytyksen ajoitusta ja polttoaineensyöttöä ennalta ohjelmoitujen karttojen mukaan.
+\item Nykyiset moottorinohjausyksiköt ovat älykkäitä ja ottavat huomioon
+moottorin parametrien muuttumisen.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Moottorinohjausyksikön vaatimukset}
+Moottorinohjausyksikkö joutuu kovien ympäristörasitusten armoille.
+\begin{itemize}
+\item Korkeat ($> 100 ^\circ {\rm C}$) ja matalat ($-40 ^\circ {\rm C}$) lämpötilat.
+\item Nopeat lämpötilan muutokset.
+\item Altistuminen kemikaaleille (polttoneste, öljy).
+\item Tärinä ja iskut.
+\item Käyttöjännitteen vaihtelu.
+\item EMC (Electromagnetic compatibility).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Moottorinohjausyksikön toteutus}
+\begin{itemize}
+\item Piirilevyllä käytetään pintaliitoskomponentteja (kuten nykyaikaisessa elektroniikassa ylipäätään).
+\item Kokonaisuus on sijoitettu metalli- tai muovikoteloon, jonka kyljessä on riviliittimet.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Signaalinkäsittely - tulosignaalit}
+ECU voi käsitellä kolmenlaisia tulosignaaleja.
+\begin{itemize}
+\item Analoginen tulosignaali. Jännitesignaali, joka voi määritellyllä välillä saada mitä tahansa arvoja ja 
+voi muuttua jatkuva-aikaisesti.
+\item Digitaalinen tulosignaali. Signaalilla on kaksi sallittua arvoa, 1 ja 0. Monet anturit lähettävät nykyään suoraan
+digitaalista signaalia. Digitaalisignaalilla on tarkkaan määritellyt rajat nousu- ja laskuajoille sekä minimi- ja maksimijännitteille.
+\item Pulssimuotoiset signaalit. Analogisen ja digitaalisen "välimaastossa". Signaali ei ole yhtä tarkkaan määriteltyjen rajojen
+sisällä kuin digitaalisignaali. Esimerkiksi kierroslukuanturilta
+tuleva signaali voi olla tällainen (lasketaan pulssien määrää per aikayksikkö).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Signaalinkäsittely - signaalien esiprosessointi}
+\begin{itemize}
+\item Analoginen signaali muunnetaan digitaaliseksi (A/D-muunnos) käsittelemistä varten. Tyypillinen
+A/D-muuntimen erottelukyky on 5 mV. Tällöin esimerkiksi nollan ja viiden voltin välisellä signaalilla on noin
+1000 erilaista digitaalista arvoa.
+\item Digitaalinen signaali ei vaadi mitään esikäsittelyä, vaan ohjausyksikkö voi käsitellä sitä suoraan.
+\item Pulssimuotoisesta signaalista on karsittava häiriöt ja ylilyönnit pois. Sen jälkeen sitä voidaan käsitellä
+digitaalisignaalina.
+\end{itemize}
+Signaaleille tehdään aluksi yksinkertainen tasonrajoitus ja alipäästösuodatus.
+}
+
+\frame{
+\frametitle{Signaalinkäsittely}
+\begin{itemize}
+\item Moottorin ohjaaminen ei teoriassa poikkea mistään muusta tietokoneella toteutetusta säädöstä.
+\item Mikrokontrolleri valvoo tulosignaaleja ja muuttaa lähtösignaaleja ennalta määrätyn ohjelman mukaisesti.
+\item Tulosignaalit muodostavat moniulotteisia karttoja, joista lähtösignaalit lasketaan.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Muisti}
+\begin{itemize}
+\item Mikrokontrollerin ohjelma on tallennettu ROM-muistille (Read Only Memory).
+\item ROM-muisteja on erilaisia: Flash-EPROM voidaan ohjelmoida uudelleen elektronisesti,
+EPROM voidaan tyhjentää UV-valolla ja sitten ohjelmoida uudestaan.
+\item EPROM on yleensä oma erillinen piirinsä, Flash-muisti voidaan integroida samalle
+sirulle mikrokontrollerin kanssa.
+\item Mikrokontrollerin oma muisti on usein rajoitettu, siksi voidaan tarvita ulkoista muistipiiriä.
+\item Moni valmistaja käyttää samaa ohjainyksikköä eri automalleissa; tuotatolinjan lopussa
+vain ajetaan oikea ohjelma sisään (EoL = End-of-Line -ohjelmointi).
+\end{itemize}
+}
+
+\frame{
+\frametitle{Muisti}
+\begin{itemize}
+\item Kesken ajon muuttuvat tiedot tallennetaan kontrollerin RAM-muistiin (Random Access Memory). RAM-muistista
+tiedot häviävät, jos ohjausyksiköltä katkaistaan virta (esimerkiksi akku irroitetaan).
+\item Tärkeät, mutta auton käytön aikana muuttuvat tiedot (ajonestolaitteen salausavaimet, tärkeät moottorin kulumiseen liittyvät
+tiedot) tallennetaan EEPROM-muistiin.
+\item EEPROM-muisti eroaa Flash-muistista siten, että jokainen muistipaikka voidaan tyhjentää ja uudelleenkirjoittaa erikseen.
+Flash-EPROMiin pitää tyhjentää \& kirjoittaa kerralla koko sisältö.
+\end{itemize}
+}
+
+\frame{
+\frametitle{ASIC-piirit}
+\begin{itemize}
+\item Aina ei pärjätä suoraan "kaupan hyllyltä" saatavilla mikrokontrollereilla. Esimerkiksi joku nopeutta
+vaativa laskutoimitus voidaan hoitaa ASIC-piirillä (application specific integrated circuit).
+\end{itemize}
+}
+
+\frame{
+\frametitle{"Vahtikoira"}
+\begin{itemize}
+\item Mikrokontrollerin ohjelma voi mennä jumiin, kuten mikä tahansa tietokone (muttei yhtä todennäköisesti, onneksi).
+\item Vikatilanteisiin varaudutaan ns. vahtikoirapiiriä käyttämällä.
+\item Prosessi yksinkertaistettuna: kontrolleri ja vahtikoira kysyvät vuorotellen toisiltaan "oletko kunnossa?"
+\item Jos vastausta ei tule määrätyn ajan kuluessa, käynnistetään elpymistoimenpiteet (esimerkiksi mikrokontrollerin uudelleenkäynnistys).
+\end{itemize}
+}
+
+
+
+\frame{
+\frametitle{Pääteaste}
+\begin{itemize}
+\item Mikrokontrolleripiiri itsessään jaksaa ohjata vain muutaman milliampeerin kuormia.
+\item Ohjausyksikössä on pääteaste, joka vahvistaa mikrokontrollerilta saadut signaalit toimilaitteille sopiviksi.
+\item Ohjauslähdöt on suunniteltu niin, että ne kestävät mahdollisen oikosulun maahan tai akun plusnapaan.
+\item Lähdön oikosulkutilanteet tunnistetaan ja niistä annetaan virheilmoitus.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Pääteaste}
+Lähtösignaalit voidaan jakaa kahteen luokkaan.
+\begin{itemize}
+\item Kytkinsignaalit. Näillä on kaksi tilaa: päällä ja pois.
+\item PWM-signaalit. Pulssinleveysmodulaatiolla (PWM) voidaan säätää monenlaisia toimilaitteita.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Tiedonsiirto elektronisten järjestelmien sisällä ja välillä}
+\begin{itemize}
+\item CAN (Controlled area network, 1991)
+\item LIN (Local interconnect network, 2001)
+\item MOST (Media Oriented Systems Transport, 2001)
+\item Bluetooth (1990-luvun loppu)
+\item FlexRay (2006)
+\end{itemize}
+}
+
+\frame{
+\frametitle{Ajoneuvoväylätekniikan vaatimukset}
+\begin{itemize}
+\item Tiedonsiirtonopeus
+\item Häiriönsietokyky
+\item Reaaliaikaisuus
+\item Verkkoon kytkettyjen laitteiden määrä
+\end{itemize}
+}
+
+\frame{
+\frametitle{Väylien luokittelu}
+\begin{itemize}
+\item A-luokka: hidas (alle 10 kbit/s). Ei-kriittiset anturit ja toimilaitteet. Esimerkki: LIN.
+\item B-luokka: keskinopea (alle 125 kbit/s). Mukavuuslaitteet. Esimerkki: Low Speed CAN (CAN-B).
+\item C-luokka: nopea (alle 1 Mbit/s). Moottorin- ja vaihteistonohjaus. Esimerkki: High Speed CAN (CAN-C).
+\item C+-luokka: erittäin nopea (alle 10 Mbit/s). Moottorin- ja vaihteistonohjaus. Esimerkki: FlexRay.
+\item D-luokka: erittäin nopea (yli 10 Mbit/s). Telematiikka ja multimedia.
+\end{itemize}
+}
+
+\frame{
+\frametitle{CAN-väylä}
+\begin{itemize}
+\item 1991 (500E-Mersu)
+\item Mahdollistaa reaaliaikaisen ohjauksen. Esimerkki: automaattivaihteisto pyytää moottoria alentamaan momenttia.
+\item 5 voltin logiikka, 120 $\ \Omega$ terminointi.
+\item Voidaan käyttää yksi- tai kaksijohtimisena.
+\item Väylälle mahdollista kytkeä ainakin 30 laitetta. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{LIN-väylä}
+\begin{itemize}
+\item Yksijohtiminen, halpa. Vaihtoehto Low Speed CANille.
+\item Yhteen väylään voidaan kytkeä enintään 16 laitetta.
+\end{itemize}
+}
+
+\frame{
+\frametitle{MOST}
+\begin{itemize}
+\item Nopea. Suunniteltu multimedialaitteile (DVD, TV, CD, navigointi).
+\item Johdin- tai valokuitukäyttö.
+\item Valokuidun etuja: ei häiriöitä (sisään eikä ulos), kevyt, voi vetää "mistä tahansa".
+\end{itemize}
+}
+
+\frame{
+\frametitle{Bluetooth}
+\begin{itemize}
+\item Käytetään matkapuhelimen ym. liittämiseksi auton äänentoistojärjestelmään.
+\end{itemize}
+}
+
+\frame{
+\frametitle{FlexRay}
+\begin{itemize}
+\item Suunniteltiin erityisesti turvalaitteita ajatellen.
+\item Reaaliaikainen, nopea ja erittäin vikasietoinen tiedonsiirto.
+\end{itemize}
+}

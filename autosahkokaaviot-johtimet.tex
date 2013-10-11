@@ -1,0 +1,103 @@
+\frame{
+\frametitle{Kytkentäkaavio}
+Kytkentäkaaviot ovat asiana tuttu jo yläkoulun fysiikan tunneilta.
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\vba{0,0}{12 \V}
+\vlamp{50,0}{}
+\hln{0,0}{50}
+\hln{0,50}{50}
+\end{picture}
+\end{center}
+Jos sähkölaitteen rakenneosat piirrettäisiin samannäköiseksi kuin miltä ne näyttävät luonnossa, kaaviosta tulisi sekava.
+}
+
+\frame{
+\frametitle{Kytkentäkaavio}
+\begin{itemize}
+\item Sähkökaaviossa komponenttien piirrosmerkit on yhdistetty toisiinsa johtimilla.
+\item Alalla on useita eri standardeja komponenttien piirrosmerkeille. Varsinkin amerikkalaiset ja
+eurooppalaiset piirrosmerkit eroavat toisistaan.
+\item Oppikirjassa käytetään (pääosin) saksalaista DIN-normien mukaista piirtämistapaa.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Erilaisia sähkökaavioita}
+Määritelmiä\footnote{Nieminen: Auton sähkötekniikka, 5-7. painos, 2005, sivu 421--}
+\begin{description}
+\item[Kytkentäkaavio] kuvaa laitteiden keskinäisiä kytkentöjä. {\bf Käytännössä sanaa kytkentäkaavio käytetään sähkökaavion synonyyminä.}
+\item[Virtapiirikaavio] kuvaa laitteen tai laiteryhmän ulkoisia sekä myös sisäisiä kytkentöjä.
+\item[Yhdistelmäkaaviossa] kuvataan kaikki auton sähkövirtapiirit sekä sisäisin että ulkoisin kytkennöin.
+\end{description}
+\small
+Nykyautoissa on niin paljon elektroniikkaa, että kaikkien sähkökaavioiden, alkaen moottorinohjausyksikön virtapiirikaaviosta päättyen koko auton yhdistelmäkaavioon, esittäminen voi viedä satoja sivuja tilaa. Esimerkiksi korjausoppaissa on usein vain päätason kytkentäkaaviot, joista käy ilmi, miten eri yksiköt on 
+kytketty johdoilla toisiinsa. % Ks. esim. Peugeot 206 1998--2007 korjausopas, Alfame, löytyy kirjastosta
+
+}
+
+\frame{
+\frametitle{Piirtämistavat}
+Sähkökaavio voidaan piirtää
+\begin{itemize}
+\item laitteiden sijoituksen mukaan. Tämä on perinteinen tapa.
+\item virtapiirien mukaan. Virtapiirit piirretään yhteisen syöttöjohdon ja maan väliin.
+\item ns. hajotettuna sähkökaaviona. Hajotetussa sähkökaaviossa eri laitteet esitetään tunnuskuvien avulla
+niin, että johtimia ei ole piirretty näkyviin. Johtimien päätepisteet ilmaistaan numero- ja kirjainkoodeilla.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Standardit}
+\begin{description}
+\item[DIN 72552] Laajalti käytetty standardi liitinmerkinnöille. % Tammi ja Nieminen
+\item[DIN 40719] Autotekniikassa laajalti käytetty standardi sähkökaavioiden piirrosmerkeille.% Nieminen
+\item[IEC 60617 / BS 3939] Elektroniikassa laajalti käytetty standardi sähkökaavioiden piirrosmerkeille. % http://en.wikipedia.org/wiki/Circuit_diagram
+\item[ANSI Y32 / IEEE Std 315] Yhdysvaltalainen standardi piirrosmerkeille.
+\item[AS 1102] Australialainen standardi piirrosmerkeille.
+\end{description}
+Näiden lisäksi monella maalla on omat kansalliset standardinsa. Standardien kirjavuus aiheuttaa päänvaivaa. Alkuperäiset standardit eivät ole (joitain poikkeuksia lukuunottamatta) julkisesti saatavilla verkossa, mikä sekin osaltaan häiritsee niiden noudattamista.
+% Kato myös http://www.sesko.fi/portal/fi/standardeja_ja_direktiiveja/valikoituja_standardisarjoja/piirrosmerkit_iec_60617/
+}
+
+\frame{
+\frametitle{Johtimet}
+Autosähkötekniikassa olennaisin ominaisuus johdolla on poikkipinta-ala. Johtimen konduktanssi
+on suoraan verrannollinen poikkipinta-alaan ja kääntäen verrannollinen pituuteen. Mitä suurempi
+virta johtimessa kulkee, sitä paksumpi johdin tarvitaan.
+}
+
+\frame{
+\frametitle{Johtimet}
+Kirjassa {\em Moottorialan sähköoppi} (8. p. 2005, s. 256) esitetään suuruusluokat johtimien virrankestolle:
+\begin{table}
+\begin{tabular}{ l l l l l l l l }
+Poikkipinta-ala (mm$^2)$ & 0,75 & 1,0 & 1,5 & 2,5 & 4,0 & 6,0 \\
+Suurin virta (A) & 8 & 10 & 15 & 20 & 25 & 30 \\
+\end{tabular}
+\caption{Jatkuvassa käytössä olevien johtimien virransietokyky.}
+\end{table}
+
+\begin{table}
+\begin{tabular}{ l l l l l l l l }
+Poikkipinta-ala (mm$^2)$ & 16 & 25 & 35 & 50 & 70 & 100 \\
+Suurin virta (A) & 250 & 370 & 500 & 740 & 1000 & 1350 \\
+\end{tabular}
+\caption{Käynnistysjohtimien hetkellinen virransietokyky.}
+\end{table}
+Johtimissa käytetään kuparia, joka on taipuisaa ja hintaansa nähden erittäin hyvä sähkönjohde
+($\rho = 16,78\,{\rm n}\ohm \cdot {\rm m}$)\footnote{Hopea on kaikkein paras sähkönjohde($\rho = 15,87\,{\rm n}\ohm \cdot {\rm m}$), mutta se on huomattavasti kalliimpaa}.
+% Johtavuusarvot enkkuwikistä, viitattu 27.8.2010.
+}
+
+\frame{
+\frametitle{Johtimet}
+Johtimen resistanssi voidaan laskea kaavasta
+\[
+R=\rho \frac{l}{A}
+\]
+missä $\rho$ on johdinmateriaalin ominaisresistanssi eli resistiivisyys (yksikkö: $\ohm$m), $l$ on johtimen
+pituus metreinä ja $A$ johtimen poikkipinta-ala neliömetreinä. Metalleilla resistiivisyys kasvaa lämpötilan noustessa.
+
+}

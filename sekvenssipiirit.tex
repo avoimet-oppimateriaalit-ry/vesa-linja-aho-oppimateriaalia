@@ -1,0 +1,96 @@
+ \frame{
+ \frametitle{Sekvenssipiirit}
+ \begin{itemize}
+ \item Logiikkaporttipiirit eli kombinaatiopiirit eivät ota huomioon aikaulottuvuutta: lähtöön vaikuttavat senhetkiset tulojen tilat.
+\item Kombinaatiopiirien lisäksi tärkeitä digitaalipiirejä ovat {\bf sekvenssipiirit}. Sekvenssipiireissä lähdön tilaan vaikuttaa tulojen muuttumisen ajallinen järjestys sekä piirin senhetkinen tila.
+ \end{itemize}
+ }
+
+ \frame{
+ \frametitle{Dynaaminen tulo}
+ \begin{itemize}
+ \item Dynaaminen tulo vaikuttaa piirin toimintaan vain muutoshetkellä.
+\item Eli "jotain tapahtuu"\ vain silloin, kun tulo muuttuu nollasta ykköseksi tai ykkösestä nollaksi.
+\item Nollasta ykköseen -muutoksessa toimiva tulo on {\bf nousevalla reunalla toimiva} tulo. Sitä merkitään pienellä kolmiolla (alla vasemmalla).
+\item Ykkösestä nollaan -muutoksessa toimiva tulo on {\bf laskevalla reunalla toimiva} tulo. Sitä merkitään pienellä kolmiolla, jonka edessä on pallo (alla oikealla).
+ \end{itemize}
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\dff{0,0}
+\jk{100,0}
+\end{picture}
+\end{center}
+
+ }
+
+ \frame{
+ \frametitle{Kiikku vai veräjä?}
+ \begin{itemize}
+ \item Kiikku on sekvenssipiiri, jossa on kellotulo.
+\item Veräjässä ei ole kellotuloa, vaan ohjaustuloissa tapahtuva muutos vaikuttaa piirin toimintaan välittömästi.
+ \end{itemize}
+ }
+
+ \frame{
+ \frametitle{SR-veräjä ja SR-kiikku}
+ \begin{itemize}
+\item Joskus kirjaimet ovat toisin päin (RS-kiikku/veräjä). Kyseessä on sama komponentti.
+ \item Kun kellotuloon tuodaan positiivinen pulssi, lähdön $Q$ tila muuttuu ykköseksi jos $S$-tulon arvo on 1, ja nollaksi, jos $R$-tulon arvo on 1.
+\item $S$=set, $R$=reset.
+\item Jos molemmat tulot ovat nollia, tila ei muutu.
+\item Tila, jossa $S$- että $R$-tuloihin syötetään ykkönen, on kielletty tila. Silloin piirin toimintaa ei ole määritelty (piiri voi toimia jotenkin arvaamattomasti).
+\item SR-veräjä on kuten SR-kiikku, mutta erillinen kellotulo puuttuu, ja muutos tapahtuu välittömästi, kun tulojen tila muuttuu.
+ \end{itemize}
+
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\sr{0,0}
+\end{picture}
+\end{center}
+ }
+
+ \frame{
+ \frametitle{JK-kiikku}
+ \begin{itemize}
+ \item Melkein kuin SR-kiikku: J-tulo vastaa set-tuloa ja K-tulo reset-tuloa.
+\item Parannus verrattuna SR-kiikkuun: JK-kiikussa ei ole "kiellettyä tilaa". Jos sekä $J$- että $K$-tulossa on arvo 1, niin lähtö vaihtaa tilaansa, kun kellopulssi tulee.
+\item Monessa JK-kiikussa on lisäksi pakko-ohjaustulot $S$ ja $R$, joilla lähdön tilaa voidaan muuttaa kellosta riippumatta.
+\item Kuvassa negatiivisella kellopulssin reunalla toimiva JK-kiikku.
+ \end{itemize}
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\jk{0,0}
+\txt{15,30}{J}
+\txt{15,0}{K}
+
+\txt{35,30}{Q}
+\txt{35,0}{\bar{Q}}
+
+\txt{25,52}{\bar{S}}
+\txt{25,-25}{\bar{R}}
+
+\end{picture}
+\end{center}
+ }
+
+ \frame{
+ \frametitle{D-kiikku}
+ \begin{itemize}
+ \item Toiminta hyvin yksinkertainen: lähtö $Q$ saa arvon $D$, kun kellopulssi tulee.
+\item Kiikussa voi olla myös erilliset pakko-ohjaustulot ($S$ ja $R$).
+ \end{itemize}
+\begin{center}
+\begin{picture}(50,50)(0,0)
+\dff{0,0}
+\txt{-10,30}{D}
+\txt{-10,0}{clk}
+
+\txt{35,30}{Q}
+\txt{35,0}{\bar{Q}}
+
+%\txt{25,52}{\bar{S}}
+%\txt{25,-25}{\bar{R}}
+
+\end{picture}
+\end{center}
+ }

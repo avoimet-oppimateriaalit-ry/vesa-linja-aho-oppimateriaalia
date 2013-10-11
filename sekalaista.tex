@@ -1,0 +1,454 @@
+% TÄMÄ TIEDOSTO ON VÄLIVARASTO KALVOILLE, JOIDEN PAIKKAA PITÄÄ MIETTIÄ.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%Tämän alla on Elektroniikka 1 -kurssin kamaa jonka voi todennäköisesti heittää pois.
+
+
+ \frame{
+ \frametitle{Mitä on elektroniikka?}
+\begin{block}{Kielitoimiston sanakirja 2.0}
+Elektroniikka = vapaiden elektronien ja muiden varauksenkantajien tutkimus ja hyväksikäyttö (esim. puolijohde- ja näyttölaitteissa, mikropiireissä yms.). 
+\end{block}
+
+\begin{itemize}
+ \item Kursseilla Tasasähköpiirit ja Vaihtosähköpiirien perusteet käsitellään piiriteoriaa ja sähkötekniikkaa.
+ \item Raja sähkötekniikan ja elektroniikan välillä joskus häilyvä. Nyrkkisääntö: jos käytetään puolijohteita (tai radioputkia), kyse on elektroniikasta. Jos pelkkää sähkön lämpövaikutusta (esim. lämpöpatteri) tai sähkömagneettista voimavaikutusta (sähkömoottori), kyse on sähkötekniikasta.
+\item Itse mm. mieltäisin kaiuttimen jakosuotimen elektroniikaksi, vaikkei siinä olisi yhtään puolijohdekomponenttia.
+ \end{itemize}
+ }
+
+
+\frame{
+\frametitle{Elektroniikka ja puolijohdekomponentit}
+\begin{itemize}
+
+\item Puolijohdetekniikka perustuu puolijohteiden ja/tai puolijohteen ja johteen
+rajapinnassa tapahtuviin fysikaalisiin ilmiöihin.
+
+\end{itemize}
+}
+
+
+
+
+
+
+
+\frame{ % TODO ihan hyödyllistä tietoa, mutta minkä alle?
+\frametitle{Mikropiirit}
+\begin{itemize}
+\item Kymmeniä vuosia sitten suuri osa elektroniikasta toteutettiin erilliskomponenteista
+kokoamalla.
+\item 1970-luvulla mikropiirit yleistyivät rajusti. Mikropiirien etuja ovat edullisuus ja pieni koko.
+\item Nykyään laitesuunnittelu kehittyy yhä enemmän siihen suuntaan, että valmistetaan standardimikropiirejä ja ajetaan sinne ohjelmisto sisään, jolloin saadaan ohjelmistosta riippuen aikaiseksi digiboksi tai tietokoneen äänikortti (kärjistetty esimerkki).
+
+\end{itemize}
+}
+
+
+
+
+ \frame{ % TODO Kato onko tää mainittu
+ \frametitle{Transistorivahvistimen piensignaalianalyysi}
+Viime tunnilla analysoitiin transistorivahvistinta mallintamalla sen toimintaa virtalähteellä. Tämä malli on käytännössäkin epätarkka, koska valitsemalla emitterivastus $R_{\rm E}$ nollaksi (tai ohittamalla se suurella kondensaattorilla) vahvistuskerroin olisi ääretön (muka).
+ }
+
+\frame{
+ \frametitle{Vakiovirtalähde} % TÄÄ taitaa olla jo tuolla omana kalvonaan!!
+\begin{center}
+\begin{picture}(180,100)(0,0)
+
+\vz{0,0}{R_{\rm B}=2,2\kohm}
+\zud{0,50}{5,1\V}
+
+\vst{200,0}{E=12\V}
+\vln{200,50}{75}
+\vz{100,75}{R_{\rm E}=2,2\kohm}
+\hln{100,125}{100}
+
+\hln{0,125}{100}
+\vln{0,100}{25}
+\hln{0,50}{50}
+\pnpc{50,50}{}
+\hln{0,-50}{200}
+\vln{0,-50}{50}
+\vln{200,-50}{50}
+\vln{100,0}{25}
+\di{100,0}{I_{\rm L}}
+\vz{100,-50}{R_{\rm L}}
+\dcru{105,-50}{U_{\rm L}}
+%\dcru{5,0}{U_{\rm B}}
+\dcru{105,25}{U_{\rm EC}}
+%\tx{70,25}{BC557}
+\end{picture}
+
+\end{center}
+ }
+
+\frame{ % Kato mikä tää on, löytyykö diodista tai piensignaalianalyysistä?
+\frametitle{Diodipiirin ratkaisu "tarkasti"}
+% Näytin tän esimerkin kuutostunnilla.
+\begin{center}
+\begin{picture}(180,100)(0,0)
+
+\vst{0,0}{E=1\V}
+\hz{25,50}{R=100\ohm}
+\hln{75,50}{25}
+\hln{0,50}{25}
+\dd{100,0}{}
+\hln{0,0}{100}
+\du{120,0}{U}
+
+\end{picture}
+\end{center}
+
+ }
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%Tämän alla on digitaalitekniikan perusteet -kurssin kamaa jonka voi todennäköisesti heittää pois.
+
+
+\frame{
+\frametitle{Digitaalitekniikka}
+\begin{itemize}
+\item Analoginen signaali: signaali voi saada mitä tahansa arvoja, ja muuttua miten tahansa
+ajan funktiona.
+\item Digitaalinen signaali: signaalilla on määrätyt vakioarvot, ja se muuttuu ennalta sovitulla
+tavalla (esim. 1000 000 kertaa sekunnissa).
+\item Yleisesti käytössä oleva digitaalitekniikka käyttää binäärilogiikkaa, eli signaalilla on
+kaksi sallittua tilaa, 0 ja 1.
+\item Ensimmäisellä tunnilla tutustutaan logiikkaporttien toimintaan.
+\end{itemize}
+}
+
+
+
+ \frame{
+ \frametitle{Ensimmäinen laboratoriotyö 18.3.2011}
+ \begin{itemize}
+ \item Ensimmäisessä työssä harjoitellaan kytkentöjen rakentelua.
+\
+ \end{itemize}
+ }
+
+ \frame{
+ \frametitle{Työ 1}
+% Ohje kolumneihin: http://www.tug.org/pracjourn/2005-4/mertz/mertz.pdf
+\begin{columns}[c]
+\column{5cm}
+\begin{center}
+\begin{picture}(100,100)(-50,-50)
+\vo{0,0}{741}{15}
+%\txt{100,15}{\Uout=A(U_+-U_-)}
+\hz{-50,20}{1\kohm}
+\hz{0,55}{10\kohm}
+\hgp{0,0}
+\vln{0,20}{35}
+\vln{50,10}{45}
+\hln{50,10}{20}
+\hgp{70,-40}
+\du{70,-40}{\Uout}
+
+\hgp{-50,-30}
+\vst{-50,-30}{\Uin}
+
+\end{picture}
+\end{center}
+
+\column{4cm}
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$\Uin$&\multicolumn{2}{|c|}{$\Uout$}\\
+%\hline
+%& \phantom{sdasdadas}\\
+\hline
+& Laske & Mittaa \\
+\hline
+$0\V$&&\\
+\hline
+$0,5\V$&&\\
+\hline
+$-0,5\V$&&\\
+\hline
+$1\V$&&\\
+\hline
+$-1\V$&&\\
+\hline
+$1,5\V$&&\\
+\hline
+$-1,5\V$&&\\
+\hline
+$2\V$&&\\
+\hline
+$-2\V$&&\\
+\hline
+\end{tabular}
+\end{center}
+
+\end{columns}
+% Havaintoja: jännite heittää hieman, ja pääsee lähemmäs yläpäätä kuin alapäätä. Ehdoton raja on +-15 V.
+% Kaksipuoleinen jännite tehdään käyttämällä kahta jännitelähdettä
+ }
+
+ \frame{
+ \frametitle{Työ 2}
+\begin{center}
+\begin{picture}(100,50)(0,-40)
+\hg{0,0}
+\vst{0,0}{5\V}
+\hso{0,50}{}
+\hnot{50,38}
+\hnot{100,38}
+
+\vz{85,0}{1\kohm}
+\ledd{85,-50}{}
+\hg{85,-50}{}
+
+\vz{135,0}{1\kohm}
+\ledd{135,-50}{}
+\hg{135,-50}{}
+
+\hln{72,50}{28}
+\hln{125,50}{10}
+
+
+%\hln{-10,15}{10}
+\end{picture}
+\end{center}
+Käytä CMOS-piiriä 4049. Käyttöjännite on 5 V. Rakenna piiri ja esittele sen toiminta opettajalle.
+% Tulopuolella pitää olla alasvetovastus. Muuten se jää killumaan ykköseksi.
+
+ }
+
+
+ \frame{
+ \frametitle{Työ 3}
+ \begin{itemize}
+ \item Rakenna piirin 4017 pohjalta piiri, jossa ledi siirtyy palkissa aina yhden pykälän eteenpäin, kun käyttäjä painaa nappia.
+ \end{itemize}
+% Reset ja enable maihin. Jos tulopuolella ei alasvetovastusta, niin ei tapahdu mitään (ei pulsseja). Jos ei tulopuolella konkkaa, niin
+% ledi hyppii eteenpäin. Alasvetovastuksen puute aikaansaa myös vilistyksen 50 Hz kentästä.
+
+ }
+
+
+\frame{
+ \frametitle{Mitä labrasta pitäisi jäädä mieleen}
+ \begin{itemize}
+\item Operaatiovahvistimen lähtöjännite ei voi ylittää käyttöjännitteitä -- eikä yleensä pääse edes käyttöjännitteisiin asti.
+ \item Ilmassa roikkuvat tulot aiheuttavat ongelmia. Jos tuloa ohjataan kytkimellä, kytke tulo aina ylös- tai alasvetovastuksella ykköseen tai nollaan. Ilmassa roikkuva tulo voi esimerkiksi siepata 50 Hz kentän sähköverkosta.
+\item Kytkinvärähtelyt aiheuttavat joskus ongelmia. Kun kytkintä painetaan, kytkinliuskat läpsyvät yhteen ja pulsseja tuleekin monta (laskuri hyppää eteenpäin monta pykälää). Tämän voi korjata esimerkiksi pienellä kondensaattorilla.
+
+ \end{itemize}
+ }
+
+
+ \frame{
+ \frametitle{Työ 5}
+ \begin{itemize}
+ \item Suunnittele ja rakenna piiri, joka laskee kahden 2-bittisen luvun summan.
+ \end{itemize}
+ }
+
+ \frame{
+ \frametitle{Työ 6 (haastava)}
+ \begin{itemize}
+ \item Suunnittele ja rakenna piiri, joka laskee kahden 2-bittisen luvun tulon.
+ \end{itemize}
+ }
+
+
+
+
+ \frame{
+ \frametitle{Työ 7}
+\begin{center}
+
+
+\begin{picture}(110,130)(50,-50)
+
+\hz{0,20}{R_1\ 1\kohm}
+\voi{50,0}{}{15}
+\hz{50,60}{R_2\ 15\kohm}
+\hgp{50,0}
+
+\hz{100,10}{R_3\ 150 \kohm}
+\vo{150,-10}{}{15}
+\hgp{150,-10}
+\hc{150,50}{C\ 100\ \mbox{nF}}
+
+\vln{200,0}{75}
+\hln{100,75}{100}
+\vln{150,10}{40}
+\vln{0,20}{55}
+\hln{0,75}{100}
+
+\vln{50,20}{40}
+\vln{100,10}{50}
+
+\hln{200,0}{10}
+\du{210,-50}{\Uout}
+\hg{210,-50}
+
+\end{picture}
+
+\end{center}
+Rakenna piiri. Kuinka suuri on $\Uout$in amplitudi ja taajuus, ja millainen on sen aaltomuoto? Laske komponenttiarvojen perusteella, mitä amplitudin ja taajuuden pitäisi olla, jos komponentit olisivat ideaalisia. Mistä ero pääosin johtuu?
+ }
+
+
+ \frame{
+ \frametitle{Työ 8}
+ \begin{itemize}
+ \item Suunnittele ja rakenna kytkentä, joka tutkii viittä kytkintä rivissä, ja jos rivin päissä olevilla kytkimillä on sama arvo ja välissä olevilla kytkimillä eri arvo kuin päissä olevilla,
+niin ulostulo on 1, muuten 0.
+ \end{itemize}
+ }
+
+
+ \frame{
+ \frametitle{Työ 9}
+ \begin{itemize}
+ \item Rakenna kokosummaimia käyttämällä piiri, joka laskee kahden \_\_\_\_\_\_\_\_\ bittisen luvun summan\footnote{Tämä tehtävä tehdään riippuen osien saatavuudesta :-)}.
+ \end{itemize}
+ }
+
+
+
+
+
+ \frame{
+ \frametitle{Lopuksi}
+ \begin{itemize}
+ \item Kurssi jäi hieman (lue: pahasti) tyngäksi sairastumisten ja työnantajan määräämien menojen takia (kehittämispäivät sun muut on yleensä ajoitettu perjantaille). Ei oteta tavaksi :-).
+\item Yksi ratkaisu olisi ollut ottaa teoriaa kiinni labrojen kustannuksella, mutta käytännön askartelu on erittäin opettavaista, vaikkei uusia teoriajuttuja niin paljon ehdi käydäkään.
+\item Jos digitaalitekniikka kiinnostaa, niin netistä löytyy todella hyvin perusasioista materiaalia. Tutustu Boolen algebraan, Karnaugh'n karttaan, liukulukuihin, 2-komplementtiesitykseen, FPGA-piireihin, Hamming-koodaukseen, pariteettiin, multipleksereihin, laskureihin, AD- ja DA-muuntimiin tai vaikkapa Arduino-mikrokontrollerialustaan.
+\item Suomenkielisestä kirjallisuudesta hyviä ovat ainakin:\\
+{\bf Kimmo Silvonen}: Elektroniikka ja puolijohdekomponentit (luvut 12--13).\\
+{\bf Panu-Kristian Poiksalo}: Digitaalitekniikan perusteet\\
+{\bf Vesa Volotinen}: Digitaalitekniikka
+ \end{itemize}
+ }
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%Tämän alla on elektroniikan komponentit -kurssin kamaa jonka voi todennäköisesti heittää pois.
+
+
+
+% POHJANA OLI: S2010 Elektroniikan komponentit
+% Vastukset, konkat sun muut heitetty pois filen loppuun
+% Samoin tyristorikomponentit
+% Diodiesimerkki pois, koska oli jo harkkatehtävänä
+
+
+\frame{
+\frametitle{Esimerkki 1}
+\begin{center}
+\begin{picture}(180,100)(0,0)
+
+\vst{0,0}{E=12\V}
+
+\hz{0,50}{R}
+%\txt{75,70}{C\ 1\,\mathrm{nF}}
+%\hso{0,50}{K}
+\hln{50,50}{50}
+\dd{100,0}{}
+\put(87,20){\vector(-1,-1){10}}
+\put(87,27){\vector(-1,-1){10}}
+
+
+\hln{0,0}{100}
+\du{120,0}{U_{\rm LED}}
+
+
+\end{picture}
+
+\end{center}
+
+Valmistajan datalehden mukaan kuvan ledin nimellisjännite 10 mA virralla on 2,0 volttia.
+Kuinka suuri vastuksen R on oltava, jotta ledin läpi kulkisi 10 mA virta?
+}
+
+
+\frame{
+\frametitle{Esimerkki 1 - esimerkkiratkaisu}
+\begin{center}
+\begin{picture}(180,100)(0,0)
+
+\vst{0,0}{E=12\V}
+
+\hz{0,50}{R}
+%\txt{75,70}{C\ 1\,\mathrm{nF}}
+%\hso{0,50}{K}
+\hln{50,50}{50}
+\dd{100,0}{}
+\put(87,20){\vector(-1,-1){10}}
+\put(87,27){\vector(-1,-1){10}}
+
+
+\hln{0,0}{100}
+\du{120,0}{U_{\rm LED}}
+
+
+\end{picture}
+
+\end{center}
+
+Valmistajan datalehden mukaan kuvan ledin nimellisjännite 10 mA virralla on 2,0 volttia.
+Kuinka suuri vastuksen R on oltava, jotta ledin läpi kulkisi 10 mA virta?
+{\bf Ratkaisu:} $R=\frac{12\V-2,0\V}{10\mA}=1\kohm$.
+}
+
+
+\frame{
+\frametitle{Käytännön kelat ja kondensaattorit}
+Aivan kuten ideaalista vastusta ei ole olemassa, ei ole olemassa ideaalisia keloja eikä kondensaattoreita.
+}
+
+
+\frame{
+%\begin{center} % Sm2-junan tyristorikaappi (kuvattu syyskuussa 2010, Vesa Linja-aho)
+\includegraphics[height=100mm]{kuvat/tyristorikaappi_IMG_1746.JPG}
+%\end{center}
+}
+
+
+\frame{
+\frametitle{Labratyö: Operaatiovahvistimen epäideaalisuudet}
+\begin{itemize}
+\item Mitataan laboratoriossa operaatiovahvistimen LM741 epäideaalisuudet: tulonsiirrosjännite, tulovirrat ja CMRR.
+\item Tänään tutustutaan teoriaan, ensi torstaina mitataan. Maanantaina 29.11. ei ole tunteja, olen työnantajan määräämässä koulutuksessa.
+\end{itemize}
+}
