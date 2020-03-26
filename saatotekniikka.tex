@@ -1,4 +1,6 @@
 % Lähteenä käytetty mm. Autoteknillistä taskukirjaa (6. painos suomeksi)
+% FIX: säädin -> saadin koska tuli Package pgf Error: No shape named `säädin' is known. }
+% FIX: järjestelmä -> jarjestelma (sama kuin edellä)
 \frame{
 \frametitle{Säätötekniikan perusteita}
 Mitä teille tulee mieleen termeistä
@@ -27,23 +29,23 @@ Arkipäivän esimerkkejä säätöjärjestelmistä?
 
  \begin{center}
 \begin{tikzpicture}[node distance = 3cm, auto,] % auto -> - ja säätösuure oikein, >=latex nuolet siistiksi
-  \node [block] (säädin) {Säädin};
-  \node [block, right of = säädin] (toimilaite) {Toimilaite};
-  \node [block, right of = toimilaite] (järjestelmä) {Järjestelmä};
+  \node [block] (saadin) {Säädin};
+  \node [block, right of = saadin] (toimilaite) {Toimilaite};
+  \node [block, right of = toimilaite] (jarjestelma) {Järjestelmä};
   \node[block, below of = toimilaite] (anturi) {Anturi};
-  \node[cloud, left of = säädin, node distance=2cm] (summa) {$\sum$};
+  \node[cloud, left of = saadin, node distance=2cm] (summa) {$\sum$};
 \node [coordinate, name=input, left of = summa, node distance=1cm] {};
-\node [above of = järjestelmä, node distance=2cm] (häiriöt) {Häiriöt};
+\node [above of = jarjestelma, node distance=2cm] (häiriöt) {Häiriöt};
 
-  \path  [line] (säädin) -- (toimilaite);
-  \draw [line] (toimilaite) -- node {$y$} (järjestelmä);
-  \path (järjestelmä) |- (anturi);
-\path [line] (järjestelmä) |- (anturi);
+  \path  [line] (saadin) -- (toimilaite);
+  \draw [line] (toimilaite) -- node {$y$} (jarjestelma);
+  \path (jarjestelma) |- (anturi);
+\path [line] (jarjestelma) |- (anturi);
 %\path [line] (anturi) -| (summa);
 \draw [line] (anturi) -| node[pos=0.99] {$-$} node [near end] {$x$} (summa);
 \draw [line] (input) -- node {$w$} (summa) ;
-\draw [line] (summa) -- node {$u$} (säädin);
-\draw [line] (häiriöt) -- node {$z$} (järjestelmä) ;
+\draw [line] (summa) -- node {$u$} (saadin);
+\draw [line] (häiriöt) -- node {$z$} (jarjestelma) ;
 
 \end{tikzpicture}
 $u=w-x$
